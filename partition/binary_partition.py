@@ -5,8 +5,6 @@ import numpy as np
 import pdb
 
 
-# TODO: Implement the non-standard binary partition
-
 class BinaryPartition(Partition):
 
     def __init__(self, domain):

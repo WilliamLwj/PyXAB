@@ -32,8 +32,6 @@ class P_node:
 
     def get_children(self):
 
-        if self.children == None:
-            raise ValueError('Children Not Yet Constructed')
         return self.children
 
     def get_parent(self):
