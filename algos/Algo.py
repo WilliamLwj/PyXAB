@@ -26,23 +26,38 @@ class Algorithm(ABC):
 
     @abstractmethod
     def pull(self, time):
-        """Pull a node.
+        """
+        Every algorithm needs a function to pull a node.
+
         Parameters
         ----------
-        time : int
-            the time step of the online process
+        time: int
+            The time step of the online process.
 
         Returns
         -------
-        chosen_point : list
-            the chosen point by the algorithm
+        chosen_point: list
+            The point chosen by the algorithm
         """
+
         pass
 
     @abstractmethod
     def receive_reward(self, time, reward):
+        """
+        Every algorithm needs a function to receive the reward.
 
-        # Every algorithm must re-write this function
+        Parameters
+        ----------
+        time: int
+            The time step of the online process.
 
+        reward: float
+            The (Stochastic) reward of the pulled point
+
+        Returns
+        -------
+
+        """
         pass
 
