@@ -1,4 +1,4 @@
-# PyXAB - Python $\mathcal{X}$-Armed Bandit
+# PyXAB - Python *X*-Armed Bandit
 
 **Deployment & Documentation & Stats & License**
 
@@ -13,11 +13,8 @@
    :alt: GitHub forks
 
 
-.. image:: https://img.shields.io/github/license/WilliamLwj/pyxab.svg
-   :target: https://github.com/WilliamLwj/PyXAB/blob/master/LICENSE
-   :alt: License
-
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 -----
 
-Python implementation of $\mathcal{X}$-armed bandit algorithms (also known as global optimization, bandit-based blackbox optimization algorithms)
+Python implementation of *X*-armed bandit algorithms (also known as global optimization, bandit-based blackbox optimization algorithms)
