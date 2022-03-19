@@ -4,7 +4,7 @@ from partition.BinaryPartition import BinaryPartition
 from utils import plot_regret
 import numpy as np
 
-T = 10000
+T = 5000
 Target = Garland()
 domain = [[0, 1]]
 partition = BinaryPartition(domain)
