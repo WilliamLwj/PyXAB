@@ -50,15 +50,15 @@ class T_HOO(Algorithm):
             maxchild = children[0].get_index() # temporarily set the maxchild to be the first child
 
             for child in children:
-                depth = child.get_depth()
-                index = child.get_index()
+                c_depth = child.get_depth()
+                c_index = child.get_index()
 
                 # If the child is never visited or prepared to be visited, denote maxchild = -1 and break
-                if not self.visited[depth][index - 1]:
+                if not self.visited[c_depth][c_index - 1]:
                     maxchild = -1
                     break
-                elif self.Bvalues[depth][index - 1] >= self.Bvalues[depth][maxchild - 1]:
-                    maxchild = index
+                elif self.Bvalues[c_depth][c_index - 1] >= self.Bvalues[c_depth][maxchild - 1]:
+                    maxchild = c_index
 
             # If we find that the child is never visited, stop going deeper
             if maxchild == -1:

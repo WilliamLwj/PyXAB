@@ -21,6 +21,8 @@ class Algorithm(ABC):
 
     """
     def __init__(self, partition):
+        if partition is None:
+            raise ValueError("Partition of the parameter space is not given.")
 
         self.partition = partition
 
@@ -39,7 +41,6 @@ class Algorithm(ABC):
         chosen_point: list
             The point chosen by the algorithm
         """
-
         pass
 
     @abstractmethod
@@ -57,7 +58,6 @@ class Algorithm(ABC):
 
         Returns
         -------
-
         """
         pass
 
