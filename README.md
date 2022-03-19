@@ -1,7 +1,7 @@
 # PyXAB - Python *X*-Armed Bandit
 
 
-<p align="center">
+<p align="left">
 <a href="https://github.com/WilliamLwj/PyXAB/blob/master/LICENSE" target="blank">
 <img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?style=flat" alt="github-PyXAB license" />
 </a>
@@ -13,7 +13,6 @@
 </a>
 </p>
 
------
 
 Python implementation of *X*-armed bandit algorithms (also known as global optimization, bandit-based blackbox optimization algorithms)
 
@@ -21,9 +20,9 @@ Python implementation of *X*-armed bandit algorithms (also known as global optim
 
 
 
-* Implemented Algorithms *:
+## Implemented Algorithms:
 
-| Algorithm | Research Paper |
-| --- | --- |
-| T-HOO | *X*-Armed Bandit |
-| HCT | Show file differences that haven't been staged |
+| XAB Algorithm | Research Paper | Year |
+| --- | --- | --- |
+| T-HOO | *X*-Armed Bandit | 2011 |
+| HCT | Online stochastic optimization under correlated bandit feedback | 2014 |
