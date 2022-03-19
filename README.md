@@ -12,9 +12,7 @@
    :target: https://github.com/WilliamLwj/PyXAB/network
    :alt: GitHub forks
 
-
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-
+[![GitHub - LICENSE](https://img.shields.io/github/license/WilliamLwj/PyXAB.svg?style=flat)](./LICENSE)
 -----
 
 Python implementation of *X*-armed bandit algorithms (also known as global optimization, bandit-based blackbox optimization algorithms)
