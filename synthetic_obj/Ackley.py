@@ -6,6 +6,7 @@ class Ackley:
     def __init__(self):
 
         self.fmax = 0
+
     def f(self, x):
 
         x1 = x[0]

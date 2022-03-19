@@ -27,6 +27,7 @@ class T_HOO(Algorithm):
         self.expand(self.partition.get_root())
 
     def optTraverse(self):
+
         curr_node = self.partition.get_root()
         path = [curr_node]
 

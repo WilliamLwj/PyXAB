@@ -1,11 +1,13 @@
-from synthetic_obj.Garland import Garland
+from synthetic_obj import *
+
 from algos.HOO import T_HOO, HOO_tree
 from partition.BinaryPartition import BinaryPartition
 from utils import plot_regret, compare_regret
 import numpy as np
+import pdb
 
 T = 5000
-Target = Garland()
+Target = DoubleSine.DoubleSine()
 domain = [[0, 1]]
 partition = BinaryPartition(domain)
 algo = T_HOO(rounds=T, partition=partition)
@@ -46,6 +48,7 @@ for t in range(T):
 
     print('OLD HOO: ',pulled_x)
 
+    #pdb.set_trace()
 
 regret_dic = {'T-HOO': np.array(cumulative_regret_list),
               'HOO': np.array(HOO_regret_list)}
