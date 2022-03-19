@@ -2,11 +2,11 @@ from partition.Node import P_node
 import math
 import numpy as np
 import pdb
-
+from abc import ABC, abstractmethod
 
 ### Implementation of baseline partition
 
-class Partition:
+class Partition(ABC):
 
     def __init__(self, domain):
 
@@ -21,13 +21,13 @@ class Partition:
         self.depth += 1
         self.make_children()
 
-
+    @abstractmethod
     def make_children(self):
 
         # Every user-defined partition needs to re-write this function
         # Otherwise error is  thrown
 
-        raise NotImplementedError
+        pass
 
     def get_node(self, depth, index):
 

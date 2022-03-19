@@ -150,8 +150,8 @@ class T_HOO(Algorithm):
         point = []
         for j in range(len(sample_range)):
             # uniformly sample one point
-
-            x = np.random.uniform(sample_range[j][0], sample_range[j][1])
+            x = (sample_range[j][0] + sample_range[j][1]) / 2
+            # x = np.random.uniform(sample_range[j][0], sample_range[j][1])
             point.append(x)
 
         return point
