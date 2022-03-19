@@ -19,10 +19,11 @@ Python implementation of *X*-armed bandit algorithms (also known as global optim
 
 
 
-
 ## Implemented Algorithms:
 
-| XAB Algorithm | Research Paper | Year |
+| XAB Algorithm | Research Paper (with publication venues) | Year |
 | --- | --- | --- |
-| T-HOO | *X*-Armed Bandit | 2011 |
-| HCT | Online stochastic optimization under correlated bandit feedback | 2014 |
+| HOO (T-HOO) | [*X*-Armed Bandit](https://jmlr.org/papers/v12/bubeck11a.html) | 2011 |
+| HCT | [Online stochastic optimization under correlated bandit feedback](https://proceedings.mlr.press/v32/azar14.html) | 2014 |
+| GPO | [General parallel optimization a without metric](https://proceedings.mlr.press/v98/xuedong19a.html) | 2019 |
+| VHCT | [Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization](https://arxiv.org/abs/2106.09215)  | 2021 |
