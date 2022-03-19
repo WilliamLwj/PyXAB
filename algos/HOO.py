@@ -12,7 +12,7 @@ from algos.Algo import Algorithm
 
 
 class T_HOO(Algorithm):
-        
+            
     def __init__(self, nu=1, rho=0.75, rounds=1000, partition=None):
         super(T_HOO, self).__init__(partition)
 
