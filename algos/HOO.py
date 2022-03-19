@@ -1,25 +1,30 @@
 import math
 import numpy as np
 import pdb
-
+from algos.Algo import Algorithm
 
 
 ### Implementation of truncated-HOO (Bubeck et al, 2011)
 
 
-class T_HOO:
+class T_HOO(Algorithm):
 
     def __init__(self, nu, rho, rounds, partition):
+        super(T_HOO, self).__init__(partition)
 
         self.iteration = 0
         self.nu = nu
         self.rho = rho
         self.rounds = rounds
-        self.partition = partition
+
+        # List of values that are important
+
         self.Bvalues = [[np.inf]]
         self.Uvalues = [[np.inf]]
         self.Rewards = [[0]]
         self.visitedTimes = [[0]]
+        self.visited = [[True]]
+        self.expand(self.partition.get_root())
 
     def optTraverse(self):
         curr_node = self.partition.get_root()
@@ -31,11 +36,20 @@ class T_HOO:
             for child in children:
                 depth = child.get_depth()
                 index = child.get_index()
+
+                # If the child is never visited or prepared to be visited, denote maxchild = -1
+                if not self.visited[depth][index - 1]:
+                    maxchild = -1
+                    break
                 if self.Bvalues[depth][index - 1] >= self.Bvalues[depth][maxchild - 1]:
                     maxchild = index
 
-            curr_node = children[maxchild - 1]
-            path.append(curr_node)
+            # If we find that the child is never visited
+            if maxchild == -1:
+                break
+            else:
+                curr_node = children[maxchild - 1]
+                path.append(curr_node)
 
         return curr_node, path
 
@@ -78,53 +92,69 @@ class T_HOO:
             for node in layer:
                 depth = node.get_depth()
                 index = node.get_index()
-                if node.get_children() is None:
+
+                # If no children or if children not visitied, use its own U value
+                children = node.get_children
+                if children is None:
                     self.Bvalues[depth][index - 1] = self.Uvalues[depth][index - 1]
                 else:
-                    tempB = 0
-                    for child in node.get_children():
-                        c_depth = child.get_depth()
-                        c_index = child.get_index()
-                        tempB = np.maximum(tempB, self.Bvalues[c_depth][c_index - 1])
+                    c_depth = children[0].depth
+                    c_index = children[0].index
+                    if not self.visited[c_depth][c_index]:
+                        self.Bvalues[depth][index - 1] = self.Uvalues[depth][index - 1]
+                    else:
+                        tempB = 0
+                        for child in node.get_children():
+                            c_depth = child.get_depth()
+                            c_index = child.get_index()
+                            tempB = np.maximum(tempB, self.Bvalues[c_depth][c_index - 1])
 
-                    self.Bvalues[depth][index - 1] = np.minimum(self.Uvalues[depth][index - 1], tempB)
+                        self.Bvalues[depth][index - 1] = np.minimum(self.Uvalues[depth][index - 1], tempB)
 
-    def createNewNodes(self, parent):
+    def expand(self, parent):
 
-        dim = np.random.randint(0, len(parent.range))
-        selected_dim = parent.range[dim]
+        if parent.get_depth() > self.partition.depth():
+            raise ValueError
+        elif parent.get_depth() == self.partition.depth():
+            self.partition.deepen()
+            num_nodes = self.partition.get_nodes[-1]
+            self.Uvalues += ([np.inf] * num_nodes)
+            self.Bvalues += ([np.inf] * num_nodes)
+            self.visited += ([False] * num_nodes)
+            self.visitedTimes += ([0] * num_nodes)
 
-        range1 = parent.range.copy()
-        range2 = parent.range.copy()
 
-        range1[dim] = [selected_dim[0], (selected_dim[0] + selected_dim[1])/2]
-        range2[dim] = [(selected_dim[0] + selected_dim[1])/2, selected_dim[1]]
-
-        node1 = HOO_Node(parent.depth+1, 2 * parent.index, parent, range1)
-        node2 = HOO_Node(parent.depth+1, 2 * parent.index - 1, parent, range2)
-
-        parent.children = [node1, node2]
-
-        if len(self.list) <= parent.depth + 1:
-            self.list.append([node1, node2])
+        children = parent.get_children()
+        if children is None:
+            raise ValueError
         else:
-            self.list[parent.depth + 1].append(node1)
-            self.list[parent.depth + 1].append(node2)
+            for child in children:
+                c_depth = child.get_depth()
+                c_index = child.get_index()
+                self.visited[c_depth][c_index - 1] = True
 
-
-        self.partition.deepen()
 
     def updateAllTree(self, path, reward):
 
         self.updateRewardTree(path, reward)
         self.updateUvalueTree()
         # Truncate or not
-        if path[-1].depth <= np.ceil((np.log(self.rounds)/2 - np.log(1/self.nu))/np.log(1/self.rho) ):
-            self.createNewNodes(path[-1])
+        if path[-1].depth <= np.ceil((np.log(self.rounds)/2 - np.log(1/self.nu))/np.log(1/self.rho)):
+            self.expand(path[-1])
         self.updateBackwardTree()
 
+    def run(self, time):
 
+        curr_node, path = self.optTraverse()
+        sample_range = curr_node.get_domain()
+        point = []
+        for j in range(len(sample_range)):
+            # uniformly sample one point
 
+            x = np.random.uniform(sample_range[j][0], sample_range[j][1])
+            point.append(x)
+
+        return point
 
 
 class HOO_Node:

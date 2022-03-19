@@ -2,7 +2,7 @@ import math
 import numpy as np
 import pdb
 
-from partition.binary_partition import BinaryPartition
+from partition.BinaryPartition import BinaryPartition
 
 # domain = [[0, 1]]
 # # part = BinaryPartition(domain)
