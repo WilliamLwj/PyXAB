@@ -8,5 +8,9 @@ import pdb
 import numpy as np
 
 
+def plot_regret(regret_list, name='T-HOO'):
 
-
+    x = np.arange(regret_list.shape[0])
+    plt.plot(x, regret_list, linewidth=2, label=name, alpha=0.9)
+    plt.legend(loc='upper right', prop={'size': 14})
+    plt.show()

@@ -9,8 +9,15 @@ class Algorithm:
 
         self.partition = partition
 
-    def run(self, time):
+    def pull(self, time):
 
         # Every algorithm must re-write this function
 
         raise NotImplementedError
+
+    def receive_reward(self, time, reward):
+
+        # Every algorithm must re-write this function
+
+        raise NotImplementedError
+

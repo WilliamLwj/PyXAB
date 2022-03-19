@@ -9,7 +9,7 @@ from algos.Algo import Algorithm
 
 class T_HOO(Algorithm):
 
-    def __init__(self, nu, rho, rounds, partition):
+    def __init__(self, nu=1, rho=0.75, rounds=1000, partition=None):
         super(T_HOO, self).__init__(partition)
 
         self.iteration = 0
@@ -48,7 +48,7 @@ class T_HOO(Algorithm):
             if maxchild == -1:
                 break
             else:
-                curr_node = children[maxchild - 1]
+                curr_node = self.partition.get_node(curr_node.get_depth()+1, maxchild)
                 path.append(curr_node)
 
         return curr_node, path
@@ -84,9 +84,9 @@ class T_HOO(Algorithm):
 
     def updateBackwardTree(self):
 
-        nodes = self.partition.get_nodes()
+        nodes = self.partition.get_node_list()
 
-        for i in range(1, len(self.partition.get_depth())+1):
+        for i in range(1, self.partition.get_depth()+1):
 
             layer = nodes[-i]
             for node in layer:
@@ -94,7 +94,7 @@ class T_HOO(Algorithm):
                 index = node.get_index()
 
                 # If no children or if children not visitied, use its own U value
-                children = node.get_children
+                children = node.get_children()
                 if children is None:
                     self.Bvalues[depth][index - 1] = self.Uvalues[depth][index - 1]
                 else:
@@ -113,16 +113,16 @@ class T_HOO(Algorithm):
 
     def expand(self, parent):
 
-        if parent.get_depth() > self.partition.depth():
+        if parent.get_depth() > self.partition.get_depth():
             raise ValueError
-        elif parent.get_depth() == self.partition.depth():
+        elif parent.get_depth() == self.partition.get_depth():
             self.partition.deepen()
-            num_nodes = self.partition.get_nodes[-1]
-            self.Uvalues += ([np.inf] * num_nodes)
-            self.Bvalues += ([np.inf] * num_nodes)
-            self.visited += ([False] * num_nodes)
-            self.visitedTimes += ([0] * num_nodes)
-
+            num_nodes = len(self.partition.get_node_list()[-1])
+            self.Uvalues.append([np.inf] * num_nodes)
+            self.Bvalues.append([np.inf] * num_nodes)
+            self.visited.append([False] * num_nodes)
+            self.visitedTimes.append([0] * num_nodes)
+            self.Rewards.append([0] * num_nodes)
 
         children = parent.get_children()
         if children is None:
@@ -143,9 +143,9 @@ class T_HOO(Algorithm):
             self.expand(path[-1])
         self.updateBackwardTree()
 
-    def run(self, time):
+    def pull(self, time):
 
-        curr_node, path = self.optTraverse()
+        curr_node, self.path = self.optTraverse()
         sample_range = curr_node.get_domain()
         point = []
         for j in range(len(sample_range)):
@@ -155,6 +155,10 @@ class T_HOO(Algorithm):
             point.append(x)
 
         return point
+
+    def receive_reward(self, time, reward):
+
+        self.updateAllTree(self.path, reward)
 
 
 class HOO_Node:
