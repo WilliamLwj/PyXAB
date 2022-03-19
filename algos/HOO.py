@@ -1,10 +1,13 @@
+# -*- coding: utf-8 -*-
+"""Implementation of T-HOO, the truncated version of the HOO algorithm. (Bubeck et al, 2011)
+"""
+# Author: Wenjie Li <li3549@purdue.edu>
+# License: MIT
+
 import math
 import numpy as np
 import pdb
 from algos.Algo import Algorithm
-
-
-### Implementation of truncated-HOO (Bubeck et al, 2011)
 
 
 class T_HOO(Algorithm):
