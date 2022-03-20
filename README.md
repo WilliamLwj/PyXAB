@@ -69,18 +69,18 @@ If you use our package in your research or projects, we kindly ask you to cite o
 
 | Partition | Description |
 | --- | --- |
-| BinaryPartition | Equal-size binary partition of the parameter space, the split dimension is chosen uniform randomly|
-| RandomBinaryPartition | The same as BinaryPartition but with a randomly chosen split point |
-| DimensionBinaryPartition| Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d|
+| [BinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/partition/BinaryPartition.py) | Equal-size binary partition of the parameter space, the split dimension is chosen uniform randomly|
+| [RandomBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/partition/RandomBinaryPartition.py) | The same as BinaryPartition but with a randomly chosen split point |
+| [DimensionBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/partition/DimensionPartition.py)| Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d|
 
 (3). **Synthetic Objectives** 
 
 
 | Objectives| Mathematical Description | Image | 
 | --- | --- |--- |
-| Garland | <img src="https://render.githubusercontent.com/render/math?math=f(x) = x(1-x)(4-\sqrt{\mid\sin(60x)\mid})"> | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Garland.png" alt="Garland" width="100"/> |
-| DoubleSine |<img src="https://render.githubusercontent.com/render/math?math=f(x)=s(\frac{1}{2}\log_2 \mid 2x-1\mid)(\mid 2x-1\mid)^{-\log_2 \rho_2 } - (2x-1)^{-\log_2 \rho_1 }) - (\mid 2x-1\mid)^{-\log_2 \rho_1 }"> | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/DoubleSine.png" alt="DoubleSine" width="100"/>  |
-| DifficultFunc |  <img src="https://render.githubusercontent.com/render/math?math=f(x)=s(\log_2 \mid x-0.5\mid)(\sqrt{\mid x-0.5\mid} - (x-0.5)^2) - \sqrt{\mid x-0.5\mid} ">| <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/DifficultFunc.png" alt="DifficultFunc" width="100"/>  |
-| Ackley | <img src="https://render.githubusercontent.com/render/math?math=f(x,y) = 20 \exp \left[-0.2 \sqrt{0.5\left(x^{2}+y^{2}\right)}\right]-\exp [0.5(\cos 2 \pi x+\cos 2 \pi y)]-e-20">  | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Ackley.png" alt="Ackley" width="100"/>  |
-| Himmelblau |  <img src="https://render.githubusercontent.com/render/math?math=f(x, y)=-\left(x^{2}+y-11\right)^{2}-\left(x+y^{2}-7\right)^{2}">  | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Himmelblau.png" alt="Himmelblau" width="100"/>  |
-| Rastrigin| <img src="https://render.githubusercontent.com/render/math?math=f(\mathbf{x})= - A n+\sum_{i=1}^{n}\left[x_{i}^{2} + A \cos \left(2 \pi x_{i}\right)\right]">  |  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Rastrigin.png" alt="Rastrigin" width="100"/>  |
+| [Garland]((https://github.com/WilliamLwj/PyXAB/blob/main/synthetic_obj/Garland.py) ) | <img src="https://render.githubusercontent.com/render/math?math=f(x) = x(1-x)(4-\sqrt{\mid\sin(60x)\mid})"> | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Garland.png" alt="Garland" width="100"/> |
+| [DoubleSine](https://github.com/WilliamLwj/PyXAB/blob/main/synthetic_obj/DoubleSine.py)  |<img src="https://render.githubusercontent.com/render/math?math=f(x)=s(\frac{1}{2}\log_2 \mid 2x-1\mid)(\mid 2x-1\mid)^{-\log_2 \rho_2 } - (2x-1)^{-\log_2 \rho_1 }) - (\mid 2x-1\mid)^{-\log_2 \rho_1 }"> | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/DoubleSine.png" alt="DoubleSine" width="100"/>  |
+| [DifficultFunc](https://github.com/WilliamLwj/PyXAB/blob/main/synthetic_obj/DifficultFunc.py) |  <img src="https://render.githubusercontent.com/render/math?math=f(x)=s(\log_2 \mid x-0.5\mid)(\sqrt{\mid x-0.5\mid} - (x-0.5)^2) - \sqrt{\mid x-0.5\mid} ">| <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/DifficultFunc.png" alt="DifficultFunc" width="100"/>  |
+| [Ackley](https://github.com/WilliamLwj/PyXAB/blob/main/synthetic_obj/Ackley.py) | <img src="https://render.githubusercontent.com/render/math?math=f(x,y) = 20 \exp \left[-0.2 \sqrt{0.5\left(x^{2}+y^{2}\right)}\right]-\exp [0.5(\cos 2 \pi x+\cos 2 \pi y)]-e-20">  | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Ackley.png" alt="Ackley" width="100"/>  |
+| [Himmelblau](https://github.com/WilliamLwj/PyXAB/blob/main/synthetic_obj/Himmelblau.py) |  <img src="https://render.githubusercontent.com/render/math?math=f(x, y)=-\left(x^{2}+y-11\right)^{2}-\left(x+y^{2}-7\right)^{2}">  | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Himmelblau.png" alt="Himmelblau" width="100"/>  |
+| [Rastrigin](https://github.com/WilliamLwj/PyXAB/blob/main/synthetic_obj/Rastrigin.py) | <img src="https://render.githubusercontent.com/render/math?math=f(\mathbf{x})= - A n+\sum_{i=1}^{n}\left[x_{i}^{2} + A \cos \left(2 \pi x_{i}\right)\right]">  |  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Rastrigin.png" alt="Rastrigin" width="100"/>  |
