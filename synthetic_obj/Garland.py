@@ -1,8 +1,9 @@
 import math
 import numpy as np
 import pdb
+from synthetic_obj.Objective import Objective
 
-class Garland:
+class Garland(Objective):
     def __init__(self):
 
         self.fmax = 1
@@ -17,7 +18,7 @@ class Garland:
 
 # Garland function perturbed by Gaussian noise
 
-class Perturbed_Garland:
+class Perturbed_Garland(Objective):
 
     def __init__(self):
 

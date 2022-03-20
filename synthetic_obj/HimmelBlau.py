@@ -2,9 +2,9 @@
 import math
 import numpy as np
 import pdb
+from synthetic_obj.Objective import Objective
 
-
-class Himmelblau:
+class Himmelblau(Objective):
 
     def __init__(self):
 

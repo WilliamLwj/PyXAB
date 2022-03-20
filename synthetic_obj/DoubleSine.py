@@ -1,12 +1,12 @@
 import math
 import numpy as np
 import pdb
-
+from synthetic_obj.Objective import Objective
 
 def mysin2(x):
     return (np.sin(x*2*np.pi)+1)/2.
 
-class DoubleSine:
+class DoubleSine(Objective):
     def __init__(self, rho1=0.3, rho2=0.8, tmax=0.5):
         self.ep1 = -math.log(rho1, 2)
         self.ep2 = -math.log(rho2, 2)

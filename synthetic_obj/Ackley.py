@@ -1,8 +1,9 @@
 import math
 import numpy as np
 import pdb
+from synthetic_obj.Objective import Objective
 
-class Ackley:
+class Ackley(Objective):
     def __init__(self):
 
         self.fmax = 0
