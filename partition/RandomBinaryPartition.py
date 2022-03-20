@@ -5,11 +5,11 @@ import numpy as np
 import pdb
 
 
-class BinaryPartition(Partition):
+class RandomBinaryPartition(Partition):
 
     def __init__(self, domain):
 
-        super(BinaryPartition, self).__init__(domain)
+        super(RandomBinaryPartition, self).__init__(domain)
 
     # Rewrite the make_children function in the Partition class
     def make_children(self):
@@ -24,8 +24,9 @@ class BinaryPartition(Partition):
             domain1 = parent_domain.copy()
             domain2 = parent_domain.copy()
 
-            domain1[dim] = [selected_dim[0], (selected_dim[0] + selected_dim[1]) / 2]
-            domain2[dim] = [(selected_dim[0] + selected_dim[1]) / 2, selected_dim[1]]
+            split_point = np.random.uniform(selected_dim[0], selected_dim[1])
+            domain1[dim] = [selected_dim[0], split_point]
+            domain2[dim] = [split_point, selected_dim[1]]
 
             node1 = P_node(depth=node.get_depth() + 1, index=2 * node.get_index()-1,
                            parent=node, domain=domain1)
@@ -37,4 +38,3 @@ class BinaryPartition(Partition):
             new_deepest.append(node2)
 
         self.node_list.append(new_deepest)
-
