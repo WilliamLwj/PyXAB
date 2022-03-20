@@ -17,9 +17,19 @@
 Python implementation of *X*-armed bandit algorithms (also known as global optimization algorithms or bandit-based blackbox optimization algorithms)
 
 
+## Citation
+If you use our package in your research, we kindly ask you to cite our work
+```text
+@article{li2021optimum,
+  title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
+  author={Li, Wenjie and Wang, Chi-Hua, Qifan Song and Cheng, Guang},
+  journal={arXiv preprint arXiv:2106.09215},
+  year={2021}
+}
+```
 
     
-## Implemented:
+## Implemented Features:
 
 (1). ***X*-armed bandit algorithms**
 
