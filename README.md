@@ -16,8 +16,9 @@
 
 Python implementation of *X*-armed bandit algorithms (also known as global optimization algorithms or bandit-based blackbox optimization algorithms)
 
-
-<img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/partition.png" alt="Partition" width="200"/>  
+<p align='center'>
+<img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/partition.png" alt="Partition" width="60%"/>  
+</p>
 
 ## Quick Example
 First define the blackbox objective, the parameter domain, the partition of the space, and the algorithm, e.g.
