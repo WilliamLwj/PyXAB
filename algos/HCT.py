@@ -4,6 +4,7 @@
 # Author: Wenjie Li <li3549@purdue.edu>
 # License: MIT
 
+# TODO: Make HCT faster
 
 import math
 import numpy as np

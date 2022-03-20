@@ -8,7 +8,7 @@ import pdb
 
 T = 5000
 Target = HimmelBlau.Himmelblau()
-domain = [[0, 1], [0, 1]]
+domain = [[-5, 5], [-5, 5]]
 partition = BinaryPartition(domain)
 algo = HCT(partition=partition)
 
@@ -19,7 +19,7 @@ cumulative_regret_list = [0]
 
 for t in range(1, T+1):
 
-    # T-HOO
+    # HCT
     point = algo.pull(t)
     reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
     algo.receive_reward(t, reward)
@@ -27,3 +27,4 @@ for t in range(1, T+1):
     cumulative_regret += inst_regret
     cumulative_regret_list.append(cumulative_regret)
     #pdb.set_trace()
+    print(t, point)

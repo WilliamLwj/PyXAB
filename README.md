@@ -57,11 +57,14 @@ If you use our package in your research or projects, we kindly ask you to cite o
 
 (1). ***X*-armed bandit algorithms**
 
-| Algorithm | Research Paper (with publication venues) | Year |
+* Algorithm starred are meta-algorithms (wrappers)
+
+| Algorithm | Research Paper | Year |
 | --- | --- | --- |
 | [T-HOO](https://github.com/WilliamLwj/PyXAB/blob/main/algos/HOO.py) | [*X*-Armed Bandit](https://jmlr.org/papers/v12/bubeck11a.html) | 2011 |
 | [HCT](https://github.com/WilliamLwj/PyXAB/blob/main/algos/HCT.py) | [Online Stochastic Optimization Under Correlated Bandit Feedback](https://proceedings.mlr.press/v32/azar14.html) | 2014 |
-| [GPO](https://github.com/WilliamLwj/PyXAB/blob/main/algos/GPO.py) | [General Parallel Optimization Without A Metric](https://proceedings.mlr.press/v98/xuedong19a.html) | 2019 |
+| [GPO*](https://github.com/WilliamLwj/PyXAB/blob/main/algos/GPO.py) | [General Parallel Optimization Without A Metric](https://proceedings.mlr.press/v98/xuedong19a.html) | 2019 |
+| [PCT](https://github.com/WilliamLwj/PyXAB/blob/main/algos/GPO.py) | [General Parallel Optimization Without A Metric](https://proceedings.mlr.press/v98/xuedong19a.html) | 2019 |
 | [VHCT](https://github.com/WilliamLwj/PyXAB/blob/main/algos/VHCT.py) | [Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization](https://arxiv.org/abs/2106.09215)  | 2021 |
 
 
@@ -73,8 +76,9 @@ If you use our package in your research or projects, we kindly ask you to cite o
 | [RandomBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/partition/RandomBinaryPartition.py) | The same as BinaryPartition but with a randomly chosen split point |
 | [DimensionBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/partition/DimensionPartition.py)| Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d|
 
-(3). **Synthetic Objectives** 
+(3). **Synthetic Objectives**  
 
+* Some of these objectives can be found [here](https://en.wikipedia.org/wiki/Test_functions_for_optimization)
 
 | Objectives| Mathematical Description | Image | 
 | --- | --- |--- |
