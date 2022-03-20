@@ -16,9 +16,29 @@
 
 Python implementation of *X*-armed bandit algorithms (also known as global optimization algorithms or bandit-based blackbox optimization algorithms)
 
+## Quick Example
+First define the blackbox objective, the parameter domain, the partition of the space, and the algorithm, e.g.
+
+```python3
+target = Garland()
+domain = [[0, 1]]
+partition = BinaryPartition(domain)
+algo = T_HOO(rounds=T, partition=partition)
+```
+
+At every round  `t`, call `algo.pull(t)` to get a point. After receiving the (stochastic) reward for the point, call 
+`algo.receive_reward(t, reward)` to give the algorithm the feedback
+
+```python3
+point = algo.pull(t)
+reward = target.f(point) + np.random.uniform(-0.1, 0.1)
+algo.receive_reward(t, reward)
+```
+
+
 
 ## Citation
-If you use our package in your research, we kindly ask you to cite our work
+If you use our package in your research or projects, we kindly ask you to cite our work
 ```text
 @article{li2021optimum,
   title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
