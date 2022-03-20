@@ -44,10 +44,10 @@ Python implementation of *X*-armed bandit algorithms (also known as global optim
 
 | Objectives| Description |
 | --- | --- |
-| Garland |  |
-| DoubleSine | |
-| Difficult | |
-| Ackley | |
-| Himmelblau |  |
-| Rastrigin |   |
+| Garland | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Garland.png" alt="Garland" width="100"/> |
+| DoubleSine | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/DoubleSine.png" alt="DoubleSine" width="100"/>  |
+| DifficultFunc |  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/DifficultFunc.png" alt="DifficultFunc" width="100"/>  |
+| Ackley | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Ackley.png" alt="Ackley" width="100"/>  |
+| Himmelblau | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Himmelblau.png" alt="Himmelblau" width="100"/>  |
+| Rastrigin |  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Rastrigin.png" alt="Rastrigin" width="100"/>  |
 
