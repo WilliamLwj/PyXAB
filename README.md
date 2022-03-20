@@ -19,7 +19,9 @@ Python implementation of *X*-armed bandit algorithms (also known as global optim
 
 
 
-## Implemented Algorithms:
+## Implemented:
+
+(1). **X-armed bandit algorithms**
 
 | Algorithm | Research Paper (with publication venues) | Year |
 | --- | --- | --- |
@@ -27,3 +29,25 @@ Python implementation of *X*-armed bandit algorithms (also known as global optim
 | [HCT](https://github.com/WilliamLwj/PyXAB/blob/main/algos/HCT.py) | [Online Stochastic Optimization Under Correlated Bandit Feedback](https://proceedings.mlr.press/v32/azar14.html) | 2014 |
 | [GPO](https://github.com/WilliamLwj/PyXAB/blob/main/algos/GPO.py) | [General Parallel Optimization Without A Metric](https://proceedings.mlr.press/v98/xuedong19a.html) | 2019 |
 | [VHCT](https://github.com/WilliamLwj/PyXAB/blob/main/algos/VHCT.py) | [Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization](https://arxiv.org/abs/2106.09215)  | 2021 |
+
+
+(2). **Partition of the parameter space**
+
+| Partition | Description |
+| --- | --- |
+| BinaryPartition | Equal-size binary partition of the parameter space, the split dimension is chosen uniform randomly|
+| RandomBinaryPartition | The same as BinaryPartition but with a randomly chosen split point |
+| DimensionBinaryPartition| Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d|
+
+(3). **Synthetic Objectives** 
+
+
+| Objectives| Description |
+| --- | --- |
+| Garland |  |
+| DoubleSine | |
+| Difficult | |
+| Ackley | |
+| Himmelblau |  |
+| Rastrigin |   |
+
