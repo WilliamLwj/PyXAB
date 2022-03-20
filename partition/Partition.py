@@ -39,6 +39,10 @@ class Partition(ABC):
 
         return self.node_list[depth][index-1]
 
+    def get_layer_node_list(self, depth):
+
+        return self.node_list[depth]
+
     def get_node_list(self):
 
         return self.node_list
