@@ -45,10 +45,9 @@ class HCT(Algorithm):
         t_plus = compute_t_plus(self.iteration)
         delta_tilde = np.minimum(1.0/2, self.c1 * self.delta / t_plus)
         self.tau_h = [0.0]
-        for i in range(1, len(self.list)):
+        for i in range(1, self.partition.get_depth() + 1):
 
             self.tau_h.append(np.ceil(self.c ** 2 * math.log(1/delta_tilde) * self.rho ** (-2 * i) / self.nu ** 2))
-
 
         curr_node = self.partition.get_root()
         path = [curr_node]
@@ -77,66 +76,98 @@ class HCT(Algorithm):
                 path.append(curr_node)
 
         return curr_node, path
-    
+
 
     def updateRewardTree(self, path, reward):
 
         node = path[-1]
-        node.updateReward(reward)
+        depth = node.get_depth()
+        index = node.get_index()
+
+        # Update the visited times and the average reward of the pulled node
+
+        self.visitedTimes[depth][index - 1] += 1
+        self.Rewards[depth][index - 1] = \
+            ((self.visitedTimes[depth][index - 1] - 1) / self.visitedTimes[depth][index - 1]
+             * self.Rewards[depth][index - 1]) + (reward / self.visitedTimes[depth][index - 1])
 
         self.iteration += 1
 
     def updateUvalueTree(self):
-        t_plus = self.compute_t_plus(self.iteration)
-        delta_tilde = np.minimum(1, self.c1 * self.delta / t_plus)
-        for layer in self.list:
-            for node in layer:
 
-                if node.visitedTimes == 0:
+        t_plus = compute_t_plus(self.iteration)
+        delta_tilde = np.minimum(1, self.c1 * self.delta / t_plus)
+        node_list = self.partition.get_node_list()
+        for layer in node_list:
+            for node in layer:
+                depth = node.get_depth()
+                index = node.get_index()
+
+                if self.visitedTimes[depth][index - 1] == 0:
                     continue
                 else:
-                    node.Uvalue = node.meanReward + math.sqrt(self.c ** 2 * math.log(1/delta_tilde) / node.visitedTimes) + \
-                              self.nu * (self.rho ** node.depth)
+                    UCB = math.sqrt(self.c ** 2 * math.log(1/delta_tilde) / self.visitedTimes[depth][index - 1])
+                    self.Uvalues[depth][index - 1] = self.Rewards[depth][index - 1] + UCB + self.nu * (self.rho ** depth)
 
 
 
     def updateBackwardTree(self):
 
-        for i in range(1, len(self.list)+1):
+        nodes = self.partition.get_node_list()
+        for i in range(1, self.partition.get_depth()+1):
 
-            layer = self.list[-i]
+            layer = nodes[-i]
             for node in layer:
-                node.updateBackward()
+                depth = node.get_depth()
+                index = node.get_index()
+
+                # If no children or if children not visitied, use its own U value
+                children = node.get_children()
+                if children is None:
+                    self.Bvalues[depth][index - 1] = self.Uvalues[depth][index - 1]
+                else:
+                    c_depth = children[0].depth
+                    c_index = children[0].index
+                    if not self.visited[c_depth][c_index]:
+                        self.Bvalues[depth][index - 1] = self.Uvalues[depth][index - 1]
+                    else:
+                        tempB = 0
+                        for child in node.get_children():
+                            c_depth = child.get_depth()
+                            c_index = child.get_index()
+                            tempB = np.maximum(tempB, self.Bvalues[c_depth][c_index - 1])
+
+                        self.Bvalues[depth][index - 1] = np.minimum(self.Uvalues[depth][index - 1], tempB)
 
     def expand(self, parent):
 
-        dim = np.random.randint(0, len(parent.range))
-        selected_dim = parent.range[dim]
+        if parent.get_depth() > self.partition.get_depth():
+            raise ValueError
+        elif parent.get_depth() == self.partition.get_depth():
+            self.partition.deepen()
+            num_nodes = len(self.partition.get_node_list()[-1])
+            self.Uvalues.append([np.inf] * num_nodes)
+            self.Bvalues.append([np.inf] * num_nodes)
+            self.visited.append([False] * num_nodes)
+            self.visitedTimes.append([0] * num_nodes)
+            self.Rewards.append([0] * num_nodes)
 
-        range1 = parent.range.copy()
-        range2 = parent.range.copy()
-
-        range1[dim] = [selected_dim[0], (selected_dim[0] + selected_dim[1])/2]
-        range2[dim] = [(selected_dim[0] + selected_dim[1])/2, selected_dim[1]]
-
-        node1 = HCT_Node(parent.depth+1, 2 * parent.index, parent, range1)
-        node2 = HCT_Node(parent.depth+1, 2 * parent.index - 1, parent, range2)
-
-        parent.children = [node1, node2]
-
-        if len(self.list) <= parent.depth + 1:
-            self.list.append([node1, node2])
+        children = parent.get_children()
+        if children is None:
+            raise ValueError
         else:
-            self.list[parent.depth + 1].append(node1)
-            self.list[parent.depth + 1].append(node2)
+            for child in children:
+                c_depth = child.get_depth()
+                c_index = child.get_index()
+                self.visited[c_depth][c_index - 1] = True
 
     def updateAllTree(self, path, end_node, reward):
 
-        t_plus = self.compute_t_plus(self.iteration)
+        t_plus = compute_t_plus(self.iteration)
         delta_tilde = np.minimum(1, self.c1 * self.delta / t_plus)
 
 
-        if self.iteration == self.compute_t_plus(self.iteration):
+        if self.iteration == compute_t_plus(self.iteration):
 
             self.updateUvalueTree()
             self.updateBackwardTree()
@@ -146,19 +177,32 @@ class HCT(Algorithm):
         self.updateRewardTree(path, reward)
 
         end_node = path[-1]
+        en_depth = end_node.get_depth()
+        en_index = end_node.get_index()
 
-        end_node.Uvalue = end_node.meanReward + math.sqrt(self.c ** 2 * math.log(1/delta_tilde) / end_node.visitedTimes) + \
+        self.Uvalues[en_depth][en_index-1] = self.Rewards[en_depth][en_index-1] + math.sqrt(self.c ** 2 * math.log(1/delta_tilde)
+                             / self.visitedTimes[en_depth][en_index-1]) + \
                               self.nu * (self.rho ** end_node.depth)
 
         self.updateBackwardTree()
 
-
-        # print(self.tau_h)
-        # Expand or not
-
-        if end_node.children is None and end_node.visitedTimes >= self.tau_h[end_node.depth]:
+        if self.visitedTimes[en_depth][en_index-1] >= self.tau_h[en_depth]:
             self.expand(end_node)
 
+    def pull(self, time):
+
+        self.curr_node, self.path = self.optTraverse()
+        sample_range = self.curr_node.get_domain()
+        point = []
+        for j in range(len(sample_range)):
+            x = (sample_range[j][0] + sample_range[j][1]) / 2
+            point.append(x)
+
+        return point
+
+    def receive_reward(self, time, reward):
+
+        self.updateAllTree(self.path, self.curr_node, reward)
 
 
 

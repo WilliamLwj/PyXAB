@@ -165,9 +165,9 @@ class T_HOO(Algorithm):
         sample_range = curr_node.get_domain()
         point = []
         for j in range(len(sample_range)):
-            # uniformly sample one point
-            x = (sample_range[j][0] + sample_range[j][1]) / 2
-            # x = np.random.uniform(sample_range[j][0], sample_range[j][1])
+            # uniformly sample one point, could be replaced by the following
+            # x = (sample_range[j][0] + sample_range[j][1]) / 2
+            x = np.random.uniform(sample_range[j][0], sample_range[j][1])
             point.append(x)
 
         return point
