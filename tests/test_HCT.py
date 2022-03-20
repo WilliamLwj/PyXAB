@@ -7,8 +7,8 @@ import numpy as np
 import pdb
 
 T = 5000
-Target = DoubleSine.DoubleSine()
-domain = [[0, 1]]
+Target = HimmelBlau.Himmelblau()
+domain = [[0, 1], [0, 1]]
 partition = BinaryPartition(domain)
 algo = HCT(partition=partition)
 
