@@ -2,9 +2,8 @@ from synthetic_obj import *
 
 from algos.HOO import T_HOO
 from partition.BinaryPartition import BinaryPartition
-from utils import plot_regret, compare_regret
+from utils.plot import compare_regret
 import numpy as np
-import pdb
 
 T = 5000
 Target = Garland.Garland()

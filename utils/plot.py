@@ -1,4 +1,4 @@
-from synthetic_obj.Garland import Garland
+
 import numpy.random as random
 import matplotlib.pyplot as plt
 
@@ -27,3 +27,6 @@ def compare_regret(regret_dic):
 
     plt.legend(loc='upper right', prop={'size': 14})
     plt.show()
+
+
+

@@ -3,9 +3,8 @@ from synthetic_obj import *
 from algos.VHCT import VHCT, VHCT_tree
 
 from partition.BinaryPartition import BinaryPartition
-from utils import plot_regret, compare_regret
+from utils.plot import compare_regret
 import numpy as np
-import pdb
 
 T = 1000
 Target = DoubleSine.DoubleSine()
