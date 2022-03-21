@@ -18,8 +18,8 @@ Python implementation of *X*-armed bandit algorithms (also known as global optim
 
 
 <p align='center'>
-  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/partition.png" alt="Partition" width="49%"/>  
-  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/HCT_visual.gif" alt="visualization" width="49%"/>  
+  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/partition.png" alt="Partition" width="40%"/>  
+  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/HCT_visual.gif" alt="visualization" width="59%"/>  
 </p>
 
 
