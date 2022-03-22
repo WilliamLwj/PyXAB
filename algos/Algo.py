@@ -14,17 +14,12 @@ class Algorithm(ABC):
     """
     Abstract class for all X-armed bandit algorithms.
 
-    Parameters
-    ----------
-    partition: Partition
-        partition of the parameter space X
-
     """
-    def __init__(self, partition):
-        if partition is None:
-            raise ValueError("Partition of the parameter space is not given.")
 
-        self.partition = partition
+    @abstractmethod
+    def __init__(self):
+
+        pass
 
     @abstractmethod
     def pull(self, time):

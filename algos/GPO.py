@@ -13,7 +13,10 @@ from algos.Algo import Algorithm
 class GPO(Algorithm):
 
     def __init__(self, rounds=1000, partition=None, rhomax=0.9, numax=1, algo=Algorithm):
-        super(GPO, self).__init__(partition)
+        super(GPO, self).__init__()
+        if partition is None:
+            raise ValueError("Partition of the parameter space is not given.")
+        self.partition = partition
 
         self.rounds = rounds
         self.rhomax = rhomax
