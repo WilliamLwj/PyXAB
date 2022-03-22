@@ -8,10 +8,10 @@ from abc import ABC, abstractmethod
 
 class Partition(ABC):
 
-    def __init__(self, domain):
+    def __init__(self, domain, node=P_node):
 
         self.domain = domain
-        self.root = P_node(0, 1, None, domain)
+        self.root = node(0, 1, None, domain)
         self.depth = 0
         self.node_list = [[self.root]]
 
@@ -19,25 +19,20 @@ class Partition(ABC):
     def deepen(self):
 
         self.depth += 1
-        self.make_children()
-
+        for i in range(len(self.node_list[self.depth - 1])):
+            parent = self.node_list[self.depth - 1][i]
+            if i == 0:
+                self.make_children(parent, newlayer=True)
+            else:
+                self.make_children(parent, newlayer=False)
     @abstractmethod
-    def make_children(self):
+    def make_children(self, parent, newlayer=False):
 
         # Every user-defined partition needs to re-write this function
         # Otherwise error is  thrown
 
         pass
 
-    def get_node(self, depth, index):
-
-        if depth > len(self.node_list):
-            raise ValueError('Layer not yet constructed')
-        else:
-            if index-1 > len(self.node_list[depth]):
-                raise ValueError('Index Outside of Range')
-
-        return self.node_list[depth][index-1]
 
     def get_layer_node_list(self, depth):
 

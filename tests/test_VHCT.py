@@ -1,6 +1,6 @@
 from synthetic_obj import *
 
-from algos.VHCT import VHCT, VHCT_tree
+from algos.VHCT import VHCT
 
 from partition.BinaryPartition import BinaryPartition
 from utils.plot import compare_regret
@@ -18,7 +18,7 @@ cumulative_regret_list = [0]
 
 VHCT_regret_list = []
 regret = 0
-tree = VHCT_tree(1, 0.75, domain, bound=1)
+
 
 for t in range(1, T+1):
 
@@ -30,7 +30,7 @@ for t in range(1, T+1):
     cumulative_regret += inst_regret
     cumulative_regret_list.append(cumulative_regret)
 
-    # print('t: ', t,'VHCT: ', point)
+    print('t: ', t,'VHCT: ', point)
 
 regret_dic = {'VHCT': np.array(cumulative_regret_list),
               'VHCT_old': np.array(VHCT_regret_list)}

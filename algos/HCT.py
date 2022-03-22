@@ -63,25 +63,26 @@ class HCT(Algorithm):
         while self.visitedTimes[curr_node.get_depth()][curr_node.get_index()-1] >= self.tau_h[curr_node.get_depth()] \
            and curr_node.get_children() is not None:
             children = curr_node.get_children()
-            maxchild = children[0].get_index()  # temporarily set the maxchild to be the first child
-
+            maxchild = None
+            maxindex = children[0].get_index()  # temporarily set the maxindex to be the first child
             for child in children:
                 c_depth = child.get_depth()
                 c_index = child.get_index()
 
-                # If the child is never visited or prepared to be visited, denote maxchild = -1 and break
+                # If the child is never visited or prepared to be visited, denote maxchild = None and break
                 if not self.visited[c_depth][c_index - 1]:
-                    maxchild = -1
+                    maxchild = None
                     break
-                elif self.Bvalues[c_depth][c_index - 1] >= self.Bvalues[c_depth][maxchild - 1]:
-                    maxchild = c_index
+                elif self.Bvalues[c_depth][c_index - 1] >= self.Bvalues[c_depth][maxindex - 1]:
+                    maxchild = child
+                    maxindex = c_index
 
             # If we find that the child is never visited, stop going deeper
-            if maxchild == -1:
+            if maxchild is None:
                 break
             else:
-                curr_node = self.partition.get_node(curr_node.get_depth() + 1, maxchild)
-                path.append(curr_node)
+                curr_node = maxchild
+                path.append(maxchild)
 
         return curr_node, path
 
