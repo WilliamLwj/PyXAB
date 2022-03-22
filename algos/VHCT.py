@@ -21,12 +21,12 @@ class VHCT(Algorithm):
 
     """
 
-    def __init__(self, nu=1, rho=0.75, delta=0.01, bound=1, partition=None):
+    def __init__(self, nu=1, rho=0.75, delta=0.01, bound=1, domain=None, partition=None):
         super(VHCT, self).__init__()
 
         if partition is None:
             raise ValueError("Partition of the parameter space is not given.")
-        self.partition = partition
+        self.partition = partition(domain=domain)
 
         self.iteration = 0
         self.nu = nu

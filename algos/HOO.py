@@ -13,12 +13,12 @@ from algos.Algo import Algorithm
 
 class T_HOO(Algorithm):
 
-    def __init__(self, nu=1, rho=0.75, rounds=1000, partition=None):
+    def __init__(self, nu=1, rho=0.75, rounds=1000, domain=None,  partition=None):
         super(T_HOO, self).__init__()
 
         if partition is None:
             raise ValueError("Partition of the parameter space is not given.")
-        self.partition = partition
+        self.partition = partition(domain=domain)
 
         self.iteration = 0
         self.nu = nu

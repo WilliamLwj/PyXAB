@@ -5,11 +5,11 @@ from partition.BinaryPartition import BinaryPartition
 from utils.plot import compare_regret
 import numpy as np
 
-T = 5000
+T = 1000
 Target = Garland.Garland()
 domain = [[0, 1]]
-partition = BinaryPartition(domain)
-algo = T_HOO(rounds=T, partition=partition)
+partition = BinaryPartition
+algo = T_HOO(rounds=T, domain=domain, partition=partition)
 
 cumulative_regret = 0
 cumulative_regret_list = [0]

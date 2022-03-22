@@ -9,8 +9,8 @@ from utils.plot import plot_regret
 T = 1000
 Target = HimmelBlau.Himmelblau()
 domain = [[-5, 5], [-5, 5]]
-partition = BinaryPartition(domain)
-algo = HCT(partition=partition)
+partition = BinaryPartition
+algo = HCT(domain=domain, partition=partition)
 
 cumulative_regret = 0
 cumulative_regret_list = [0]

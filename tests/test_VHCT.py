@@ -9,8 +9,8 @@ import numpy as np
 T = 1000
 Target = DoubleSine.DoubleSine()
 domain = [[0, 1]]
-partition = BinaryPartition(domain)
-algo = VHCT(partition=partition)
+partition = BinaryPartition
+algo = VHCT(domain=domain, partition=partition)
 
 cumulative_regret = 0
 cumulative_regret_list = [0]
