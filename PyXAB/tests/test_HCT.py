@@ -1,9 +1,9 @@
-from synthetic_obj import *
+from PyXAB.synthetic_obj import *
 
-from algos.HCT import HCT
-from partition.BinaryPartition import BinaryPartition
+from PyXAB.algos.HCT import HCT
+from PyXAB.partition.BinaryPartition import BinaryPartition
 import numpy as np
-from utils.plot import plot_regret
+from PyXAB.utils.plot import plot_regret
 
 
 T = 1000

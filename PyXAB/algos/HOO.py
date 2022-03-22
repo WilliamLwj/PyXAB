@@ -1,28 +1,19 @@
 # -*- coding: utf-8 -*-
-"""Implementation of VHCT (Li et al, 2021)
+"""Implementation of T-HOO, the truncated version of the HOO algorithm. (Bubeck et al, 2011)
+    The original HOO algorithm suffers from large space complexity.
 """
 # Author: Wenjie Li <li3549@purdue.edu>
 # License: MIT
 
-
 import math
 import numpy as np
-import pdb
-from algos.Algo import Algorithm
-
-# TODO: Modify the VHCT algorithm
-
-def compute_t_plus(x):
-    return np.power(2, np.ceil(np.log(x) / np.log(2)))
+from PyXAB.algos.Algo import Algorithm
 
 
-class VHCT(Algorithm):
-    """
+class T_HOO(Algorithm):
 
-    """
-
-    def __init__(self, nu=1, rho=0.75, delta=0.01, bound=1, domain=None, partition=None):
-        super(VHCT, self).__init__()
+    def __init__(self, nu=1, rho=0.75, rounds=1000, domain=None,  partition=None):
+        super(T_HOO, self).__init__()
 
         if partition is None:
             raise ValueError("Partition of the parameter space is not given.")
@@ -31,49 +22,33 @@ class VHCT(Algorithm):
         self.iteration = 0
         self.nu = nu
         self.rho = rho
-        self.delta = delta
-        self.bound = bound
-        self.c = 0.1
-        self.c1 = np.power(rho / (3 * nu), 1.0 / 8)
+        self.rounds = rounds
 
         # List of values that are important
 
         self.Bvalues = [[np.inf]]
         self.Uvalues = [[np.inf]]
         self.Rewards = [[0]]
-        self.minimumVar = 1e-3
-        self.Variances = [[0]]
         self.visitedTimes = [[0]]
         self.visited = [[True]]
-        self.tau_hi = [[0]]  # Threshold on each node
         self.expand(self.partition.get_root())
 
     def optTraverse(self):
         """
+        Traverse the exploration tree to find the best path and the best node to pull at this moment.
 
         Returns
         -------
-
+        curr_node: Node
+            The last node selected by the algorithm
+        path: List of Node
+            The best path to traverse the partition selected by the algorithm
         """
-        # Update the thresholds
-
-        t_plus = compute_t_plus(self.iteration)
-        delta_tilde = np.minimum(1.0 / 2, self.c1 * self.delta / t_plus)
-        self.tau_hi = [[0.0]]
-        for i in range(1, self.partition.get_depth() + 1):
-            tau_h = []
-            for j in range(len(self.partition.get_layer_node_list(depth=i))):
-                tau_h.append(np.ceil((self.Variances[i][j] + 3* self.bound * self.nu * self.rho ** i + self.Variances[i][j]
-                               * np.sqrt(1 + 6 * self.bound * self.nu * self.rho ** i/self.Variances[i][j] ) ) * \
-                              (self.c ** 2 * math.log(1/delta_tilde) * self.rho ** (-2 * i) / self.nu ** 2)) )
-            self.tau_hi.append(tau_h)
 
         curr_node = self.partition.get_root()
         path = [curr_node]
 
-        while self.visitedTimes[curr_node.get_depth()][curr_node.get_index() - 1] >= \
-                self.tau_hi[curr_node.get_depth()][curr_node.get_index() - 1] \
-                and curr_node.get_children() is not None:
+        while curr_node.get_children() is not None:
             children = curr_node.get_children()
             maxchild = None
             maxindex = children[0].get_index()  # temporarily set the maxindex to be the first child
@@ -98,32 +73,22 @@ class VHCT(Algorithm):
 
         return curr_node, path
 
-
     def updateRewardTree(self, path, reward):
 
-        node = path[-1]
-        depth = node.get_depth()
-        index = node.get_index()
+        for node in path:
+            depth = node.get_depth()
+            index = node.get_index()
 
-        # Update the visited times, the average reward, and the empirical variance of the pulled node
+            # Update the visited times and the average reward of the pulled node
 
-        self.visitedTimes[depth][index - 1] += 1
-
-        # Use the previous average to compute the new variance first
-        newVariance = (self.visitedTimes[depth][index - 1] - 1) / self.visitedTimes[depth][index - 1] *\
-                      (self.Variances[depth][index - 1] + (self.Rewards[depth][index - 1] - reward) ** 2 /self.visitedTimes[depth][index - 1] )
-        self.Variances[depth][index - 1] = np.maximum(self.minimumVar, newVariance)
-
-        self.Rewards[depth][index - 1] = \
-            ((self.visitedTimes[depth][index - 1] - 1) / self.visitedTimes[depth][index - 1]
-             * self.Rewards[depth][index - 1]) + (reward / self.visitedTimes[depth][index - 1])
+            self.visitedTimes[depth][index - 1] += 1
+            self.Rewards[depth][index - 1] = \
+                ((self.visitedTimes[depth][index - 1] - 1) / self.visitedTimes[depth][index - 1]
+                * self.Rewards[depth][index - 1]) + (reward / self.visitedTimes[depth][index - 1])
 
         self.iteration += 1
 
     def updateUvalueTree(self):
-
-        t_plus = compute_t_plus(self.iteration)
-        delta_tilde = np.minimum(1, self.c1 * self.delta / t_plus)
         node_list = self.partition.get_node_list()
         for layer in node_list:
             for node in layer:
@@ -133,16 +98,15 @@ class VHCT(Algorithm):
                 if self.visitedTimes[depth][index - 1] == 0:
                     continue
                 else:
-                    UCB =  math.sqrt(self.c ** 2 * 2 * self.Variances[depth][index - 1] * math.log(1/delta_tilde) \
-                        /self.visitedTimes[depth][index - 1]) + 3 * self.bound * self.c**2 * math.log(1/delta_tilde)\
-                        /self.visitedTimes[depth][index - 1]
-
+                    UCB = math.sqrt(2 * math.log(self.rounds) / self.visitedTimes[depth][index - 1])
                     self.Uvalues[depth][index - 1] = self.Rewards[depth][index - 1] + UCB + self.nu * (self.rho ** depth)
+
 
     def updateBackwardTree(self):
 
         nodes = self.partition.get_node_list()
-        for i in range(1, self.partition.get_depth() + 1):
+
+        for i in range(1, self.partition.get_depth()+1):
 
             layer = nodes[-i]
             for node in layer:
@@ -179,8 +143,6 @@ class VHCT(Algorithm):
             self.visited.append([False] * num_nodes)
             self.visitedTimes.append([0] * num_nodes)
             self.Rewards.append([0] * num_nodes)
-            self.Variances.append([self.minimumVar] * num_nodes)
-
 
         children = parent.get_children()
         if children is None:
@@ -191,47 +153,33 @@ class VHCT(Algorithm):
                 c_index = child.get_index()
                 self.visited[c_depth][c_index - 1] = True
 
-    def updateAllTree(self, path, end_node, reward):
 
-        t_plus = compute_t_plus(self.iteration)
-        delta_tilde = np.minimum(1, self.c1 * self.delta / t_plus)
-
-        if self.iteration == compute_t_plus(self.iteration):
-            self.updateUvalueTree()
-            self.updateBackwardTree()
-
-        path.append(end_node)
+    def updateAllTree(self, path, reward):
 
         self.updateRewardTree(path, reward)
-
-        end_node = path[-1]
-        en_depth = end_node.get_depth()
-        en_index = end_node.get_index()
-
-        self.Uvalues[en_depth][en_index - 1] = self.Rewards[en_depth][en_index - 1] + \
-                         math.sqrt(self.c ** 2 * 2 * self.Variances[en_depth][en_index - 1] * math.log(1/delta_tilde) \
-                        /self.visitedTimes[en_depth][en_index - 1]) + 3 * self.bound * self.c**2 * math.log(1/delta_tilde)\
-                        /self.visitedTimes[en_depth][en_index - 1] + \
-                        self.nu * (self.rho ** end_node.depth)
-
+        self.updateUvalueTree()
+        # Truncate or not
+        if path[-1].depth <= np.ceil((np.log(self.rounds)/2 - np.log(1/self.nu))/np.log(1/self.rho)):
+            self.expand(path[-1])
         self.updateBackwardTree()
-
-        if self.visitedTimes[en_depth][en_index - 1] >= self.tau_hi[en_depth][en_index - 1]:
-            self.expand(end_node)
 
     def pull(self, time):
 
-        self.curr_node, self.path = self.optTraverse()
-        sample_range = self.curr_node.get_domain()
+        curr_node, self.path = self.optTraverse()
+        sample_range = curr_node.get_domain()
         point = []
         for j in range(len(sample_range)):
-            x = (sample_range[j][0] + sample_range[j][1]) / 2
+            # uniformly sample one point, could be replaced by the following
+            # x = (sample_range[j][0] + sample_range[j][1]) / 2
+            x = np.random.uniform(sample_range[j][0], sample_range[j][1])
             point.append(x)
 
         return point
 
     def receive_reward(self, time, reward):
 
-        self.updateAllTree(self.path, self.curr_node, reward)
+        self.updateAllTree(self.path, reward)
+
+
 
 

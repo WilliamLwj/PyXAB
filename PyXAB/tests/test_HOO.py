@@ -1,8 +1,8 @@
-from synthetic_obj import *
+from PyXAB.synthetic_obj import *
 
-from algos.HOO import T_HOO
-from partition.BinaryPartition import BinaryPartition
-from utils.plot import compare_regret
+from PyXAB.algos.HOO import T_HOO
+from PyXAB.partition.BinaryPartition import BinaryPartition
+from PyXAB.utils.plot import compare_regret
 import numpy as np
 
 T = 1000

@@ -1,7 +1,6 @@
 import math
 import numpy as np
-import pdb
-from synthetic_obj.Objective import Objective
+from PyXAB.synthetic_obj.Objective import Objective
 
 def mysin2(x):
     return (np.sin(x*2*np.pi)+1)/2.

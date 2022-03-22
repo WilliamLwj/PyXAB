@@ -1,13 +1,9 @@
-from synthetic_obj.Garland import Garland
-from partition.BinaryPartition import BinaryPartition
+from PyXAB.synthetic_obj import Garland
+from PyXAB.partition.BinaryPartition import BinaryPartition
 import numpy.random as random
 import matplotlib.pyplot as plt
 
-
-import os
-import pdb
-import numpy as np
-from algos.HCT import HCT
+from PyXAB.algos.HCT import HCT
 
 def visualize_HCT():
 

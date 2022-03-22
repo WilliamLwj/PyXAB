@@ -1,10 +1,5 @@
-import math
-import numpy as np
-import pdb
-
-from partition.BinaryPartition import BinaryPartition
-from partition.RandomBinaryPartition import RandomBinaryPartition
-from partition.DimensionPartition import DimensionBinaryPartition
+from PyXAB.partition.RandomBinaryPartition import RandomBinaryPartition
+from PyXAB.partition.DimensionPartition import DimensionBinaryPartition
 
 domain = [[0, 1]]
 part =  DimensionBinaryPartition(domain)

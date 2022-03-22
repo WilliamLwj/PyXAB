@@ -1,10 +1,5 @@
-from partition.Node import P_node
-from partition.Partition import Partition
-import math
-import numpy as np
-import pdb
-
-
+from PyXAB.partition.Node import P_node
+from PyXAB.partition.Partition import Partition
 
 
 class DimensionBinaryPartition(Partition):

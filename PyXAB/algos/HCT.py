@@ -8,8 +8,7 @@
 
 import math
 import numpy as np
-import pdb
-from algos.Algo import Algorithm
+from PyXAB.algos.Algo import Algorithm
 
 
 def compute_t_plus(x):

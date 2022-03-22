@@ -1,8 +1,4 @@
-
-import math
-import numpy as np
-import pdb
-from synthetic_obj.Objective import Objective
+from PyXAB.synthetic_obj.Objective import Objective
 
 class Himmelblau(Objective):
 

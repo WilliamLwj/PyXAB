@@ -4,10 +4,8 @@
 # Author: Wenjie Li <li3549@purdue.edu>
 # License: MIT
 
-import math
 import numpy as np
-import pdb
-from algos.Algo import Algorithm
+from PyXAB.algos.Algo import Algorithm
 
 
 class GPO(Algorithm):
