@@ -22,7 +22,8 @@ class VHCT(Algorithm):
 
     def __init__(self, nu=1, rho=0.75, delta=0.01, bound=1, domain=None, partition=None):
         super(VHCT, self).__init__()
-
+        if domain is None:
+            raise ValueError("Parameter space is not given.")
         if partition is None:
             raise ValueError("Partition of the parameter space is not given.")
         self.partition = partition(domain=domain)

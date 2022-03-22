@@ -12,9 +12,12 @@ class GPO(Algorithm):
 
     def __init__(self, rounds=1000, rhomax=0.9, numax=1, domain=None, partition=None, algo=None):
         super(GPO, self).__init__()
+        if domain is None:
+            raise ValueError("Parameter space is not given.")
         if partition is None:
             raise ValueError("Partition of the parameter space is not given.")
-        self.partition = partition()
+
+        self.partition = partition(domain=domain)
 
         self.rounds = rounds
         self.rhomax = rhomax

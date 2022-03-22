@@ -30,7 +30,7 @@ First define the blackbox objective, the parameter domain, the partition of the 
 target = Garland()
 domain = [[0, 1]]
 partition = BinaryPartition
-algo = T_HOO(rounds=T, domain=domain, partition=partition)
+algo = T_HOO(rounds=1000, domain=domain, partition=partition)
 ```
 
 At every round  `t`, call `algo.pull(t)` to get a point. After receiving the (stochastic) reward for the point, call 
