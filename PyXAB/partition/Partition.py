@@ -15,7 +15,6 @@ class Partition(ABC):
 
     def deepen(self):
 
-        self.depth += 1
         for i in range(len(self.node_list[self.depth - 1])):
             parent = self.node_list[self.depth - 1][i]
             if i == 0:
