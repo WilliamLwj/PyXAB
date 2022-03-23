@@ -38,7 +38,7 @@ At every round  `t`, call `algo.pull(t)` to get a point. After receiving the (st
 
 ```python3
 point = algo.pull(t)
-reward = target.f(point) + np.random.uniform(-0.1, 0.1)
+reward = target.f(point) + np.random.uniform(-0.1, 0.1) # Uniform noise example
 algo.receive_reward(t, reward)
 ```
 
