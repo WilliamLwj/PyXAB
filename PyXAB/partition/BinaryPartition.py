@@ -1,7 +1,7 @@
 from PyXAB.partition.Node import P_node
 from PyXAB.partition.Partition import Partition
 import numpy as np
-
+import pdb
 
 class BinaryPartition(Partition):
 

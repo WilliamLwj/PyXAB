@@ -1,6 +1,6 @@
 from PyXAB.partition.Node import P_node
 from abc import ABC, abstractmethod
-
+import pdb
 ### Implementation of baseline partition
 
 class Partition(ABC):
@@ -15,12 +15,14 @@ class Partition(ABC):
 
     def deepen(self):
 
-        for i in range(len(self.node_list[self.depth - 1])):
-            parent = self.node_list[self.depth - 1][i]
+        depth = self.depth
+        for i in range(len(self.node_list[depth])):
+            parent = self.node_list[depth][i]
             if i == 0:
                 self.make_children(parent, newlayer=True)
             else:
                 self.make_children(parent, newlayer=False)
+
     @abstractmethod
     def make_children(self, parent, newlayer=False):
 

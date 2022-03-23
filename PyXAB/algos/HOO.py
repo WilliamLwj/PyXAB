@@ -8,7 +8,7 @@
 import math
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
-
+import pdb
 
 class T_HOO(Algorithm):
 
@@ -135,7 +135,7 @@ class T_HOO(Algorithm):
     def expand(self, parent):
 
         if parent.get_depth() > self.partition.get_depth():
-            raise ValueError
+            raise ValueError("parent depth larger than partition depth")
         elif parent.get_depth() == self.partition.get_depth():
             self.partition.deepen()
             num_nodes = len(self.partition.get_node_list()[-1])
@@ -147,7 +147,8 @@ class T_HOO(Algorithm):
 
         children = parent.get_children()
         if children is None:
-            raise ValueError
+
+            raise ValueError("No Children")
         else:
             for child in children:
                 c_depth = child.get_depth()
