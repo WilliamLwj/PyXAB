@@ -44,6 +44,7 @@ class DimensionBinaryPartition(Partition):
 
         if newlayer:
             self.node_list.append(children_list)
+            self.depth += 1
         else:
             self.node_list[parent.get_depth() + 1] += children_list
 

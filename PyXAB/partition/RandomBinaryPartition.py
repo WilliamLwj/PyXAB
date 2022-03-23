@@ -36,5 +36,6 @@ class RandomBinaryPartition(Partition):
         new_deepest.append(node2)
         if newlayer:
             self.node_list.append(new_deepest)
+            self.depth += 1
         else:
             self.node_list[parent.get_depth() + 1] += new_deepest

@@ -14,11 +14,10 @@ for i in range(5):
 
 
 
-
 domain = [[0, 1], [10, 50], [-5, -10]]
-part = RandomBinaryPartition(domain)
+part = DimensionBinaryPartition(domain)
 
-for i in range(5):
+for i in range(2):
     part.deepen()
     nodelist = part.get_node_list()
     for node in nodelist[-1]:
