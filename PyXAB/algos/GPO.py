@@ -10,7 +10,7 @@ from PyXAB.algos.Algo import Algorithm
 
 class GPO(Algorithm):
 
-    def __init__(self, rounds=1000, rhomax=0.9, numax=1, domain=None, partition=None, algo=None):
+    def __init__(self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=None, algo=None):
         super(GPO, self).__init__()
         if domain is None:
             raise ValueError("Parameter space is not given.")
