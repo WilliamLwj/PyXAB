@@ -95,7 +95,7 @@ class POO(Algorithm):
     def get_last_point(self):
 
         V_reward = np.array(self.V_reward)
-        
+
         max_param = np.argmax(V_reward)
 
         point = self.V_algo[max_param].pull()

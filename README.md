@@ -14,7 +14,11 @@
 </p>
 
 
-Python implementation of *X*-armed bandit algorithms (also known as global optimization algorithms or bandit-based blackbox optimization algorithms)
+(Primary Version) Python implementation of different algorithms for *X*-armed bandit, also known as continuous-arm bandit (CAB), Lipschitz Bandit, 
+global optimization (GO), bandit-based blackbox optimization.
+
+These algorithms rely on the hierarchical partitioning of the parameter space *X*.  (Currently our code only supports continuous,
+connected domain, but the algorithms are designed for any measurable space)
 
 
 <p align='center'>
