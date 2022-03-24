@@ -37,7 +37,7 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
 target = Garland.Garland()
 domain = [[0, 1]]
 partition = BinaryPartition
-rounds = 5000
+rounds = 1000
 noise = 0.1
 
 algo_list = ['T-HOO', 'POO', 'HCT', 'PCT',  'VHCT', ]

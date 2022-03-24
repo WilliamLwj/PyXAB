@@ -91,3 +91,13 @@ class POO(Algorithm):
             self.V_algo[self.algo_counter].receive_reward(time, reward)
             self.V_reward[self.algo_counter] = (self.V_reward[self.algo_counter] * np.ceil(self.N / self.n) + reward) \
                     /(np.ceil(self.N / self.n) + 1)
+
+    def get_last_point(self):
+
+        V_reward = np.array(self.V_reward)
+        
+        max_param = np.argmax(V_reward)
+
+        point = self.V_algo[max_param].pull()
+
+        return point
