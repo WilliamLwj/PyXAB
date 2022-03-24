@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""Implmentation of Himmelblau
+"""
+# Author: Wenjie Li <li3549@purdue.edu>
+# License: MIT
+
+
 from PyXAB.synthetic_obj.Objective import Objective
 
 class Himmelblau(Objective):

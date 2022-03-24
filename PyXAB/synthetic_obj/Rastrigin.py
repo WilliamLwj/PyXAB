@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""Implmentation of Rastrigin
+"""
+# Author: Wenjie Li <li3549@purdue.edu>
+# License: MIT
+
+
 import numpy as np
 from PyXAB.synthetic_obj.Objective import Objective
 
