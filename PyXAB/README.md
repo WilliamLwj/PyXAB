@@ -7,14 +7,15 @@ should have a function ```f(x)```, which will return the reward of the point ```
 See the following simple example for a better illustration.
 ```python3
 from PyXAB.synthetic_obj.Objective import Objective
+import numpy as np
 
-# The quadratic function f(x) = x^2
+# The quadratic function f(x) = sin(x)
 class Quadratic(Objective):
     def __init__(self):
-        self.fmax = 0
+        self.fmax = 1
 
     def f(self, x):    
-        return x ** 2
+        return np.sin(x)
 ```
 
 ## Domain
