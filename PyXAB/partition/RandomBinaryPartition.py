@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Implementation of Random Binary Partition
+"""
+# Author: Wenjie Li <li3549@purdue.edu>
+# License: MIT
+
 from PyXAB.partition.Node import P_node
 from PyXAB.partition.Partition import Partition
 import numpy as np

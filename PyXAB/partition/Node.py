@@ -1,10 +1,14 @@
+# -*- coding: utf-8 -*-
+"""Base Implmentation of a Node
+"""
+# Author: Wenjie Li <li3549@purdue.edu>
+# License: MIT
+
+
 import math
 import numpy as np
 import pdb
 
-
-
-### Implementation of every node in the partition
 
 class P_node:
 

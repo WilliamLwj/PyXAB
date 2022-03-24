@@ -1,7 +1,13 @@
+# -*- coding: utf-8 -*-
+"""Base Implmentation of a Partition
+"""
+# Author: Wenjie Li <li3549@purdue.edu>
+# License: MIT
+
 from PyXAB.partition.Node import P_node
 from abc import ABC, abstractmethod
 import pdb
-### Implementation of baseline partition
+
 
 class Partition(ABC):
 

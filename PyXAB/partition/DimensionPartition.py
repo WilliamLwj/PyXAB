@@ -1,3 +1,6 @@
+"""Implmentation of Dimension-wise Binary Partition
+"""
+
 from PyXAB.partition.Node import P_node
 from PyXAB.partition.Partition import Partition
 
