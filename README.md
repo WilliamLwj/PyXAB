@@ -2,7 +2,7 @@
 
 
 <p align="left">
-<a href="https://github.com/WilliamLwj/PyXAB/blob/master/LICENSE" target="blank">
+<a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
 <img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?style=flat" alt="github-PyXAB license" />
 </a>
 <a href="https://github.com/WilliamLwj/PyXAB/fork" target="blank">
@@ -12,6 +12,7 @@
 <img src="https://img.shields.io/github/stars/WilliamLwj/PyXAB?style=flat" alt="github-PyXAB stars"/>
 </a>
 </p>
+
 
 
 (Primary Version) Python implementation of different algorithms for *X*-armed bandit, also known as continuous-arm bandit (CAB), Lipschitz Bandit, 
