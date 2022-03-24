@@ -9,8 +9,8 @@ See the following simple example for a better illustration.
 from PyXAB.synthetic_obj.Objective import Objective
 import numpy as np
 
-# The quadratic function f(x) = sin(x)
-class Quadratic(Objective):
+# The sine function f(x) = sin(x)
+class Sine(Objective):
     def __init__(self):
         self.fmax = 1
 
@@ -45,6 +45,7 @@ partition = BinaryPartition
 from PyXAB.synthetic_obj import *
 from PyXAB.algos.HCT import HCT
 from PyXAB.partition.BinaryPartition import BinaryPartition
+
 import numpy as np
 from PyXAB.utils.plot import plot_regret
 
