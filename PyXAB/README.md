@@ -1,3 +1,9 @@
+# PyXAB - Examples
+
+
+## Running HCT on the HimmelBlau function
+
+```python3
 from PyXAB.synthetic_obj import *
 
 from PyXAB.algos.HCT import HCT
@@ -28,3 +34,4 @@ for t in range(1, T+1):
     cumulative_regret_list.append(cumulative_regret)
 
 plot_regret(np.array(cumulative_regret_list))
+```

@@ -47,6 +47,7 @@ reward = target.f(point) + np.random.uniform(-0.1, 0.1) # Uniform noise example
 algo.receive_reward(t, reward)
 ```
 
+More detailed examples are provided [here](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/README.md)
 
 
 ## Citation
