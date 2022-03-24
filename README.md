@@ -3,19 +3,19 @@
 
 <p align="left">
 <a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
-<img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?style=flat" alt="github-PyXAB license" />
+<img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?style=flat-square" alt="github-PyXAB license" />
 </a>
 <a href="https://github.com/WilliamLwj/PyXAB/fork" target="blank">
-<img src="https://img.shields.io/github/forks/WilliamLwj/PyXAB?style=flat" alt="github-PyXAB forks"/>
+<img src="https://img.shields.io/github/forks/WilliamLwj/PyXAB?style=flat-square" alt="github-PyXAB forks"/>
 </a>
 <a href="https://github.com/WilliamLwj/PyXAB/stargazers" target="blank">
-<img src="https://img.shields.io/github/stars/WilliamLwj/PyXAB?style=flat" alt="github-PyXAB stars"/>
+<img src="https://img.shields.io/github/stars/WilliamLwj/PyXAB?style=flat-square" alt="github-PyXAB stars"/>
 </a>
 </p>
 
 
 
-(Primary Version) Python implementation of different algorithms for *X*-armed bandit, also known as continuous-arm bandit (CAB), Lipschitz Bandit, 
+(Primary Version) Python implementation of different algorithms for *X*-armed bandit problems, also known as continuous-arm bandit (CAB), Lipschitz bandit, 
 global optimization (GO), bandit-based blackbox optimization.
 
 These algorithms rely on the hierarchical partitioning of the parameter space *X*.  (Currently our code only supports continuous,
