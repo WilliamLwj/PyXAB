@@ -30,3 +30,33 @@ def compare_regret(regret_dic):
 
 
 
+
+
+def compare_regret_withsd(dictionary, y_range=None):
+
+    regret = dictionary["regret"]
+    colors = dictionary["colors"]
+    labels = dictionary["labels"]
+
+
+
+    for i in range(len(regret)):
+        regret_array = regret[i]
+        x = np.arange((regret_array.shape[1])) + 1
+
+        mean = np.mean(regret_array, axis=0)
+        std = np.std(regret_array, axis=0)
+
+        plt.plot(x, mean, linewidth=2, color=colors[i], label=labels[i], alpha=0.9)
+        plt.fill_between(x,  mean + 1 * std ,  mean - 1 * std , color=colors[i], alpha=0.3)
+
+
+    plt.legend(loc='upper left', prop={'size': 14})
+    plt.xlabel('Rounds')
+    if y_range is not None:
+        plt.ylim(y_range)
+    plt.ylabel('Cumulative Regret')
+    plt.show()
+
+
+
