@@ -29,7 +29,7 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
             point = algo.pull(t)
             reward = target.f(point)
             algo.receive_reward(t, reward)
-            inst_regret = target.fmax - target.f(point)
+            inst_regret = target.fmax - reward
             regret += inst_regret
             regret_list.append(regret)
 
