@@ -1,0 +1,17 @@
+#!/bin/bash
+
+jobname=HOO_1
+LOG=logs
+save_path=${LOG}/${jobname}
+ALGO=T-HOO
+
+module load anaconda
+source activate /home/li3549/.conda/envs/cent7/5.1.0-py36/wjpy36pt41
+
+cd ~/Research/PyXAB/mnist/
+
+if [ ! -d ${LOG} ]; then
+  mkdir -p ${LOG}
+fi
+
+python -u run_mnist.py --save_path ${save_path} --ALGO ${ALGO} --rounds 500

@@ -1,0 +1,1 @@
+sbatch  -t 24:00:00 -N1 -n4 --gres=gpu:1 -A partner PyXAB/mnist/scripts/HOO.sub --exclusive
