@@ -39,6 +39,7 @@ def compare_regret_withsd(dictionary, y_range=None):
     labels = dictionary["labels"]
 
 
+    plt.figure(figsize=(6, 5), dpi=100)
 
     for i in range(len(regret)):
         regret_array = regret[i]
@@ -51,11 +52,11 @@ def compare_regret_withsd(dictionary, y_range=None):
         plt.fill_between(x,  mean + 1 * std ,  mean - 1 * std , color=colors[i], alpha=0.3)
 
 
-    plt.legend(loc='upper left', prop={'size': 14})
-    plt.xlabel('Rounds')
+    plt.legend(loc='upper left', prop={'size': 16})
+    plt.xlabel('Rounds', fontsize=16)
     if y_range is not None:
         plt.ylim(y_range)
-    plt.ylabel('Cumulative Regret')
+    plt.ylabel('Cumulative Regret', fontsize=16)
     plt.show()
 
 

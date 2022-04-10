@@ -19,4 +19,5 @@ class Rastrigin(Objective):
         for i in range(x.size):
             S = S - 10 - (x[i]**2 - 10 * np.cos(2*np.pi * x[i]))
 
+        S = S / (11 * x.size) # Only when the range is [-1, 1] * n
         return S
