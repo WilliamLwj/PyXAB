@@ -34,10 +34,10 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
     return results_dictionary
 
 
-target = Rastrigin.Rastrigin()
-domain = [[-1, 1], [-1, 1], [-1, 1], [-1, 1]]
+target = Garland.Garland()
+domain = [[0, 1]]
 partition = BinaryPartition
-rounds = 500
+rounds = 1000
 noise = 0.1
 
 

@@ -19,5 +19,21 @@ class Rastrigin(Objective):
         for i in range(x.size):
             S = S - 10 - (x[i]**2 - 10 * np.cos(2*np.pi * x[i]))
 
-        S = S / (11 * x.size) # Only when the range is [-1, 1] * n
+        return S
+
+
+
+class Rastrigin_Normalized(Objective):
+    def __init__(self, k=20):
+
+        self.fmax = 0
+        self.k = k #Normalization constant
+
+    def f(self, x):
+        x = np.array(x)
+        S = 0
+        for i in range(x.size):
+            S = S - 10 - (x[i]**2 - 10 * np.cos(2*np.pi * x[i]))
+
+        S = S / (self.k * x.size) # Rough estimate
         return S

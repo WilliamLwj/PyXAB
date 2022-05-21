@@ -32,7 +32,7 @@ def compare_regret(regret_dic):
 
 
 
-def compare_regret_withsd(dictionary, y_range=None):
+def compare_regret_withsd(dictionary, x_range=None, y_range=None):
 
     regret = dictionary["regret"]
     colors = dictionary["colors"]
@@ -54,6 +54,8 @@ def compare_regret_withsd(dictionary, y_range=None):
 
     plt.legend(loc='upper left', prop={'size': 16})
     plt.xlabel('Rounds', fontsize=16)
+    if x_range is not None:
+        plt.xlim(x_range)
     if y_range is not None:
         plt.ylim(y_range)
     plt.ylabel('Cumulative Regret', fontsize=16)

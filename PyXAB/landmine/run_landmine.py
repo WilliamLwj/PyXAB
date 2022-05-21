@@ -55,6 +55,16 @@ noise = 0.1
 
 
 trials = 5
+
+regret_array = []
+for j in range(1, 6):
+    name = "./logs/BO_" + str(j) + ".txt"
+    regret_list = np.loadtxt(name, dtype=float)
+    regret_array.append(regret_list)
+regret_array_BO = np.array(regret_array)
+
+
+
 regret_array_HOO = np.array([main(['T-HOO'], target, domain, partition, noise, rounds) for _ in range(trials)])
 regret_array_HCT = np.array([main(['HCT'], target, domain, partition, noise, rounds) for _ in range(trials)])
 regret_array_VHCT = np.array([main(['VHCT'], target, domain, partition, noise, rounds) for _ in range(trials)])
@@ -62,8 +72,8 @@ regret_array_POO = np.array([main(['POO'], target, domain, partition, noise, rou
 regret_array_PCT = np.array([main(['PCT'], target, domain, partition, noise, rounds) for _ in range(trials)])
 
 
-regret_dic = {"regret": [regret_array_VHCT, regret_array_HCT, regret_array_HOO, regret_array_POO, regret_array_PCT],
-              "labels": ["VHCT", "HCT", 'T-HOO',  'POO', 'PCT'],
-              "colors": ['red', 'blue', 'green', 'grey', 'orange']}
+regret_dic = {"regret": [regret_array_VHCT, regret_array_HCT, regret_array_HOO, regret_array_POO, regret_array_PCT, regret_array_BO],
+              "labels": ["VHCT", "HCT", 'T-HOO',  'POO', 'PCT', 'BO'],
+              "colors": ['red', 'blue', 'green', 'grey', 'orange', 'brown']}
 
-compare_regret_withsd(regret_dic)
+compare_regret_withsd(regret_dic, x_range=(0, rounds))
