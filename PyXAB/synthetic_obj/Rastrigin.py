@@ -35,5 +35,7 @@ class Rastrigin_Normalized(Objective):
         for i in range(x.size):
             S = S - 10 - (x[i]**2 - 10 * np.cos(2*np.pi * x[i]))
 
-        S = S / (self.k * x.size) # Rough estimate
+        S = S / (self.k * x.size)
+        # Only devided by an upper bound in [-1, 1]^n
+
         return S

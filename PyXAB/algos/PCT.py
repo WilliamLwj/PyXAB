@@ -11,7 +11,7 @@ from PyXAB.algos.GPO import GPO
 
 class PCT(Algorithm):
 
-    def __init__(self, numax=1, rhomax=0.99, rounds=1000, domain=None, partition=None):
+    def __init__(self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=None):
         super(PCT, self).__init__()
         self.algorithm = GPO(numax=numax, rhomax=rhomax, rounds=rounds, domain=domain, partition=partition, algo=HCT)
         if domain is None:

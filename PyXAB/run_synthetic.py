@@ -10,8 +10,8 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
     algo_dictionary = {'T-HOO': HOO.T_HOO(rounds=rounds, domain=domain, partition=partition),
                        'HCT': HCT.HCT(domain=domain, partition=partition),
                        'VHCT': VHCT.VHCT(domain=domain, partition=partition),
-                       'POO': POO.POO(domain=domain, partition=partition, algo=HOO.T_HOO),
-                       'PCT': PCT.PCT(domain=domain, partition=partition)}
+                       'POO': POO.POO(rounds=rounds, domain=domain, partition=partition, algo=HOO.T_HOO),
+                       'PCT': PCT.PCT(rounds=rounds, domain=domain, partition=partition)}
 
     results_dictionary = {}
     for name in algo_list:
