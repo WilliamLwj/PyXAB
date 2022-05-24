@@ -13,7 +13,6 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
                        'POO': POO.POO(rounds=rounds, domain=domain, partition=partition, algo=HOO.T_HOO),
                        'PCT': PCT.PCT(rounds=rounds, domain=domain, partition=partition)}
 
-    results_dictionary = {}
     for name in algo_list:
         print(name, ": training")
         algo = algo_dictionary[name]
@@ -29,16 +28,15 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
             regret += inst_regret
             regret_list.append(regret)
 
-        results_dictionary[name] = np.array(regret_list)
 
-    return results_dictionary
+    return np.array(regret_list)
 
 
 target = Garland.Garland()
 domain = [[0, 1]]
 partition = BinaryPartition
 rounds = 1000
-noise = 0.1
+noise = 1
 
 
 trials = 5

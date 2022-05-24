@@ -44,7 +44,6 @@ def compare_regret_withsd(dictionary, x_range=None, y_range=None):
     for i in range(len(regret)):
         regret_array = regret[i]
         x = np.arange((regret_array.shape[1])) + 1
-
         mean = np.mean(regret_array, axis=0)
         std = np.std(regret_array, axis=0)
 

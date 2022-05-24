@@ -12,7 +12,7 @@ import pdb
 
 class T_HOO(Algorithm):
 
-    def __init__(self, nu=1, rho=0.75, rounds=1000, domain=None,  partition=None):
+    def __init__(self, nu=1, rho=0.25, rounds=1000, domain=None,  partition=None):
         super(T_HOO, self).__init__()
         if domain is None:
             raise ValueError("Parameter space is not given.")
