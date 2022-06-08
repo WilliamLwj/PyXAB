@@ -32,11 +32,11 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
     return np.array(regret_list)
 
 
-target = Garland.Garland()
+target = DoubleSine.DoubleSine()
 domain = [[0, 1]]
 partition = BinaryPartition
-rounds = 1000
-noise = 1
+rounds = 2000
+noise = 0.5
 
 
 trials = 5
