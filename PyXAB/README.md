@@ -1,4 +1,9 @@
-# PyXAB - Examples
+# PyXAB - Example
+
+To use PyXAB, the objective, the domain, and the pre-defined partition on the domain needs to be defined. Then the algorithms
+evaluate the objective at one point in every round and receives a stochastic reward.
+
+
 
 ## Objective Function
 The objective function (class) needs to have an attribute ```fmax```, which is the
