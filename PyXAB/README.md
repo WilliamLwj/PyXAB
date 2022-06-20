@@ -44,40 +44,19 @@ partition = BinaryPartition
 ```
 
 
-## A Complete Example - Running HCT on HimmelBlau
+## Algorithm
+
+Algorithms will always have one function named ```pull``` that outputs a point for evaluation, and the other function 
+named ```receive_reward``` to get the feedback. Therefore, in the online learning process, the following lines of code
+should be used.
 
 ```python3
-from PyXAB.synthetic_obj import *
-from PyXAB.algos.HCT import HCT
-from PyXAB.partition.BinaryPartition import BinaryPartition
+# either for-loop or while-loop
 
-import numpy as np
-from PyXAB.utils.plot import plot_regret
-
-
-# Define the number of rounds, target, domain, partition, and algorithm
-T = 1000
-target = HimmelBlau.Himmelblau()
-domain = [[-5, 5], [-5, 5]]
-partition = BinaryPartition
-algo = HCT(domain=domain, partition=partition)
-
-
-# regret and regret list
-cumulative_regret = 0
-cumulative_regret_list = []
-
-
-# uniform noise
 for t in range(1, T+1):
-
     point = algo.pull(t)
     reward = target.f(point) + np.random.uniform(-0.1, 0.1)
     algo.receive_reward(t, reward)
-    inst_regret = target.fmax - target.f(point)
-    cumulative_regret += inst_regret
-    cumulative_regret_list.append(cumulative_regret)
-
-# plot the regret
-plot_regret(np.array(cumulative_regret_list))
 ```
+
+
