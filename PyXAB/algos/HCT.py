@@ -19,7 +19,7 @@ class HCT(Algorithm):
     """
 
     """
-    def __init__(self, nu=1, rho=0.75, delta=0.01, domain=None,  partition=None):
+    def __init__(self, nu=1, rho=0.5, delta=0.01, domain=None,  partition=None):
         super(HCT, self).__init__()
         if domain is None:
             raise ValueError("Parameter space is not given.")
