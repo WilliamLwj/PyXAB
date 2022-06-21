@@ -9,7 +9,7 @@
 import math
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
-
+import pdb
 
 def compute_t_plus(x):
     return np.power(2, np.ceil(np.log(x) / np.log(2)))
@@ -27,7 +27,7 @@ class HCT(Algorithm):
             raise ValueError("Partition of the parameter space is not given.")
         self.partition = partition(domain=domain)
 
-        self.iteration = 0
+        self.iteration = 1
         self.nu = nu
         self.rho = rho
         self.delta = delta

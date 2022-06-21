@@ -27,7 +27,7 @@ class VHCT(Algorithm):
             raise ValueError("Partition of the parameter space is not given.")
         self.partition = partition(domain=domain)
 
-        self.iteration = 0
+        self.iteration = 1
         self.nu = nu
         self.rho = rho
         self.delta = delta
