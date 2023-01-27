@@ -1,3 +1,4 @@
+
 # PyXAB - Python *X*-Armed Bandit
 
 
@@ -15,18 +16,27 @@
 
 
 
-(Primary Version) Python implementation of different algorithms for *X*-armed bandit problems, also known as continuous-arm bandit (CAB), Lipschitz bandit, 
-global optimization (GO), bandit-based blackbox optimization.
+Python implementation of different algorithms for *X*-armed bandit problems, also known as continuous-arm bandit (CAB), Lipschitz bandit, 
+global optimization (GO) and bandit-based blackbox optimization problems.
 
-These algorithms rely on the hierarchical partitioning of the parameter space *X*.  (Currently our code only supports continuous,
-connected domain, but the algorithms are designed for any measurable space)
+[//]: # ()
+[//]: # (These algorithms rely on the hierarchical partitioning of the parameter space *X*.  &#40;Currently our code only supports continuous and)
 
+[//]: # (connected domains, but the algorithms are designed for any measurable space&#41;)
+
+[//]: # ()
 
 <p align='center'>
   <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/partition.png" alt="Partition" width="45%"/>  
   <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/HCT_visual.gif" alt="visualization" width="54%"/>  
 </p>
 
+
+##Quick Links
+
+- [Quick Example](#Quick Example)
+- [Features](#Features)
+- [Citations](#Citations)
 
 ## Quick Example
 First define the blackbox objective, the parameter domain, the partition of the space, and the algorithm, e.g.
@@ -50,19 +60,8 @@ algo.receive_reward(t, reward)
 **More detailed jupyter notebook examples are provided [here](https://github.com/WilliamLwj/PyXAB/blob/main/Jupyter_Examples)**
 
 
-## Citation
-If you use our package in your research or projects, we kindly ask you to cite our work
-```text
-@article{li2021optimum,
-  title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
-  author={Li, Wenjie and Wang, Chi-Hua, Qifan Song and Cheng, Guang},
-  journal={arXiv preprint arXiv:2106.09215},
-  year={2021}
-}
-```
-
     
-## Implemented Features:
+## Features:
 
 (1). ***X*-armed bandit algorithms**
 
@@ -99,3 +98,15 @@ If you use our package in your research or projects, we kindly ask you to cite o
 | [Ackley](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Ackley.py) | <img src="https://render.githubusercontent.com/render/math?math=f(x,y) = 20 \exp \left[-0.2 \sqrt{0.5\left(x^{2}-(-y^{2})\right)}\right]-\exp [0.5(\cos 2 \pi x-(-\cos 2 \pi y))]-e-20">  | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Ackley.png" alt="Ackley" width="100"/>  |
 | [Himmelblau](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Himmelblau.py) |  <img src="https://render.githubusercontent.com/render/math?math=f(x, y)=-\left(x^{2}-(-y)-11\right)^{2}-\left(x-(-y^{2})-7\right)^{2}">  | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Himmelblau.png" alt="Himmelblau" width="100"/>  |
 | [Rastrigin](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Rastrigin.py) | <img src="https://render.githubusercontent.com/render/math?math=f(\mathbf{x})= - A n - \sum_{i=1}^{n}\left[-x_{i}^{2} - A \cos \left(2 \pi x_{i}\right)\right]">  |  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Rastrigin.png" alt="Rastrigin" width="100"/>  |
+
+
+## Citations
+If you use our package in your research or projects, we kindly ask you to cite our work
+```text
+@article{li2021optimum,
+  title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
+  author={Li, Wenjie and Wang, Chi-Hua, Qifan Song and Cheng, Guang},
+  journal={arXiv preprint arXiv:2106.09215},
+  year={2021}
+}
+```
