@@ -34,7 +34,7 @@ global optimization (GO) and bandit-based blackbox optimization problems.
 
 ## Quick Links
 
-- [Quick Example](#Quick Example)
+- [Quick Example](#Quick_Example)
 - [Features](#Features)
 - [Citations](#Citations)
 
