@@ -1,9 +1,5 @@
-*__pycache__*
-*.pyc
-*mnist*
-*synthetic_run*
-*BO*
 *.idea*
+*mnist*
 *landmine/logs*
-*plot_landmine.py*
-*.ipynb_checkpoints*
+*BO_landmine.py*
+*DS_Store*
