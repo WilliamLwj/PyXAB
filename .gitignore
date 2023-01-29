@@ -1,2 +1,9 @@
+*__pycache__*
+*.pyc
+*mnist*
+*synthetic_run*
+*BO*
 *.idea*
-PyXAB/mnist
+*landmine/logs*
+*plot_landmine.py*
+*.ipynb_checkpoints*

@@ -3,6 +3,9 @@
 
 
 <p align="left">
+<a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
+    <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
+</a>
 <a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
 <img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?style=flat-square" alt="github-PyXAB license" />
 </a>
@@ -36,6 +39,9 @@ global optimization (GO) and bandit-based blackbox optimization problems.
 
 - [Quick Example](#Quick-Example)
 - [Features](#Features)
+  * [X-armed bandit algorithms](#*X*-armed-bandit-algorithms)
+  * [Hierarchical partition ](#Hierarchical-partition)
+  * [Synthetic objectives](#Synthetic-objectives)
 - [Citations](#Citations)
 
 ## Quick Example
@@ -63,7 +69,7 @@ algo.receive_reward(t, reward)
     
 ## Features:
 
-(1). ***X*-armed bandit algorithms**
+### *X*-armed bandit algorithms
 
 * Algorithm starred are meta-algorithms (wrappers)
 
@@ -78,7 +84,7 @@ algo.receive_reward(t, reward)
 | [VPCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VPCT.py) | N.A. ([GPO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/GPO.py) + [VHCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VHCT.py)) | N.A. |
 
 
-(2). **Partition of the parameter space**
+### Hierarchical partition 
 
 | Partition | Description |
 | --- | --- |
@@ -86,7 +92,7 @@ algo.receive_reward(t, reward)
 | [RandomBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/RandomBinaryPartition.py) | The same as BinaryPartition but with a randomly chosen split point |
 | [DimensionBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/DimensionPartition.py) | Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d|
 
-(3). **Synthetic Objectives**  
+### Synthetic objectives
 
 * Some of these objectives can be found [here](https://en.wikipedia.org/wiki/Test_functions_for_optimization)
 
