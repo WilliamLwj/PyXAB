@@ -39,7 +39,7 @@ global optimization (GO) and bandit-based blackbox optimization problems.
 
 - [Quick Example](#Quick-Example)
 - [Features](#Features)
-  * [X-armed bandit algorithms](#*X*-armed-bandit-algorithms)
+  * [*X*-armed bandit algorithms](#X-armed-bandit-algorithms)
   * [Hierarchical partition ](#Hierarchical-partition)
   * [Synthetic objectives](#Synthetic-objectives)
 - [Citations](#Citations)
