@@ -104,10 +104,13 @@
 <dt class="sig sig-object py" id="algos.HOO.T_HOO.optTraverse">
 <span class="sig-name descname"><span class="pre">optTraverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algos.HOO.T_HOO.optTraverse" title="Permalink to this definition"></a></dt>
 <dd><p>Traverse the exploration tree to find the best path and the best node to pull at this moment.</p>
-<dl class="simple">
-<dt>curr_node: Node</dt><dd><p>The last node selected by the algorithm</p>
-</dd>
-<dt>path: List of Node</dt><dd><p>The best path to traverse the partition selected by the algorithm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>curr_node</strong> (<em>Node</em>) – The last node selected by the algorithm</p></li>
+<li><p><strong>path</strong> (<em>List of Node</em>) – The best path to traverse the partition selected by the algorithm</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -116,12 +119,15 @@
 <dt class="sig sig-object py" id="algos.HOO.T_HOO.pull">
 <span class="sig-name descname"><span class="pre">pull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HOO.T_HOO.pull" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to pull a node.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>chosen_point</strong> – The point chosen by the algorithm</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -130,10 +136,12 @@
 <dt class="sig sig-object py" id="algos.HOO.T_HOO.receive_reward">
 <span class="sig-name descname"><span class="pre">receive_reward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HOO.T_HOO.receive_reward" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to receive the reward.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
-</dd>
-<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p></li>
+<li><p><strong>reward</strong> (<em>float</em>) – The (Stochastic) reward of the pulled point</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -162,12 +170,15 @@
 <dt class="sig sig-object py" id="algos.HCT.HCT.pull">
 <span class="sig-name descname"><span class="pre">pull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HCT.HCT.pull" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to pull a node.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>chosen_point</strong> – The point chosen by the algorithm</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -176,10 +187,12 @@
 <dt class="sig sig-object py" id="algos.HCT.HCT.receive_reward">
 <span class="sig-name descname"><span class="pre">receive_reward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HCT.HCT.receive_reward" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to receive the reward.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
-</dd>
-<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p></li>
+<li><p><strong>reward</strong> (<em>float</em>) – The (Stochastic) reward of the pulled point</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -203,12 +216,15 @@
 <dt class="sig sig-object py" id="algos.POO.POO.pull">
 <span class="sig-name descname"><span class="pre">pull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.POO.POO.pull" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to pull a node.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>chosen_point</strong> – The point chosen by the algorithm</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -217,10 +233,12 @@
 <dt class="sig sig-object py" id="algos.POO.POO.receive_reward">
 <span class="sig-name descname"><span class="pre">receive_reward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.POO.POO.receive_reward" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to receive the reward.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
-</dd>
-<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p></li>
+<li><p><strong>reward</strong> (<em>float</em>) – The (Stochastic) reward of the pulled point</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -244,12 +262,15 @@
 <dt class="sig sig-object py" id="algos.GPO.GPO.pull">
 <span class="sig-name descname"><span class="pre">pull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.GPO.GPO.pull" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to pull a node.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>chosen_point</strong> – The point chosen by the algorithm</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -258,10 +279,12 @@
 <dt class="sig sig-object py" id="algos.GPO.GPO.receive_reward">
 <span class="sig-name descname"><span class="pre">receive_reward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.GPO.GPO.receive_reward" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to receive the reward.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
-</dd>
-<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p></li>
+<li><p><strong>reward</strong> (<em>float</em>) – The (Stochastic) reward of the pulled point</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -285,12 +308,15 @@
 <dt class="sig sig-object py" id="algos.PCT.PCT.pull">
 <span class="sig-name descname"><span class="pre">pull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.PCT.PCT.pull" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to pull a node.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>chosen_point</strong> – The point chosen by the algorithm</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -299,10 +325,12 @@
 <dt class="sig sig-object py" id="algos.PCT.PCT.receive_reward">
 <span class="sig-name descname"><span class="pre">receive_reward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.PCT.PCT.receive_reward" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to receive the reward.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
-</dd>
-<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p></li>
+<li><p><strong>reward</strong> (<em>float</em>) – The (Stochastic) reward of the pulled point</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -331,12 +359,15 @@
 <dt class="sig sig-object py" id="algos.VHCT.VHCT.pull">
 <span class="sig-name descname"><span class="pre">pull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VHCT.VHCT.pull" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to pull a node.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>chosen_point</strong> – The point chosen by the algorithm</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -345,10 +376,12 @@
 <dt class="sig sig-object py" id="algos.VHCT.VHCT.receive_reward">
 <span class="sig-name descname"><span class="pre">receive_reward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VHCT.VHCT.receive_reward" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to receive the reward.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
-</dd>
-<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p></li>
+<li><p><strong>reward</strong> (<em>float</em>) – The (Stochastic) reward of the pulled point</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -372,12 +405,15 @@
 <dt class="sig sig-object py" id="algos.VPCT.VPCT.pull">
 <span class="sig-name descname"><span class="pre">pull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VPCT.VPCT.pull" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to pull a node.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>chosen_point</strong> – The point chosen by the algorithm</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -386,10 +422,12 @@
 <dt class="sig sig-object py" id="algos.VPCT.VPCT.receive_reward">
 <span class="sig-name descname"><span class="pre">receive_reward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VPCT.VPCT.receive_reward" title="Permalink to this definition"></a></dt>
 <dd><p>Every algorithm needs a function to receive the reward.</p>
-<dl class="simple">
-<dt>time: int</dt><dd><p>The time step of the online process.</p>
-</dd>
-<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>int</em>) – The time step of the online process.</p></li>
+<li><p><strong>reward</strong> (<em>float</em>) – The (Stochastic) reward of the pulled point</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
