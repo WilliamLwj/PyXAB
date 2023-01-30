@@ -4,9 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Synthetic objectives &mdash; PyXAB 0.0.1 documentation</title>
+  <title>Hierarchical partition &mdash; PyXAB 0.0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -15,11 +16,12 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/code-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="API reference" href="../api/index.html" />
-    <link rel="prev" title="Hierarchical partition" href="feat_functions.html" /> 
+    <link rel="prev" title="Synthetic objectives" href="feat_functions.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,11 +43,15 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="feat_algorithms.html"><em>X</em>-armed bandit algorithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="feat_functions.html">Hierarchical partition</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Synthetic objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feat_functions.html">Synthetic objectives</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hierarchical partition</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">API reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Info:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../team/index.html">PyXAB Development Team</a></li>
 </ul>
 
         </div>
@@ -63,7 +69,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Features</a></li>
-      <li class="breadcrumb-item active">Synthetic objectives</li>
+      <li class="breadcrumb-item active">Hierarchical partition</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/features/feat_partitions.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -73,47 +79,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="synthetic-objectives">
-<h1>Synthetic objectives<a class="headerlink" href="#synthetic-objectives" title="Permalink to this headline"></a></h1>
-<ul class="simple">
-<li><p>Some of these objectives can be found <a class="reference external" href="https://en.wikipedia.org/wiki/Test_functions_for_optimization">here</a></p></li>
-</ul>
+  <section id="hierarchical-partition">
+<h1>Hierarchical partition<a class="headerlink" href="#hierarchical-partition" title="Permalink to this headline"></a></h1>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Objectives</p></th>
-<th class="head"><p>Mathematical Description</p></th>
-<th class="head"><p>Image</p></th>
+<tr class="row-odd"><th class="head"><p>Partition</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Garland.py">Garland</a></p></td>
-<td><p><a href="#id1"><span class="problematic" id="id2">:raw-html-m2r:`&lt;img src=&quot;https://render.githubusercontent.com/render/math?math=f(x) = x(1-x)(4-\sqrt{\mid\sin(60x)\mid})&quot;&gt;`</span></a></p></td>
-<td><p><a href="#id3"><span class="problematic" id="id4">:raw-html-m2r:`&lt;img src=&quot;https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Garland.png&quot; alt=&quot;Garland&quot; width=&quot;100&quot;/&gt;`</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/BinaryPartition.py">BinaryPartition</a></p></td>
+<td><p>Equal-size binary partition of the parameter space, the split dimension is chosen uniform randomly</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/DoubleSine.py">DoubleSine</a></p></td>
-<td><p><a href="#id5"><span class="problematic" id="id6">:raw-html-m2r:`&lt;img src=&quot;https://render.githubusercontent.com/render/math?math=f(x)=s(\frac{1}{2}\log_2 \mid 2x-1\mid)(\mid 2x-1\mid^{-\log_2 \rho_2 } - (2x-1)^{-\log_2 \rho_1 }) - (\mid 2x-1\mid)^{-\log_2 \rho_1 }&quot;&gt;`</span></a></p></td>
-<td><p><a href="#id7"><span class="problematic" id="id8">:raw-html-m2r:`&lt;img src=&quot;https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/DoubleSine.png&quot; alt=&quot;DoubleSine&quot; width=&quot;100&quot;/&gt;`</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/RandomBinaryPartition.py">RandomBinaryPartition</a></p></td>
+<td><p>The same as BinaryPartition but with a randomly chosen split point</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/DifficultFunc.py">DifficultFunc</a></p></td>
-<td><p><a href="#id9"><span class="problematic" id="id10">:raw-html-m2r:`&lt;img src=&quot;https://render.githubusercontent.com/render/math?math=f(x)=s(\log_2 \mid x-0.5\mid)(\sqrt{\mid x-0.5\mid} - (x-0.5)^2) - \sqrt{\mid x-0.5\mid} &quot;&gt;`</span></a></p></td>
-<td><p><a href="#id11"><span class="problematic" id="id12">:raw-html-m2r:`&lt;img src=&quot;https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/DifficultFunc.png&quot; alt=&quot;DifficultFunc&quot; width=&quot;100&quot;/&gt;`</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Ackley.py">Ackley</a></p></td>
-<td><p><a href="#id13"><span class="problematic" id="id14">:raw-html-m2r:`&lt;img src=&quot;https://render.githubusercontent.com/render/math?math=f(x,y) = 20 \exp \left[-0.2 \sqrt{0.5\left(x^{2}-(-y^{2})\right)}\right]-\exp [0.5(\cos 2 \pi x-(-\cos 2 \pi y))]-e-20&quot;&gt;`</span></a></p></td>
-<td><p><a href="#id15"><span class="problematic" id="id16">:raw-html-m2r:`&lt;img src=&quot;https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Ackley.png&quot; alt=&quot;Ackley&quot; width=&quot;100&quot;/&gt;`</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Himmelblau.py">Himmelblau</a></p></td>
-<td><p><a href="#id17"><span class="problematic" id="id18">:raw-html-m2r:`&lt;img src=&quot;https://render.githubusercontent.com/render/math?math=f(x, y)=-\left(x^{2}-(-y)-11\right)^{2}-\left(x-(-y^{2})-7\right)^{2}&quot;&gt;`</span></a></p></td>
-<td><p><a href="#id19"><span class="problematic" id="id20">:raw-html-m2r:`&lt;img src=&quot;https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Himmelblau.png&quot; alt=&quot;Himmelblau&quot; width=&quot;100&quot;/&gt;`</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Rastrigin.py">Rastrigin</a></p></td>
-<td><p><a href="#id21"><span class="problematic" id="id22">:raw-html-m2r:`&lt;img src=&quot;https://render.githubusercontent.com/render/math?math=f(\mathbf{x})= - A n - \sum_{i=1}^{n}\left[-x_{i}^{2} - A \cos \left(2 \pi x_{i}\right)\right]&quot;&gt;`</span></a></p></td>
-<td><p><a href="#id23"><span class="problematic" id="id24">:raw-html-m2r:`&lt;img src=&quot;https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Rastrigin.png&quot; alt=&quot;Rastrigin&quot; width=&quot;100&quot;/&gt;`</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/DimensionPartition.py">DimensionBinaryPartition</a></p></td>
+<td><p>Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d</p></td>
 </tr>
 </tbody>
 </table>
@@ -123,7 +109,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="feat_functions.html" class="btn btn-neutral float-left" title="Hierarchical partition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="feat_functions.html" class="btn btn-neutral float-left" title="Synthetic objectives" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../api/index.html" class="btn btn-neutral float-right" title="API reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -1,14 +1,16 @@
-Hierarchical partition
+Synthetic objectives
 ================================================
+
+
+* Some of these objectives can be found `here <https://en.wikipedia.org/wiki/Test_functions_for_optimization>`_
 
 .. list-table::
    :header-rows: 1
 
-   * - Partition
-     - Description
-   * - `BinaryPartition <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/BinaryPartition.py>`_
-     - Equal-size binary partition of the parameter space, the split dimension is chosen uniform randomly
-   * - `RandomBinaryPartition <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/RandomBinaryPartition.py>`_
-     - The same as BinaryPartition but with a randomly chosen split point
-   * - `DimensionBinaryPartition <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/DimensionPartition.py>`_
-     - Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d
+   * - Objectives
+   * - `Garland <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Garland.py>`_
+   * - `DoubleSine <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/DoubleSine.py>`_
+   * - `DifficultFunc <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/DifficultFunc.py>`_
+   * - `Ackley <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Ackley.py>`_
+   * - `Himmelblau <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Himmelblau.py>`_
+   * - `Rastrigin <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Rastrigin.py>`_
