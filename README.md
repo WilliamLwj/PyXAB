@@ -1,5 +1,5 @@
 
-# PyXAB - Python *X*-Armed Bandit
+# PyXAB - Python *X*-Armed Bandit 
 
 
 <p align="left">
@@ -19,8 +19,14 @@
 
 
 
-Python implementation of different algorithms for *X*-armed bandit problems, also known as continuous-arm bandit (CAB), Lipschitz bandit, 
+PyXAB is a Python open-source library for *X*-armed bandit, also known as continuous-arm bandit (CAB), Lipschitz bandit, 
 global optimization (GO) and bandit-based blackbox optimization problems.
+
+PyXAB includes implementations of different algorithms for *X*-armed bandit, such as [HOO(Bubeck et al., 2011)]((https://jmlr.org/papers/v12/bubeck11a.html) ), 
+[HCT(Azar et al., 2014)]((https://proceedings.mlr.press/v32/azar14.html)), and the most
+recent works [GPO(Shang et al., 2019)]((https://proceedings.mlr.press/v98/xuedong19a.html)) and [VHCT(Li et al, 2021)]((https://arxiv.org/abs/2106.09215)).
+PyXAB also provides the most commonly-used synthetic objective that evaluate the performance of different algorithms such as Garland and DoubleSine.
+
 
 [//]: # ()
 [//]: # (These algorithms rely on the hierarchical partitioning of the parameter space *X*.  &#40;Currently our code only supports continuous and)
@@ -38,6 +44,7 @@ global optimization (GO) and bandit-based blackbox optimization problems.
 ## Quick Links
 
 - [Quick Example](#Quick-Example)
+- [Documentations](#Documentations)
 - [Features](#Features)
   * [*X*-armed bandit algorithms](#X-armed-bandit-algorithms)
   * [Hierarchical partition ](#Hierarchical-partition)
@@ -65,7 +72,9 @@ algo.receive_reward(t, reward)
 
 **More detailed jupyter notebook examples are provided [here](https://github.com/WilliamLwj/PyXAB/blob/main/Jupyter_Examples)**
 
+## Documentations
 
+The most up-to-date documentations for PyXAB can be found [here](https://pyxab.readthedocs.io/)
     
 ## Features:
 
