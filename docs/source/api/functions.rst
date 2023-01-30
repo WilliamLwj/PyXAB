@@ -5,7 +5,7 @@ Synthetic objective functions
 
 Garland
 -----------------------
-.. autoclass:: synthetic_obj.Garland.Garland
+.. autoclass:: PyXAB.synthetic_obj.Garland.Garland
     :members:
     :show-inheritance:
     :inherited-members:
@@ -15,7 +15,7 @@ Garland
 
 DoubleSine
 -----------------------
-.. autoclass:: synthetic_obj.DoubleSine.DoubleSine
+.. autoclass:: PyXAB.synthetic_obj.DoubleSine.DoubleSine
     :members:
     :show-inheritance:
     :inherited-members:
@@ -25,7 +25,7 @@ DoubleSine
 
 HimmelBlau
 -----------------------
-.. autoclass:: synthetic_obj.Himmelblau.Himmelblau
+.. autoclass:: PyXAB.synthetic_obj.Himmelblau.Himmelblau
     :members:
     :show-inheritance:
     :inherited-members:
@@ -35,7 +35,7 @@ HimmelBlau
 
 Ackley
 -----------------------
-.. autoclass:: synthetic_obj.Ackley.Ackley
+.. autoclass:: PyXAB.synthetic_obj.Ackley.Ackley
     :members:
     :show-inheritance:
     :inherited-members:
@@ -45,7 +45,7 @@ Ackley
 
 Rastrigin
 -----------------------
-.. autoclass:: synthetic_obj.Rastrigin.Rastrigin
+.. autoclass:: PyXAB.synthetic_obj.Rastrigin.Rastrigin
     :members:
     :show-inheritance:
     :inherited-members:
