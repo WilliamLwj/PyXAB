@@ -1,10 +1,10 @@
 X-Armed Bandit Algorithms
-========================
+================================================
 
 
 Truncated HOO Algorithm
 -----------------------
-.. autoclass:: PyXAB.algos.HOO
+.. autoclass:: algos.HOO.T_HOO
     :members:
     :show-inheritance:
     :inherited-members:
@@ -15,7 +15,7 @@ Truncated HOO Algorithm
 
 HCT Algorithm
 -----------------------
-.. autoclass:: PyXAB.algos.HCT
+.. autoclass:: algos.HCT.HCT
     :members:
     :show-inheritance:
     :inherited-members:
@@ -25,7 +25,7 @@ HCT Algorithm
 
 POO Algorithm
 -----------------------
-.. autoclass:: PyXAB.algos.POO
+.. autoclass:: algos.POO.POO
     :members:
     :show-inheritance:
     :inherited-members:
@@ -35,7 +35,7 @@ POO Algorithm
 
 GPO Algorithm
 ----------------------
-.. autoclass:: PyXAB.algos.GPO
+.. autoclass:: algos.GPO.GPO
     :members:
     :show-inheritance:
     :inherited-members:
@@ -45,7 +45,7 @@ GPO Algorithm
 
 PCT Algorithm
 ----------------------------
-.. autoclass:: PyXAB.algos.PCT
+.. autoclass:: algos.PCT.PCT
     :members:
     :show-inheritance:
     :inherited-members:
@@ -55,7 +55,7 @@ PCT Algorithm
 
 VHCT Algorithm
 ----------------------------
-.. autoclass:: PyXAB.algos.VHCT
+.. autoclass:: algos.VHCT.VHCT
     :members:
     :show-inheritance:
     :inherited-members:
@@ -67,7 +67,7 @@ VHCT Algorithm
 
 VPCT Algorithm
 ----------------------------
-.. autoclass:: PyXAB.algos.VPCT
+.. autoclass:: algos.VPCT.VPCT
     :members:
     :show-inheritance:
     :inherited-members:

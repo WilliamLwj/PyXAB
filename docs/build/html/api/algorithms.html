@@ -37,30 +37,318 @@
 <h1>X-Armed Bandit Algorithms<a class="headerlink" href="#x-armed-bandit-algorithms" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="truncated-hoo-algorithm">
 <h2>Truncated HOO Algorithm<a class="headerlink" href="#truncated-hoo-algorithm" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="algos.HOO.T_HOO">
+<em class="property">class </em><code class="sig-prename descclassname">algos.HOO.</code><code class="sig-name descname">T_HOO</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nu</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rho</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">rounds</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HOO.T_HOO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyXAB.algos.Algo.Algorithm</span></code></p>
+<dl class="py method">
+<dt id="algos.HOO.T_HOO.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nu</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rho</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">rounds</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HOO.T_HOO.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.HOO.T_HOO.optTraverse">
+<code class="sig-name descname">optTraverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algos.HOO.T_HOO.optTraverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Traverse the exploration tree to find the best path and the best node to pull at this moment.</p>
+<dl class="simple">
+<dt>curr_node: Node</dt><dd><p>The last node selected by the algorithm</p>
+</dd>
+<dt>path: List of Node</dt><dd><p>The best path to traverse the partition selected by the algorithm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.HOO.T_HOO.pull">
+<code class="sig-name descname">pull</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HOO.T_HOO.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to pull a node.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.HOO.T_HOO.receive_reward">
+<code class="sig-name descname">receive_reward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">reward</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HOO.T_HOO.receive_reward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to receive the reward.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <hr class="docutils" />
 <div class="section" id="hct-algorithm">
 <h2>HCT Algorithm<a class="headerlink" href="#hct-algorithm" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="algos.HCT.HCT">
+<em class="property">class </em><code class="sig-prename descclassname">algos.HCT.</code><code class="sig-name descname">HCT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nu</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rho</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HCT.HCT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyXAB.algos.Algo.Algorithm</span></code></p>
+<dl class="py method">
+<dt id="algos.HCT.HCT.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nu</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rho</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HCT.HCT.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.HCT.HCT.optTraverse">
+<code class="sig-name descname">optTraverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algos.HCT.HCT.optTraverse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="algos.HCT.HCT.pull">
+<code class="sig-name descname">pull</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HCT.HCT.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to pull a node.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.HCT.HCT.receive_reward">
+<code class="sig-name descname">receive_reward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">reward</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.HCT.HCT.receive_reward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to receive the reward.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <hr class="docutils" />
 <div class="section" id="poo-algorithm">
 <h2>POO Algorithm<a class="headerlink" href="#poo-algorithm" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="algos.POO.POO">
+<em class="property">class </em><code class="sig-prename descclassname">algos.POO.</code><code class="sig-name descname">POO</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">numax</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rhomax</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">rounds</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">algo</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.POO.POO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyXAB.algos.Algo.Algorithm</span></code></p>
+<dl class="py method">
+<dt id="algos.POO.POO.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">numax</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rhomax</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">rounds</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">algo</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.POO.POO.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.POO.POO.pull">
+<code class="sig-name descname">pull</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.POO.POO.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to pull a node.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.POO.POO.receive_reward">
+<code class="sig-name descname">receive_reward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">reward</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.POO.POO.receive_reward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to receive the reward.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <hr class="docutils" />
 <div class="section" id="gpo-algorithm">
 <h2>GPO Algorithm<a class="headerlink" href="#gpo-algorithm" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="algos.GPO.GPO">
+<em class="property">class </em><code class="sig-prename descclassname">algos.GPO.</code><code class="sig-name descname">GPO</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">numax</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rhomax</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">rounds</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">algo</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.GPO.GPO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyXAB.algos.Algo.Algorithm</span></code></p>
+<dl class="py method">
+<dt id="algos.GPO.GPO.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">numax</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rhomax</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">rounds</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">algo</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.GPO.GPO.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.GPO.GPO.pull">
+<code class="sig-name descname">pull</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.GPO.GPO.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to pull a node.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.GPO.GPO.receive_reward">
+<code class="sig-name descname">receive_reward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">reward</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.GPO.GPO.receive_reward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to receive the reward.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <hr class="docutils" />
 <div class="section" id="pct-algorithm">
 <h2>PCT Algorithm<a class="headerlink" href="#pct-algorithm" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="algos.PCT.PCT">
+<em class="property">class </em><code class="sig-prename descclassname">algos.PCT.</code><code class="sig-name descname">PCT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">numax</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rhomax</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">rounds</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.PCT.PCT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyXAB.algos.Algo.Algorithm</span></code></p>
+<dl class="py method">
+<dt id="algos.PCT.PCT.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">numax</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rhomax</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">rounds</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.PCT.PCT.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.PCT.PCT.pull">
+<code class="sig-name descname">pull</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.PCT.PCT.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to pull a node.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.PCT.PCT.receive_reward">
+<code class="sig-name descname">receive_reward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">reward</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.PCT.PCT.receive_reward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to receive the reward.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <hr class="docutils" />
 <div class="section" id="vhct-algorithm">
 <h2>VHCT Algorithm<a class="headerlink" href="#vhct-algorithm" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="algos.VHCT.VHCT">
+<em class="property">class </em><code class="sig-prename descclassname">algos.VHCT.</code><code class="sig-name descname">VHCT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nu</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rho</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">bound</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VHCT.VHCT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyXAB.algos.Algo.Algorithm</span></code></p>
+<dl class="py method">
+<dt id="algos.VHCT.VHCT.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nu</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rho</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">bound</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VHCT.VHCT.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.VHCT.VHCT.optTraverse">
+<code class="sig-name descname">optTraverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algos.VHCT.VHCT.optTraverse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="algos.VHCT.VHCT.pull">
+<code class="sig-name descname">pull</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VHCT.VHCT.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to pull a node.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.VHCT.VHCT.receive_reward">
+<code class="sig-name descname">receive_reward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">reward</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VHCT.VHCT.receive_reward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to receive the reward.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <hr class="docutils" />
 <div class="section" id="vpct-algorithm">
 <h2>VPCT Algorithm<a class="headerlink" href="#vpct-algorithm" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="algos.VPCT.VPCT">
+<em class="property">class </em><code class="sig-prename descclassname">algos.VPCT.</code><code class="sig-name descname">VPCT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">numax</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rhomax</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">rounds</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VPCT.VPCT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyXAB.algos.Algo.Algorithm</span></code></p>
+<dl class="py method">
+<dt id="algos.VPCT.VPCT.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">numax</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rhomax</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">rounds</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">domain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">partition</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VPCT.VPCT.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.VPCT.VPCT.pull">
+<code class="sig-name descname">pull</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VPCT.VPCT.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to pull a node.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>chosen_point: list</dt><dd><p>The point chosen by the algorithm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="algos.VPCT.VPCT.receive_reward">
+<code class="sig-name descname">receive_reward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">reward</span></em><span class="sig-paren">)</span><a class="headerlink" href="#algos.VPCT.VPCT.receive_reward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every algorithm needs a function to receive the reward.</p>
+<dl class="simple">
+<dt>time: int</dt><dd><p>The time step of the online process.</p>
+</dd>
+<dt>reward: float</dt><dd><p>The (Stochastic) reward of the pulled point</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 

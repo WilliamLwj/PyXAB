@@ -1,10 +1,10 @@
 Popular Synthetic Objective Functions
-==============
+==========================================
 
 
 Garland
 -----------------------
-.. autoclass:: PyXAB.synthetic_obj.Garland
+.. autoclass:: synthetic_obj.Garland.Garland
     :members:
     :show-inheritance:
     :inherited-members:
