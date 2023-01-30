@@ -1,1 +1,1 @@
-__all__ = ["Ackley", "DifficultFunc", "DoubleSine", "Garland", "HimmelBlau", "Rastrigin", "Cexample"]
+__all__ = ["Ackley", "DifficultFunc", "DoubleSine", "Garland", "Himmelblau.py", "Rastrigin", "Cexample"]

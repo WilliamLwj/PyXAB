@@ -18,6 +18,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PyXAB Development Team" href="../team/index.html" />
     <link rel="prev" title="X-Armed Bandit Algorithms" href="algorithms.html" /> 
 </head>
 
@@ -43,10 +44,18 @@
 <li class="toctree-l2"><a class="reference internal" href="algorithms.html">X-Armed Bandit Algorithms</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Popular Synthetic Objective Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#garland">Garland</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#doublesine">DoubleSine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#himmelblau">HimmelBlau</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ackley">Ackley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rastrigin">Rastrigin</a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../team/index.html">PyXAB Development Team</a></li>
 </ul>
 
         </div>
@@ -76,6 +85,7 @@
              
   <section id="popular-synthetic-objective-functions">
 <h1>Popular Synthetic Objective Functions<a class="headerlink" href="#popular-synthetic-objective-functions" title="Permalink to this headline"></a></h1>
+<p>Synthetic objective functions</p>
 <section id="garland">
 <h2>Garland<a class="headerlink" href="#garland" title="Permalink to this headline"></a></h2>
 <dl class="py class">
@@ -90,6 +100,66 @@
 </dd></dl>
 
 </section>
+<hr class="docutils" />
+<section id="doublesine">
+<h2>DoubleSine<a class="headerlink" href="#doublesine" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="synthetic_obj.DoubleSine.DoubleSine">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">synthetic_obj.DoubleSine.</span></span><span class="sig-name descname"><span class="pre">DoubleSine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rho1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#synthetic_obj.DoubleSine.DoubleSine" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyXAB.synthetic_obj.Objective.Objective</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="synthetic_obj.DoubleSine.DoubleSine.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rho1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#synthetic_obj.DoubleSine.DoubleSine.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="himmelblau">
+<h2>HimmelBlau<a class="headerlink" href="#himmelblau" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="synthetic_obj.Himmelblau.Himmelblau">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">synthetic_obj.Himmelblau.</span></span><span class="sig-name descname"><span class="pre">Himmelblau</span></span><a class="headerlink" href="#synthetic_obj.Himmelblau.Himmelblau" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyXAB.synthetic_obj.Objective.Objective</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="synthetic_obj.Himmelblau.Himmelblau.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthetic_obj.Himmelblau.Himmelblau.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="ackley">
+<h2>Ackley<a class="headerlink" href="#ackley" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="synthetic_obj.Ackley.Ackley">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">synthetic_obj.Ackley.</span></span><span class="sig-name descname"><span class="pre">Ackley</span></span><a class="headerlink" href="#synthetic_obj.Ackley.Ackley" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyXAB.synthetic_obj.Objective.Objective</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="synthetic_obj.Ackley.Ackley.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthetic_obj.Ackley.Ackley.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="rastrigin">
+<h2>Rastrigin<a class="headerlink" href="#rastrigin" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="synthetic_obj.Rastrigin.Rastrigin">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">synthetic_obj.Rastrigin.</span></span><span class="sig-name descname"><span class="pre">Rastrigin</span></span><a class="headerlink" href="#synthetic_obj.Rastrigin.Rastrigin" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyXAB.synthetic_obj.Objective.Objective</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="synthetic_obj.Rastrigin.Rastrigin.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthetic_obj.Rastrigin.Rastrigin.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
 </section>
 
 
@@ -97,6 +167,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="algorithms.html" class="btn btn-neutral float-left" title="X-Armed Bandit Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../team/index.html" class="btn btn-neutral float-right" title="PyXAB Development Team" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

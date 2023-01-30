@@ -91,7 +91,7 @@ If you use our package in your research or projects, we kindly ask you to cite o
 .. toctree::
    :maxdepth: 3
    :hidden:
-   :caption: Team:
+   :caption: Additional Info:
 
 
    team/index
