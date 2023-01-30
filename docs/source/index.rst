@@ -86,3 +86,12 @@ If you use our package in your research or projects, we kindly ask you to cite o
 
    features/index
    api/index
+
+
+.. toctree::
+   :maxdepth: 3
+   :hidden:
+   :caption: Team:
+
+
+   team/index
