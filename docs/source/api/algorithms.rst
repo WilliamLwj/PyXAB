@@ -1,6 +1,7 @@
 X-Armed Bandit Algorithms
 ================================================
 
+The API references for X-armed bandit algorithms
 
 Truncated HOO Algorithm
 -----------------------

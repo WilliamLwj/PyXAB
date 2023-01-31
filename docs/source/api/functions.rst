@@ -1,7 +1,8 @@
-Popular Synthetic Objective Functions
+Synthetic Objective Functions
 ==========================================
 
-Synthetic objective functions
+The API references for synthetic objective functions
+
 
 Garland
 -----------------------

@@ -6,7 +6,7 @@ hyperparameter optimization for machine learning models.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Jupyter Notebook Examples:
 
    Jupyter_Examples/HCT_Himmelblau.ipynb
    Jupyter_Examples/VHCT_Landmine.ipynb

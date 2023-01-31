@@ -1,4 +1,4 @@
-Hierarchical partition
+Hierarchical Partition
 ================================================
 
 .. list-table::

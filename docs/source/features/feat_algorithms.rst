@@ -1,5 +1,5 @@
 
-*X*\ -armed bandit algorithms
+*X*\ -Armed Bandit Algorithms
 ================================================
 
 

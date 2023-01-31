@@ -1,4 +1,4 @@
-Synthetic objectives
+Synthetic Objectives
 ================================================
 
 
