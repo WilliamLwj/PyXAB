@@ -72,7 +72,7 @@ algo.receive_reward(t, reward)
 
 ## Documentations
 
-The most up-to-date [documentations]((https://pyxab.readthedocs.io/)) for PyXAB
+The most up-to-date [documentations](https://pyxab.readthedocs.io/) for PyXAB
 
 The [roadmap](https://github.com/users/WilliamLwj/projects/1) for our project    
 
