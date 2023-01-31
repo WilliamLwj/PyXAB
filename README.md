@@ -72,8 +72,10 @@ algo.receive_reward(t, reward)
 
 ## Documentations
 
-The most up-to-date documentations for PyXAB can be found [here](https://pyxab.readthedocs.io/)
-    
+The most up-to-date [documentations]((https://pyxab.readthedocs.io/)) for PyXAB
+
+The [roadmap](https://github.com/users/WilliamLwj/projects/1) for our project    
+
 ## Features:
 
 ### *X*-armed bandit algorithms
