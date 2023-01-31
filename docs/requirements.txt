@@ -1,0 +1,2 @@
+numpy>=1.20.3
+sphinx-panels>=0.6.0

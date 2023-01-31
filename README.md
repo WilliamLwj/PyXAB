@@ -25,7 +25,7 @@ global optimization (GO) and bandit-based blackbox optimization problems.
 PyXAB includes implementations of different algorithms for *X*-armed bandit, such as [HOO(Bubeck et al., 2011)](https://jmlr.org/papers/v12/bubeck11a.html), 
 [HCT(Azar et al., 2014)](https://proceedings.mlr.press/v32/azar14.html), and the most
 recent works [GPO(Shang et al., 2019)](https://proceedings.mlr.press/v98/xuedong19a.html) and [VHCT(Li et al, 2021)](https://arxiv.org/abs/2106.09215).
-PyXAB also provides the most commonly-used synthetic objective that evaluate the performance of different algorithms such as Garland and DoubleSine.
+PyXAB also provides the most commonly-used synthetic objectives to evaluate the performance of different algorithms such as Garland and DoubleSine.
 
 
 [//]: # ()
@@ -70,7 +70,7 @@ reward = target.f(point) + np.random.uniform(-0.1, 0.1) # Uniform noise example
 algo.receive_reward(t, reward)
 ```
 
-**More detailed jupyter notebook examples are provided [here](https://github.com/WilliamLwj/PyXAB/blob/main/Jupyter_Examples)**
+Jupyter notebook examples are provided [here](https://github.com/WilliamLwj/PyXAB/blob/main/Jupyter_Examples)**
 
 ## Documentations
 
