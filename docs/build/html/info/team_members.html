@@ -18,6 +18,7 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,16 +40,26 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../features/index.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/jupyter.html">Jupyter Notebook Examples</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Info:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/feat_algorithms.html"><em>X</em>-armed bandit algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/feat_functions.html">Synthetic objectives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/feat_partitions.html">Hierarchical partition</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/cheatsheet.html">API Cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Info</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">PyXAB Development Team</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#coding">Coding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#advice">Advice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advisory">Advisory</a></li>
 </ul>
 </li>
 </ul>
@@ -69,7 +80,7 @@
       <li><a href="../index.html" class="icon icon-home"></a></li>
       <li class="breadcrumb-item active">PyXAB Development Team</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/team/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/info/team_members.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -77,7 +88,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="pyxab-development-team">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="pyxab-development-team">
 <h1>PyXAB Development Team<a class="headerlink" href="#pyxab-development-team" title="Permalink to this headline"></a></h1>
 <section id="coding">
 <h2>Coding<a class="headerlink" href="#coding" title="Permalink to this headline"></a></h2>
@@ -102,8 +137,8 @@ stream in Computational Applied Mathematics (CAM) and Enrichment Mathematics.</p
 </div>
 </div>
 </section>
-<section id="advice">
-<h2>Advice<a class="headerlink" href="#advice" title="Permalink to this headline"></a></h2>
+<section id="advisory">
+<h2>Advisory<a class="headerlink" href="#advisory" title="Permalink to this headline"></a></h2>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">

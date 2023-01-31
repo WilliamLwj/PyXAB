@@ -70,8 +70,6 @@ reward = target.f(point) + np.random.uniform(-0.1, 0.1) # Uniform noise example
 algo.receive_reward(t, reward)
 ```
 
-Jupyter notebook examples are provided [here](https://github.com/WilliamLwj/PyXAB/blob/main/Jupyter_Examples)**
-
 ## Documentations
 
 The most up-to-date documentations for PyXAB can be found [here](https://pyxab.readthedocs.io/)

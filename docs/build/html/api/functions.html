@@ -18,10 +18,11 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="PyXAB Development Team" href="../team/index.html" />
+    <link rel="next" title="PyXAB Development Team" href="../info/team_members.html" />
     <link rel="prev" title="X-Armed Bandit Algorithms" href="algorithms.html" /> 
 </head>
 
@@ -40,10 +41,20 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/jupyter.html">Jupyter Notebook Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/feat_algorithms.html"><em>X</em>-armed bandit algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/feat_functions.html">Synthetic objectives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/feat_partitions.html">Hierarchical partition</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../features/index.html">Features</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">API Cheatsheet</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="algorithms.html">X-Armed Bandit Algorithms</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Popular Synthetic Objective Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#garland">Garland</a></li>
@@ -56,9 +67,9 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Info:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Additional Info</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../team/index.html">PyXAB Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/team_members.html">PyXAB Development Team</a></li>
 </ul>
 
         </div>
@@ -75,7 +86,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">API reference</a></li>
+          <li class="breadcrumb-item"><a href="index.html">API Reference</a></li>
       <li class="breadcrumb-item active">Popular Synthetic Objective Functions</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/functions.rst.txt" rel="nofollow"> View page source</a>
@@ -86,7 +97,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="popular-synthetic-objective-functions">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="popular-synthetic-objective-functions">
 <h1>Popular Synthetic Objective Functions<a class="headerlink" href="#popular-synthetic-objective-functions" title="Permalink to this headline"></a></h1>
 <p>Synthetic objective functions</p>
 <section id="garland">
@@ -170,7 +205,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="algorithms.html" class="btn btn-neutral float-left" title="X-Armed Bandit Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../team/index.html" class="btn btn-neutral float-right" title="PyXAB Development Team" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../info/team_members.html" class="btn btn-neutral float-right" title="PyXAB Development Team" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,4 +1,4 @@
-API reference
+API Reference
 ==========================
 
 The documentation lists all available functions for each of the implemented classes. This includes inherited functions.

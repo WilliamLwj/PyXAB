@@ -81,17 +81,36 @@ If you use our package in your research or projects, we kindly ask you to cite o
 .. toctree::
    :maxdepth: 3
    :hidden:
-   :caption: Contents:
+   :caption: Getting Started
 
 
-   features/index
+   getting_started/jupyter
+
+
+
+.. toctree::
+   :maxdepth: 3
+   :hidden:
+   :caption: Features
+
+
+   features/feat_algorithms
+   features/feat_functions
+   features/feat_partitions
+
+
+.. toctree::
+   :maxdepth: 3
+   :hidden:
+   :caption: API
+
+   api/cheatsheet
    api/index
 
 
 .. toctree::
    :maxdepth: 3
    :hidden:
-   :caption: Additional Info:
+   :caption: Additional Info
 
-
-   team/index
+   info/team_members

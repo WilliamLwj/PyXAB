@@ -18,10 +18,11 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Features" href="features/index.html" /> 
+    <link rel="next" title="Jupyter Notebook Examples" href="getting_started/jupyter.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,14 +40,24 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="features/index.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/index.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/jupyter.html">Jupyter Notebook Examples</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Info:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="team/index.html">PyXAB Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/feat_algorithms.html"><em>X</em>-armed bandit algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/feat_functions.html">Synthetic objectives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/feat_partitions.html">Hierarchical partition</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/cheatsheet.html">API Cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Info</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="info/team_members.html">PyXAB Development Team</a></li>
 </ul>
 
         </div>
@@ -73,7 +84,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="pyxab-python-x-armed-bandit">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="pyxab-python-x-armed-bandit">
 <h1>PyXAB - Python <em>X</em>-Armed Bandit<a class="headerlink" href="#pyxab-python-x-armed-bandit" title="Permalink to this headline"></a></h1>
 <p align="left">
 <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
@@ -127,6 +162,10 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 </div>
 <div class="toctree-wrapper compound">
 </div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 </section>
 
@@ -134,7 +173,7 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="features/index.html" class="btn btn-neutral float-right" title="Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getting_started/jupyter.html" class="btn btn-neutral float-right" title="Jupyter Notebook Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

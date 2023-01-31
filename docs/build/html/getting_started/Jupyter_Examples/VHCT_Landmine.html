@@ -1,0 +1,3009 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Running the VHCT Algorithm To Tune SVM on the Landmine Dataset &mdash; PyXAB 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="X-armed bandit algorithms" href="../../features/feat_algorithms.html" />
+    <link rel="prev" title="Running the HCT Algorithm on the Normalized Himmelblau Function" href="HCT_Himmelblau.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PyXAB
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../jupyter.html">Jupyter Notebook Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="HCT_Himmelblau.html">Running the HCT Algorithm on the Normalized Himmelblau Function</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Running the VHCT Algorithm To Tune SVM on the Landmine Dataset</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../features/feat_algorithms.html"><em>X</em>-armed bandit algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features/feat_functions.html">Synthetic objectives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features/feat_partitions.html">Hierarchical partition</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/cheatsheet.html">API Cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Info</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../info/team_members.html">PyXAB Development Team</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PyXAB</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../jupyter.html">Jupyter Notebook Examples</a></li>
+      <li class="breadcrumb-item active">Running the VHCT Algorithm To Tune SVM on the Landmine Dataset</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/getting_started/Jupyter_Examples/VHCT_Landmine.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars and line breaks on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+    white-space: pre;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+.jp-RenderedHTMLCommon thead,
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+.jp-RenderedHTMLCommon th,
+div.rendered_html th {
+  font-weight: bold;
+}
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.jp-RenderedHTMLCommon tbody tr:hover,
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Running-the-VHCT-Algorithm-To-Tune-SVM-on-the-Landmine-Dataset">
+<h1>Running the VHCT Algorithm To Tune SVM on the Landmine Dataset<a class="headerlink" href="#Running-the-VHCT-Algorithm-To-Tune-SVM-on-the-Landmine-Dataset" title="Permalink to this headline"></a></h1>
+<p>First of all, the required packages need to be loaded. Note that “import sys” and “sys.path.append(”../”) are not required when writing .py codes.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../&quot;</span><span class="p">)</span> <span class="c1"># go to parent dir</span>
+
+<span class="kn">from</span> <span class="nn">PyXAB.algos</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">PyXAB.partition.BinaryPartition</span> <span class="kn">import</span> <span class="n">BinaryPartition</span>
+<span class="kn">from</span> <span class="nn">PyXAB.utils.plot</span> <span class="kn">import</span> <span class="n">compare_regret</span><span class="p">,</span> <span class="n">compare_regret_withsd</span>
+<span class="kn">from</span> <span class="nn">PyXAB.landmine.landmine_obj</span> <span class="kn">import</span> <span class="n">obj_func_landmine</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<br/></pre></div>
+</div>
+</div>
+<p>Load the dataset, split the dataset into the training set and the testing set. Then define the objective function using the dataset.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">landmine_data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../PyXAB/landmine/landmine_formated_data.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span>
+<span class="n">all_X_train</span><span class="p">,</span> <span class="n">all_Y_train</span><span class="p">,</span> <span class="n">all_X_test</span><span class="p">,</span> <span class="n">all_Y_test</span> <span class="o">=</span> <span class="n">landmine_data</span><span class="p">[</span><span class="s2">&quot;all_X_train&quot;</span><span class="p">],</span> <span class="n">landmine_data</span><span class="p">[</span><span class="s2">&quot;all_Y_train&quot;</span><span class="p">],</span> \
+                                                       <span class="n">landmine_data</span><span class="p">[</span><span class="s2">&quot;all_X_test&quot;</span><span class="p">],</span> <span class="n">landmine_data</span><span class="p">[</span><span class="s2">&quot;all_Y_test&quot;</span><span class="p">]</span>
+
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">all_X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">all_Y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">all_X_test</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">all_Y_test</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">target</span> <span class="o">=</span> <span class="n">obj_func_landmine</span><span class="p">(</span><span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="o">=</span><span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span><span class="o">=</span><span class="n">Y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Define the parameter domain, the partition chosen, the number of rounds, and the number of trial runs</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">domain</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]]</span>
+<span class="n">partition</span> <span class="o">=</span> <span class="n">BinaryPartition</span>
+<span class="n">rounds</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">trials</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<p>Run the algorithm and record the cumulative regret of each round</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">regret_array</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">trials</span><span class="p">):</span>
+
+    <span class="n">algo</span> <span class="o">=</span> <span class="n">VHCT</span><span class="o">.</span><span class="n">VHCT</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">partition</span><span class="o">=</span><span class="n">partition</span><span class="p">)</span>
+    <span class="n">regret_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">regret</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">rounds</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">point</span> <span class="o">=</span> <span class="n">algo</span><span class="o">.</span><span class="n">pull</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">reward</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+        <span class="n">algo</span><span class="o">.</span><span class="n">receive_reward</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">reward</span><span class="p">)</span>
+        <span class="n">inst_regret</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">fmax</span> <span class="o">-</span> <span class="n">reward</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Trial:&#39;</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Round: &#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;Instant Regret: &#39;</span><span class="p">,</span> <span class="n">inst_regret</span><span class="p">)</span>
+        <span class="n">regret</span> <span class="o">+=</span> <span class="n">inst_regret</span>
+        <span class="n">regret_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">regret</span><span class="p">)</span>
+
+    <span class="n">regret_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">regret_list</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Trial: 1 Round:  1 Instant Regret:  0.3575384615384616
+Trial: 1 Round:  2 Instant Regret:  0.3544615384615385
+Trial: 1 Round:  3 Instant Regret:  0.35861538461538467
+Trial: 1 Round:  4 Instant Regret:  0.31938461538461516
+Trial: 1 Round:  5 Instant Regret:  0.3593846153846153
+Trial: 1 Round:  6 Instant Regret:  0.3349230769230769
+Trial: 1 Round:  7 Instant Regret:  0.3349230769230769
+Trial: 1 Round:  8 Instant Regret:  0.3347692307692307
+Trial: 1 Round:  9 Instant Regret:  0.33799999999999997
+Trial: 1 Round:  10 Instant Regret:  0.28230769230769237
+Trial: 1 Round:  11 Instant Regret:  0.36615384615384616
+Trial: 1 Round:  12 Instant Regret:  0.3604615384615384
+Trial: 1 Round:  13 Instant Regret:  0.38523076923076927
+Trial: 1 Round:  14 Instant Regret:  0.34761538461538466
+Trial: 1 Round:  15 Instant Regret:  0.2826153846153847
+Trial: 1 Round:  16 Instant Regret:  0.3378461538461538
+Trial: 1 Round:  17 Instant Regret:  0.3349230769230769
+Trial: 1 Round:  18 Instant Regret:  0.33453846153846145
+Trial: 1 Round:  19 Instant Regret:  0.3349230769230769
+Trial: 1 Round:  20 Instant Regret:  0.3593846153846153
+Trial: 1 Round:  21 Instant Regret:  0.34661538461538466
+Trial: 1 Round:  22 Instant Regret:  0.36615384615384616
+Trial: 1 Round:  23 Instant Regret:  0.35907692307692307
+Trial: 1 Round:  24 Instant Regret:  0.3595384615384616
+Trial: 1 Round:  25 Instant Regret:  0.3915384615384616
+Trial: 1 Round:  26 Instant Regret:  0.31938461538461516
+Trial: 1 Round:  27 Instant Regret:  0.28246153846153854
+Trial: 1 Round:  28 Instant Regret:  0.3046153846153846
+Trial: 1 Round:  29 Instant Regret:  0.21353846153846145
+Trial: 1 Round:  30 Instant Regret:  0.21353846153846145
+Trial: 1 Round:  31 Instant Regret:  0.3046153846153846
+Trial: 1 Round:  32 Instant Regret:  0.21353846153846145
+Trial: 1 Round:  33 Instant Regret:  0.2133846153846154
+Trial: 1 Round:  34 Instant Regret:  0.3347692307692307
+Trial: 1 Round:  35 Instant Regret:  0.3352307692307692
+Trial: 1 Round:  36 Instant Regret:  0.21353846153846145
+Trial: 1 Round:  37 Instant Regret:  0.33799999999999997
+Trial: 1 Round:  38 Instant Regret:  0.3655384615384616
+Trial: 1 Round:  39 Instant Regret:  0.2573846153846153
+Trial: 1 Round:  40 Instant Regret:  0.1792307692307692
+Trial: 1 Round:  41 Instant Regret:  0.18046153846153845
+Trial: 1 Round:  42 Instant Regret:  0.2573846153846153
+Trial: 1 Round:  43 Instant Regret:  0.1772307692307693
+Trial: 1 Round:  44 Instant Regret:  0.17953846153846154
+Trial: 1 Round:  45 Instant Regret:  0.17999999999999994
+Trial: 1 Round:  46 Instant Regret:  0.2573846153846153
+Trial: 1 Round:  47 Instant Regret:  0.18046153846153845
+Trial: 1 Round:  48 Instant Regret:  0.17892307692307696
+Trial: 1 Round:  49 Instant Regret:  0.36030769230769233
+Trial: 1 Round:  50 Instant Regret:  0.36830769230769234
+Trial: 1 Round:  51 Instant Regret:  0.17999999999999994
+Trial: 1 Round:  52 Instant Regret:  0.3046153846153846
+Trial: 1 Round:  53 Instant Regret:  0.17999999999999994
+Trial: 1 Round:  54 Instant Regret:  0.34323076923076923
+Trial: 1 Round:  55 Instant Regret:  0.30107692307692313
+Trial: 1 Round:  56 Instant Regret:  0.30107692307692313
+Trial: 1 Round:  57 Instant Regret:  0.34323076923076923
+Trial: 1 Round:  58 Instant Regret:  0.30107692307692313
+Trial: 1 Round:  59 Instant Regret:  0.3433846153846154
+Trial: 1 Round:  60 Instant Regret:  0.3081538461538462
+Trial: 1 Round:  61 Instant Regret:  0.3081538461538462
+Trial: 1 Round:  62 Instant Regret:  0.34307692307692306
+Trial: 1 Round:  63 Instant Regret:  0.30800000000000005
+Trial: 1 Round:  64 Instant Regret:  0.17999999999999994
+Trial: 1 Round:  65 Instant Regret:  0.34261538461538465
+Trial: 1 Round:  66 Instant Regret:  0.3298461538461539
+Trial: 1 Round:  67 Instant Regret:  0.3298461538461539
+Trial: 1 Round:  68 Instant Regret:  0.3420000000000001
+Trial: 1 Round:  69 Instant Regret:  0.32907692307692304
+Trial: 1 Round:  70 Instant Regret:  0.21369230769230763
+Trial: 1 Round:  71 Instant Regret:  0.1801538461538461
+Trial: 1 Round:  72 Instant Regret:  0.19200000000000006
+Trial: 1 Round:  73 Instant Regret:  0.17415384615384621
+Trial: 1 Round:  74 Instant Regret:  0.1732307692307693
+Trial: 1 Round:  75 Instant Regret:  0.1916923076923076
+Trial: 1 Round:  76 Instant Regret:  0.17338461538461536
+Trial: 1 Round:  77 Instant Regret:  0.1927692307692308
+Trial: 1 Round:  78 Instant Regret:  0.17400000000000004
+Trial: 1 Round:  79 Instant Regret:  0.1927692307692308
+Trial: 1 Round:  80 Instant Regret:  0.1732307692307693
+Trial: 1 Round:  81 Instant Regret:  0.17492307692307696
+Trial: 1 Round:  82 Instant Regret:  0.1918461538461539
+Trial: 1 Round:  83 Instant Regret:  0.17353846153846153
+Trial: 1 Round:  84 Instant Regret:  0.1761538461538461
+Trial: 1 Round:  85 Instant Regret:  0.19323076923076932
+Trial: 1 Round:  86 Instant Regret:  0.17446153846153845
+Trial: 1 Round:  87 Instant Regret:  0.39430769230769225
+Trial: 1 Round:  88 Instant Regret:  0.17446153846153845
+Trial: 1 Round:  89 Instant Regret:  0.19246153846153846
+Trial: 1 Round:  90 Instant Regret:  0.34261538461538465
+Trial: 1 Round:  91 Instant Regret:  0.17353846153846153
+Trial: 1 Round:  92 Instant Regret:  0.1732307692307693
+Trial: 1 Round:  93 Instant Regret:  0.2573846153846153
+Trial: 1 Round:  94 Instant Regret:  0.1918461538461539
+Trial: 1 Round:  95 Instant Regret:  0.1741538461538461
+Trial: 1 Round:  96 Instant Regret:  0.3513076923076923
+Trial: 1 Round:  97 Instant Regret:  0.35461538461538467
+Trial: 1 Round:  98 Instant Regret:  0.35023076923076923
+Trial: 1 Round:  99 Instant Regret:  0.3589230769230769
+Trial: 1 Round:  100 Instant Regret:  0.1736923076923077
+Trial: 1 Round:  101 Instant Regret:  0.35107692307692306
+Trial: 1 Round:  102 Instant Regret:  0.1756923076923077
+Trial: 1 Round:  103 Instant Regret:  0.19369230769230772
+Trial: 1 Round:  104 Instant Regret:  0.17384615384615387
+Trial: 1 Round:  105 Instant Regret:  0.34307692307692306
+Trial: 1 Round:  106 Instant Regret:  0.34323076923076923
+Trial: 1 Round:  107 Instant Regret:  0.17430769230769227
+Trial: 1 Round:  108 Instant Regret:  0.37230769230769234
+Trial: 1 Round:  109 Instant Regret:  0.3503076923076923
+Trial: 1 Round:  110 Instant Regret:  0.35061538461538466
+Trial: 1 Round:  111 Instant Regret:  0.39630769230769225
+Trial: 1 Round:  112 Instant Regret:  0.377
+Trial: 1 Round:  113 Instant Regret:  0.1732307692307693
+Trial: 1 Round:  114 Instant Regret:  0.17307692307692313
+Trial: 1 Round:  115 Instant Regret:  0.35415384615384626
+Trial: 1 Round:  116 Instant Regret:  0.17538461538461547
+Trial: 1 Round:  117 Instant Regret:  0.19307692307692315
+Trial: 1 Round:  118 Instant Regret:  0.17415384615384621
+Trial: 1 Round:  119 Instant Regret:  0.30107692307692313
+Trial: 1 Round:  120 Instant Regret:  0.17538461538461536
+Trial: 1 Round:  121 Instant Regret:  0.39092307692307693
+Trial: 1 Round:  122 Instant Regret:  0.357
+Trial: 1 Round:  123 Instant Regret:  0.34776923076923083
+Trial: 1 Round:  124 Instant Regret:  0.3856153846153846
+Trial: 1 Round:  125 Instant Regret:  0.34769230769230774
+Trial: 1 Round:  126 Instant Regret:  0.17415384615384621
+Trial: 1 Round:  127 Instant Regret:  0.1646153846153846
+Trial: 1 Round:  128 Instant Regret:  0.19661538461538464
+Trial: 1 Round:  129 Instant Regret:  0.3046153846153846
+Trial: 1 Round:  130 Instant Regret:  0.3081538461538462
+Trial: 1 Round:  131 Instant Regret:  0.17999999999999994
+Trial: 1 Round:  132 Instant Regret:  0.17600000000000005
+Trial: 1 Round:  133 Instant Regret:  0.1752307692307693
+Trial: 1 Round:  134 Instant Regret:  0.1666153846153846
+Trial: 1 Round:  135 Instant Regret:  0.19523076923076932
+Trial: 1 Round:  136 Instant Regret:  0.16538461538461535
+Trial: 1 Round:  137 Instant Regret:  0.1958461538461539
+Trial: 1 Round:  138 Instant Regret:  0.1656923076923077
+Trial: 1 Round:  139 Instant Regret:  0.16553846153846152
+Trial: 1 Round:  140 Instant Regret:  0.19523076923076932
+Trial: 1 Round:  141 Instant Regret:  0.1672307692307693
+Trial: 1 Round:  142 Instant Regret:  0.16599999999999993
+Trial: 1 Round:  143 Instant Regret:  0.1956923076923076
+Trial: 1 Round:  144 Instant Regret:  0.16538461538461535
+Trial: 1 Round:  145 Instant Regret:  0.16507692307692312
+Trial: 1 Round:  146 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  147 Instant Regret:  0.19646153846153847
+Trial: 1 Round:  148 Instant Regret:  0.16476923076923078
+Trial: 1 Round:  149 Instant Regret:  0.1636923076923077
+Trial: 1 Round:  150 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  151 Instant Regret:  0.16630769230769227
+Trial: 1 Round:  152 Instant Regret:  0.1958461538461539
+Trial: 1 Round:  153 Instant Regret:  0.16584615384615387
+Trial: 1 Round:  154 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  155 Instant Regret:  0.16584615384615387
+Trial: 1 Round:  156 Instant Regret:  0.16430769230769227
+Trial: 1 Round:  157 Instant Regret:  0.16476923076923078
+Trial: 1 Round:  158 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  159 Instant Regret:  0.1958461538461539
+Trial: 1 Round:  160 Instant Regret:  0.16492307692307695
+Trial: 1 Round:  161 Instant Regret:  0.1656923076923077
+Trial: 1 Round:  162 Instant Regret:  0.1646153846153846
+Trial: 1 Round:  163 Instant Regret:  0.16584615384615387
+Trial: 1 Round:  164 Instant Regret:  0.16507692307692312
+Trial: 1 Round:  165 Instant Regret:  0.1661538461538461
+Trial: 1 Round:  166 Instant Regret:  0.16584615384615387
+Trial: 1 Round:  167 Instant Regret:  0.16507692307692312
+Trial: 1 Round:  168 Instant Regret:  0.19169230769230772
+Trial: 1 Round:  169 Instant Regret:  0.1646153846153846
+Trial: 1 Round:  170 Instant Regret:  0.19600000000000006
+Trial: 1 Round:  171 Instant Regret:  0.19369230769230772
+Trial: 1 Round:  172 Instant Regret:  0.1672307692307693
+Trial: 1 Round:  173 Instant Regret:  0.1646153846153846
+Trial: 1 Round:  174 Instant Regret:  0.16538461538461535
+Trial: 1 Round:  175 Instant Regret:  0.16538461538461535
+Trial: 1 Round:  176 Instant Regret:  0.1646153846153846
+Trial: 1 Round:  177 Instant Regret:  0.16584615384615387
+Trial: 1 Round:  178 Instant Regret:  0.16476923076923078
+Trial: 1 Round:  179 Instant Regret:  0.2573846153846153
+Trial: 1 Round:  180 Instant Regret:  0.16476923076923078
+Trial: 1 Round:  181 Instant Regret:  0.19399999999999995
+Trial: 1 Round:  182 Instant Regret:  0.16692307692307695
+Trial: 1 Round:  183 Instant Regret:  0.1641538461538461
+Trial: 1 Round:  184 Instant Regret:  0.16630769230769227
+Trial: 1 Round:  185 Instant Regret:  0.16430769230769227
+Trial: 1 Round:  186 Instant Regret:  0.1656923076923077
+Trial: 1 Round:  187 Instant Regret:  0.16538461538461535
+Trial: 1 Round:  188 Instant Regret:  0.16399999999999992
+Trial: 1 Round:  189 Instant Regret:  0.16476923076923078
+Trial: 1 Round:  190 Instant Regret:  0.1661538461538462
+Trial: 1 Round:  191 Instant Regret:  0.19600000000000006
+Trial: 1 Round:  192 Instant Regret:  0.1646153846153846
+Trial: 1 Round:  193 Instant Regret:  0.16538461538461535
+Trial: 1 Round:  194 Instant Regret:  0.16584615384615387
+Trial: 1 Round:  195 Instant Regret:  0.1923076923076923
+Trial: 1 Round:  196 Instant Regret:  0.16492307692307695
+Trial: 1 Round:  197 Instant Regret:  0.1646153846153846
+Trial: 1 Round:  198 Instant Regret:  0.1652307692307693
+Trial: 1 Round:  199 Instant Regret:  0.16399999999999992
+Trial: 1 Round:  200 Instant Regret:  0.1652307692307693
+Trial: 1 Round:  201 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  202 Instant Regret:  0.22030769230769232
+Trial: 1 Round:  203 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  204 Instant Regret:  0.22153846153846157
+Trial: 1 Round:  205 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  206 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  207 Instant Regret:  0.22123076923076923
+Trial: 1 Round:  208 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  209 Instant Regret:  0.16153846153846152
+Trial: 1 Round:  210 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  211 Instant Regret:  0.22030769230769232
+Trial: 1 Round:  212 Instant Regret:  0.16076923076923078
+Trial: 1 Round:  213 Instant Regret:  0.16076923076923078
+Trial: 1 Round:  214 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  215 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  216 Instant Regret:  0.16030769230769237
+Trial: 1 Round:  217 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  218 Instant Regret:  0.16000000000000003
+Trial: 1 Round:  219 Instant Regret:  0.1601538461538461
+Trial: 1 Round:  220 Instant Regret:  0.22123076923076923
+Trial: 1 Round:  221 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  222 Instant Regret:  0.16153846153846152
+Trial: 1 Round:  223 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  224 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  225 Instant Regret:  0.1601538461538461
+Trial: 1 Round:  226 Instant Regret:  0.16076923076923078
+Trial: 1 Round:  227 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  228 Instant Regret:  0.16153846153846152
+Trial: 1 Round:  229 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  230 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  231 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  232 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  233 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  234 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  235 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  236 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  237 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  238 Instant Regret:  0.16107692307692312
+Trial: 1 Round:  239 Instant Regret:  0.16200000000000003
+Trial: 1 Round:  240 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  241 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  242 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  243 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  244 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  245 Instant Regret:  0.16046153846153843
+Trial: 1 Round:  246 Instant Regret:  0.16076923076923078
+Trial: 1 Round:  247 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  248 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  249 Instant Regret:  0.16030769230769237
+Trial: 1 Round:  250 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  251 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  252 Instant Regret:  0.16138461538461535
+Trial: 1 Round:  253 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  254 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  255 Instant Regret:  0.2213846153846154
+Trial: 1 Round:  256 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  257 Instant Regret:  0.18030769230769228
+Trial: 1 Round:  258 Instant Regret:  0.1747692307692308
+Trial: 1 Round:  259 Instant Regret:  0.17276923076923079
+Trial: 1 Round:  260 Instant Regret:  0.1646153846153846
+Trial: 1 Round:  261 Instant Regret:  0.1646153846153846
+Trial: 1 Round:  262 Instant Regret:  0.16584615384615387
+Trial: 1 Round:  263 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  264 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  265 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  266 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  267 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  268 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  269 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  270 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  271 Instant Regret:  0.15984615384615386
+Trial: 1 Round:  272 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  273 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  274 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  275 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  276 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  277 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  278 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  279 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  280 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  281 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  282 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  283 Instant Regret:  0.16076923076923078
+Trial: 1 Round:  284 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  285 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  286 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  287 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  288 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  289 Instant Regret:  0.16030769230769226
+Trial: 1 Round:  290 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  291 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  292 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  293 Instant Regret:  0.1927692307692308
+Trial: 1 Round:  294 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  295 Instant Regret:  0.19307692307692315
+Trial: 1 Round:  296 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  297 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  298 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  299 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  300 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  301 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  302 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  303 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  304 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  305 Instant Regret:  0.16030769230769226
+Trial: 1 Round:  306 Instant Regret:  0.1596923076923077
+Trial: 1 Round:  307 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  308 Instant Regret:  0.16030769230769226
+Trial: 1 Round:  309 Instant Regret:  0.16030769230769226
+Trial: 1 Round:  310 Instant Regret:  0.16000000000000003
+Trial: 1 Round:  311 Instant Regret:  0.1601538461538461
+Trial: 1 Round:  312 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  313 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  314 Instant Regret:  0.16000000000000003
+Trial: 1 Round:  315 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  316 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  317 Instant Regret:  0.16000000000000003
+Trial: 1 Round:  318 Instant Regret:  0.16000000000000003
+Trial: 1 Round:  319 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  320 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  321 Instant Regret:  0.16030769230769226
+Trial: 1 Round:  322 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  323 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  324 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  325 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  326 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  327 Instant Regret:  0.19615384615384612
+Trial: 1 Round:  328 Instant Regret:  0.1596923076923078
+Trial: 1 Round:  329 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  330 Instant Regret:  0.16107692307692312
+Trial: 1 Round:  331 Instant Regret:  0.16000000000000003
+Trial: 1 Round:  332 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  333 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  334 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  335 Instant Regret:  0.1927692307692308
+Trial: 1 Round:  336 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  337 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  338 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  339 Instant Regret:  0.16076923076923078
+Trial: 1 Round:  340 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  341 Instant Regret:  0.16030769230769237
+Trial: 1 Round:  342 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  343 Instant Regret:  0.16030769230769237
+Trial: 1 Round:  344 Instant Regret:  0.16092307692307695
+Trial: 1 Round:  345 Instant Regret:  0.1606153846153846
+Trial: 1 Round:  346 Instant Regret:  0.1661538461538462
+Trial: 1 Round:  347 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  348 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  349 Instant Regret:  0.16738461538461546
+Trial: 1 Round:  350 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  351 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  352 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  353 Instant Regret:  0.16538461538461546
+Trial: 1 Round:  354 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  355 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  356 Instant Regret:  0.15384615384615385
+Trial: 1 Round:  357 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  358 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  359 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  360 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  361 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  362 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  363 Instant Regret:  0.1661538461538462
+Trial: 1 Round:  364 Instant Regret:  0.15446153846153843
+Trial: 1 Round:  365 Instant Regret:  0.16523076923076918
+Trial: 1 Round:  366 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  367 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  368 Instant Regret:  0.16584615384615387
+Trial: 1 Round:  369 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  370 Instant Regret:  0.15476923076923077
+Trial: 1 Round:  371 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  372 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  373 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  374 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  375 Instant Regret:  0.1561538461538462
+Trial: 1 Round:  376 Instant Regret:  0.15600000000000003
+Trial: 1 Round:  377 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  378 Instant Regret:  0.1656923076923077
+Trial: 1 Round:  379 Instant Regret:  0.15584615384615386
+Trial: 1 Round:  380 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  381 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  382 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  383 Instant Regret:  0.15476923076923077
+Trial: 1 Round:  384 Instant Regret:  0.15584615384615386
+Trial: 1 Round:  385 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  386 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  387 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  388 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  389 Instant Regret:  0.16507692307692312
+Trial: 1 Round:  390 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  391 Instant Regret:  0.15584615384615386
+Trial: 1 Round:  392 Instant Regret:  0.15523076923076928
+Trial: 1 Round:  393 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  394 Instant Regret:  0.16692307692307695
+Trial: 1 Round:  395 Instant Regret:  0.1541538461538462
+Trial: 1 Round:  396 Instant Regret:  0.15446153846153843
+Trial: 1 Round:  397 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  398 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  399 Instant Regret:  0.16553846153846152
+Trial: 1 Round:  400 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  401 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  402 Instant Regret:  0.15476923076923077
+Trial: 1 Round:  403 Instant Regret:  0.15384615384615385
+Trial: 1 Round:  404 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  405 Instant Regret:  0.1541538461538462
+Trial: 1 Round:  406 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  407 Instant Regret:  0.1535384615384615
+Trial: 1 Round:  408 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  409 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  410 Instant Regret:  0.16692307692307695
+Trial: 1 Round:  411 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  412 Instant Regret:  0.15338461538461545
+Trial: 1 Round:  413 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  414 Instant Regret:  0.15584615384615386
+Trial: 1 Round:  415 Instant Regret:  0.15553846153846163
+Trial: 1 Round:  416 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  417 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  418 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  419 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  420 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  421 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  422 Instant Regret:  0.1561538461538462
+Trial: 1 Round:  423 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  424 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  425 Instant Regret:  0.16738461538461546
+Trial: 1 Round:  426 Instant Regret:  0.15384615384615385
+Trial: 1 Round:  427 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  428 Instant Regret:  0.15476923076923077
+Trial: 1 Round:  429 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  430 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  431 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  432 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  433 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  434 Instant Regret:  0.1661538461538461
+Trial: 1 Round:  435 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  436 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  437 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  438 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  439 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  440 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  441 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  442 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  443 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  444 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  445 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  446 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  447 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  448 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  449 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  450 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  451 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  452 Instant Regret:  0.15553846153846163
+Trial: 1 Round:  453 Instant Regret:  0.15476923076923077
+Trial: 1 Round:  454 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  455 Instant Regret:  0.15415384615384609
+Trial: 1 Round:  456 Instant Regret:  0.16553846153846152
+Trial: 1 Round:  457 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  458 Instant Regret:  0.1561538461538462
+Trial: 1 Round:  459 Instant Regret:  0.15430769230769237
+Trial: 1 Round:  460 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  461 Instant Regret:  0.1561538461538462
+Trial: 1 Round:  462 Instant Regret:  0.15369230769230768
+Trial: 1 Round:  463 Instant Regret:  0.1541538461538462
+Trial: 1 Round:  464 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  465 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  466 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  467 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  468 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  469 Instant Regret:  0.16553846153846152
+Trial: 1 Round:  470 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  471 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  472 Instant Regret:  0.15584615384615386
+Trial: 1 Round:  473 Instant Regret:  0.1535384615384615
+Trial: 1 Round:  474 Instant Regret:  0.15523076923076928
+Trial: 1 Round:  475 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  476 Instant Regret:  0.15553846153846163
+Trial: 1 Round:  477 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  478 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  479 Instant Regret:  0.15446153846153843
+Trial: 1 Round:  480 Instant Regret:  0.15553846153846163
+Trial: 1 Round:  481 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  482 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  483 Instant Regret:  0.15292307692307694
+Trial: 1 Round:  484 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  485 Instant Regret:  0.16600000000000004
+Trial: 1 Round:  486 Instant Regret:  0.15553846153846163
+Trial: 1 Round:  487 Instant Regret:  0.15600000000000003
+Trial: 1 Round:  488 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  489 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  490 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  491 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  492 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  493 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  494 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  495 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  496 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  497 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  498 Instant Regret:  0.15584615384615386
+Trial: 1 Round:  499 Instant Regret:  0.1546153846153846
+Trial: 1 Round:  500 Instant Regret:  0.1546153846153846
+Trial: 2 Round:  1 Instant Regret:  0.3575384615384616
+Trial: 2 Round:  2 Instant Regret:  0.35476923076923084
+Trial: 2 Round:  3 Instant Regret:  0.35876923076923073
+Trial: 2 Round:  4 Instant Regret:  0.31938461538461516
+Trial: 2 Round:  5 Instant Regret:  0.3595384615384616
+Trial: 2 Round:  6 Instant Regret:  0.3349230769230769
+Trial: 2 Round:  7 Instant Regret:  0.3433846153846154
+Trial: 2 Round:  8 Instant Regret:  0.30492307692307696
+Trial: 2 Round:  9 Instant Regret:  0.3278461538461539
+Trial: 2 Round:  10 Instant Regret:  0.31138461538461526
+Trial: 2 Round:  11 Instant Regret:  0.404
+Trial: 2 Round:  12 Instant Regret:  0.34553846153846157
+Trial: 2 Round:  13 Instant Regret:  0.3901538461538461
+Trial: 2 Round:  14 Instant Regret:  0.3468461538461538
+Trial: 2 Round:  15 Instant Regret:  0.31138461538461526
+Trial: 2 Round:  16 Instant Regret:  0.30492307692307696
+Trial: 2 Round:  17 Instant Regret:  0.31938461538461516
+Trial: 2 Round:  18 Instant Regret:  0.3278461538461539
+Trial: 2 Round:  19 Instant Regret:  0.3349230769230769
+Trial: 2 Round:  20 Instant Regret:  0.3433846153846154
+Trial: 2 Round:  21 Instant Regret:  0.3595384615384616
+Trial: 2 Round:  22 Instant Regret:  0.3473846153846154
+Trial: 2 Round:  23 Instant Regret:  0.3595384615384616
+Trial: 2 Round:  24 Instant Regret:  0.3464615384615385
+Trial: 2 Round:  25 Instant Regret:  0.36769230769230776
+Trial: 2 Round:  26 Instant Regret:  0.38676923076923075
+Trial: 2 Round:  27 Instant Regret:  0.30492307692307696
+Trial: 2 Round:  28 Instant Regret:  0.31138461538461526
+Trial: 2 Round:  29 Instant Regret:  0.3278461538461539
+Trial: 2 Round:  30 Instant Regret:  0.34323076923076923
+Trial: 2 Round:  31 Instant Regret:  0.3794615384615385
+Trial: 2 Round:  32 Instant Regret:  0.3650769230769231
+Trial: 2 Round:  33 Instant Regret:  0.32953846153846156
+Trial: 2 Round:  34 Instant Regret:  0.21953846153846146
+Trial: 2 Round:  35 Instant Regret:  0.21969230769230763
+Trial: 2 Round:  36 Instant Regret:  0.32953846153846156
+Trial: 2 Round:  37 Instant Regret:  0.21953846153846146
+Trial: 2 Round:  38 Instant Regret:  0.21953846153846146
+Trial: 2 Round:  39 Instant Regret:  0.21953846153846146
+Trial: 2 Round:  40 Instant Regret:  0.316923076923077
+Trial: 2 Round:  41 Instant Regret:  0.3116923076923078
+Trial: 2 Round:  42 Instant Regret:  0.3116923076923078
+Trial: 2 Round:  43 Instant Regret:  0.316923076923077
+Trial: 2 Round:  44 Instant Regret:  0.27292307692307693
+Trial: 2 Round:  45 Instant Regret:  0.1752307692307692
+Trial: 2 Round:  46 Instant Regret:  0.17584615384615376
+Trial: 2 Round:  47 Instant Regret:  0.27292307692307693
+Trial: 2 Round:  48 Instant Regret:  0.1752307692307692
+Trial: 2 Round:  49 Instant Regret:  0.1767692307692308
+Trial: 2 Round:  50 Instant Regret:  0.17630769230769228
+Trial: 2 Round:  51 Instant Regret:  0.17307692307692313
+Trial: 2 Round:  52 Instant Regret:  0.17584615384615376
+Trial: 2 Round:  53 Instant Regret:  0.27292307692307693
+Trial: 2 Round:  54 Instant Regret:  0.17399999999999993
+Trial: 2 Round:  55 Instant Regret:  0.3116923076923078
+Trial: 2 Round:  56 Instant Regret:  0.17584615384615376
+Trial: 2 Round:  57 Instant Regret:  0.17630769230769228
+Trial: 2 Round:  58 Instant Regret:  0.316923076923077
+Trial: 2 Round:  59 Instant Regret:  0.32969230769230773
+Trial: 2 Round:  60 Instant Regret:  0.3236923076923077
+Trial: 2 Round:  61 Instant Regret:  0.3236923076923077
+Trial: 2 Round:  62 Instant Regret:  0.32969230769230773
+Trial: 2 Round:  63 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  64 Instant Regret:  0.1732307692307693
+Trial: 2 Round:  65 Instant Regret:  0.3914615384615385
+Trial: 2 Round:  66 Instant Regret:  0.21953846153846146
+Trial: 2 Round:  67 Instant Regret:  0.17230769230769227
+Trial: 2 Round:  68 Instant Regret:  0.17230769230769227
+Trial: 2 Round:  69 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  70 Instant Regret:  0.1721538461538461
+Trial: 2 Round:  71 Instant Regret:  0.17507692307692302
+Trial: 2 Round:  72 Instant Regret:  0.1732307692307693
+Trial: 2 Round:  73 Instant Regret:  0.17492307692307685
+Trial: 2 Round:  74 Instant Regret:  0.1712307692307693
+Trial: 2 Round:  75 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  76 Instant Regret:  0.17292307692307696
+Trial: 2 Round:  77 Instant Regret:  0.17507692307692302
+Trial: 2 Round:  78 Instant Regret:  0.17384615384615387
+Trial: 2 Round:  79 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  80 Instant Regret:  0.17184615384615387
+Trial: 2 Round:  81 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  82 Instant Regret:  0.17292307692307696
+Trial: 2 Round:  83 Instant Regret:  0.3238461538461539
+Trial: 2 Round:  84 Instant Regret:  0.1756923076923076
+Trial: 2 Round:  85 Instant Regret:  0.17307692307692313
+Trial: 2 Round:  86 Instant Regret:  0.346923076923077
+Trial: 2 Round:  87 Instant Regret:  0.3392307692307692
+Trial: 2 Round:  88 Instant Regret:  0.3389230769230769
+Trial: 2 Round:  89 Instant Regret:  0.346923076923077
+Trial: 2 Round:  90 Instant Regret:  0.3392307692307692
+Trial: 2 Round:  91 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  92 Instant Regret:  0.32953846153846156
+Trial: 2 Round:  93 Instant Regret:  0.32969230769230773
+Trial: 2 Round:  94 Instant Regret:  0.17446153846153845
+Trial: 2 Round:  95 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  96 Instant Regret:  0.4135384615384615
+Trial: 2 Round:  97 Instant Regret:  0.17230769230769227
+Trial: 2 Round:  98 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  99 Instant Regret:  0.17292307692307696
+Trial: 2 Round:  100 Instant Regret:  0.34707692307692306
+Trial: 2 Round:  101 Instant Regret:  0.35061538461538455
+Trial: 2 Round:  102 Instant Regret:  0.3549230769230769
+Trial: 2 Round:  103 Instant Regret:  0.3513076923076923
+Trial: 2 Round:  104 Instant Regret:  0.3553846153846154
+Trial: 2 Round:  105 Instant Regret:  0.17353846153846153
+Trial: 2 Round:  106 Instant Regret:  0.17446153846153845
+Trial: 2 Round:  107 Instant Regret:  0.17292307692307696
+Trial: 2 Round:  108 Instant Regret:  0.1756923076923076
+Trial: 2 Round:  109 Instant Regret:  0.3504615384615385
+Trial: 2 Round:  110 Instant Regret:  0.1741538461538461
+Trial: 2 Round:  111 Instant Regret:  0.3679999999999999
+Trial: 2 Round:  112 Instant Regret:  0.35507692307692307
+Trial: 2 Round:  113 Instant Regret:  0.3538461538461539
+Trial: 2 Round:  114 Instant Regret:  0.3503846153846155
+Trial: 2 Round:  115 Instant Regret:  0.1772307692307692
+Trial: 2 Round:  116 Instant Regret:  0.17246153846153844
+Trial: 2 Round:  117 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  118 Instant Regret:  0.17307692307692313
+Trial: 2 Round:  119 Instant Regret:  0.3544615384615385
+Trial: 2 Round:  120 Instant Regret:  0.3553846153846154
+Trial: 2 Round:  121 Instant Regret:  0.17553846153846142
+Trial: 2 Round:  122 Instant Regret:  0.17261538461538461
+Trial: 2 Round:  123 Instant Regret:  0.17261538461538461
+Trial: 2 Round:  124 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  125 Instant Regret:  0.1721538461538461
+Trial: 2 Round:  126 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  127 Instant Regret:  0.17292307692307696
+Trial: 2 Round:  128 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  129 Instant Regret:  0.27292307692307693
+Trial: 2 Round:  130 Instant Regret:  0.17584615384615376
+Trial: 2 Round:  131 Instant Regret:  0.17184615384615387
+Trial: 2 Round:  132 Instant Regret:  0.1741538461538461
+Trial: 2 Round:  133 Instant Regret:  0.17446153846153845
+Trial: 2 Round:  134 Instant Regret:  0.3503076923076923
+Trial: 2 Round:  135 Instant Regret:  0.17599999999999993
+Trial: 2 Round:  136 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  137 Instant Regret:  0.20015384615384613
+Trial: 2 Round:  138 Instant Regret:  0.15538461538461534
+Trial: 2 Round:  139 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  140 Instant Regret:  0.1998461538461539
+Trial: 2 Round:  141 Instant Regret:  0.15630769230769226
+Trial: 2 Round:  142 Instant Regret:  0.20015384615384613
+Trial: 2 Round:  143 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  144 Instant Regret:  0.15538461538461534
+Trial: 2 Round:  145 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  146 Instant Regret:  0.20046153846153847
+Trial: 2 Round:  147 Instant Regret:  0.15630769230769226
+Trial: 2 Round:  148 Instant Regret:  0.15538461538461534
+Trial: 2 Round:  149 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  150 Instant Regret:  0.2012307692307692
+Trial: 2 Round:  151 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  152 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  153 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  154 Instant Regret:  0.15538461538461545
+Trial: 2 Round:  155 Instant Regret:  0.1561538461538462
+Trial: 2 Round:  156 Instant Regret:  0.15569230769230769
+Trial: 2 Round:  157 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  158 Instant Regret:  0.19984615384615378
+Trial: 2 Round:  159 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  160 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  161 Instant Regret:  0.15584615384615386
+Trial: 2 Round:  162 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  163 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  164 Instant Regret:  0.1561538461538462
+Trial: 2 Round:  165 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  166 Instant Regret:  0.1561538461538462
+Trial: 2 Round:  167 Instant Regret:  0.1566153846153846
+Trial: 2 Round:  168 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  169 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  170 Instant Regret:  0.15630769230769226
+Trial: 2 Round:  171 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  172 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  173 Instant Regret:  0.19953846153846155
+Trial: 2 Round:  174 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  175 Instant Regret:  0.15600000000000003
+Trial: 2 Round:  176 Instant Regret:  0.15630769230769226
+Trial: 2 Round:  177 Instant Regret:  0.15676923076923077
+Trial: 2 Round:  178 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  179 Instant Regret:  0.15538461538461534
+Trial: 2 Round:  180 Instant Regret:  0.1561538461538462
+Trial: 2 Round:  181 Instant Regret:  0.15630769230769226
+Trial: 2 Round:  182 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  183 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  184 Instant Regret:  0.15569230769230769
+Trial: 2 Round:  185 Instant Regret:  0.15600000000000003
+Trial: 2 Round:  186 Instant Regret:  0.15538461538461534
+Trial: 2 Round:  187 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  188 Instant Regret:  0.15600000000000003
+Trial: 2 Round:  189 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  190 Instant Regret:  0.15538461538461534
+Trial: 2 Round:  191 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  192 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  193 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  194 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  195 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  196 Instant Regret:  0.1561538461538462
+Trial: 2 Round:  197 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  198 Instant Regret:  0.15399999999999991
+Trial: 2 Round:  199 Instant Regret:  0.2083076923076923
+Trial: 2 Round:  200 Instant Regret:  0.15399999999999991
+Trial: 2 Round:  201 Instant Regret:  0.208923076923077
+Trial: 2 Round:  202 Instant Regret:  0.15599999999999992
+Trial: 2 Round:  203 Instant Regret:  0.15399999999999991
+Trial: 2 Round:  204 Instant Regret:  0.20861538461538465
+Trial: 2 Round:  205 Instant Regret:  0.15415384615384609
+Trial: 2 Round:  206 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  207 Instant Regret:  0.20953846153846145
+Trial: 2 Round:  208 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  209 Instant Regret:  0.1561538461538461
+Trial: 2 Round:  210 Instant Regret:  0.15476923076923077
+Trial: 2 Round:  211 Instant Regret:  0.1546153846153846
+Trial: 2 Round:  212 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  213 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  214 Instant Regret:  0.20846153846153848
+Trial: 2 Round:  215 Instant Regret:  0.1561538461538461
+Trial: 2 Round:  216 Instant Regret:  0.15538461538461534
+Trial: 2 Round:  217 Instant Regret:  0.15415384615384609
+Trial: 2 Round:  218 Instant Regret:  0.15399999999999991
+Trial: 2 Round:  219 Instant Regret:  0.15646153846153843
+Trial: 2 Round:  220 Instant Regret:  0.1546153846153846
+Trial: 2 Round:  221 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  222 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  223 Instant Regret:  0.1550769230769231
+Trial: 2 Round:  224 Instant Regret:  0.15538461538461534
+Trial: 2 Round:  225 Instant Regret:  0.15399999999999991
+Trial: 2 Round:  226 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  227 Instant Regret:  0.1550769230769231
+Trial: 2 Round:  228 Instant Regret:  0.15446153846153843
+Trial: 2 Round:  229 Instant Regret:  0.208923076923077
+Trial: 2 Round:  230 Instant Regret:  0.1550769230769231
+Trial: 2 Round:  231 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  232 Instant Regret:  0.15584615384615386
+Trial: 2 Round:  233 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  234 Instant Regret:  0.15430769230769226
+Trial: 2 Round:  235 Instant Regret:  0.15430769230769226
+Trial: 2 Round:  236 Instant Regret:  0.15399999999999991
+Trial: 2 Round:  237 Instant Regret:  0.15415384615384609
+Trial: 2 Round:  238 Instant Regret:  0.15415384615384609
+Trial: 2 Round:  239 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  240 Instant Regret:  0.15569230769230769
+Trial: 2 Round:  241 Instant Regret:  0.15476923076923077
+Trial: 2 Round:  242 Instant Regret:  0.1550769230769231
+Trial: 2 Round:  243 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  244 Instant Regret:  0.15399999999999991
+Trial: 2 Round:  245 Instant Regret:  0.1550769230769231
+Trial: 2 Round:  246 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  247 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  248 Instant Regret:  0.1550769230769231
+Trial: 2 Round:  249 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  250 Instant Regret:  0.15523076923076917
+Trial: 2 Round:  251 Instant Regret:  0.1756923076923076
+Trial: 2 Round:  252 Instant Regret:  0.15584615384615386
+Trial: 2 Round:  253 Instant Regret:  0.20107692307692304
+Trial: 2 Round:  254 Instant Regret:  0.15415384615384609
+Trial: 2 Round:  255 Instant Regret:  0.1550769230769231
+Trial: 2 Round:  256 Instant Regret:  0.15492307692307694
+Trial: 2 Round:  257 Instant Regret:  0.3116923076923078
+Trial: 2 Round:  258 Instant Regret:  0.316923076923077
+Trial: 2 Round:  259 Instant Regret:  0.17492307692307685
+Trial: 2 Round:  260 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  261 Instant Regret:  0.17446153846153845
+Trial: 2 Round:  262 Instant Regret:  0.17353846153846153
+Trial: 2 Round:  263 Instant Regret:  0.17353846153846153
+Trial: 2 Round:  264 Instant Regret:  0.15553846153846151
+Trial: 2 Round:  265 Instant Regret:  0.15569230769230769
+Trial: 2 Round:  266 Instant Regret:  0.1561538461538462
+Trial: 2 Round:  267 Instant Regret:  0.15569230769230769
+Trial: 2 Round:  268 Instant Regret:  0.15476923076923077
+Trial: 2 Round:  269 Instant Regret:  0.15630769230769226
+Trial: 2 Round:  270 Instant Regret:  0.15523076923076928
+Trial: 2 Round:  271 Instant Regret:  0.15430769230769226
+Trial: 2 Round:  272 Instant Regret:  0.1747692307692308
+Trial: 2 Round:  273 Instant Regret:  0.15430769230769226
+Trial: 2 Round:  274 Instant Regret:  0.15384615384615385
+Trial: 2 Round:  275 Instant Regret:  0.1550769230769231
+Trial: 2 Round:  276 Instant Regret:  0.15430769230769226
+Trial: 2 Round:  277 Instant Regret:  0.15399999999999991
+Trial: 2 Round:  278 Instant Regret:  0.15415384615384609
+Trial: 2 Round:  279 Instant Regret:  0.17353846153846142
+Trial: 2 Round:  280 Instant Regret:  0.15399999999999991
+Trial: 2 Round:  281 Instant Regret:  0.15399999999999991
+Trial: 2 Round:  282 Instant Regret:  0.15492307692307694
+Trial: 2 Round:  283 Instant Regret:  0.15630769230769226
+Trial: 2 Round:  284 Instant Regret:  0.15538461538461534
+Trial: 2 Round:  285 Instant Regret:  0.20138461538461538
+Trial: 2 Round:  286 Instant Regret:  0.14692307692307693
+Trial: 2 Round:  287 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  288 Instant Regret:  0.20169230769230773
+Trial: 2 Round:  289 Instant Regret:  0.14538461538461533
+Trial: 2 Round:  290 Instant Regret:  0.20153846153846156
+Trial: 2 Round:  291 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  292 Instant Regret:  0.14676923076923076
+Trial: 2 Round:  293 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  294 Instant Regret:  0.20169230769230773
+Trial: 2 Round:  295 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  296 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  297 Instant Regret:  0.14692307692307693
+Trial: 2 Round:  298 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  299 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  300 Instant Regret:  0.20169230769230773
+Trial: 2 Round:  301 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  302 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  303 Instant Regret:  0.14523076923076916
+Trial: 2 Round:  304 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  305 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  306 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  307 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  308 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  309 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  310 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  311 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  312 Instant Regret:  0.14692307692307693
+Trial: 2 Round:  313 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  314 Instant Regret:  0.20169230769230773
+Trial: 2 Round:  315 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  316 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  317 Instant Regret:  0.14476923076923076
+Trial: 2 Round:  318 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  319 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  320 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  321 Instant Regret:  0.14584615384615374
+Trial: 2 Round:  322 Instant Regret:  0.14676923076923076
+Trial: 2 Round:  323 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  324 Instant Regret:  0.14676923076923076
+Trial: 2 Round:  325 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  326 Instant Regret:  0.14676923076923076
+Trial: 2 Round:  327 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  328 Instant Regret:  0.14538461538461533
+Trial: 2 Round:  329 Instant Regret:  0.145076923076923
+Trial: 2 Round:  330 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  331 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  332 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  333 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  334 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  335 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  336 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  337 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  338 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  339 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  340 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  341 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  342 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  343 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  344 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  345 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  346 Instant Regret:  0.14538461538461533
+Trial: 2 Round:  347 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  348 Instant Regret:  0.14800000000000002
+Trial: 2 Round:  349 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  350 Instant Regret:  0.14600000000000002
+Trial: 2 Round:  351 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  352 Instant Regret:  0.14646153846153842
+Trial: 2 Round:  353 Instant Regret:  0.14600000000000002
+Trial: 2 Round:  354 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  355 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  356 Instant Regret:  0.14538461538461545
+Trial: 2 Round:  357 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  358 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  359 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  360 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  361 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  362 Instant Regret:  0.14600000000000002
+Trial: 2 Round:  363 Instant Regret:  0.14692307692307693
+Trial: 2 Round:  364 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  365 Instant Regret:  0.1461538461538462
+Trial: 2 Round:  366 Instant Regret:  0.1446153846153846
+Trial: 2 Round:  367 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  368 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  369 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  370 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  371 Instant Regret:  0.14646153846153842
+Trial: 2 Round:  372 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  373 Instant Regret:  0.14784615384615385
+Trial: 2 Round:  374 Instant Regret:  0.14538461538461545
+Trial: 2 Round:  375 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  376 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  377 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  378 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  379 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  380 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  381 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  382 Instant Regret:  0.14523076923076927
+Trial: 2 Round:  383 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  384 Instant Regret:  0.14523076923076927
+Trial: 2 Round:  385 Instant Regret:  0.14523076923076927
+Trial: 2 Round:  386 Instant Regret:  0.14723076923076928
+Trial: 2 Round:  387 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  388 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  389 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  390 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  391 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  392 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  393 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  394 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  395 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  396 Instant Regret:  0.14800000000000002
+Trial: 2 Round:  397 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  398 Instant Regret:  0.14584615384615385
+Trial: 2 Round:  399 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  400 Instant Regret:  0.14646153846153842
+Trial: 2 Round:  401 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  402 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  403 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  404 Instant Regret:  0.14430769230769236
+Trial: 2 Round:  405 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  406 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  407 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  408 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  409 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  410 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  411 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  412 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  413 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  414 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  415 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  416 Instant Regret:  0.14600000000000002
+Trial: 2 Round:  417 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  418 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  419 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  420 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  421 Instant Regret:  0.14538461538461545
+Trial: 2 Round:  422 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  423 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  424 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  425 Instant Regret:  0.1461538461538462
+Trial: 2 Round:  426 Instant Regret:  0.14430769230769225
+Trial: 2 Round:  427 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  428 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  429 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  430 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  431 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  432 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  433 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  434 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  435 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  436 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  437 Instant Regret:  0.20169230769230773
+Trial: 2 Round:  438 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  439 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  440 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  441 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  442 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  443 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  444 Instant Regret:  0.14646153846153842
+Trial: 2 Round:  445 Instant Regret:  0.14523076923076927
+Trial: 2 Round:  446 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  447 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  448 Instant Regret:  0.14600000000000002
+Trial: 2 Round:  449 Instant Regret:  0.14723076923076928
+Trial: 2 Round:  450 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  451 Instant Regret:  0.1470769230769231
+Trial: 2 Round:  452 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  453 Instant Regret:  0.14600000000000002
+Trial: 2 Round:  454 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  455 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  456 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  457 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  458 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  459 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  460 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  461 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  462 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  463 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  464 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  465 Instant Regret:  0.14646153846153842
+Trial: 2 Round:  466 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  467 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  468 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  469 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  470 Instant Regret:  0.1470769230769231
+Trial: 2 Round:  471 Instant Regret:  0.14523076923076927
+Trial: 2 Round:  472 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  473 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  474 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  475 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  476 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  477 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  478 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  479 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  480 Instant Regret:  0.14569230769230768
+Trial: 2 Round:  481 Instant Regret:  0.14523076923076927
+Trial: 2 Round:  482 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  483 Instant Regret:  0.14446153846153842
+Trial: 2 Round:  484 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  485 Instant Regret:  0.1461538461538462
+Trial: 2 Round:  486 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  487 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  488 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  489 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  490 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  491 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  492 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  493 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  494 Instant Regret:  0.14600000000000002
+Trial: 2 Round:  495 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  496 Instant Regret:  0.1455384615384615
+Trial: 2 Round:  497 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  498 Instant Regret:  0.1450769230769231
+Trial: 2 Round:  499 Instant Regret:  0.1466153846153846
+Trial: 2 Round:  500 Instant Regret:  0.1466153846153846
+Trial: 3 Round:  1 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  2 Instant Regret:  0.35476923076923084
+Trial: 3 Round:  3 Instant Regret:  0.35753846153846147
+Trial: 3 Round:  4 Instant Regret:  0.34676923076923083
+Trial: 3 Round:  5 Instant Regret:  0.35707692307692307
+Trial: 3 Round:  6 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  7 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  8 Instant Regret:  0.3573846153846153
+Trial: 3 Round:  9 Instant Regret:  0.3480000000000001
+Trial: 3 Round:  10 Instant Regret:  0.346
+Trial: 3 Round:  11 Instant Regret:  0.35753846153846147
+Trial: 3 Round:  12 Instant Regret:  0.35769230769230775
+Trial: 3 Round:  13 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  14 Instant Regret:  0.35723076923076924
+Trial: 3 Round:  15 Instant Regret:  0.346
+Trial: 3 Round:  16 Instant Regret:  0.3483076923076923
+Trial: 3 Round:  17 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  18 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  19 Instant Regret:  0.35723076923076924
+Trial: 3 Round:  20 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  21 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  22 Instant Regret:  0.3573846153846154
+Trial: 3 Round:  23 Instant Regret:  0.3573846153846154
+Trial: 3 Round:  24 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  25 Instant Regret:  0.3573846153846154
+Trial: 3 Round:  26 Instant Regret:  0.34676923076923083
+Trial: 3 Round:  27 Instant Regret:  0.346
+Trial: 3 Round:  28 Instant Regret:  0.35676923076923084
+Trial: 3 Round:  29 Instant Regret:  0.35676923076923084
+Trial: 3 Round:  30 Instant Regret:  0.3573846153846154
+Trial: 3 Round:  31 Instant Regret:  0.35707692307692307
+Trial: 3 Round:  32 Instant Regret:  0.35723076923076924
+Trial: 3 Round:  33 Instant Regret:  0.3480000000000001
+Trial: 3 Round:  34 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  35 Instant Regret:  0.3509230769230769
+Trial: 3 Round:  36 Instant Regret:  0.3475384615384616
+Trial: 3 Round:  37 Instant Regret:  0.3475384615384616
+Trial: 3 Round:  38 Instant Regret:  0.35169230769230764
+Trial: 3 Round:  39 Instant Regret:  0.35969230769230764
+Trial: 3 Round:  40 Instant Regret:  0.3116923076923078
+Trial: 3 Round:  41 Instant Regret:  0.3116923076923078
+Trial: 3 Round:  42 Instant Regret:  0.3589230769230769
+Trial: 3 Round:  43 Instant Regret:  0.3116923076923078
+Trial: 3 Round:  44 Instant Regret:  0.35753846153846147
+Trial: 3 Round:  45 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  46 Instant Regret:  0.3573846153846154
+Trial: 3 Round:  47 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  48 Instant Regret:  0.3473846153846154
+Trial: 3 Round:  49 Instant Regret:  0.3589230769230769
+Trial: 3 Round:  50 Instant Regret:  0.3347692307692308
+Trial: 3 Round:  51 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  52 Instant Regret:  0.38523076923076915
+Trial: 3 Round:  53 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  54 Instant Regret:  0.35753846153846147
+Trial: 3 Round:  55 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  56 Instant Regret:  0.35676923076923084
+Trial: 3 Round:  57 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  58 Instant Regret:  0.3593846153846153
+Trial: 3 Round:  59 Instant Regret:  0.3236923076923077
+Trial: 3 Round:  60 Instant Regret:  0.3236923076923077
+Trial: 3 Round:  61 Instant Regret:  0.36661538461538457
+Trial: 3 Round:  62 Instant Regret:  0.3236923076923077
+Trial: 3 Round:  63 Instant Regret:  0.3589230769230769
+Trial: 3 Round:  64 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  65 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  66 Instant Regret:  0.35876923076923073
+Trial: 3 Round:  67 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  68 Instant Regret:  0.36830769230769245
+Trial: 3 Round:  69 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  70 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  71 Instant Regret:  0.35753846153846147
+Trial: 3 Round:  72 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  73 Instant Regret:  0.3593846153846153
+Trial: 3 Round:  74 Instant Regret:  0.3512307692307691
+Trial: 3 Round:  75 Instant Regret:  0.35753846153846147
+Trial: 3 Round:  76 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  77 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  78 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  79 Instant Regret:  0.35753846153846147
+Trial: 3 Round:  80 Instant Regret:  0.31153846153846154
+Trial: 3 Round:  81 Instant Regret:  0.39076923076923076
+Trial: 3 Round:  82 Instant Regret:  0.36723076923076925
+Trial: 3 Round:  83 Instant Regret:  0.3236923076923077
+Trial: 3 Round:  84 Instant Regret:  0.34907692307692306
+Trial: 3 Round:  85 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  86 Instant Regret:  0.31153846153846154
+Trial: 3 Round:  87 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  88 Instant Regret:  0.3238461538461539
+Trial: 3 Round:  89 Instant Regret:  0.3513846153846153
+Trial: 3 Round:  90 Instant Regret:  0.3116923076923078
+Trial: 3 Round:  91 Instant Regret:  0.3475384615384616
+Trial: 3 Round:  92 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  93 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  94 Instant Regret:  0.37923076923076926
+Trial: 3 Round:  95 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  96 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  97 Instant Regret:  0.35876923076923073
+Trial: 3 Round:  98 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  99 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  100 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  101 Instant Regret:  0.3284615384615386
+Trial: 3 Round:  102 Instant Regret:  0.2935384615384615
+Trial: 3 Round:  103 Instant Regret:  0.2932307692307693
+Trial: 3 Round:  104 Instant Regret:  0.32753846153846156
+Trial: 3 Round:  105 Instant Regret:  0.2935384615384615
+Trial: 3 Round:  106 Instant Regret:  0.3329230769230769
+Trial: 3 Round:  107 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  108 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  109 Instant Regret:  0.32846153846153847
+Trial: 3 Round:  110 Instant Regret:  0.3236923076923077
+Trial: 3 Round:  111 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  112 Instant Regret:  0.3801538461538462
+Trial: 3 Round:  113 Instant Regret:  0.2932307692307693
+Trial: 3 Round:  114 Instant Regret:  0.39
+Trial: 3 Round:  115 Instant Regret:  0.3475384615384616
+Trial: 3 Round:  116 Instant Regret:  0.3413846153846154
+Trial: 3 Round:  117 Instant Regret:  0.2841538461538462
+Trial: 3 Round:  118 Instant Regret:  0.2841538461538462
+Trial: 3 Round:  119 Instant Regret:  0.3409230769230769
+Trial: 3 Round:  120 Instant Regret:  0.2841538461538462
+Trial: 3 Round:  121 Instant Regret:  0.2841538461538462
+Trial: 3 Round:  122 Instant Regret:  0.34153846153846157
+Trial: 3 Round:  123 Instant Regret:  0.2841538461538462
+Trial: 3 Round:  124 Instant Regret:  0.2841538461538462
+Trial: 3 Round:  125 Instant Regret:  0.28430769230769226
+Trial: 3 Round:  126 Instant Regret:  0.3413846153846154
+Trial: 3 Round:  127 Instant Regret:  0.2841538461538462
+Trial: 3 Round:  128 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  129 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  130 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  131 Instant Regret:  0.35169230769230764
+Trial: 3 Round:  132 Instant Regret:  0.2839999999999998
+Trial: 3 Round:  133 Instant Regret:  0.2841538461538462
+Trial: 3 Round:  134 Instant Regret:  0.35569230769230764
+Trial: 3 Round:  135 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  136 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  137 Instant Regret:  0.34323076923076923
+Trial: 3 Round:  138 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  139 Instant Regret:  0.3433846153846154
+Trial: 3 Round:  140 Instant Regret:  0.309076923076923
+Trial: 3 Round:  141 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  142 Instant Regret:  0.3433846153846154
+Trial: 3 Round:  143 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  144 Instant Regret:  0.3429230769230769
+Trial: 3 Round:  145 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  146 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  147 Instant Regret:  0.3433846153846154
+Trial: 3 Round:  148 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  149 Instant Regret:  0.34353846153846157
+Trial: 3 Round:  150 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  151 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  152 Instant Regret:  0.34323076923076923
+Trial: 3 Round:  153 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  154 Instant Regret:  0.358
+Trial: 3 Round:  155 Instant Regret:  0.36769230769230776
+Trial: 3 Round:  156 Instant Regret:  0.2935384615384615
+Trial: 3 Round:  157 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  158 Instant Regret:  0.35753846153846147
+Trial: 3 Round:  159 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  160 Instant Regret:  0.28384615384615375
+Trial: 3 Round:  161 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  162 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  163 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  164 Instant Regret:  0.32861538461538464
+Trial: 3 Round:  165 Instant Regret:  0.35076923076923083
+Trial: 3 Round:  166 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  167 Instant Regret:  0.2841538461538462
+Trial: 3 Round:  168 Instant Regret:  0.3475384615384616
+Trial: 3 Round:  169 Instant Regret:  0.3573846153846154
+Trial: 3 Round:  170 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  171 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  172 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  173 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  174 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  175 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  176 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  177 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  178 Instant Regret:  0.2827692307692308
+Trial: 3 Round:  179 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  180 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  181 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  182 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  183 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  184 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  185 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  186 Instant Regret:  0.2824615384615383
+Trial: 3 Round:  187 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  188 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  189 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  190 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  191 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  192 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  193 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  194 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  195 Instant Regret:  0.3433846153846154
+Trial: 3 Round:  196 Instant Regret:  0.36015384615384605
+Trial: 3 Round:  197 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  198 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  199 Instant Regret:  0.36
+Trial: 3 Round:  200 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  201 Instant Regret:  0.3598461538461538
+Trial: 3 Round:  202 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  203 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  204 Instant Regret:  0.30984615384615377
+Trial: 3 Round:  205 Instant Regret:  0.3598461538461538
+Trial: 3 Round:  206 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  207 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  208 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  209 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  210 Instant Regret:  0.36969230769230776
+Trial: 3 Round:  211 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  212 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  213 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  214 Instant Regret:  0.32861538461538453
+Trial: 3 Round:  215 Instant Regret:  0.2932307692307692
+Trial: 3 Round:  216 Instant Regret:  0.34323076923076923
+Trial: 3 Round:  217 Instant Regret:  0.3412307692307692
+Trial: 3 Round:  218 Instant Regret:  0.35769230769230775
+Trial: 3 Round:  219 Instant Regret:  0.35369230769230764
+Trial: 3 Round:  220 Instant Regret:  0.34969230769230775
+Trial: 3 Round:  221 Instant Regret:  0.34969230769230775
+Trial: 3 Round:  222 Instant Regret:  0.3533846153846154
+Trial: 3 Round:  223 Instant Regret:  0.34969230769230775
+Trial: 3 Round:  224 Instant Regret:  0.3533846153846154
+Trial: 3 Round:  225 Instant Regret:  0.34969230769230775
+Trial: 3 Round:  226 Instant Regret:  0.3524615384615384
+Trial: 3 Round:  227 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  228 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  229 Instant Regret:  0.2827692307692308
+Trial: 3 Round:  230 Instant Regret:  0.2932307692307693
+Trial: 3 Round:  231 Instant Regret:  0.293076923076923
+Trial: 3 Round:  232 Instant Regret:  0.2932307692307692
+Trial: 3 Round:  233 Instant Regret:  0.29292307692307695
+Trial: 3 Round:  234 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  235 Instant Regret:  0.2932307692307692
+Trial: 3 Round:  236 Instant Regret:  0.2930769230769231
+Trial: 3 Round:  237 Instant Regret:  0.2932307692307692
+Trial: 3 Round:  238 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  239 Instant Regret:  0.2932307692307692
+Trial: 3 Round:  240 Instant Regret:  0.29292307692307695
+Trial: 3 Round:  241 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  242 Instant Regret:  0.29292307692307695
+Trial: 3 Round:  243 Instant Regret:  0.2932307692307692
+Trial: 3 Round:  244 Instant Regret:  0.29292307692307695
+Trial: 3 Round:  245 Instant Regret:  0.293076923076923
+Trial: 3 Round:  246 Instant Regret:  0.35923076923076924
+Trial: 3 Round:  247 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  248 Instant Regret:  0.34969230769230775
+Trial: 3 Round:  249 Instant Regret:  0.29292307692307695
+Trial: 3 Round:  250 Instant Regret:  0.293076923076923
+Trial: 3 Round:  251 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  252 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  253 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  254 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  255 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  256 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  257 Instant Regret:  0.3533846153846154
+Trial: 3 Round:  258 Instant Regret:  0.2841538461538462
+Trial: 3 Round:  259 Instant Regret:  0.2881538461538462
+Trial: 3 Round:  260 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  261 Instant Regret:  0.35707692307692307
+Trial: 3 Round:  262 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  263 Instant Regret:  0.36615384615384616
+Trial: 3 Round:  264 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  265 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  266 Instant Regret:  0.35769230769230775
+Trial: 3 Round:  267 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  268 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  269 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  270 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  271 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  272 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  273 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  274 Instant Regret:  0.3573846153846154
+Trial: 3 Round:  275 Instant Regret:  0.35676923076923084
+Trial: 3 Round:  276 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  277 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  278 Instant Regret:  0.35769230769230775
+Trial: 3 Round:  279 Instant Regret:  0.35769230769230775
+Trial: 3 Round:  280 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  281 Instant Regret:  0.35769230769230775
+Trial: 3 Round:  282 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  283 Instant Regret:  0.35769230769230775
+Trial: 3 Round:  284 Instant Regret:  0.3567692307692307
+Trial: 3 Round:  285 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  286 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  287 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  288 Instant Regret:  0.3569230769230769
+Trial: 3 Round:  289 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  290 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  291 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  292 Instant Regret:  0.29292307692307695
+Trial: 3 Round:  293 Instant Regret:  0.2932307692307692
+Trial: 3 Round:  294 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  295 Instant Regret:  0.3589230769230769
+Trial: 3 Round:  296 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  297 Instant Regret:  0.376
+Trial: 3 Round:  298 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  299 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  300 Instant Regret:  0.36830769230769234
+Trial: 3 Round:  301 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  302 Instant Regret:  0.35969230769230776
+Trial: 3 Round:  303 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  304 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  305 Instant Regret:  0.36476923076923085
+Trial: 3 Round:  306 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  307 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  308 Instant Regret:  0.3589230769230769
+Trial: 3 Round:  309 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  310 Instant Regret:  0.3589230769230769
+Trial: 3 Round:  311 Instant Regret:  0.33507692307692305
+Trial: 3 Round:  312 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  313 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  314 Instant Regret:  0.33507692307692305
+Trial: 3 Round:  315 Instant Regret:  0.36
+Trial: 3 Round:  316 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  317 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  318 Instant Regret:  0.30092307692307707
+Trial: 3 Round:  319 Instant Regret:  0.29292307692307695
+Trial: 3 Round:  320 Instant Regret:  0.2932307692307692
+Trial: 3 Round:  321 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  322 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  323 Instant Regret:  0.32846153846153847
+Trial: 3 Round:  324 Instant Regret:  0.35815384615384616
+Trial: 3 Round:  325 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  326 Instant Regret:  0.35923076923076924
+Trial: 3 Round:  327 Instant Regret:  0.332923076923077
+Trial: 3 Round:  328 Instant Regret:  0.332923076923077
+Trial: 3 Round:  329 Instant Regret:  0.3595384615384616
+Trial: 3 Round:  330 Instant Regret:  0.33261538461538465
+Trial: 3 Round:  331 Instant Regret:  0.35861538461538467
+Trial: 3 Round:  332 Instant Regret:  0.332923076923077
+Trial: 3 Round:  333 Instant Regret:  0.35876923076923073
+Trial: 3 Round:  334 Instant Regret:  0.332923076923077
+Trial: 3 Round:  335 Instant Regret:  0.332923076923077
+Trial: 3 Round:  336 Instant Regret:  0.38030769230769235
+Trial: 3 Round:  337 Instant Regret:  0.332923076923077
+Trial: 3 Round:  338 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  339 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  340 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  341 Instant Regret:  0.35753846153846147
+Trial: 3 Round:  342 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  343 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  344 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  345 Instant Regret:  0.35707692307692307
+Trial: 3 Round:  346 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  347 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  348 Instant Regret:  0.3575384615384616
+Trial: 3 Round:  349 Instant Regret:  0.283076923076923
+Trial: 3 Round:  350 Instant Regret:  0.3413846153846154
+Trial: 3 Round:  351 Instant Regret:  0.39092307692307693
+Trial: 3 Round:  352 Instant Regret:  0.3469230769230769
+Trial: 3 Round:  353 Instant Regret:  0.34776923076923083
+Trial: 3 Round:  354 Instant Regret:  0.4461538461538461
+Trial: 3 Round:  355 Instant Regret:  0.34776923076923083
+Trial: 3 Round:  356 Instant Regret:  0.34661538461538466
+Trial: 3 Round:  357 Instant Regret:  0.3915384615384616
+Trial: 3 Round:  358 Instant Regret:  0.3528461538461539
+Trial: 3 Round:  359 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  360 Instant Regret:  0.2827692307692308
+Trial: 3 Round:  361 Instant Regret:  0.3063076923076923
+Trial: 3 Round:  362 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  363 Instant Regret:  0.2932307692307692
+Trial: 3 Round:  364 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  365 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  366 Instant Regret:  0.34323076923076923
+Trial: 3 Round:  367 Instant Regret:  0.3604615384615384
+Trial: 3 Round:  368 Instant Regret:  0.2824615384615383
+Trial: 3 Round:  369 Instant Regret:  0.35923076923076924
+Trial: 3 Round:  370 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  371 Instant Regret:  0.3538461538461538
+Trial: 3 Round:  372 Instant Regret:  0.32861538461538464
+Trial: 3 Round:  373 Instant Regret:  0.30692307692307697
+Trial: 3 Round:  374 Instant Regret:  0.3061538461538462
+Trial: 3 Round:  375 Instant Regret:  0.3061538461538462
+Trial: 3 Round:  376 Instant Regret:  0.30692307692307697
+Trial: 3 Round:  377 Instant Regret:  0.3063076923076924
+Trial: 3 Round:  378 Instant Regret:  0.30692307692307697
+Trial: 3 Round:  379 Instant Regret:  0.3063076923076924
+Trial: 3 Round:  380 Instant Regret:  0.30707692307692314
+Trial: 3 Round:  381 Instant Regret:  0.3063076923076924
+Trial: 3 Round:  382 Instant Regret:  0.30692307692307697
+Trial: 3 Round:  383 Instant Regret:  0.3058461538461539
+Trial: 3 Round:  384 Instant Regret:  0.30692307692307697
+Trial: 3 Round:  385 Instant Regret:  0.3061538461538462
+Trial: 3 Round:  386 Instant Regret:  0.30692307692307697
+Trial: 3 Round:  387 Instant Regret:  0.3061538461538462
+Trial: 3 Round:  388 Instant Regret:  0.30692307692307697
+Trial: 3 Round:  389 Instant Regret:  0.3061538461538462
+Trial: 3 Round:  390 Instant Regret:  0.30692307692307697
+Trial: 3 Round:  391 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  392 Instant Regret:  0.2824615384615383
+Trial: 3 Round:  393 Instant Regret:  0.3900769230769231
+Trial: 3 Round:  394 Instant Regret:  0.3559230769230769
+Trial: 3 Round:  395 Instant Regret:  0.3473076923076923
+Trial: 3 Round:  396 Instant Regret:  0.3901538461538461
+Trial: 3 Round:  397 Instant Regret:  0.347923076923077
+Trial: 3 Round:  398 Instant Regret:  0.3901538461538461
+Trial: 3 Round:  399 Instant Regret:  0.3463846153846154
+Trial: 3 Round:  400 Instant Regret:  0.3469230769230769
+Trial: 3 Round:  401 Instant Regret:  0.3795384615384616
+Trial: 3 Round:  402 Instant Regret:  0.3478461538461538
+Trial: 3 Round:  403 Instant Regret:  0.29292307692307695
+Trial: 3 Round:  404 Instant Regret:  0.36969230769230765
+Trial: 3 Round:  405 Instant Regret:  0.3487692307692307
+Trial: 3 Round:  406 Instant Regret:  0.34907692307692306
+Trial: 3 Round:  407 Instant Regret:  0.37630769230769223
+Trial: 3 Round:  408 Instant Regret:  0.34961538461538466
+Trial: 3 Round:  409 Instant Regret:  0.3724615384615384
+Trial: 3 Round:  410 Instant Regret:  0.3503076923076923
+Trial: 3 Round:  411 Instant Regret:  0.37169230769230777
+Trial: 3 Round:  412 Instant Regret:  0.3507692307692307
+Trial: 3 Round:  413 Instant Regret:  0.35123076923076924
+Trial: 3 Round:  414 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  415 Instant Regret:  0.34323076923076923
+Trial: 3 Round:  416 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  417 Instant Regret:  0.2824615384615383
+Trial: 3 Round:  418 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  419 Instant Regret:  0.30999999999999994
+Trial: 3 Round:  420 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  421 Instant Regret:  0.2930769230769231
+Trial: 3 Round:  422 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  423 Instant Regret:  0.2824615384615383
+Trial: 3 Round:  424 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  425 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  426 Instant Regret:  0.3087692307692307
+Trial: 3 Round:  427 Instant Regret:  0.3087692307692307
+Trial: 3 Round:  428 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  429 Instant Regret:  0.3087692307692307
+Trial: 3 Round:  430 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  431 Instant Regret:  0.3087692307692307
+Trial: 3 Round:  432 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  433 Instant Regret:  0.3087692307692307
+Trial: 3 Round:  434 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  435 Instant Regret:  0.3087692307692307
+Trial: 3 Round:  436 Instant Regret:  0.30892307692307686
+Trial: 3 Round:  437 Instant Regret:  0.3086153846153845
+Trial: 3 Round:  438 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  439 Instant Regret:  0.3087692307692307
+Trial: 3 Round:  440 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  441 Instant Regret:  0.3087692307692307
+Trial: 3 Round:  442 Instant Regret:  0.3092307692307692
+Trial: 3 Round:  443 Instant Regret:  0.332923076923077
+Trial: 3 Round:  444 Instant Regret:  0.3418461538461538
+Trial: 3 Round:  445 Instant Regret:  0.3061538461538462
+Trial: 3 Round:  446 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  447 Instant Regret:  0.35369230769230764
+Trial: 3 Round:  448 Instant Regret:  0.3127692307692308
+Trial: 3 Round:  449 Instant Regret:  0.31046153846153846
+Trial: 3 Round:  450 Instant Regret:  0.31046153846153846
+Trial: 3 Round:  451 Instant Regret:  0.31261538461538463
+Trial: 3 Round:  452 Instant Regret:  0.31046153846153846
+Trial: 3 Round:  453 Instant Regret:  0.31261538461538463
+Trial: 3 Round:  454 Instant Regret:  0.31046153846153846
+Trial: 3 Round:  455 Instant Regret:  0.31261538461538463
+Trial: 3 Round:  456 Instant Regret:  0.31046153846153846
+Trial: 3 Round:  457 Instant Regret:  0.31261538461538463
+Trial: 3 Round:  458 Instant Regret:  0.31046153846153846
+Trial: 3 Round:  459 Instant Regret:  0.31261538461538463
+Trial: 3 Round:  460 Instant Regret:  0.31046153846153846
+Trial: 3 Round:  461 Instant Regret:  0.31261538461538463
+Trial: 3 Round:  462 Instant Regret:  0.31046153846153846
+Trial: 3 Round:  463 Instant Regret:  0.31261538461538463
+Trial: 3 Round:  464 Instant Regret:  0.31046153846153846
+Trial: 3 Round:  465 Instant Regret:  0.2827692307692308
+Trial: 3 Round:  466 Instant Regret:  0.30692307692307697
+Trial: 3 Round:  467 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  468 Instant Regret:  0.2930769230769231
+Trial: 3 Round:  469 Instant Regret:  0.34723076923076923
+Trial: 3 Round:  470 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  471 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  472 Instant Regret:  0.31261538461538463
+Trial: 3 Round:  473 Instant Regret:  0.34323076923076923
+Trial: 3 Round:  474 Instant Regret:  0.3349230769230769
+Trial: 3 Round:  475 Instant Regret:  0.28830769230769226
+Trial: 3 Round:  476 Instant Regret:  0.2827692307692308
+Trial: 3 Round:  477 Instant Regret:  0.38784615384615384
+Trial: 3 Round:  478 Instant Regret:  0.32861538461538453
+Trial: 3 Round:  479 Instant Regret:  0.3087692307692307
+Trial: 3 Round:  480 Instant Regret:  0.2826153846153845
+Trial: 3 Round:  481 Instant Regret:  0.2932307692307693
+Trial: 3 Round:  482 Instant Regret:  0.29338461538461535
+Trial: 3 Round:  483 Instant Regret:  0.30892307692307686
+Trial: 3 Round:  484 Instant Regret:  0.2881538461538462
+Trial: 3 Round:  485 Instant Regret:  0.30446153846153845
+Trial: 3 Round:  486 Instant Regret:  0.2133846153846155
+Trial: 3 Round:  487 Instant Regret:  0.212923076923077
+Trial: 3 Round:  488 Instant Regret:  0.30446153846153845
+Trial: 3 Round:  489 Instant Regret:  0.2138461538461539
+Trial: 3 Round:  490 Instant Regret:  0.21615384615384614
+Trial: 3 Round:  491 Instant Regret:  0.21353846153846157
+Trial: 3 Round:  492 Instant Regret:  0.30446153846153845
+Trial: 3 Round:  493 Instant Regret:  0.21307692307692316
+Trial: 3 Round:  494 Instant Regret:  0.2118461538461538
+Trial: 3 Round:  495 Instant Regret:  0.21399999999999997
+Trial: 3 Round:  496 Instant Regret:  0.21723076923076934
+Trial: 3 Round:  497 Instant Regret:  0.21276923076923082
+Trial: 3 Round:  498 Instant Regret:  0.2133846153846155
+Trial: 3 Round:  499 Instant Regret:  0.2138461538461539
+Trial: 3 Round:  500 Instant Regret:  0.21676923076923083
+Trial: 4 Round:  1 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  2 Instant Regret:  0.36384615384615393
+Trial: 4 Round:  3 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  4 Instant Regret:  0.35769230769230775
+Trial: 4 Round:  5 Instant Regret:  0.35769230769230775
+Trial: 4 Round:  6 Instant Regret:  0.34676923076923083
+Trial: 4 Round:  7 Instant Regret:  0.36030769230769233
+Trial: 4 Round:  8 Instant Regret:  0.31138461538461526
+Trial: 4 Round:  9 Instant Regret:  0.35707692307692307
+Trial: 4 Round:  10 Instant Regret:  0.3569230769230769
+Trial: 4 Round:  11 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  12 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  13 Instant Regret:  0.38769230769230767
+Trial: 4 Round:  14 Instant Regret:  0.3276923076923077
+Trial: 4 Round:  15 Instant Regret:  0.3278461538461539
+Trial: 4 Round:  16 Instant Regret:  0.31138461538461526
+Trial: 4 Round:  17 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  18 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  19 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  20 Instant Regret:  0.37984615384615394
+Trial: 4 Round:  21 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  22 Instant Regret:  0.3569230769230769
+Trial: 4 Round:  23 Instant Regret:  0.34676923076923083
+Trial: 4 Round:  24 Instant Regret:  0.36015384615384616
+Trial: 4 Round:  25 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  26 Instant Regret:  0.35861538461538467
+Trial: 4 Round:  27 Instant Regret:  0.31138461538461526
+Trial: 4 Round:  28 Instant Regret:  0.3278461538461539
+Trial: 4 Round:  29 Instant Regret:  0.316923076923077
+Trial: 4 Round:  30 Instant Regret:  0.3116923076923078
+Trial: 4 Round:  31 Instant Regret:  0.3116923076923078
+Trial: 4 Round:  32 Instant Regret:  0.316923076923077
+Trial: 4 Round:  33 Instant Regret:  0.356923076923077
+Trial: 4 Round:  34 Instant Regret:  0.3573846153846154
+Trial: 4 Round:  35 Instant Regret:  0.3567692307692307
+Trial: 4 Round:  36 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  37 Instant Regret:  0.36030769230769233
+Trial: 4 Round:  38 Instant Regret:  0.3427692307692308
+Trial: 4 Round:  39 Instant Regret:  0.29030769230769227
+Trial: 4 Round:  40 Instant Regret:  0.29030769230769227
+Trial: 4 Round:  41 Instant Regret:  0.3427692307692308
+Trial: 4 Round:  42 Instant Regret:  0.29030769230769227
+Trial: 4 Round:  43 Instant Regret:  0.3593846153846153
+Trial: 4 Round:  44 Instant Regret:  0.31153846153846154
+Trial: 4 Round:  45 Instant Regret:  0.316923076923077
+Trial: 4 Round:  46 Instant Regret:  0.29030769230769227
+Trial: 4 Round:  47 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  48 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  49 Instant Regret:  0.37061538461538457
+Trial: 4 Round:  50 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  51 Instant Regret:  0.36630769230769245
+Trial: 4 Round:  52 Instant Regret:  0.3569230769230769
+Trial: 4 Round:  53 Instant Regret:  0.35753846153846147
+Trial: 4 Round:  54 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  55 Instant Regret:  0.3589230769230769
+Trial: 4 Round:  56 Instant Regret:  0.3340000000000001
+Trial: 4 Round:  57 Instant Regret:  0.3340000000000001
+Trial: 4 Round:  58 Instant Regret:  0.3844615384615385
+Trial: 4 Round:  59 Instant Regret:  0.3340000000000001
+Trial: 4 Round:  60 Instant Regret:  0.37523076923076926
+Trial: 4 Round:  61 Instant Regret:  0.33507692307692305
+Trial: 4 Round:  62 Instant Regret:  0.3349230769230769
+Trial: 4 Round:  63 Instant Regret:  0.3595384615384616
+Trial: 4 Round:  64 Instant Regret:  0.3349230769230769
+Trial: 4 Round:  65 Instant Regret:  0.3427692307692308
+Trial: 4 Round:  66 Instant Regret:  0.3750769230769231
+Trial: 4 Round:  67 Instant Regret:  0.35923076923076924
+Trial: 4 Round:  68 Instant Regret:  0.36830769230769234
+Trial: 4 Round:  69 Instant Regret:  0.35815384615384616
+Trial: 4 Round:  70 Instant Regret:  0.3910769230769231
+Trial: 4 Round:  71 Instant Regret:  0.34807692307692306
+Trial: 4 Round:  72 Instant Regret:  0.36623076923076925
+Trial: 4 Round:  73 Instant Regret:  0.39030769230769224
+Trial: 4 Round:  74 Instant Regret:  0.34715384615384615
+Trial: 4 Round:  75 Instant Regret:  0.38123076923076926
+Trial: 4 Round:  76 Instant Regret:  0.39030769230769224
+Trial: 4 Round:  77 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  78 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  79 Instant Regret:  0.3116923076923078
+Trial: 4 Round:  80 Instant Regret:  0.29030769230769227
+Trial: 4 Round:  81 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  82 Instant Regret:  0.316923076923077
+Trial: 4 Round:  83 Instant Regret:  0.3569230769230769
+Trial: 4 Round:  84 Instant Regret:  0.3595384615384616
+Trial: 4 Round:  85 Instant Regret:  0.29030769230769227
+Trial: 4 Round:  86 Instant Regret:  0.3595384615384616
+Trial: 4 Round:  87 Instant Regret:  0.3116923076923078
+Trial: 4 Round:  88 Instant Regret:  0.391
+Trial: 4 Round:  89 Instant Regret:  0.28984615384615386
+Trial: 4 Round:  90 Instant Regret:  0.2841538461538462
+Trial: 4 Round:  91 Instant Regret:  0.2841538461538462
+Trial: 4 Round:  92 Instant Regret:  0.29000000000000004
+Trial: 4 Round:  93 Instant Regret:  0.2841538461538462
+Trial: 4 Round:  94 Instant Regret:  0.29000000000000004
+Trial: 4 Round:  95 Instant Regret:  0.2841538461538462
+Trial: 4 Round:  96 Instant Regret:  0.28984615384615386
+Trial: 4 Round:  97 Instant Regret:  0.2841538461538462
+Trial: 4 Round:  98 Instant Regret:  0.3340000000000001
+Trial: 4 Round:  99 Instant Regret:  0.3349230769230769
+Trial: 4 Round:  100 Instant Regret:  0.316923076923077
+Trial: 4 Round:  101 Instant Regret:  0.342923076923077
+Trial: 4 Round:  102 Instant Regret:  0.29000000000000004
+Trial: 4 Round:  103 Instant Regret:  0.31153846153846154
+Trial: 4 Round:  104 Instant Regret:  0.3473076923076923
+Trial: 4 Round:  105 Instant Regret:  0.2841538461538462
+Trial: 4 Round:  106 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  107 Instant Regret:  0.316923076923077
+Trial: 4 Round:  108 Instant Regret:  0.3573846153846154
+Trial: 4 Round:  109 Instant Regret:  0.33415384615384613
+Trial: 4 Round:  110 Instant Regret:  0.33507692307692305
+Trial: 4 Round:  111 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  112 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  113 Instant Regret:  0.29000000000000004
+Trial: 4 Round:  114 Instant Regret:  0.31138461538461537
+Trial: 4 Round:  115 Instant Regret:  0.3118461538461539
+Trial: 4 Round:  116 Instant Regret:  0.31138461538461537
+Trial: 4 Round:  117 Instant Regret:  0.3118461538461539
+Trial: 4 Round:  118 Instant Regret:  0.31138461538461537
+Trial: 4 Round:  119 Instant Regret:  0.3118461538461539
+Trial: 4 Round:  120 Instant Regret:  0.31138461538461537
+Trial: 4 Round:  121 Instant Regret:  0.3118461538461539
+Trial: 4 Round:  122 Instant Regret:  0.3595384615384616
+Trial: 4 Round:  123 Instant Regret:  0.2841538461538462
+Trial: 4 Round:  124 Instant Regret:  0.3595384615384616
+Trial: 4 Round:  125 Instant Regret:  0.3192307692307693
+Trial: 4 Round:  126 Instant Regret:  0.30999999999999994
+Trial: 4 Round:  127 Instant Regret:  0.30999999999999994
+Trial: 4 Round:  128 Instant Regret:  0.3192307692307693
+Trial: 4 Round:  129 Instant Regret:  0.30984615384615377
+Trial: 4 Round:  130 Instant Regret:  0.3192307692307693
+Trial: 4 Round:  131 Instant Regret:  0.30999999999999994
+Trial: 4 Round:  132 Instant Regret:  0.3187692307692308
+Trial: 4 Round:  133 Instant Regret:  0.30984615384615377
+Trial: 4 Round:  134 Instant Regret:  0.31138461538461537
+Trial: 4 Round:  135 Instant Regret:  0.3427692307692308
+Trial: 4 Round:  136 Instant Regret:  0.3118461538461539
+Trial: 4 Round:  137 Instant Regret:  0.35923076923076924
+Trial: 4 Round:  138 Instant Regret:  0.31907692307692315
+Trial: 4 Round:  139 Instant Regret:  0.29000000000000004
+Trial: 4 Round:  140 Instant Regret:  0.2841538461538462
+Trial: 4 Round:  141 Instant Regret:  0.378
+Trial: 4 Round:  142 Instant Regret:  0.3340000000000001
+Trial: 4 Round:  143 Instant Regret:  0.3349230769230769
+Trial: 4 Round:  144 Instant Regret:  0.29000000000000004
+Trial: 4 Round:  145 Instant Regret:  0.2841538461538462
+Trial: 4 Round:  146 Instant Regret:  0.30999999999999994
+Trial: 4 Round:  147 Instant Regret:  0.347923076923077
+Trial: 4 Round:  148 Instant Regret:  0.31138461538461537
+Trial: 4 Round:  149 Instant Regret:  0.342923076923077
+Trial: 4 Round:  150 Instant Regret:  0.3118461538461539
+Trial: 4 Round:  151 Instant Regret:  0.2841538461538462
+Trial: 4 Round:  152 Instant Regret:  0.34323076923076923
+Trial: 4 Round:  153 Instant Regret:  0.29800000000000004
+Trial: 4 Round:  154 Instant Regret:  0.29800000000000004
+Trial: 4 Round:  155 Instant Regret:  0.3429230769230769
+Trial: 4 Round:  156 Instant Regret:  0.29800000000000004
+Trial: 4 Round:  157 Instant Regret:  0.3433846153846154
+Trial: 4 Round:  158 Instant Regret:  0.29800000000000004
+Trial: 4 Round:  159 Instant Regret:  0.29784615384615387
+Trial: 4 Round:  160 Instant Regret:  0.29800000000000004
+Trial: 4 Round:  161 Instant Regret:  0.3433846153846154
+Trial: 4 Round:  162 Instant Regret:  0.29784615384615387
+Trial: 4 Round:  163 Instant Regret:  0.29000000000000004
+Trial: 4 Round:  164 Instant Regret:  0.33507692307692305
+Trial: 4 Round:  165 Instant Regret:  0.3346153846153844
+Trial: 4 Round:  166 Instant Regret:  0.3347692307692306
+Trial: 4 Round:  167 Instant Regret:  0.3349230769230769
+Trial: 4 Round:  168 Instant Regret:  0.3346153846153844
+Trial: 4 Round:  169 Instant Regret:  0.3349230769230769
+Trial: 4 Round:  170 Instant Regret:  0.3346153846153844
+Trial: 4 Round:  171 Instant Regret:  0.3349230769230769
+Trial: 4 Round:  172 Instant Regret:  0.3690769230769231
+Trial: 4 Round:  173 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  174 Instant Regret:  0.29800000000000004
+Trial: 4 Round:  175 Instant Regret:  0.2841538461538462
+Trial: 4 Round:  176 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  177 Instant Regret:  0.3346153846153844
+Trial: 4 Round:  178 Instant Regret:  0.35769230769230775
+Trial: 4 Round:  179 Instant Regret:  0.3349230769230769
+Trial: 4 Round:  180 Instant Regret:  0.318923076923077
+Trial: 4 Round:  181 Instant Regret:  0.29000000000000004
+Trial: 4 Round:  182 Instant Regret:  0.35923076923076924
+Trial: 4 Round:  183 Instant Regret:  0.3485384615384616
+Trial: 4 Round:  184 Instant Regret:  0.28430769230769226
+Trial: 4 Round:  185 Instant Regret:  0.30999999999999994
+Trial: 4 Round:  186 Instant Regret:  0.3595384615384616
+Trial: 4 Round:  187 Instant Regret:  0.31138461538461537
+Trial: 4 Round:  188 Instant Regret:  0.34307692307692306
+Trial: 4 Round:  189 Instant Regret:  0.3413846153846154
+Trial: 4 Round:  190 Instant Regret:  0.34153846153846157
+Trial: 4 Round:  191 Instant Regret:  0.34323076923076923
+Trial: 4 Round:  192 Instant Regret:  0.3413846153846154
+Trial: 4 Round:  193 Instant Regret:  0.34307692307692306
+Trial: 4 Round:  194 Instant Regret:  0.3413846153846154
+Trial: 4 Round:  195 Instant Regret:  0.3553846153846154
+Trial: 4 Round:  196 Instant Regret:  0.29792307692307696
+Trial: 4 Round:  197 Instant Regret:  0.28830769230769226
+Trial: 4 Round:  198 Instant Regret:  0.2827692307692308
+Trial: 4 Round:  199 Instant Regret:  0.2826153846153845
+Trial: 4 Round:  200 Instant Regret:  0.28830769230769226
+Trial: 4 Round:  201 Instant Regret:  0.2826153846153845
+Trial: 4 Round:  202 Instant Regret:  0.28830769230769226
+Trial: 4 Round:  203 Instant Regret:  0.2827692307692308
+Trial: 4 Round:  204 Instant Regret:  0.28830769230769226
+Trial: 4 Round:  205 Instant Regret:  0.2824615384615383
+Trial: 4 Round:  206 Instant Regret:  0.28830769230769226
+Trial: 4 Round:  207 Instant Regret:  0.2827692307692308
+Trial: 4 Round:  208 Instant Regret:  0.28830769230769226
+Trial: 4 Round:  209 Instant Regret:  0.2824615384615383
+Trial: 4 Round:  210 Instant Regret:  0.28830769230769226
+Trial: 4 Round:  211 Instant Regret:  0.2826153846153845
+Trial: 4 Round:  212 Instant Regret:  0.28830769230769226
+Trial: 4 Round:  213 Instant Regret:  0.3118461538461539
+Trial: 4 Round:  214 Instant Regret:  0.2824615384615383
+Trial: 4 Round:  215 Instant Regret:  0.29000000000000004
+Trial: 4 Round:  216 Instant Regret:  0.3915384615384616
+Trial: 4 Round:  217 Instant Regret:  0.35907692307692307
+Trial: 4 Round:  218 Instant Regret:  0.3413846153846154
+Trial: 4 Round:  219 Instant Regret:  0.29000000000000004
+Trial: 4 Round:  220 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  221 Instant Regret:  0.34307692307692306
+Trial: 4 Round:  222 Instant Regret:  0.29800000000000004
+Trial: 4 Round:  223 Instant Regret:  0.2827692307692308
+Trial: 4 Round:  224 Instant Regret:  0.3578461538461539
+Trial: 4 Round:  225 Instant Regret:  0.3575384615384616
+Trial: 4 Round:  226 Instant Regret:  0.35723076923076924
+Trial: 4 Round:  227 Instant Regret:  0.2916923076923076
+Trial: 4 Round:  228 Instant Regret:  0.28984615384615386
+Trial: 4 Round:  229 Instant Regret:  0.2899999999999999
+Trial: 4 Round:  230 Instant Regret:  0.2916923076923076
+Trial: 4 Round:  231 Instant Regret:  0.28984615384615386
+Trial: 4 Round:  232 Instant Regret:  0.2916923076923076
+Trial: 4 Round:  233 Instant Regret:  0.28984615384615386
+Trial: 4 Round:  234 Instant Regret:  0.2916923076923076
+Trial: 4 Round:  235 Instant Regret:  0.28984615384615386
+Trial: 4 Round:  236 Instant Regret:  0.2916923076923076
+Trial: 4 Round:  237 Instant Regret:  0.2899999999999999
+Trial: 4 Round:  238 Instant Regret:  0.2916923076923076
+Trial: 4 Round:  239 Instant Regret:  0.28984615384615386
+Trial: 4 Round:  240 Instant Regret:  0.2916923076923076
+Trial: 4 Round:  241 Instant Regret:  0.28984615384615386
+Trial: 4 Round:  242 Instant Regret:  0.2916923076923076
+Trial: 4 Round:  243 Instant Regret:  0.28830769230769226
+Trial: 4 Round:  244 Instant Regret:  0.30999999999999994
+Trial: 4 Round:  245 Instant Regret:  0.3680000000000001
+Trial: 4 Round:  246 Instant Regret:  0.3433846153846154
+Trial: 4 Round:  247 Instant Regret:  0.3192307692307693
+Trial: 4 Round:  248 Instant Regret:  0.31138461538461537
+Trial: 4 Round:  249 Instant Regret:  0.2899999999999999
+Trial: 4 Round:  250 Instant Regret:  0.3469230769230769
+Trial: 4 Round:  251 Instant Regret:  0.3484615384615385
+Trial: 4 Round:  252 Instant Regret:  0.3584615384615385
+Trial: 4 Round:  253 Instant Regret:  0.34723076923076923
+Trial: 4 Round:  254 Instant Regret:  0.3469230769230769
+Trial: 4 Round:  255 Instant Regret:  0.3480769230769232
+Trial: 4 Round:  256 Instant Regret:  0.405
+Trial: 4 Round:  257 Instant Regret:  0.34715384615384615
+Trial: 4 Round:  258 Instant Regret:  0.3463076923076923
+Trial: 4 Round:  259 Instant Regret:  0.3118461538461539
+Trial: 4 Round:  260 Instant Regret:  0.29800000000000004
+Trial: 4 Round:  261 Instant Regret:  0.28430769230769226
+Trial: 4 Round:  262 Instant Regret:  0.2824615384615383
+Trial: 4 Round:  263 Instant Regret:  0.35907692307692307
+Trial: 4 Round:  264 Instant Regret:  0.29800000000000004
+Trial: 4 Round:  265 Instant Regret:  0.29000000000000004
+Trial: 4 Round:  266 Instant Regret:  0.2916153846153846
+Trial: 4 Round:  267 Instant Regret:  0.2826153846153845
+Trial: 4 Round:  268 Instant Regret:  0.3593846153846153
+Trial: 4 Round:  269 Instant Regret:  0.2881538461538462
+Trial: 4 Round:  270 Instant Regret:  0.3118461538461539
+Trial: 4 Round:  271 Instant Regret:  0.2916923076923076
+Trial: 4 Round:  272 Instant Regret:  0.3578461538461539
+Trial: 4 Round:  273 Instant Regret:  0.3346153846153844
+Trial: 4 Round:  274 Instant Regret:  0.30999999999999994
+Trial: 4 Round:  275 Instant Regret:  0.29800000000000004
+Trial: 4 Round:  276 Instant Regret:  0.28830769230769226
+Trial: 4 Round:  277 Instant Regret:  0.28984615384615386
+Trial: 4 Round:  278 Instant Regret:  0.3349230769230769
+Trial: 4 Round:  279 Instant Regret:  0.2824615384615383
+Trial: 4 Round:  280 Instant Regret:  0.31138461538461537
+Trial: 4 Round:  281 Instant Regret:  0.28984615384615386
+Trial: 4 Round:  282 Instant Regret:  0.30999999999999994
+Trial: 4 Round:  283 Instant Regret:  0.3243076923076923
+Trial: 4 Round:  284 Instant Regret:  0.21923076923076923
+Trial: 4 Round:  285 Instant Regret:  0.2193846153846154
+Trial: 4 Round:  286 Instant Regret:  0.3243076923076923
+Trial: 4 Round:  287 Instant Regret:  0.21923076923076923
+Trial: 4 Round:  288 Instant Regret:  0.21953846153846146
+Trial: 4 Round:  289 Instant Regret:  0.21907692307692306
+Trial: 4 Round:  290 Instant Regret:  0.21923076923076923
+Trial: 4 Round:  291 Instant Regret:  0.3243076923076923
+Trial: 4 Round:  292 Instant Regret:  0.21923076923076923
+Trial: 4 Round:  293 Instant Regret:  0.2193846153846154
+Trial: 4 Round:  294 Instant Regret:  0.21953846153846157
+Trial: 4 Round:  295 Instant Regret:  0.21907692307692306
+Trial: 4 Round:  296 Instant Regret:  0.2189230769230769
+Trial: 4 Round:  297 Instant Regret:  0.21723076923076923
+Trial: 4 Round:  298 Instant Regret:  0.21907692307692306
+Trial: 4 Round:  299 Instant Regret:  0.21953846153846157
+Trial: 4 Round:  300 Instant Regret:  0.21815384615384614
+Trial: 4 Round:  301 Instant Regret:  0.22015384615384614
+Trial: 4 Round:  302 Instant Regret:  0.21953846153846157
+Trial: 4 Round:  303 Instant Regret:  0.21923076923076923
+Trial: 4 Round:  304 Instant Regret:  0.2209230769230769
+Trial: 4 Round:  305 Instant Regret:  0.21923076923076923
+Trial: 4 Round:  306 Instant Regret:  0.21923076923076923
+Trial: 4 Round:  307 Instant Regret:  0.21815384615384614
+Trial: 4 Round:  308 Instant Regret:  0.2193846153846154
+Trial: 4 Round:  309 Instant Regret:  0.21907692307692306
+Trial: 4 Round:  310 Instant Regret:  0.2198461538461538
+Trial: 4 Round:  311 Instant Regret:  0.2193846153846153
+Trial: 4 Round:  312 Instant Regret:  0.21907692307692306
+Trial: 4 Round:  313 Instant Regret:  0.26984615384615374
+Trial: 4 Round:  314 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  315 Instant Regret:  0.17199999999999993
+Trial: 4 Round:  316 Instant Regret:  0.26984615384615374
+Trial: 4 Round:  317 Instant Regret:  0.17338461538461536
+Trial: 4 Round:  318 Instant Regret:  0.17199999999999993
+Trial: 4 Round:  319 Instant Regret:  0.17092307692307696
+Trial: 4 Round:  320 Instant Regret:  0.26984615384615374
+Trial: 4 Round:  321 Instant Regret:  0.17353846153846153
+Trial: 4 Round:  322 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  323 Instant Regret:  0.1706153846153846
+Trial: 4 Round:  324 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  325 Instant Regret:  0.1721538461538461
+Trial: 4 Round:  326 Instant Regret:  0.1721538461538461
+Trial: 4 Round:  327 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  328 Instant Regret:  0.1721538461538462
+Trial: 4 Round:  329 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  330 Instant Regret:  0.17000000000000004
+Trial: 4 Round:  331 Instant Regret:  0.16953846153846153
+Trial: 4 Round:  332 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  333 Instant Regret:  0.1701538461538462
+Trial: 4 Round:  334 Instant Regret:  0.1716923076923078
+Trial: 4 Round:  335 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  336 Instant Regret:  0.26984615384615374
+Trial: 4 Round:  337 Instant Regret:  0.16953846153846153
+Trial: 4 Round:  338 Instant Regret:  0.1706153846153846
+Trial: 4 Round:  339 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  340 Instant Regret:  0.17046153846153844
+Trial: 4 Round:  341 Instant Regret:  0.1706153846153846
+Trial: 4 Round:  342 Instant Regret:  0.17046153846153844
+Trial: 4 Round:  343 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  344 Instant Regret:  0.16953846153846153
+Trial: 4 Round:  345 Instant Regret:  0.17092307692307696
+Trial: 4 Round:  346 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  347 Instant Regret:  0.17092307692307696
+Trial: 4 Round:  348 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  349 Instant Regret:  0.17184615384615387
+Trial: 4 Round:  350 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  351 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  352 Instant Regret:  0.17353846153846153
+Trial: 4 Round:  353 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  354 Instant Regret:  0.17184615384615387
+Trial: 4 Round:  355 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  356 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  357 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  358 Instant Regret:  0.17046153846153844
+Trial: 4 Round:  359 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  360 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  361 Instant Regret:  0.17030769230769227
+Trial: 4 Round:  362 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  363 Instant Regret:  0.17030769230769227
+Trial: 4 Round:  364 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  365 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  366 Instant Regret:  0.17092307692307696
+Trial: 4 Round:  367 Instant Regret:  0.1712307692307693
+Trial: 4 Round:  368 Instant Regret:  0.16984615384615387
+Trial: 4 Round:  369 Instant Regret:  0.17046153846153844
+Trial: 4 Round:  370 Instant Regret:  0.17046153846153844
+Trial: 4 Round:  371 Instant Regret:  0.17030769230769227
+Trial: 4 Round:  372 Instant Regret:  0.17030769230769227
+Trial: 4 Round:  373 Instant Regret:  0.17107692307692313
+Trial: 4 Round:  374 Instant Regret:  0.20046153846153847
+Trial: 4 Round:  375 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  376 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  377 Instant Regret:  0.1983076923076923
+Trial: 4 Round:  378 Instant Regret:  0.15753846153846152
+Trial: 4 Round:  379 Instant Regret:  0.20046153846153847
+Trial: 4 Round:  380 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  381 Instant Regret:  0.15846153846153843
+Trial: 4 Round:  382 Instant Regret:  0.20046153846153847
+Trial: 4 Round:  383 Instant Regret:  0.15753846153846152
+Trial: 4 Round:  384 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  385 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  386 Instant Regret:  0.20107692307692304
+Trial: 4 Round:  387 Instant Regret:  0.1586153846153846
+Trial: 4 Round:  388 Instant Regret:  0.15738461538461535
+Trial: 4 Round:  389 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  390 Instant Regret:  0.1586153846153846
+Trial: 4 Round:  391 Instant Regret:  0.15738461538461535
+Trial: 4 Round:  392 Instant Regret:  0.19892307692307687
+Trial: 4 Round:  393 Instant Regret:  0.15876923076923077
+Trial: 4 Round:  394 Instant Regret:  0.1586153846153846
+Trial: 4 Round:  395 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  396 Instant Regret:  0.1586153846153846
+Trial: 4 Round:  397 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  398 Instant Regret:  0.15800000000000003
+Trial: 4 Round:  399 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  400 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  401 Instant Regret:  0.1996923076923076
+Trial: 4 Round:  402 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  403 Instant Regret:  0.1586153846153846
+Trial: 4 Round:  404 Instant Regret:  0.1581538461538461
+Trial: 4 Round:  405 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  406 Instant Regret:  0.15846153846153854
+Trial: 4 Round:  407 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  408 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  409 Instant Regret:  0.15846153846153843
+Trial: 4 Round:  410 Instant Regret:  0.15799999999999992
+Trial: 4 Round:  411 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  412 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  413 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  414 Instant Regret:  0.15846153846153843
+Trial: 4 Round:  415 Instant Regret:  0.1576923076923077
+Trial: 4 Round:  416 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  417 Instant Regret:  0.15738461538461535
+Trial: 4 Round:  418 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  419 Instant Regret:  0.20046153846153847
+Trial: 4 Round:  420 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  421 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  422 Instant Regret:  0.15846153846153843
+Trial: 4 Round:  423 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  424 Instant Regret:  0.15753846153846163
+Trial: 4 Round:  425 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  426 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  427 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  428 Instant Regret:  0.15738461538461535
+Trial: 4 Round:  429 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  430 Instant Regret:  0.15800000000000003
+Trial: 4 Round:  431 Instant Regret:  0.15753846153846163
+Trial: 4 Round:  432 Instant Regret:  0.1586153846153846
+Trial: 4 Round:  433 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  434 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  435 Instant Regret:  0.15769230769230758
+Trial: 4 Round:  436 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  437 Instant Regret:  0.15846153846153843
+Trial: 4 Round:  438 Instant Regret:  0.15800000000000003
+Trial: 4 Round:  439 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  440 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  441 Instant Regret:  0.15738461538461535
+Trial: 4 Round:  442 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  443 Instant Regret:  0.15769230769230758
+Trial: 4 Round:  444 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  445 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  446 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  447 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  448 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  449 Instant Regret:  0.15846153846153843
+Trial: 4 Round:  450 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  451 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  452 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  453 Instant Regret:  0.15846153846153843
+Trial: 4 Round:  454 Instant Regret:  0.15753846153846163
+Trial: 4 Round:  455 Instant Regret:  0.1586153846153846
+Trial: 4 Round:  456 Instant Regret:  0.15846153846153854
+Trial: 4 Round:  457 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  458 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  459 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  460 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  461 Instant Regret:  0.1586153846153845
+Trial: 4 Round:  462 Instant Regret:  0.15846153846153854
+Trial: 4 Round:  463 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  464 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  465 Instant Regret:  0.15846153846153854
+Trial: 4 Round:  466 Instant Regret:  0.15846153846153854
+Trial: 4 Round:  467 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  468 Instant Regret:  0.15769230769230758
+Trial: 4 Round:  469 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  470 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  471 Instant Regret:  0.1586153846153846
+Trial: 4 Round:  472 Instant Regret:  0.15769230769230758
+Trial: 4 Round:  473 Instant Regret:  0.15784615384615386
+Trial: 4 Round:  474 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  475 Instant Regret:  0.15738461538461535
+Trial: 4 Round:  476 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  477 Instant Regret:  0.1586153846153846
+Trial: 4 Round:  478 Instant Regret:  0.15800000000000003
+Trial: 4 Round:  479 Instant Regret:  0.15800000000000003
+Trial: 4 Round:  480 Instant Regret:  0.20046153846153847
+Trial: 4 Round:  481 Instant Regret:  0.15892307692307694
+Trial: 4 Round:  482 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  483 Instant Regret:  0.15846153846153854
+Trial: 4 Round:  484 Instant Regret:  0.1586153846153846
+Trial: 4 Round:  485 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  486 Instant Regret:  0.1586153846153846
+Trial: 4 Round:  487 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  488 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  489 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  490 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  491 Instant Regret:  0.15907692307692312
+Trial: 4 Round:  492 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  493 Instant Regret:  0.15846153846153854
+Trial: 4 Round:  494 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  495 Instant Regret:  0.1576923076923077
+Trial: 4 Round:  496 Instant Regret:  0.1581538461538462
+Trial: 4 Round:  497 Instant Regret:  0.1576923076923077
+Trial: 4 Round:  498 Instant Regret:  0.15830769230769226
+Trial: 4 Round:  499 Instant Regret:  0.15846153846153854
+Trial: 4 Round:  500 Instant Regret:  0.15830769230769226
+Trial: 5 Round:  1 Instant Regret:  0.3575384615384616
+Trial: 5 Round:  2 Instant Regret:  0.35476923076923084
+Trial: 5 Round:  3 Instant Regret:  0.3575384615384616
+Trial: 5 Round:  4 Instant Regret:  0.34676923076923083
+Trial: 5 Round:  5 Instant Regret:  0.3595384615384616
+Trial: 5 Round:  6 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  7 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  8 Instant Regret:  0.3347692307692307
+Trial: 5 Round:  9 Instant Regret:  0.35815384615384627
+Trial: 5 Round:  10 Instant Regret:  0.346
+Trial: 5 Round:  11 Instant Regret:  0.3595384615384616
+Trial: 5 Round:  12 Instant Regret:  0.3278461538461539
+Trial: 5 Round:  13 Instant Regret:  0.3595384615384616
+Trial: 5 Round:  14 Instant Regret:  0.35969230769230776
+Trial: 5 Round:  15 Instant Regret:  0.32800000000000007
+Trial: 5 Round:  16 Instant Regret:  0.346
+Trial: 5 Round:  17 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  18 Instant Regret:  0.3347692307692307
+Trial: 5 Round:  19 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  20 Instant Regret:  0.3553846153846154
+Trial: 5 Round:  21 Instant Regret:  0.3483076923076923
+Trial: 5 Round:  22 Instant Regret:  0.38384615384615384
+Trial: 5 Round:  23 Instant Regret:  0.3598461538461538
+Trial: 5 Round:  24 Instant Regret:  0.35769230769230775
+Trial: 5 Round:  25 Instant Regret:  0.3595384615384616
+Trial: 5 Round:  26 Instant Regret:  0.38230769230769235
+Trial: 5 Round:  27 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  28 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  29 Instant Regret:  0.3278461538461539
+Trial: 5 Round:  30 Instant Regret:  0.3483076923076923
+Trial: 5 Round:  31 Instant Regret:  0.346
+Trial: 5 Round:  32 Instant Regret:  0.37230769230769234
+Trial: 5 Round:  33 Instant Regret:  0.35769230769230775
+Trial: 5 Round:  34 Instant Regret:  0.3595384615384616
+Trial: 5 Round:  35 Instant Regret:  0.3424615384615385
+Trial: 5 Round:  36 Instant Regret:  0.29030769230769227
+Trial: 5 Round:  37 Instant Regret:  0.29030769230769227
+Trial: 5 Round:  38 Instant Regret:  0.3427692307692307
+Trial: 5 Round:  39 Instant Regret:  0.29030769230769227
+Trial: 5 Round:  40 Instant Regret:  0.34323076923076923
+Trial: 5 Round:  41 Instant Regret:  0.30107692307692313
+Trial: 5 Round:  42 Instant Regret:  0.30107692307692313
+Trial: 5 Round:  43 Instant Regret:  0.34323076923076923
+Trial: 5 Round:  44 Instant Regret:  0.30107692307692313
+Trial: 5 Round:  45 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  46 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  47 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  48 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  49 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  50 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  51 Instant Regret:  0.29030769230769227
+Trial: 5 Round:  52 Instant Regret:  0.38169230769230766
+Trial: 5 Round:  53 Instant Regret:  0.31153846153846154
+Trial: 5 Round:  54 Instant Regret:  0.3116923076923078
+Trial: 5 Round:  55 Instant Regret:  0.3564615384615385
+Trial: 5 Round:  56 Instant Regret:  0.3116923076923078
+Trial: 5 Round:  57 Instant Regret:  0.342923076923077
+Trial: 5 Round:  58 Instant Regret:  0.3513846153846153
+Trial: 5 Round:  59 Instant Regret:  0.3480000000000001
+Trial: 5 Round:  60 Instant Regret:  0.3480000000000001
+Trial: 5 Round:  61 Instant Regret:  0.3513846153846153
+Trial: 5 Round:  62 Instant Regret:  0.35676923076923084
+Trial: 5 Round:  63 Instant Regret:  0.38523076923076915
+Trial: 5 Round:  64 Instant Regret:  0.36
+Trial: 5 Round:  65 Instant Regret:  0.40384615384615385
+Trial: 5 Round:  66 Instant Regret:  0.34307692307692306
+Trial: 5 Round:  67 Instant Regret:  0.30107692307692313
+Trial: 5 Round:  68 Instant Regret:  0.3826153846153846
+Trial: 5 Round:  69 Instant Regret:  0.3598461538461538
+Trial: 5 Round:  70 Instant Regret:  0.3749230769230769
+Trial: 5 Round:  71 Instant Regret:  0.3593846153846153
+Trial: 5 Round:  72 Instant Regret:  0.34769230769230774
+Trial: 5 Round:  73 Instant Regret:  0.38969230769230767
+Trial: 5 Round:  74 Instant Regret:  0.348
+Trial: 5 Round:  75 Instant Regret:  0.34761538461538466
+Trial: 5 Round:  76 Instant Regret:  0.3884615384615384
+Trial: 5 Round:  77 Instant Regret:  0.3480769230769232
+Trial: 5 Round:  78 Instant Regret:  0.3513846153846153
+Trial: 5 Round:  79 Instant Regret:  0.3595384615384616
+Trial: 5 Round:  80 Instant Regret:  0.3116923076923078
+Trial: 5 Round:  81 Instant Regret:  0.3595384615384616
+Trial: 5 Round:  82 Instant Regret:  0.395076923076923
+Trial: 5 Round:  83 Instant Regret:  0.29030769230769227
+Trial: 5 Round:  84 Instant Regret:  0.30107692307692313
+Trial: 5 Round:  85 Instant Regret:  0.36076923076923073
+Trial: 5 Round:  86 Instant Regret:  0.29030769230769227
+Trial: 5 Round:  87 Instant Regret:  0.3116923076923078
+Trial: 5 Round:  88 Instant Regret:  0.38738461538461544
+Trial: 5 Round:  89 Instant Regret:  0.3118461538461538
+Trial: 5 Round:  90 Instant Regret:  0.21461538461538465
+Trial: 5 Round:  91 Instant Regret:  0.21461538461538465
+Trial: 5 Round:  92 Instant Regret:  0.3118461538461538
+Trial: 5 Round:  93 Instant Regret:  0.21523076923076923
+Trial: 5 Round:  94 Instant Regret:  0.21461538461538465
+Trial: 5 Round:  95 Instant Regret:  0.21461538461538465
+Trial: 5 Round:  96 Instant Regret:  0.2143076923076923
+Trial: 5 Round:  97 Instant Regret:  0.3118461538461538
+Trial: 5 Round:  98 Instant Regret:  0.21461538461538465
+Trial: 5 Round:  99 Instant Regret:  0.21261538461538465
+Trial: 5 Round:  100 Instant Regret:  0.21615384615384614
+Trial: 5 Round:  101 Instant Regret:  0.2153846153846154
+Trial: 5 Round:  102 Instant Regret:  0.21461538461538465
+Trial: 5 Round:  103 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  104 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  105 Instant Regret:  0.21415384615384614
+Trial: 5 Round:  106 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  107 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  108 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  109 Instant Regret:  0.2143076923076923
+Trial: 5 Round:  110 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  111 Instant Regret:  0.21399999999999997
+Trial: 5 Round:  112 Instant Regret:  0.2163076923076922
+Trial: 5 Round:  113 Instant Regret:  0.21323076923076933
+Trial: 5 Round:  114 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  115 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  116 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  117 Instant Regret:  0.214923076923077
+Trial: 5 Round:  118 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  119 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  120 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  121 Instant Regret:  0.21461538461538465
+Trial: 5 Round:  122 Instant Regret:  0.21507692307692305
+Trial: 5 Round:  123 Instant Regret:  0.21415384615384614
+Trial: 5 Round:  124 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  125 Instant Regret:  0.2163076923076923
+Trial: 5 Round:  126 Instant Regret:  0.21492307692307688
+Trial: 5 Round:  127 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  128 Instant Regret:  0.2193846153846154
+Trial: 5 Round:  129 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  130 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  131 Instant Regret:  0.2138461538461539
+Trial: 5 Round:  132 Instant Regret:  0.2143076923076923
+Trial: 5 Round:  133 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  134 Instant Regret:  0.21753846153846157
+Trial: 5 Round:  135 Instant Regret:  0.30107692307692313
+Trial: 5 Round:  136 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  137 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  138 Instant Regret:  0.3424615384615385
+Trial: 5 Round:  139 Instant Regret:  0.3118461538461538
+Trial: 5 Round:  140 Instant Regret:  0.21415384615384625
+Trial: 5 Round:  141 Instant Regret:  0.34323076923076923
+Trial: 5 Round:  142 Instant Regret:  0.21815384615384614
+Trial: 5 Round:  143 Instant Regret:  0.35923076923076924
+Trial: 5 Round:  144 Instant Regret:  0.21615384615384614
+Trial: 5 Round:  145 Instant Regret:  0.21876923076923083
+Trial: 5 Round:  146 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  147 Instant Regret:  0.21907692307692306
+Trial: 5 Round:  148 Instant Regret:  0.21492307692307688
+Trial: 5 Round:  149 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  150 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  151 Instant Regret:  0.34723076923076923
+Trial: 5 Round:  152 Instant Regret:  0.3480000000000001
+Trial: 5 Round:  153 Instant Regret:  0.32461538461538475
+Trial: 5 Round:  154 Instant Regret:  0.2204615384615385
+Trial: 5 Round:  155 Instant Regret:  0.21907692307692317
+Trial: 5 Round:  156 Instant Regret:  0.32461538461538475
+Trial: 5 Round:  157 Instant Regret:  0.2204615384615385
+Trial: 5 Round:  158 Instant Regret:  0.22015384615384626
+Trial: 5 Round:  159 Instant Regret:  0.22000000000000008
+Trial: 5 Round:  160 Instant Regret:  0.22307692307692317
+Trial: 5 Round:  161 Instant Regret:  0.32461538461538475
+Trial: 5 Round:  162 Instant Regret:  0.2224615384615385
+Trial: 5 Round:  163 Instant Regret:  0.2204615384615385
+Trial: 5 Round:  164 Instant Regret:  0.2204615384615385
+Trial: 5 Round:  165 Instant Regret:  0.2204615384615385
+Trial: 5 Round:  166 Instant Regret:  0.2204615384615385
+Trial: 5 Round:  167 Instant Regret:  0.2204615384615385
+Trial: 5 Round:  168 Instant Regret:  0.220923076923077
+Trial: 5 Round:  169 Instant Regret:  0.21969230769230763
+Trial: 5 Round:  170 Instant Regret:  0.2189230769230769
+Trial: 5 Round:  171 Instant Regret:  0.220923076923077
+Trial: 5 Round:  172 Instant Regret:  0.21907692307692306
+Trial: 5 Round:  173 Instant Regret:  0.2204615384615385
+Trial: 5 Round:  174 Instant Regret:  0.2193846153846154
+Trial: 5 Round:  175 Instant Regret:  0.22076923076923083
+Trial: 5 Round:  176 Instant Regret:  0.22107692307692306
+Trial: 5 Round:  177 Instant Regret:  0.220923076923077
+Trial: 5 Round:  178 Instant Regret:  0.21907692307692306
+Trial: 5 Round:  179 Instant Regret:  0.220923076923077
+Trial: 5 Round:  180 Instant Regret:  0.22153846153846157
+Trial: 5 Round:  181 Instant Regret:  0.220923076923077
+Trial: 5 Round:  182 Instant Regret:  0.21923076923076923
+Trial: 5 Round:  183 Instant Regret:  0.220923076923077
+Trial: 5 Round:  184 Instant Regret:  0.22061538461538455
+Trial: 5 Round:  185 Instant Regret:  0.220923076923077
+Trial: 5 Round:  186 Instant Regret:  0.2189230769230769
+Trial: 5 Round:  187 Instant Regret:  0.222923076923077
+Trial: 5 Round:  188 Instant Regret:  0.22153846153846157
+Trial: 5 Round:  189 Instant Regret:  0.220923076923077
+Trial: 5 Round:  190 Instant Regret:  0.21999999999999997
+Trial: 5 Round:  191 Instant Regret:  0.220923076923077
+Trial: 5 Round:  192 Instant Regret:  0.22215384615384615
+Trial: 5 Round:  193 Instant Regret:  0.220923076923077
+Trial: 5 Round:  194 Instant Regret:  0.21907692307692306
+Trial: 5 Round:  195 Instant Regret:  0.22076923076923083
+Trial: 5 Round:  196 Instant Regret:  0.21915384615384614
+Trial: 5 Round:  197 Instant Regret:  0.220923076923077
+Trial: 5 Round:  198 Instant Regret:  0.21907692307692306
+Trial: 5 Round:  199 Instant Regret:  0.22123076923076934
+Trial: 5 Round:  200 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  201 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  202 Instant Regret:  0.21907692307692306
+Trial: 5 Round:  203 Instant Regret:  0.32461538461538475
+Trial: 5 Round:  204 Instant Regret:  0.21415384615384625
+Trial: 5 Round:  205 Instant Regret:  0.21507692307692317
+Trial: 5 Round:  206 Instant Regret:  0.220923076923077
+Trial: 5 Round:  207 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  208 Instant Regret:  0.2189230769230769
+Trial: 5 Round:  209 Instant Regret:  0.21553846153846157
+Trial: 5 Round:  210 Instant Regret:  0.21476923076923082
+Trial: 5 Round:  211 Instant Regret:  0.2153846153846154
+Trial: 5 Round:  212 Instant Regret:  0.21953846153846157
+Trial: 5 Round:  213 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  214 Instant Regret:  0.21507692307692317
+Trial: 5 Round:  215 Instant Regret:  0.2133846153846154
+Trial: 5 Round:  216 Instant Regret:  0.2138461538461539
+Trial: 5 Round:  217 Instant Regret:  0.2143076923076923
+Trial: 5 Round:  218 Instant Regret:  0.21261538461538465
+Trial: 5 Round:  219 Instant Regret:  0.2153846153846154
+Trial: 5 Round:  220 Instant Regret:  0.2138461538461539
+Trial: 5 Round:  221 Instant Regret:  0.21323076923076933
+Trial: 5 Round:  222 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  223 Instant Regret:  0.2138461538461539
+Trial: 5 Round:  224 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  225 Instant Regret:  0.21323076923076933
+Trial: 5 Round:  226 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  227 Instant Regret:  0.21200000000000008
+Trial: 5 Round:  228 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  229 Instant Regret:  0.21323076923076933
+Trial: 5 Round:  230 Instant Regret:  0.2127692307692307
+Trial: 5 Round:  231 Instant Regret:  0.2138461538461539
+Trial: 5 Round:  232 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  233 Instant Regret:  0.21276923076923082
+Trial: 5 Round:  234 Instant Regret:  0.2143076923076923
+Trial: 5 Round:  235 Instant Regret:  0.21507692307692317
+Trial: 5 Round:  236 Instant Regret:  0.21323076923076922
+Trial: 5 Round:  237 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  238 Instant Regret:  0.2133846153846154
+Trial: 5 Round:  239 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  240 Instant Regret:  0.2123076923076923
+Trial: 5 Round:  241 Instant Regret:  0.2138461538461539
+Trial: 5 Round:  242 Instant Regret:  0.21492307692307688
+Trial: 5 Round:  243 Instant Regret:  0.21276923076923082
+Trial: 5 Round:  244 Instant Regret:  0.2133846153846154
+Trial: 5 Round:  245 Instant Regret:  0.21323076923076933
+Trial: 5 Round:  246 Instant Regret:  0.2133846153846154
+Trial: 5 Round:  247 Instant Regret:  0.220923076923077
+Trial: 5 Round:  248 Instant Regret:  0.21507692307692317
+Trial: 5 Round:  249 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  250 Instant Regret:  0.3513846153846153
+Trial: 5 Round:  251 Instant Regret:  0.2163076923076923
+Trial: 5 Round:  252 Instant Regret:  0.21876923076923072
+Trial: 5 Round:  253 Instant Regret:  0.22107692307692317
+Trial: 5 Round:  254 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  255 Instant Regret:  0.3116923076923078
+Trial: 5 Round:  256 Instant Regret:  0.21369230769230774
+Trial: 5 Round:  257 Instant Regret:  0.35907692307692307
+Trial: 5 Round:  258 Instant Regret:  0.21461538461538465
+Trial: 5 Round:  259 Instant Regret:  0.21599999999999997
+Trial: 5 Round:  260 Instant Regret:  0.21446153846153848
+Trial: 5 Round:  261 Instant Regret:  0.21292307692307688
+Trial: 5 Round:  262 Instant Regret:  0.21369230769230774
+Trial: 5 Round:  263 Instant Regret:  0.21523076923076934
+Trial: 5 Round:  264 Instant Regret:  0.21569230769230774
+Trial: 5 Round:  265 Instant Regret:  0.22076923076923083
+Trial: 5 Round:  266 Instant Regret:  0.21907692307692306
+Trial: 5 Round:  267 Instant Regret:  0.21923076923076923
+Trial: 5 Round:  268 Instant Regret:  0.2158461538461538
+Trial: 5 Round:  269 Instant Regret:  0.21569230769230763
+Trial: 5 Round:  270 Instant Regret:  0.21646153846153848
+Trial: 5 Round:  271 Instant Regret:  0.21646153846153848
+Trial: 5 Round:  272 Instant Regret:  0.21307692307692316
+Trial: 5 Round:  273 Instant Regret:  0.21615384615384614
+Trial: 5 Round:  274 Instant Regret:  0.21523076923076934
+Trial: 5 Round:  275 Instant Regret:  0.21646153846153848
+Trial: 5 Round:  276 Instant Regret:  0.21707692307692306
+Trial: 5 Round:  277 Instant Regret:  0.21507692307692305
+Trial: 5 Round:  278 Instant Regret:  0.21707692307692317
+Trial: 5 Round:  279 Instant Regret:  0.2163076923076923
+Trial: 5 Round:  280 Instant Regret:  0.21553846153846146
+Trial: 5 Round:  281 Instant Regret:  0.21646153846153848
+Trial: 5 Round:  282 Instant Regret:  0.21569230769230763
+Trial: 5 Round:  283 Instant Regret:  0.2158461538461538
+Trial: 5 Round:  284 Instant Regret:  0.2158461538461538
+Trial: 5 Round:  285 Instant Regret:  0.21599999999999997
+Trial: 5 Round:  286 Instant Regret:  0.21569230769230763
+Trial: 5 Round:  287 Instant Regret:  0.2163076923076923
+Trial: 5 Round:  288 Instant Regret:  0.21661538461538465
+Trial: 5 Round:  289 Instant Regret:  0.21569230769230763
+Trial: 5 Round:  290 Instant Regret:  0.2163076923076923
+Trial: 5 Round:  291 Instant Regret:  0.21615384615384614
+Trial: 5 Round:  292 Instant Regret:  0.21569230769230763
+Trial: 5 Round:  293 Instant Regret:  0.2158461538461538
+Trial: 5 Round:  294 Instant Regret:  0.21553846153846146
+Trial: 5 Round:  295 Instant Regret:  0.21907692307692306
+Trial: 5 Round:  296 Instant Regret:  0.21569230769230763
+Trial: 5 Round:  297 Instant Regret:  0.21661538461538465
+Trial: 5 Round:  298 Instant Regret:  0.21553846153846146
+Trial: 5 Round:  299 Instant Regret:  0.2163076923076923
+Trial: 5 Round:  300 Instant Regret:  0.21692307692307689
+Trial: 5 Round:  301 Instant Regret:  0.21599999999999997
+Trial: 5 Round:  302 Instant Regret:  0.21569230769230763
+Trial: 5 Round:  303 Instant Regret:  0.2163076923076923
+Trial: 5 Round:  304 Instant Regret:  0.22107692307692317
+Trial: 5 Round:  305 Instant Regret:  0.22030769230769232
+Trial: 5 Round:  306 Instant Regret:  0.21923076923076923
+Trial: 5 Round:  307 Instant Regret:  0.2133846153846154
+Trial: 5 Round:  308 Instant Regret:  0.218923076923077
+Trial: 5 Round:  309 Instant Regret:  0.21307692307692316
+Trial: 5 Round:  310 Instant Regret:  0.21200000000000008
+Trial: 5 Round:  311 Instant Regret:  0.22076923076923083
+Trial: 5 Round:  312 Instant Regret:  0.21923076923076923
+Trial: 5 Round:  313 Instant Regret:  0.21646153846153848
+Trial: 5 Round:  314 Instant Regret:  0.2163076923076923
+Trial: 5 Round:  315 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  316 Instant Regret:  0.220923076923077
+Trial: 5 Round:  317 Instant Regret:  0.21923076923076923
+Trial: 5 Round:  318 Instant Regret:  0.21569230769230763
+Trial: 5 Round:  319 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  320 Instant Regret:  0.3349230769230769
+Trial: 5 Round:  321 Instant Regret:  0.21461538461538454
+Trial: 5 Round:  322 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  323 Instant Regret:  0.21615384615384614
+Trial: 5 Round:  324 Instant Regret:  0.2193846153846154
+Trial: 5 Round:  325 Instant Regret:  0.220923076923077
+Trial: 5 Round:  326 Instant Regret:  0.21461538461538465
+Trial: 5 Round:  327 Instant Regret:  0.2163076923076923
+Trial: 5 Round:  328 Instant Regret:  0.21353846153846157
+Trial: 5 Round:  329 Instant Regret:  0.22153846153846157
+Trial: 5 Round:  330 Instant Regret:  0.220923076923077
+Trial: 5 Round:  331 Instant Regret:  0.2158461538461538
+Trial: 5 Round:  332 Instant Regret:  0.2209230769230769
+Trial: 5 Round:  333 Instant Regret:  0.2183076923076923
+Trial: 5 Round:  334 Instant Regret:  0.21846153846153848
+Trial: 5 Round:  335 Instant Regret:  0.22153846153846157
+Trial: 5 Round:  336 Instant Regret:  0.21600000000000008
+Trial: 5 Round:  337 Instant Regret:  0.22123076923076923
+Trial: 5 Round:  338 Instant Regret:  0.2183076923076923
+Trial: 5 Round:  339 Instant Regret:  0.2209230769230769
+Trial: 5 Round:  340 Instant Regret:  0.21815384615384625
+Trial: 5 Round:  341 Instant Regret:  0.2213846153846154
+Trial: 5 Round:  342 Instant Regret:  0.22153846153846157
+Trial: 5 Round:  343 Instant Regret:  0.22323076923076923
+Trial: 5 Round:  344 Instant Regret:  0.21846153846153848
+Trial: 5 Round:  345 Instant Regret:  0.22076923076923072
+Trial: 5 Round:  346 Instant Regret:  0.21846153846153848
+Trial: 5 Round:  347 Instant Regret:  0.2209230769230769
+Trial: 5 Round:  348 Instant Regret:  0.2183076923076923
+Trial: 5 Round:  349 Instant Regret:  0.22107692307692306
+Trial: 5 Round:  350 Instant Regret:  0.2189230769230769
+Trial: 5 Round:  351 Instant Regret:  0.2204615384615385
+Trial: 5 Round:  352 Instant Regret:  0.21846153846153848
+Trial: 5 Round:  353 Instant Regret:  0.2233846153846154
+Trial: 5 Round:  354 Instant Regret:  0.21846153846153848
+Trial: 5 Round:  355 Instant Regret:  0.2183076923076923
+Trial: 5 Round:  356 Instant Regret:  0.22076923076923072
+Trial: 5 Round:  357 Instant Regret:  0.2183076923076923
+Trial: 5 Round:  358 Instant Regret:  0.22123076923076923
+Trial: 5 Round:  359 Instant Regret:  0.2183076923076923
+Trial: 5 Round:  360 Instant Regret:  0.2209230769230769
+Trial: 5 Round:  361 Instant Regret:  0.21600000000000008
+Trial: 5 Round:  362 Instant Regret:  0.22153846153846157
+Trial: 5 Round:  363 Instant Regret:  0.21861538461538466
+Trial: 5 Round:  364 Instant Regret:  0.21846153846153848
+Trial: 5 Round:  365 Instant Regret:  0.2209230769230769
+Trial: 5 Round:  366 Instant Regret:  0.21861538461538466
+Trial: 5 Round:  367 Instant Regret:  0.21261538461538454
+Trial: 5 Round:  368 Instant Regret:  0.2209230769230769
+Trial: 5 Round:  369 Instant Regret:  0.21261538461538465
+Trial: 5 Round:  370 Instant Regret:  0.21569230769230763
+Trial: 5 Round:  371 Instant Regret:  0.22076923076923083
+Trial: 5 Round:  372 Instant Regret:  0.21615384615384614
+Trial: 5 Round:  373 Instant Regret:  0.21200000000000008
+Trial: 5 Round:  374 Instant Regret:  0.2133846153846155
+Trial: 5 Round:  375 Instant Regret:  0.2183076923076923
+Trial: 5 Round:  376 Instant Regret:  0.220923076923077
+Trial: 5 Round:  377 Instant Regret:  0.21661538461538465
+Trial: 5 Round:  378 Instant Regret:  0.2133846153846154
+Trial: 5 Round:  379 Instant Regret:  0.2712307692307693
+Trial: 5 Round:  380 Instant Regret:  0.17338461538461536
+Trial: 5 Round:  381 Instant Regret:  0.17507692307692313
+Trial: 5 Round:  382 Instant Regret:  0.27092307692307693
+Trial: 5 Round:  383 Instant Regret:  0.1732307692307693
+Trial: 5 Round:  384 Instant Regret:  0.1756923076923076
+Trial: 5 Round:  385 Instant Regret:  0.1741538461538461
+Trial: 5 Round:  386 Instant Regret:  0.27092307692307693
+Trial: 5 Round:  387 Instant Regret:  0.17553846153846142
+Trial: 5 Round:  388 Instant Regret:  0.17446153846153845
+Trial: 5 Round:  389 Instant Regret:  0.17507692307692313
+Trial: 5 Round:  390 Instant Regret:  0.17446153846153845
+Trial: 5 Round:  391 Instant Regret:  0.17399999999999993
+Trial: 5 Round:  392 Instant Regret:  0.1752307692307692
+Trial: 5 Round:  393 Instant Regret:  0.17430769230769227
+Trial: 5 Round:  394 Instant Regret:  0.17430769230769227
+Trial: 5 Round:  395 Instant Regret:  0.17384615384615376
+Trial: 5 Round:  396 Instant Regret:  0.1756923076923076
+Trial: 5 Round:  397 Instant Regret:  0.17399999999999993
+Trial: 5 Round:  398 Instant Regret:  0.17430769230769227
+Trial: 5 Round:  399 Instant Regret:  0.17430769230769227
+Trial: 5 Round:  400 Instant Regret:  0.27092307692307693
+Trial: 5 Round:  401 Instant Regret:  0.17338461538461547
+Trial: 5 Round:  402 Instant Regret:  0.17507692307692313
+Trial: 5 Round:  403 Instant Regret:  0.17446153846153845
+Trial: 5 Round:  404 Instant Regret:  0.17538461538461536
+Trial: 5 Round:  405 Instant Regret:  0.1741538461538461
+Trial: 5 Round:  406 Instant Regret:  0.1736923076923076
+Trial: 5 Round:  407 Instant Regret:  0.1741538461538461
+Trial: 5 Round:  408 Instant Regret:  0.17538461538461536
+Trial: 5 Round:  409 Instant Regret:  0.17384615384615387
+Trial: 5 Round:  410 Instant Regret:  0.1736923076923076
+Trial: 5 Round:  411 Instant Regret:  0.1732307692307693
+Trial: 5 Round:  412 Instant Regret:  0.17430769230769227
+Trial: 5 Round:  413 Instant Regret:  0.1741538461538461
+Trial: 5 Round:  414 Instant Regret:  0.17338461538461547
+Trial: 5 Round:  415 Instant Regret:  0.17492307692307696
+Trial: 5 Round:  416 Instant Regret:  0.1732307692307693
+Trial: 5 Round:  417 Instant Regret:  0.17492307692307696
+Trial: 5 Round:  418 Instant Regret:  0.1747692307692308
+Trial: 5 Round:  419 Instant Regret:  0.17338461538461536
+Trial: 5 Round:  420 Instant Regret:  0.1741538461538461
+Trial: 5 Round:  421 Instant Regret:  0.1741538461538461
+Trial: 5 Round:  422 Instant Regret:  0.17338461538461547
+Trial: 5 Round:  423 Instant Regret:  0.17538461538461536
+Trial: 5 Round:  424 Instant Regret:  0.17261538461538461
+Trial: 5 Round:  425 Instant Regret:  0.17446153846153845
+Trial: 5 Round:  426 Instant Regret:  0.17353846153846142
+Trial: 5 Round:  427 Instant Regret:  0.17430769230769227
+Trial: 5 Round:  428 Instant Regret:  0.17399999999999993
+Trial: 5 Round:  429 Instant Regret:  0.1747692307692308
+Trial: 5 Round:  430 Instant Regret:  0.1752307692307693
+Trial: 5 Round:  431 Instant Regret:  0.1741538461538461
+Trial: 5 Round:  432 Instant Regret:  0.1747692307692308
+Trial: 5 Round:  433 Instant Regret:  0.1747692307692308
+Trial: 5 Round:  434 Instant Regret:  0.17446153846153845
+Trial: 5 Round:  435 Instant Regret:  0.1741538461538461
+Trial: 5 Round:  436 Instant Regret:  0.17399999999999993
+Trial: 5 Round:  437 Instant Regret:  0.17430769230769227
+Trial: 5 Round:  438 Instant Regret:  0.17430769230769227
+Trial: 5 Round:  439 Instant Regret:  0.1736923076923077
+Trial: 5 Round:  440 Instant Regret:  0.19999999999999996
+Trial: 5 Round:  441 Instant Regret:  0.14953846153846162
+Trial: 5 Round:  442 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  443 Instant Regret:  0.19999999999999996
+Trial: 5 Round:  444 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  445 Instant Regret:  0.19861538461538464
+Trial: 5 Round:  446 Instant Regret:  0.14938461538461545
+Trial: 5 Round:  447 Instant Regret:  0.15000000000000002
+Trial: 5 Round:  448 Instant Regret:  0.14923076923076928
+Trial: 5 Round:  449 Instant Regret:  0.19984615384615378
+Trial: 5 Round:  450 Instant Regret:  0.14953846153846162
+Trial: 5 Round:  451 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  452 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  453 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  454 Instant Regret:  0.19999999999999996
+Trial: 5 Round:  455 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  456 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  457 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  458 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  459 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  460 Instant Regret:  0.14984615384615385
+Trial: 5 Round:  461 Instant Regret:  0.14892307692307694
+Trial: 5 Round:  462 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  463 Instant Regret:  0.19999999999999996
+Trial: 5 Round:  464 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  465 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  466 Instant Regret:  0.14923076923076928
+Trial: 5 Round:  467 Instant Regret:  0.14984615384615385
+Trial: 5 Round:  468 Instant Regret:  0.14953846153846162
+Trial: 5 Round:  469 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  470 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  471 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  472 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  473 Instant Regret:  0.15000000000000002
+Trial: 5 Round:  474 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  475 Instant Regret:  0.15015384615384608
+Trial: 5 Round:  476 Instant Regret:  0.14923076923076928
+Trial: 5 Round:  477 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  478 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  479 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  480 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  481 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  482 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  483 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  484 Instant Regret:  0.19999999999999996
+Trial: 5 Round:  485 Instant Regret:  0.14984615384615385
+Trial: 5 Round:  486 Instant Regret:  0.15030769230769225
+Trial: 5 Round:  487 Instant Regret:  0.15000000000000002
+Trial: 5 Round:  488 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  489 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  490 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  491 Instant Regret:  0.15030769230769225
+Trial: 5 Round:  492 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  493 Instant Regret:  0.14923076923076928
+Trial: 5 Round:  494 Instant Regret:  0.14984615384615385
+Trial: 5 Round:  495 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  496 Instant Regret:  0.14984615384615385
+Trial: 5 Round:  497 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  498 Instant Regret:  0.14969230769230768
+Trial: 5 Round:  499 Instant Regret:  0.15046153846153842
+Trial: 5 Round:  500 Instant Regret:  0.14969230769230768
+</pre></div></div>
+</div>
+<p>Plot the cumulative regret of VHCT with error bars</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regret_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">regret_array</span><span class="p">)</span>
+<span class="n">regret_dic</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;regret&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">regret_array</span><span class="p">],</span>
+              <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;VHCT&quot;</span><span class="p">],</span>
+              <span class="s2">&quot;colors&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">]}</span>
+
+<span class="n">compare_regret_withsd</span><span class="p">(</span><span class="n">regret_dic</span><span class="p">,</span> <span class="n">x_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rounds</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/getting_started_Jupyter_Examples_VHCT_Landmine_10_0.png" src="../../_images/getting_started_Jupyter_Examples_VHCT_Landmine_10_0.png" />
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="HCT_Himmelblau.html" class="btn btn-neutral float-left" title="Running the HCT Algorithm on the Normalized Himmelblau Function" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../features/feat_algorithms.html" class="btn btn-neutral float-right" title="X-armed bandit algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Wenjie Li.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

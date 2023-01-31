@@ -18,6 +18,7 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -40,19 +41,24 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="feat_algorithms.html"><em>X</em>-armed bandit algorithms</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Synthetic objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="feat_partitions.html">Hierarchical partition</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API reference</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Info:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../team/index.html">PyXAB Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/jupyter.html">Jupyter Notebook Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="feat_algorithms.html"><em>X</em>-armed bandit algorithms</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Synthetic objectives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feat_partitions.html">Hierarchical partition</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/cheatsheet.html">API Cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Info</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../info/team_members.html">PyXAB Development Team</a></li>
 </ul>
 
         </div>
@@ -69,7 +75,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Features</a></li>
       <li class="breadcrumb-item active">Synthetic objectives</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/features/feat_functions.rst.txt" rel="nofollow"> View page source</a>
@@ -80,31 +85,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="synthetic-objectives">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="synthetic-objectives">
 <h1>Synthetic objectives<a class="headerlink" href="#synthetic-objectives" title="Permalink to this headline"></a></h1>
 <ul class="simple">
 <li><p>Some of these objectives can be found <a class="reference external" href="https://en.wikipedia.org/wiki/Test_functions_for_optimization">here</a></p></li>
 </ul>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 100%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Objectives</p></th>
+<th class="head"><p>Image</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Garland.py">Garland</a></p></td>
+<td><img alt="../_images/Garland.png" src="../_images/Garland.png" />
+</td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/DoubleSine.py">DoubleSine</a></p></td>
+<td><img alt="../_images/DoubleSine.png" src="../_images/DoubleSine.png" />
+</td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/DifficultFunc.py">DifficultFunc</a></p></td>
+<td><img alt="../_images/DifficultFunc.png" src="../_images/DifficultFunc.png" />
+</td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Ackley.py">Ackley</a></p></td>
+<td><img alt="../_images/Ackley.png" src="../_images/Ackley.png" />
+</td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Himmelblau.py">Himmelblau</a></p></td>
+<td><img alt="../_images/Himmelblau.png" src="../_images/Himmelblau.png" />
+</td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Rastrigin.py">Rastrigin</a></p></td>
+<td><img alt="../_images/Rastrigin.png" src="../_images/Rastrigin.png" />
+</td>
 </tr>
 </tbody>
 </table>

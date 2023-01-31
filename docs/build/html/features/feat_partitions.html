@@ -18,10 +18,11 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API reference" href="../api/index.html" />
+    <link rel="next" title="API Cheatsheet" href="../api/cheatsheet.html" />
     <link rel="prev" title="Synthetic objectives" href="feat_functions.html" /> 
 </head>
 
@@ -40,19 +41,24 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="feat_algorithms.html"><em>X</em>-armed bandit algorithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="feat_functions.html">Synthetic objectives</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Hierarchical partition</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API reference</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Info:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../team/index.html">PyXAB Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/jupyter.html">Jupyter Notebook Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="feat_algorithms.html"><em>X</em>-armed bandit algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feat_functions.html">Synthetic objectives</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hierarchical partition</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/cheatsheet.html">API Cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Info</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../info/team_members.html">PyXAB Development Team</a></li>
 </ul>
 
         </div>
@@ -69,7 +75,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Features</a></li>
       <li class="breadcrumb-item active">Hierarchical partition</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/features/feat_partitions.rst.txt" rel="nofollow"> View page source</a>
@@ -80,7 +85,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="hierarchical-partition">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="hierarchical-partition">
 <h1>Hierarchical partition<a class="headerlink" href="#hierarchical-partition" title="Permalink to this headline"></a></h1>
 <table class="docutils align-default">
 <colgroup>
@@ -111,7 +140,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="feat_functions.html" class="btn btn-neutral float-left" title="Synthetic objectives" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../api/index.html" class="btn btn-neutral float-right" title="API reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../api/cheatsheet.html" class="btn btn-neutral float-right" title="API Cheatsheet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
