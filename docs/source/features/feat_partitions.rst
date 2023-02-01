@@ -1,9 +1,10 @@
 Hierarchical Partition
 ================================================
 
+We provide several choices of the hierarchical partition that separates the parameter space into multiple pieces.
 
 .. image:: ../../../figs/partition.png
-
+   :width: 70%
 
 
 .. list-table::

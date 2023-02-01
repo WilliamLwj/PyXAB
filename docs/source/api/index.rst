@@ -12,3 +12,4 @@ This is done in order to provide a complete list of the callable functions for e
 
     algorithms
     functions
+    partitions
