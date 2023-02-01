@@ -1,6 +1,11 @@
 Hierarchical Partition
 ================================================
 
+
+.. image:: ../../../figs/partition.png
+
+
+
 .. list-table::
    :header-rows: 1
 

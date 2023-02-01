@@ -1,9 +1,0 @@
-Jupyter Notebook Examples
-==========================
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   Jupyter_Examples/HCT_Himmelblau.ipynb
-   Jupyter_Examples/VHCT_Landmine.ipynb
