@@ -49,6 +49,7 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
   * [*X*-armed bandit algorithms](#X-armed-bandit-algorithms)
   * [Hierarchical partition ](#Hierarchical-partition)
   * [Synthetic objectives](#Synthetic-objectives)
+- [Contributing](#Contributing)
 - [Citations](#Citations)
 
 ## Quick Example
@@ -72,9 +73,9 @@ algo.receive_reward(t, reward)
 
 ## Documentations
 
-The most up-to-date [documentations](https://pyxab.readthedocs.io/) for PyXAB
+  * The most up-to-date [documentations](https://pyxab.readthedocs.io/) for PyXAB
 
-The [roadmap](https://github.com/users/WilliamLwj/projects/1) for our project    
+  * The [roadmap](https://github.com/users/WilliamLwj/projects/1) for our project    
 
 ## Features:
 
@@ -113,6 +114,15 @@ The [roadmap](https://github.com/users/WilliamLwj/projects/1) for our project
 | [Ackley](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Ackley.py) | <img src="https://render.githubusercontent.com/render/math?math=f(x,y) = 20 \exp \left[-0.2 \sqrt{0.5\left(x^{2}-(-y^{2})\right)}\right]-\exp [0.5(\cos 2 \pi x-(-\cos 2 \pi y))]-e-20">  | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Ackley.png" alt="Ackley" width="100"/>  |
 | [Himmelblau](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Himmelblau.py) |  <img src="https://render.githubusercontent.com/render/math?math=f(x, y)=-\left(x^{2}-(-y)-11\right)^{2}-\left(x-(-y^{2})-7\right)^{2}">  | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Himmelblau.png" alt="Himmelblau" width="100"/>  |
 | [Rastrigin](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Rastrigin.py) | <img src="https://render.githubusercontent.com/render/math?math=f(\mathbf{x})= - A n - \sum_{i=1}^{n}\left[-x_{i}^{2} - A \cos \left(2 \pi x_{i}\right)\right]">  |  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Rastrigin.png" alt="Rastrigin" width="100"/>  |
+
+
+## Contributing
+
+PyXAB is still under active development, and we appreciate all forms of help and contributions, including but not limited to
+
+* Star and watch our project
+* Open an issue for any bugs you find or features you want to add to our library
+* Fork our project and submit a pull request with your valuable codes
 
 
 ## Citations

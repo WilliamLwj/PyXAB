@@ -114,3 +114,4 @@ If you use our package in your research or projects, we kindly ask you to cite o
    :caption: Additional Info
 
    info/team_members
+   info/contributing

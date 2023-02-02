@@ -16,11 +16,17 @@ Stochastic *X*\ -Armed Bandit Algorithms
    * - Algorithm
      - Research Paper
      - Year
+   * - Zooming
+     - `Multi-Armed Bandits in Metric Spaces <https://arxiv.org/pdf/0809.4882.pdf>`_
+     - 2011
    * - `T-HOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/HOO.py>`_
      - `\ *X*\ -Armed Bandit <https://jmlr.org/papers/v12/bubeck11a.html>`_
      - 2011
    * - `HCT <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/HCT.py>`_
      - `Online Stochastic Optimization Under Correlated Bandit Feedback <https://proceedings.mlr.press/v32/azar14.html>`_
+     - 2013
+   * - StoSOO
+     - `Stochastic Simultaneous Optimistic Optimization <http://proceedings.mlr.press/v28/valko13.pdf>`_
      - 2014
    * - `POO* <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/POO.py>`_
      - `Black-box optimization of noisy functions with unknown smoothness <https://papers.nips.cc/paper/2015/hash/ab817c9349cf9c4f6877e1894a1faa00-Abstract.html>`_
