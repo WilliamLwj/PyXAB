@@ -16,6 +16,7 @@ class Partition(ABC):
         self.domain = domain
         self.root = node(0, 1, None, domain)
         self.depth = 0
+        self.node = node
         self.node_list = [[self.root]]
 
 

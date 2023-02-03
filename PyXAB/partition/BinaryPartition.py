@@ -29,9 +29,9 @@ class BinaryPartition(Partition):
         domain1[dim] = [selected_dim[0], (selected_dim[0] + selected_dim[1]) / 2]
         domain2[dim] = [(selected_dim[0] + selected_dim[1]) / 2, selected_dim[1]]
 
-        node1 = P_node(depth=parent.get_depth() + 1, index=2 * parent.get_index() - 1,
+        node1 = self.node(depth=parent.get_depth() + 1, index=2 * parent.get_index() - 1,
                        parent=parent, domain=domain1)
-        node2 = P_node(depth=parent.get_depth() + 1, index=2 * parent.get_index(),
+        node2 = self.node(depth=parent.get_depth() + 1, index=2 * parent.get_index(),
                        parent=parent, domain=domain2)
         parent.update_children([node1, node2])
 
