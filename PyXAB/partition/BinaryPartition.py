@@ -13,7 +13,7 @@ class BinaryPartition(Partition):
 
     def __init__(self, domain, node=P_node):
 
-        super(BinaryPartition, self).__init__(domain, node=node)
+        super(BinaryPartition, self).__init__(domain=domain, node=node)
 
     # Rewrite the make_children function in the Partition class
     def make_children(self, parent, newlayer=False):
