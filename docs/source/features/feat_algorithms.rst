@@ -25,7 +25,7 @@ Stochastic *X*\ -Armed Bandit Algorithms
    * - `HCT <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/HCT.py>`_
      - `Online Stochastic Optimization Under Correlated Bandit Feedback <https://proceedings.mlr.press/v32/azar14.html>`_
      - 2013
-   * - StoSOO
+   * - `StoSOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py>`_
      - `Stochastic Simultaneous Optimistic Optimization <http://proceedings.mlr.press/v28/valko13.pdf>`_
      - 2014
    * - `POO* <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/POO.py>`_
