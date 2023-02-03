@@ -7,9 +7,9 @@ from PyXAB.partition.Partition import Partition
 
 class DimensionBinaryPartition(Partition):
 
-    def __init__(self, domain):
+    def __init__(self, domain, node=P_node):
 
-        super(DimensionBinaryPartition, self).__init__(domain)
+        super(DimensionBinaryPartition, self).__init__(domain=domain, node=node)
 
     # Rewrite the make_children function in the Partition class
     def make_children(self, parent, newlayer=False):
@@ -38,7 +38,7 @@ class DimensionBinaryPartition(Partition):
                 ind = ind - j * 2 ** (len(parent_domain) - dim - 1)
 
             domain.reverse()
-            new_node = P_node(depth=parent.get_depth() + 1, index=num_children * (parent.get_index() - 1) + i + 1,
+            new_node = self.node(depth=parent.get_depth() + 1, index=num_children * (parent.get_index() - 1) + i + 1,
                               parent=parent, domain=domain)
 
             children_list.append(new_node)

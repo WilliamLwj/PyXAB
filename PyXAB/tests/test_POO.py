@@ -6,7 +6,7 @@ from PyXAB.partition.BinaryPartition import BinaryPartition
 from PyXAB.utils.plot import compare_regret
 import numpy as np
 
-T = 5000
+T = 1000
 Target = Garland.Garland()
 domain = [[0, 1]]
 partition = BinaryPartition
@@ -43,6 +43,8 @@ for t in range(1, T+1):
     inst_regret = Target.fmax - Target.f(point)
     POO_regret += inst_regret
     POO_regret_list.append(POO_regret)
+
+
 
 regret_dic = {'T_HOO': np.array(T_HOO_regret_list),
               'POO': np.array(POO_regret_list)}
