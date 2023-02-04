@@ -1,12 +1,26 @@
 Installation
 ==========================
 
-The PyXAB package is still under development. We recommend to directly git clone the package and then install it at the moment.
+The PyXAB package is still under development. We recommend to directly install the package using git
 
-We will release the package to PyPI and Conda when it is ready.
+
+
+Git
+---
 
 .. code-block:: bash
 
    git clone https://github.com/WilliamLwj/PyXAB.git
    cd PyXAB
    pip install .
+
+
+
+PyPI
+----
+
+.. code-block:: bash
+
+
+    pip install PyXAB
+

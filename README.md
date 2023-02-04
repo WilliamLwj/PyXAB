@@ -3,6 +3,9 @@
 
 
 <p align="left">
+<a href='https://pypi.org/project/PyXAB/'>
+       <img src='https://img.shields.io/pypi/v/PyXAB.svg?color=brightgreen' alt='PyPI version' />
+</a>
 <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
 </a>
@@ -36,8 +39,8 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 [//]: # ()
 
 <p align='center'>
-  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/partition.png" alt="Partition" width="45%"/>  
-  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/HCT_visual.gif" alt="visualization" width="54%"/>  
+  <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/partition.png" alt="Partition" width="45%"/>  
+  <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_visual.gif" alt="visualization" width="54%"/>  
 </p>
 
 
