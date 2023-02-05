@@ -7,3 +7,4 @@
 docs/build*
 dist*
 *egg-info*
+*build*
