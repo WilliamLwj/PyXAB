@@ -115,5 +115,5 @@ If you use our package in your research or projects, we kindly ask you to cite o
    :hidden:
    :caption: Additional Info
 
-   info/team_members
    info/contributing
+   info/team_members

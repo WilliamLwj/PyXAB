@@ -1,12 +1,14 @@
 Installation
 ==========================
+.. note::
+    The PyXAB package is still under active development. Make sure that you install the latest version of our package to enjoy
+    all the features. At this moment, we recommend to directly install the package using git.
 
-The PyXAB package is still under development. We recommend to directly install the package using git
 
 
-
-Git
----
+Git Installation
+-----------------
+To install the package using git, run the following lines of code
 
 .. code-block:: bash
 
@@ -15,9 +17,12 @@ Git
    pip install .
 
 
+..................................
 
-PyPI
-----
+PyPI Installation
+-----------------
+
+To install the package using PyPI, run the following lines of code
 
 .. code-block:: bash
 
