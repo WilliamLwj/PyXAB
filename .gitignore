@@ -1,0 +1,9 @@
+*.idea*
+*mnist*
+*landmine/logs*
+*BO_landmine.py*
+*DS_Store*
+*pycache*
+docs/build*
+dist*
+*egg-info*
