@@ -48,6 +48,7 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 
 - [Quick Example](#Quick-Example)
 - [Documentations](#Documentations)
+- [Installation](#Installation)
 - [Features](#Features)
   * [*X*-armed bandit algorithms](#X-armed-bandit-algorithms)
   * [Hierarchical partition ](#Hierarchical-partition)
@@ -124,7 +125,7 @@ pip install PyXAB
 
 * Some of these objectives can be found [on Wikipedia](https://en.wikipedia.org/wiki/Test_functions_for_optimization)
 
-| Objectives | Image | 
+| Objectives <img width=200/>| Image | 
 | --- |--- |
 | [Garland](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Garland.py) | <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/synthetic/Garland.png" alt="Garland" width="100"/> |
 | [DoubleSine](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/DoubleSine.py)  | <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/synthetic/DoubleSine.png" alt="DoubleSine" width="100"/>  |
