@@ -43,7 +43,7 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 .. |pic1| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_trajectory.gif
    :width: 48%
    :alt: Partition
-.. |pic2| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_visual.gif
+.. |pic2| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_heatmap.gif
    :width: 48%
    :alt: visualization
 

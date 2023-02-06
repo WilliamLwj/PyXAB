@@ -2,9 +2,9 @@
 Algorithms
 ================================================
 
+..................................
 
 Our implemented *X*\ -Armed Bandit algorithms can be classified into different categories according to different features in the algorithm design.
-
 
 .. |check_| raw:: html
 
@@ -93,3 +93,18 @@ Our implemented *X*\ -Armed Bandit algorithms can be classified into different c
     algorithms_category/stochasticity
     algorithms_category/regret
     algorithms_category/anytime
+
+
+
+.. panels::
+
+
+    .. image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_visual.gif
+        :width: 90%
+        :alt: HCT Algorithm
+
+    ---
+
+    A gif illustration of how HCT gradually optimizes the Garland synthetic objective using the standard binary partitions
+
+

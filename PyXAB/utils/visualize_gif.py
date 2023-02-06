@@ -81,7 +81,7 @@ def visualize_trajectory():
         cumulative_regret_list.append(cumulative_regret)
 
 
-        if point not in point_list:
+        if point not in point_list and len(point_list) < 18:
 
             point_list.append(point)
             fig = plt.figure()
@@ -103,11 +103,21 @@ def visualize_trajectory():
                 for j in range(0, len(point_list) - 1):
                     ax.plot(px[j:j+2], py[j:j+2], pz[j: j+2], linewidth=1.5, alpha=1)
 
+            fig.subplots_adjust(left=0.0, right=1.0, top=1.0, bottom=0.0)
+            plt.savefig('C:/Users/Owner/Downloads/'+str(len(point_list)) +'.png')
 
 
-            plt.show()
+            fig = plt.figure()
+            ax = fig.add_subplot(111)
+            mesh = ax.pcolormesh(xx, yy, z)
+            ax.scatter(px, py, s=15, marker='^', color='red', alpha=1)
+            for j in range(len(point_list)):
+                ax.text(px[j], py[j], str(j), fontsize=8)
+            if len(point_list) >= 2:
+                for j in range(0, len(point_list) - 1):
+                    ax.plot(px[j:j + 2], py[j:j + 2], linewidth=1.5, alpha=1)
 
-
-
-
+            fig.subplots_adjust(left=0.0, right=1.0, top=1.0, bottom=0.0)
+            fig.colorbar(mesh)
+            plt.savefig('C:/Users/Owner/Downloads/1-' + str(len(point_list)) + '.png')
 visualize_trajectory()

@@ -43,7 +43,7 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 
 <p align='center'>
   <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_trajectory.gif" alt="trajectory" width="48%"/>  
-  <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_visual.gif" alt="visualization" width="48%"/>  
+  <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_heatmap.gif" alt="heatmap" width="48%"/>  
 </p>
 
 
