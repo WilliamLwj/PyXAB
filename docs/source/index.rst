@@ -40,11 +40,11 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 
 |pic1| |pic2|
 
-.. |pic1| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_trajectory.png
-   :width: 45%
+.. |pic1| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_trajectory.gif
+   :width: 48%
    :alt: Partition
 .. |pic2| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_visual.gif
-   :width: 45%
+   :width: 48%
    :alt: visualization
 
 
