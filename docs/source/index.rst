@@ -23,6 +23,9 @@ PyXAB - Python *X*\ -Armed Bandit
    <a href="https://github.com/WilliamLwj/PyXAB/stargazers" target="blank">
    <img src="https://img.shields.io/github/stars/WilliamLwj/PyXAB?style=flat-square" alt="github-PyXAB stars"/>
    </a>
+    <a href="https://pepy.tech/project/pyxab" target="blank">
+    <img src="https://static.pepy.tech/badge/pyxab" alt="downloads"/>
+    </a>
    </p>
 
 
@@ -37,7 +40,7 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 
 |pic1| |pic2|
 
-.. |pic1| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/partition.png
+.. |pic1| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_trajectory.png
    :width: 45%
    :alt: Partition
 .. |pic2| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_visual.gif

@@ -18,6 +18,9 @@
 <a href="https://github.com/WilliamLwj/PyXAB/stargazers" target="blank">
 <img src="https://img.shields.io/github/stars/WilliamLwj/PyXAB?style=flat-square" alt="github-PyXAB stars"/>
 </a>
+<a href="https://pepy.tech/project/pyxab" target="blank">
+<img src="https://static.pepy.tech/badge/pyxab" alt="downloads"/>
+</a>
 </p>
 
 
@@ -39,7 +42,7 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 [//]: # ()
 
 <p align='center'>
-  <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/partition.png" alt="Partition" width="45%"/>  
+  <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_trajectory.png" alt="trajectory" width="45%"/>  
   <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_visual.gif" alt="visualization" width="54%"/>  
 </p>
 
