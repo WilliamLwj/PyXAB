@@ -3,8 +3,16 @@ Hierarchical Partition
 
 We provide several choices of the hierarchical partition that separates the parameter space into multiple pieces.
 
-.. image:: ../../../figs/partition.png
-   :width: 70%
+
+|pic1| |pic2|
+
+.. |pic1| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/partition.png
+    :width: 48%
+    :alt: HCT Algorithm
+.. |pic2| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_visual.gif
+    :width: 48%
+    :alt: HCT Algorithm
+
 
 
 .. list-table::

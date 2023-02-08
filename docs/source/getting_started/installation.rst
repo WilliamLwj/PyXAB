@@ -27,5 +27,6 @@ To install the package using PyPI, run the following lines of code
 .. code-block:: bash
 
 
-    pip install PyXAB
+    pip install PyXAB                 # normal install
+    pip install --upgrade PyXAB       # or update if needed
 

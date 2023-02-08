@@ -2,7 +2,6 @@
 Algorithms
 ================================================
 
-..................................
 
 Our implemented *X*\ -Armed Bandit algorithms can be classified into different categories according to different features in the algorithm design.
 
@@ -23,7 +22,7 @@ Our implemented *X*\ -Armed Bandit algorithms can be classified into different c
      - Cumulative Regret
      - Anytime
    * - DiRect
-     - |check_|
+     - |cross_|
      - |cross_|
      - |cross_|
    * - DOO
@@ -38,7 +37,7 @@ Our implemented *X*\ -Armed Bandit algorithms can be classified into different c
      - |check_|
      - |check_|
      - |check_|
-   * - T_HOO
+   * - `T-HOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/HOO.py>`_
      - |check_|
      - |check_|
      - |check_|
@@ -53,7 +52,7 @@ Our implemented *X*\ -Armed Bandit algorithms can be classified into different c
    * - `POO* <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/POO.py>`_
      - |check_|
      - |cross_|
-     - |cross_|
+     - |check_|
    * - `GPO* <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/GPO.py>`_
      - |check_|
      - |cross_|
@@ -95,16 +94,5 @@ Our implemented *X*\ -Armed Bandit algorithms can be classified into different c
     algorithms_category/anytime
 
 
-
-.. panels::
-
-
-    .. image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_visual.gif
-        :width: 90%
-        :alt: HCT Algorithm
-
-    ---
-
-    A gif illustration of how HCT gradually optimizes the Garland synthetic objective using the standard binary partitions
 
 

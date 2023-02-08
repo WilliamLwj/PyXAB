@@ -53,7 +53,7 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 - [Documentations](#Documentations)
 - [Installation](#Installation)
 - [Features](#Features)
-  * [*X*-armed bandit algorithms](#X-armed-bandit-algorithms)
+  * [Stochastic *X*-armed bandit algorithms](#Stochastic-X-armed-bandit-algorithms)
   * [Hierarchical partition ](#Hierarchical-partition)
   * [Synthetic objectives](#Synthetic-objectives)
 - [Contributing](#Contributing)
@@ -95,7 +95,8 @@ pip install .
 
 To install via pip, run the following lines of code
 ```bash
-pip install PyXAB
+pip install PyXAB                 # normal install
+pip install --upgrade PyXAB       # or update if needed
 ```
 
 ## Features:
