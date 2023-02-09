@@ -8,10 +8,7 @@ import numpy as np
 import pdb
 
 
-
-
-
-T = 1000
+T = 10000
 H = math.floor(T / (2 * (np.log2(T) + 1)**2))
 Target = Garland.Garland()
 domain = [[0, 1]]
@@ -48,17 +45,17 @@ max_value = -np.inf
 for p in range(p_max + 1):
     for i in range(len(chosen)):
         # print(chosen[i].get_visited_times())
-        if chosen[i].get_visited_times() >= 2**p:
-            chosen[i].remove_reward
-            point = chosen[i].get_cpoint()
+        node = chosen[i]
+        if node.get_visited_times() >= 2**p:
+            node.remove_reward()
+            point = node.get_cpoint()
             for h in range(H):
                 reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
-                chosen[i].update_reward(reward)
+                node.update_reward(reward)
         
-        chosen[i].compute_mean_reward()
-        if chosen[i].get_mean_reward() >= max_value:
+        node.compute_mean_reward()
+        if node.get_mean_reward() >= max_value:
+            max_value = node.get_mean_reward()
             max_point = point
 
 print(Target.fmax - Target.f(max_point))
-        
-    

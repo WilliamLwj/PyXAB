@@ -1,5 +1,5 @@
 import math
-# import numpy as np
+import numpy as np
 from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
 import pdb
@@ -27,7 +27,7 @@ class StroquOOL_node(P_node):
         if self.visited_times == 0:
             self.mean_reward = -np.inf
         else:
-            self.mean_reward = np.sum(np.array(self.rewards)) / self.visited_times
+            self.mean_reward = np.sum(np.array(self.rewards)) / len(self.rewards)
 
     def get_mean_reward(self):
         
@@ -99,38 +99,3 @@ class StroquOOL(Algorithm):
     
     def get_h_max(self):
         return self.h_max
-        
-        
-                
-    
-
-    
-    
-    # def open(self, node_to_open):
-        
-    #     node_list = self.partition.get_node_list()
-    #     for node in node_to_open:
-    #         if node.get_children() is None:
-    #             self.partition.make_children(node_list[self.curr_depth][])
-                
-                    
-        
-        
-        
-        
-        
-    
-
-
-
-
-# class StroquOOL(Algorithm):
-    
-#     def __init__(self, n, domain=None, partition=None):
-#         super(StroquOOL, self).__init__()
-#         if domain is None:
-#             raise ValueError("Parameter space is not given.")
-#         if partition is None:
-#             raise ValueError("Partition of the parameter space is not given.")
-#         self.partition = partition(domain=domain)
-        
