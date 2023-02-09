@@ -5,10 +5,12 @@
 PyXAB - Python *X*\ -Armed Bandit
 ===================================
 
-
 .. raw:: html
 
    <p align="left">
+   <a href='https://pypi.org/project/PyXAB/'>
+       <img src='https://img.shields.io/pypi/v/PyXAB.svg?color=brightgreen' alt='PyPI version' />
+   </a>
    <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
        <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
    </a>
@@ -21,6 +23,9 @@ PyXAB - Python *X*\ -Armed Bandit
    <a href="https://github.com/WilliamLwj/PyXAB/stargazers" target="blank">
    <img src="https://img.shields.io/github/stars/WilliamLwj/PyXAB?style=flat-square" alt="github-PyXAB stars"/>
    </a>
+    <a href="https://pepy.tech/project/pyxab" target="blank">
+    <img src="https://static.pepy.tech/badge/pyxab" alt="downloads"/>
+    </a>
    </p>
 
 
@@ -35,11 +40,11 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 
 |pic1| |pic2|
 
-.. |pic1| image:: ../../figs/partition.png
-   :width: 45%
+.. |pic1| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_trajectory.gif
+   :width: 48%
    :alt: Partition
-.. |pic2| image:: ../../figs/HCT_visual.gif
-   :width: 45%
+.. |pic2| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_heatmap.gif
+   :width: 48%
    :alt: visualization
 
 
@@ -113,5 +118,5 @@ If you use our package in your research or projects, we kindly ask you to cite o
    :hidden:
    :caption: Additional Info
 
-   info/team_members
    info/contributing
+   info/team_members

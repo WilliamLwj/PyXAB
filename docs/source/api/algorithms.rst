@@ -12,6 +12,17 @@ Truncated HOO Algorithm
     :inherited-members:
     :special-members: __init__
 
+..................................
+
+StoSOO Algorithm
+-----------------------
+.. autoclass:: PyXAB.algos.StoSOO.StoSOO
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
 
 ..................................
 

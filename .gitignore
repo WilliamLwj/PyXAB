@@ -5,3 +5,6 @@
 *DS_Store*
 *pycache*
 docs/build*
+dist*
+*egg-info*
+*build*

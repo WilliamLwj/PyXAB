@@ -7,7 +7,7 @@ from PyXAB.utils.plot import plot_regret
 
 
 T = 1000
-target = HimmelBlau.Himmelblau()
+target = Himmelblau.Himmelblau()
 domain = [[-5, 5], [-5, 5]]
 partition = BinaryPartition
 algo = HCT(domain=domain, partition=partition)

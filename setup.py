@@ -13,17 +13,17 @@ from setuptools import find_packages, setup, Command
 
 # Package meta-data.
 NAME = 'PyXAB'
-DESCRIPTION = 'My short description for my project.'
-URL = 'https://github.com/me/myproject'
+DESCRIPTION = 'PyXAB - A Python Library for X-Armed Bandit and Online Blackbox Optimization Algorithms.'
+URL = 'https://github.com/WilliamLwj/PyXAB'
 EMAIL = 'lil3549@purdue.edu'
 AUTHOR = 'Wenjie Li'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
     'numpy>=1.20.3',
-    'matplotlib'
+    'matplotlib',
     # 'requests', 'maya', 'records',
 ]
 

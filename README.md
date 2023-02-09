@@ -3,6 +3,9 @@
 
 
 <p align="left">
+<a href='https://pypi.org/project/PyXAB/'>
+       <img src='https://img.shields.io/pypi/v/PyXAB.svg?color=brightgreen' alt='PyPI version' />
+</a>
 <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
 </a>
@@ -14,6 +17,9 @@
 </a>
 <a href="https://github.com/WilliamLwj/PyXAB/stargazers" target="blank">
 <img src="https://img.shields.io/github/stars/WilliamLwj/PyXAB?style=flat-square" alt="github-PyXAB stars"/>
+</a>
+<a href="https://pepy.tech/project/pyxab" target="blank">
+<img src="https://static.pepy.tech/badge/pyxab" alt="downloads"/>
 </a>
 </p>
 
@@ -36,8 +42,8 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 [//]: # ()
 
 <p align='center'>
-  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/partition.png" alt="Partition" width="45%"/>  
-  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/HCT_visual.gif" alt="visualization" width="54%"/>  
+  <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_trajectory.gif" alt="trajectory" width="48%"/>  
+  <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_heatmap.gif" alt="heatmap" width="48%"/>  
 </p>
 
 
@@ -45,8 +51,9 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 
 - [Quick Example](#Quick-Example)
 - [Documentations](#Documentations)
+- [Installation](#Installation)
 - [Features](#Features)
-  * [*X*-armed bandit algorithms](#X-armed-bandit-algorithms)
+  * [Stochastic *X*-armed bandit algorithms](#Stochastic-X-armed-bandit-algorithms)
   * [Hierarchical partition ](#Hierarchical-partition)
   * [Synthetic objectives](#Synthetic-objectives)
 - [Contributing](#Contributing)
@@ -77,6 +84,21 @@ algo.receive_reward(t, reward)
 
   * The [roadmap](https://github.com/users/WilliamLwj/projects/1) for our project    
 
+## Installation
+
+To install via git, run the following lines of code
+```bash
+git clone https://github.com/WilliamLwj/PyXAB.git
+cd PyXAB
+pip install .
+```
+
+To install via pip, run the following lines of code
+```bash
+pip install PyXAB                 # normal install
+pip install --upgrade PyXAB       # or update if needed
+```
+
 ## Features:
 
 ### Stochastic *X*-armed bandit algorithms
@@ -105,16 +127,16 @@ algo.receive_reward(t, reward)
 
 ### Synthetic objectives
 
-* Some of these objectives can be found [here](https://en.wikipedia.org/wiki/Test_functions_for_optimization)
+* Some of these objectives can be found [on Wikipedia](https://en.wikipedia.org/wiki/Test_functions_for_optimization)
 
-| Objectives| Mathematical Description | Image | 
-| --- | --- |--- |
-| [Garland](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Garland.py) | <img src="https://render.githubusercontent.com/render/math?math=f(x) = x(1-x)(4-\sqrt{\mid\sin(60x)\mid})"> | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Garland.png" alt="Garland" width="100"/> |
-| [DoubleSine](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/DoubleSine.py)  |<img src="https://render.githubusercontent.com/render/math?math=f(x)=s(\frac{1}{2}\log_2 \mid 2x-1\mid)(\mid 2x-1\mid^{-\log_2 \rho_2 } - (2x-1)^{-\log_2 \rho_1 }) - (\mid 2x-1\mid)^{-\log_2 \rho_1 }"> | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/DoubleSine.png" alt="DoubleSine" width="100"/>  |
-| [DifficultFunc](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/DifficultFunc.py) |  <img src="https://render.githubusercontent.com/render/math?math=f(x)=s(\log_2 \mid x-0.5\mid)(\sqrt{\mid x-0.5\mid} - (x-0.5)^2) - \sqrt{\mid x-0.5\mid} ">| <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/DifficultFunc.png" alt="DifficultFunc" width="100"/>  |
-| [Ackley](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Ackley.py) | <img src="https://render.githubusercontent.com/render/math?math=f(x,y) = 20 \exp \left[-0.2 \sqrt{0.5\left(x^{2}-(-y^{2})\right)}\right]-\exp [0.5(\cos 2 \pi x-(-\cos 2 \pi y))]-e-20">  | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Ackley.png" alt="Ackley" width="100"/>  |
-| [Himmelblau](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Himmelblau.py) |  <img src="https://render.githubusercontent.com/render/math?math=f(x, y)=-\left(x^{2}-(-y)-11\right)^{2}-\left(x-(-y^{2})-7\right)^{2}">  | <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Himmelblau.png" alt="Himmelblau" width="100"/>  |
-| [Rastrigin](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Rastrigin.py) | <img src="https://render.githubusercontent.com/render/math?math=f(\mathbf{x})= - A n - \sum_{i=1}^{n}\left[-x_{i}^{2} - A \cos \left(2 \pi x_{i}\right)\right]">  |  <img src="https://github.com/WilliamLwj/PyXAB/blob/main/figs/synthetic/Rastrigin.png" alt="Rastrigin" width="100"/>  |
+| Objectives <img width=200/>| Image | 
+| --- |--- |
+| [Garland](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Garland.py) | <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/synthetic/Garland.png" alt="Garland" width="100"/> |
+| [DoubleSine](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/DoubleSine.py)  | <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/synthetic/DoubleSine.png" alt="DoubleSine" width="100"/>  |
+| [DifficultFunc](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/DifficultFunc.py) | <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/synthetic/DifficultFunc.png" alt="DifficultFunc" width="100"/>  |
+| [Ackley](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Ackley.py) | <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/synthetic/Ackley.png" alt="Ackley" width="100"/>  |
+| [Himmelblau](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Himmelblau.py) | <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/synthetic/Himmelblau.png" alt="Himmelblau" width="100"/>  |
+| [Rastrigin](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/synthetic_obj/Rastrigin.py) |  <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/synthetic/Rastrigin.png" alt="Rastrigin" width="100"/>  |
 
 
 ## Contributing
