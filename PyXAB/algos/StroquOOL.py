@@ -1,5 +1,5 @@
 import math
-import numpy as np
+# import numpy as np
 from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
 import pdb
@@ -7,7 +7,7 @@ import pdb
 class StroquOOL_node(P_node):
     
     def __init__(self, depth, index, parent, domain):
-        super(StroquOOL_node).__init__(depth, index, parent, domain)
+        super(StroquOOL_node, self).__init__(depth, index, parent, domain)
         
         self.visited_times = 0  # store the number of evaluations of the node
         self.opened = False
@@ -38,6 +38,9 @@ class StroquOOL_node(P_node):
     
     def open_node(self):
         self.opened = True
+    
+    def remove_reward(self):
+        self.rewards = []
 
 class StroquOOL(Algorithm):
     
@@ -49,8 +52,8 @@ class StroquOOL(Algorithm):
             raise ValueError("Partition of the parameter space is not given.")
         self.partition = partition(domain=domain, node=StroquOOL_node)
         # self.iteration = 0
-        self.h_max = np.floor(n / (2 * (np.log2(n) + 1)**2))
-        self.p_max = np.floor(np.log2(self.h_max))
+        self.h_max = math.floor(n / (2 * (np.log2(n) + 1)**2))
+        self.p_max = math.floor(np.log2(self.h_max))
         
         self.curr_node = self.partition.root
         self.curr_depth = 0
@@ -60,11 +63,11 @@ class StroquOOL(Algorithm):
         
         self.curr_depth = depth
         node_list = self.partition.get_node_list()
-        max_reward = -np.inf
         point = []
         
         if self.curr_depth <= self.h_max:
-            for p in range(np.floor(np.log2(self.h_max / (self.curr_depth + 1))), -1, -1):
+            for p in range(math.floor(np.log2(self.h_max / (self.curr_depth + 1))), -1, -1):
+                max_reward = -np.inf
                 for i in range(len(node_list[self.curr_depth])):
                     node = node_list[self.curr_depth][i]
                     if not node.is_opened() & node.get_visited_times() >= 2**p:
@@ -72,28 +75,24 @@ class StroquOOL(Algorithm):
                         if node.get_mean_reward() >= max_reward:
                             max_reward = node.get_mean_reward()
                             max_node = node
-                            point_index = i
+                            # point_index = i
                             
                 max_node.open_node()
                 if max_node.get_children() is None: 
                     self.partition.make_children(max_node, newlayer=True)
                     for child in max_node.get_children():
-                        point.append((child.get_cpoint(), p, point_index)) 
-                    
-            # self.chosen.append(point) # build T_{h, i}
+                        point.append((child, p)) 
+                        self.chosen.append(child) # build T_{h, i}
         return point
     
     def next_layer(self):
         
         self.curr_depth += 1
     
-    def receive_reward(self, index, reward):
+    def receive_reward(self, node, reward):
         
-        node_list = self.partition.get_node_list()
-        for child in node_list[self.curr_depth][index].get_children():
-            self.chosen.append(child)
-            child.visited_times += 1
-            child.update_reward(reward)
+        node.visited_times += 1
+        node.update_reward(reward)
     
     def get_chosen(self):
         return self.chosen
@@ -135,4 +134,3 @@ class StroquOOL(Algorithm):
 #             raise ValueError("Partition of the parameter space is not given.")
 #         self.partition = partition(domain=domain)
         
-
