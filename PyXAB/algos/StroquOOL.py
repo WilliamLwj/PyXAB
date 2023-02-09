@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""Implementation of StroquOOL (Bartlett, 2019)
+"""
+# Author: Haoze Li <li4456@purdue.edu>
+# License: MIT
+
+
 import math
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
