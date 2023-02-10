@@ -72,14 +72,16 @@ class StroquOOL(Algorithm):
         
         self.curr_depth = 0
         self.curr_p = math.floor(np.log2(self.h_max / (self.curr_depth + 1)))
-        self.chosen = []
+
+        self.chosen = [] # store visited nodes
         self.time_stamp = 0 # store the time point at which the algorithm finishes one open procedure
-        self.validation_p = 0
-        self.candidate = []
-        self.curr_loc = 0
-        self.curr_node = self.partition.root
-        self.eval = True
-        self.max_node = None
+        self.validation_p = 0 # p in cross validation step
+        self.candidate = [] # candidate list
+        self.curr_loc = 0 # current location in the list in cross validation step
+        self.curr_node = self.partition.root # the node to evaluate at each step
+        self.eval = True # indicate if the node is indicated in each step
+        self.max_node = None # indicate the node with maximal evaluation at cross validation step
+        self.end = False # indicate if the algorithm ends
     
     @staticmethod
     def harmonic_series_sum(n):
@@ -123,7 +125,6 @@ class StroquOOL(Algorithm):
                     max_reward = -np.inf
                     for i in range(len(node_list[self.curr_depth])):
                         node = node_list[self.curr_depth][i]
-                        print(i, self.curr_depth)
                         if node.not_opened() and node.get_visited_times() >= 2**self.curr_p:
                             node.compute_mean_reward()
                             if node.get_mean_reward() >= max_reward:
@@ -173,17 +174,17 @@ class StroquOOL(Algorithm):
                         self.time_stamp += self.h_max
                         self.curr_loc += 1
                     return self.curr_node.get_cpoint()
-
-    def next_layer(self):
-        
-        self.curr_depth += 1
+        self.end = True
+        return self.get_last_point() # TODO: change synthetic obj so that when it receive None, it passes.
     
     def receive_reward(self, t, reward):
         
+        if not self.end:
+            self.curr_node.visited_times += 1
+            self.curr_node.update_reward(reward)
+        else:
+            pass
         
-        self.curr_node.visited_times += 1
-        self.curr_node.update_reward(reward)
-    
     def get_chosen(self):
         return self.chosen
     
