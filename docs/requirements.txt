@@ -4,3 +4,5 @@ nbsphinx>=0.8.12
 sphinx_gallery>=0.11.1
 pandoc>=2.3
 ipython>=4.1.1
+matplotlib>=3.4.3
+scikit-learn>=0.24.2

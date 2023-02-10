@@ -5,7 +5,6 @@ Installation
     all the features. At this moment, we recommend to directly install the package using git.
 
 
-
 Git Installation
 -----------------
 To install the package using git, run the following lines of code
@@ -30,3 +29,14 @@ To install the package using PyPI, run the following lines of code
     pip install PyXAB                 # normal install
     pip install --upgrade PyXAB       # or update if needed
 
+
+
+..................................
+
+Required Dependencies
+---------------------
+* Python 3.6+
+* numpy>=1.20.3
+* matplotlib
+* pickle
+* sklearn
