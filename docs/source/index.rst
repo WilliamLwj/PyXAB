@@ -15,13 +15,13 @@ PyXAB - Python *X*\ -Armed Bandit
        <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
    </a>
    <a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
-   <img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?style=flat-square" alt="github-PyXAB license" />
+   <img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?color=purple" alt="github-PyXAB license" />
    </a>
    <a href="https://github.com/WilliamLwj/PyXAB/fork" target="blank">
-   <img src="https://img.shields.io/github/forks/WilliamLwj/PyXAB?style=flat-square" alt="github-PyXAB forks"/>
+   <img src="https://img.shields.io/github/forks/WilliamLwj/PyXAB?" alt="github-PyXAB forks"/>
    </a>
    <a href="https://github.com/WilliamLwj/PyXAB/stargazers" target="blank">
-   <img src="https://img.shields.io/github/stars/WilliamLwj/PyXAB?style=flat-square" alt="github-PyXAB stars"/>
+   <img src="https://img.shields.io/github/stars/WilliamLwj/PyXAB?" alt="github-PyXAB stars"/>
    </a>
     <a href="https://pepy.tech/project/pyxab" target="blank">
     <img src="https://static.pepy.tech/badge/pyxab" alt="downloads"/>

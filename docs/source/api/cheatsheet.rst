@@ -1,17 +1,36 @@
+.. _api-cheatsheet:
+
 API Cheatsheet
 ==========================
 
-This page is still under development.
 
+We list all the important functions from the general base classes as follows.
 
-
-We list the general parent classes as follows
-
-
-
-
-X-armed Bandit Algorithms
+Algorithm
 ---------------------------
+
+* :func:`PyXAB.algos.Algo.Algorithm.pull`: Generate a point for each time step to be evaluated
+* :func:`PyXAB.algos.Algo.Algorithm.receive_reward`: After receiving the reward, update the parameters of the algorithm
+
+Partition
+---------------------------
+
+* :func:`PyXAB.partition.Partition.Partition.make_children`: Make children for one node
+
+Objective
+---------------------------
+
+* :func:`PyXAB.synthetic_obj.Objective.Objective.f`: Evaluate the point and return the reward (stochastic or deterministic)
+
+
+...............................
+
+Below are the general base classes
+
+PyXAB.algos.Algo.Algorithm
+---------------------------
+Base class for all X-armed Bandit algorithms
+
 .. autoclass:: PyXAB.algos.Algo.Algorithm
     :members:
     :undoc-members:
@@ -20,8 +39,10 @@ X-armed Bandit Algorithms
     :special-members: __init__
 
 
-Objective
----------------------------
+PyXAB.synthetic_obj.Objective.Objective
+---------------------------------------
+Base class for any objective
+
 .. autoclass:: PyXAB.synthetic_obj.Objective.Objective
     :members:
     :undoc-members:
@@ -30,9 +51,13 @@ Objective
     :special-members: __init__
 
 
-Node
----------------------------
-.. autoclass:: PyXAB.partition.Node.P_node
+
+PyXAB.partition.Partition.Partition
+------------------------------------
+Base class for any partition
+
+
+.. autoclass:: PyXAB.partition.Partition.Partition
     :members:
     :undoc-members:
     :show-inheritance:
@@ -40,9 +65,12 @@ Node
     :special-members: __init__
 
 
-Partition
+
+PyXAB.partition.Node.P_node
 ---------------------------
-.. autoclass:: PyXAB.partition.Partition.Partition
+Base class for any node inside a partition
+
+.. autoclass:: PyXAB.partition.Node.P_node
     :members:
     :undoc-members:
     :show-inheritance:
