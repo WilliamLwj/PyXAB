@@ -89,7 +89,7 @@ If you use our package in your research or projects, we kindly ask you to cite o
    :caption: Getting Started
 
    getting_started/installation
-   getting_started/jupyter
+   getting_started/auto_examples/index
 
 
 
