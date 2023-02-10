@@ -4,7 +4,11 @@
 *BO_landmine.py*
 *DS_Store*
 *pycache*
-docs/build*
+
 dist*
 *egg-info*
-*build*
+
+
+# Sphinx files
+docs/build*
+*auto_examples*
