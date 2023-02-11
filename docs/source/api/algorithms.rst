@@ -1,7 +1,7 @@
 X-Armed Bandit Algorithms
 ================================================
 
-The API references for X-armed bandit algorithms
+The API references for X-armed bandit algorithms. Please see the general algorithm class in :ref:`api-cheatsheet`.
 
 Truncated HOO Algorithm
 -----------------------
@@ -16,6 +16,13 @@ Truncated HOO Algorithm
 
 StoSOO Algorithm
 -----------------------
+.. autoclass:: PyXAB.algos.StoSOO.StoSOO_node
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
 .. autoclass:: PyXAB.algos.StoSOO.StoSOO
     :members:
     :undoc-members:
@@ -67,6 +74,28 @@ PCT Algorithm
     :show-inheritance:
     :inherited-members:
     :special-members: __init__
+
+
+
+..................................
+
+StroquOOL Algorithm
+----------------------------
+.. autoclass:: PyXAB.algos.StroquOOL.StroquOOL_node
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+.. autoclass:: PyXAB.algos.StroquOOL.StroquOOL
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+
 
 ..................................
 

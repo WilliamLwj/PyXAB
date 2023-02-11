@@ -12,13 +12,14 @@ from abc import ABC, abstractmethod
 
 class Algorithm(ABC):
     """
-    Abstract class for all X-armed bandit algorithms.
-
+    Abstract class for X-armed bandit algorithms.
     """
 
     @abstractmethod
     def __init__(self):
-
+        """
+        Initialization for the algorithm
+        """
         pass
 
     @abstractmethod

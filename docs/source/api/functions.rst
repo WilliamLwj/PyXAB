@@ -1,7 +1,7 @@
 Synthetic Objective Functions
 ==========================================
 
-The API references for synthetic objective functions
+The API references for synthetic objective functions. Please see the general objective class in :ref:`api-cheatsheet`.
 
 
 Garland

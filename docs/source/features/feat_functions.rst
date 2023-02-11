@@ -1,7 +1,7 @@
 Synthetic Objectives
 ================================================
 
-Different synthetic objectives that can be used to evaluate the performance of *X*-armed bandit algorithms
+Synthetic objectives that can be used to evaluate the performance of *X*-armed bandit algorithms
 
 .. note::
     Some of these objectives can be found `on Wikipedia <https://en.wikipedia.org/wiki/Test_functions_for_optimization>`_
