@@ -39,10 +39,10 @@ Fixed Budget Algorithms
      - `General Parallel Optimization Without A Metric <https://proceedings.mlr.press/v98/xuedong19a.html>`_
      - 2019
    * - SequOOL
-     - `A simple parameter-free and adaptive approach to optimization under a minimal local smoothness assumption <https://arxiv.org/pdf/1810.00997.pdf>`_
+     - `A Simple Parameter-free And Adaptive Approach to Optimization Under A Minimal Local Smoothness Assumption <https://arxiv.org/pdf/1810.00997.pdf>`_
      - 2019
-   * - StroquOOL
-     - `A simple parameter-free and adaptive approach to optimization under a minimal local smoothness assumption <https://arxiv.org/pdf/1810.00997.pdf>`_
+   * - `StroquOOL <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py>`_
+     - `A Simple Parameter-free And Adaptive Approach to Optimization Under A Minimal Local Smoothness Assumption <https://arxiv.org/pdf/1810.00997.pdf>`_
      - 2019
    * - `VPCT <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VPCT.py>`_
      - N.A. (\ `GPO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/GPO.py>`_ + `VHCT <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VHCT.py>`_\ )

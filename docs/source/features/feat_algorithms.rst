@@ -65,7 +65,7 @@ Our implemented *X*\ -Armed Bandit algorithms can be classified into different c
      - |cross_|
      - |cross_|
      - |cross_|
-   * - StroquOOL
+   * - `StroquOOL <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py>`_
      - |check_|
      - |cross_|
      - |cross_|
@@ -80,6 +80,7 @@ Our implemented *X*\ -Armed Bandit algorithms can be classified into different c
 
 
 ..................................
+
 
 .. note::
     Please refer to the following comparisons for more information.
