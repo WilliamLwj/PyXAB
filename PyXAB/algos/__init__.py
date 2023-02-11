@@ -1,4 +1,4 @@
-__all__ = ["GPO", "HCT", "HOO", "PCT", "POO", "VHCT", "VPCT"]
+__all__ = ["GPO", "HCT", "HOO", "PCT", "POO", "VHCT", "VPCT", "StroquOOL"]
 #
 #
 # from.GPO import GPO
