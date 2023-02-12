@@ -38,5 +38,4 @@ Required Dependencies
 * Python 3.6+
 * numpy>=1.20.3
 * matplotlib
-* pickle
-* sklearn
+* scikit-learn>=0.24.2 (if running real-life examples)
