@@ -9,9 +9,6 @@
 <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
 </a>
-<a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
-<img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?color=purple" alt="github-PyXAB license" />
-</a>
 <a href="https://github.com/WilliamLwj/PyXAB/fork" target="blank">
 <img src="https://img.shields.io/github/forks/WilliamLwj/PyXAB?" alt="github-PyXAB forks"/>
 </a>
@@ -21,30 +18,26 @@
 <a href="https://pepy.tech/project/pyxab" target="blank">
 <img src="https://static.pepy.tech/badge/pyxab" alt="downloads"/>
 </a>
+<a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
+<img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?color=purple" alt="github-PyXAB license" />
+</a>
 </p>
 
 
 
-PyXAB is a Python open-source library for *X*-armed bandit, also known as continuous-arm bandit (CAB), Lipschitz bandit, 
-global optimization (GO) and bandit-based blackbox optimization problems.
+PyXAB is a Python open-source library for *X*-armed bandit algorithms, a prestigious set of optimizers for online black-box optimization, i.e., optimize an objective without gradients, also known as the continuous-arm bandit (CAB), Lipschitz bandit, 
+global optimization (GO) and bandit-based black-box optimization problems.
 
-PyXAB includes implementations of different algorithms for *X*-armed bandit, such as [HOO(Bubeck et al., 2011)](https://jmlr.org/papers/v12/bubeck11a.html), 
-[HCT(Azar et al., 2014)](https://proceedings.mlr.press/v32/azar14.html), and the most
-recent works [GPO(Shang et al., 2019)](https://proceedings.mlr.press/v98/xuedong19a.html) and [VHCT(Li et al, 2021)](https://arxiv.org/abs/2106.09215).
-PyXAB also provides the most commonly-used synthetic objectives to evaluate the performance of different algorithms such as Garland and DoubleSine.
-
-
-[//]: # ()
-[//]: # (These algorithms rely on the hierarchical partitioning of the parameter space *X*.  &#40;Currently our code only supports continuous and)
-
-[//]: # (connected domains, but the algorithms are designed for any measurable space&#41;)
-
-[//]: # ()
 
 <p align='center'>
   <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_trajectory.gif" alt="trajectory" width="48%"/>  
   <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_heatmap.gif" alt="heatmap" width="48%"/>  
 </p>
+
+PyXAB includes implementations of different *X*-armed bandit algorithms, including the classic ones such as [HOO (Bubeck et al., 2011)](https://jmlr.org/papers/v12/bubeck11a.html), 
+ [StoSOO (Valko et al., 2013)](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py), and [HCT (Azar et al., 2014)](https://proceedings.mlr.press/v32/azar14.html), and the most
+recent works such as [GPO (Shang et al., 2019)](https://proceedings.mlr.press/v98/xuedong19a.html) and [VHCT (Li et al, 2021)](https://arxiv.org/abs/2106.09215).
+PyXAB also provides the most commonly-used synthetic objectives to evaluate the performance of different algorithms and the implementations for different hierarchical partitions
 
 
 ## Quick Links
@@ -113,6 +106,7 @@ pip install --upgrade PyXAB       # or update if needed
 | [POO*](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/POO.py)      | [Black-box optimization of noisy functions with unknown smoothness](https://papers.nips.cc/paper/2015/hash/ab817c9349cf9c4f6877e1894a1faa00-Abstract.html) | 2015 |
 | [GPO*](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/GPO.py)      | [General Parallel Optimization Without A Metric](https://proceedings.mlr.press/v98/xuedong19a.html) | 2019 |
 | [PCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/PCT.py)       | [General Parallel Optimization Without A Metric](https://proceedings.mlr.press/v98/xuedong19a.html) | 2019 |
+| [StroquOOL](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py)       |[A Simple Parameter-free And Adaptive Approach to Optimization Under A Minimal Local Smoothness Assumption](https://arxiv.org/pdf/1810.00997.pdf) | 2019 |
 | [VHCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VHCT.py)     | [Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization](https://arxiv.org/abs/2106.09215) | 2021 |
 | [VPCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VPCT.py)     | N.A. ([GPO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/GPO.py) + [VHCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VHCT.py)) | N.A. |
 

@@ -14,9 +14,6 @@ PyXAB - Python *X*\ -Armed Bandit
    <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
        <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
    </a>
-   <a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
-   <img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?color=purple" alt="github-PyXAB license" />
-   </a>
    <a href="https://github.com/WilliamLwj/PyXAB/fork" target="blank">
    <img src="https://img.shields.io/github/forks/WilliamLwj/PyXAB?" alt="github-PyXAB forks"/>
    </a>
@@ -26,17 +23,14 @@ PyXAB - Python *X*\ -Armed Bandit
     <a href="https://pepy.tech/project/pyxab" target="blank">
     <img src="https://static.pepy.tech/badge/pyxab" alt="downloads"/>
     </a>
+   <a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
+   <img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?color=purple" alt="github-PyXAB license" />
+   </a>
    </p>
 
 
-PyXAB is a Python open-source library for *X*\ -armed bandit, also known as continuous-arm bandit (CAB), Lipschitz bandit,
-global optimization (GO) and bandit-based blackbox optimization problems.
-
-PyXAB includes implementations of different algorithms for *X*\ -armed bandit, such as `HOO(Bubeck et al., 2011) <https://jmlr.org/papers/v12/bubeck11a.html>`_\ ,
-`HCT(Azar et al., 2014) <https://proceedings.mlr.press/v32/azar14.html>`_\ , and the most
-recent works `GPO(Shang et al., 2019) <https://proceedings.mlr.press/v98/xuedong19a.html>`_ and `VHCT(Li et al, 2021) <https://arxiv.org/abs/2106.09215>`_.
-PyXAB also provides the most commonly-used synthetic objectives to evaluate the performance of different algorithms such as Garland and DoubleSine.
-
+PyXAB is a Python open-source library for *X*-armed bandit algorithms, a prestigious set of optimizers for online black-box optimization, i.e., optimize an objective without gradients, also known as the continuous-arm bandit (CAB), Lipschitz bandit,
+global optimization (GO) and bandit-based black-box optimization problems.
 
 |pic1| |pic2|
 
@@ -46,6 +40,14 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 .. |pic2| image:: https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_heatmap.gif
    :width: 48%
    :alt: visualization
+
+PyXAB includes implementations of different algorithms for *X*\ -armed bandit, such as `HOO (Bubeck et al., 2011) <https://jmlr.org/papers/v12/bubeck11a.html>`_\ ,
+`StoSOO (Valko et al., 2013) <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py>`_, and `HCT (Azar et al., 2014) <https://proceedings.mlr.press/v32/azar14.html>`_\ , and the most
+recent works such as `GPO (Shang et al., 2019) <https://proceedings.mlr.press/v98/xuedong19a.html>`_ and `VHCT (Li et al, 2021) <https://arxiv.org/abs/2106.09215>`_.
+PyXAB also provides the most commonly-used synthetic objectives to evaluate the performance of different algorithms and the implementations for different hierarchical partitions
+
+
+
 
 
 Quick Example

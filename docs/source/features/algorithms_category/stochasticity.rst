@@ -39,8 +39,8 @@ Stochastic Algorithms
    * - `PCT <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/PCT.py>`_
      - `General Parallel Optimization Without A Metric <https://proceedings.mlr.press/v98/xuedong19a.html>`_
      - 2019
-   * - StroquOOL
-     - `A simple parameter-free and adaptive approach to optimization under a minimal local smoothness assumption <https://arxiv.org/pdf/1810.00997.pdf>`_
+   * - `StroquOOL <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py>`_
+     - `A Simple Parameter-free And Adaptive Approach to Optimization Under A Minimal Local Smoothness Assumption <https://arxiv.org/pdf/1810.00997.pdf>`_
      - 2019
    * - `VHCT <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VHCT.py>`_
      - `Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization <https://arxiv.org/abs/2106.09215>`_
@@ -63,7 +63,7 @@ Deterministic Algorithms
      - Research Paper
      - Year
    * - DiRect
-     - `Lipschitzian optimization without the Lipschitz constant <https://link.springer.com/article/10.1007/BF00941892>`_
+     - `Lipschitzian Optimization Without the Lipschitz Constant <https://link.springer.com/article/10.1007/BF00941892>`_
      - 1993
    * - DOO
      - `Optimistic Optimization of a Deterministic Function without the Knowledge of its Smoothness <https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf>`_
@@ -72,5 +72,5 @@ Deterministic Algorithms
      - `Optimistic Optimization of a Deterministic Function without the Knowledge of its Smoothness <https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf>`_
      - 2011
    * - SequOOL
-     - `A simple parameter-free and adaptive approach to optimization under a minimal local smoothness assumption <https://arxiv.org/pdf/1810.00997.pdf>`_
+     - `A Simple Parameter-free And Adaptive Approach to Optimization Under A Minimal Local Smoothness Assumption <https://arxiv.org/pdf/1810.00997.pdf>`_
      - 2019

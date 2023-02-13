@@ -1,7 +1,7 @@
 Hierarchical Partition
 ==========================================
 
-The API references for the hierarchical partition of the parameter space
+The API references for the hierarchical partition of the parameter space. Please see the general partition class in :ref:`api-cheatsheet`.
 
 
 Binary Partition

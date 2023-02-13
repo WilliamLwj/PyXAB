@@ -23,6 +23,21 @@ _______________
 .. _wenjie: http://williamlwj.github.io/About/
 
 
+.. panels::
+
+    |haoze_photo|
+
+    ---
+
+    |haoze| is a Ph.D. Candidate at Purdue University. |haoze| received a B.Sc. in Statistics from Peking University
+
+
+.. |haoze_photo| image:: photos/haoze.jpeg
+   :width: 70%
+   :alt: wenjie
+.. |haoze| replace:: Mr. Haoze Li
+
+
 
 
 Advisory

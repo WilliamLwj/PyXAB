@@ -12,3 +12,4 @@ dist*
 # Sphinx files
 docs/build*
 *auto_examples*
+build*
