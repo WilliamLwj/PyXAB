@@ -93,14 +93,14 @@ class StroquOOL(Algorithm):
         
     def reset_p(self):
         
-        self.curr_p = math.floor(np.log2(self.h_max / (self.curr_depth + 1)))
+        self.curr_p = math.floor(np.log2(self.h_max / self.curr_depth))
         
     def pull(self, time):
         
         self.iteration = time
         node_list = self.partition.get_node_list()
         
-        if self.curr_depth < self.h_max:
+        if self.curr_depth <= self.h_max:
             flag = True
             # init
             if self.curr_depth == 0:
