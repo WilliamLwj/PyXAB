@@ -8,7 +8,7 @@ import numpy as np
 import pdb
 
 
-T = 10000
+T = 1000
 H = math.floor(T / (2 * (np.log2(T) + 1)**2))
 # Target = Garland.Garland()
 Target = DoubleSine.DoubleSine()
