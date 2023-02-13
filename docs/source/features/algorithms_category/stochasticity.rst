@@ -71,6 +71,6 @@ Deterministic Algorithms
    * - SOO
      - `Optimistic Optimization of a Deterministic Function without the Knowledge of its Smoothness <https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf>`_
      - 2011
-   * - SequOOL
+   * - `SequOOL <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/SequOOL.py>`_
      - `A Simple Parameter-free And Adaptive Approach to Optimization Under A Minimal Local Smoothness Assumption <https://arxiv.org/pdf/1810.00997.pdf>`_
      - 2019

@@ -38,7 +38,7 @@ Fixed Budget Algorithms
    * - `PCT <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/PCT.py>`_
      - `General Parallel Optimization Without A Metric <https://proceedings.mlr.press/v98/xuedong19a.html>`_
      - 2019
-   * - SequOOL
+   * - `SequOOL <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/SequOOL.py>`_
      - `A Simple Parameter-free And Adaptive Approach to Optimization Under A Minimal Local Smoothness Assumption <https://arxiv.org/pdf/1810.00997.pdf>`_
      - 2019
    * - `StroquOOL <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py>`_

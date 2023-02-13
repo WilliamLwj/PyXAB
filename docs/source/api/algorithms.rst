@@ -76,6 +76,23 @@ PCT Algorithm
     :special-members: __init__
 
 
+..................................
+
+SequOOL Algorithm
+----------------------------
+.. autoclass:: PyXAB.algos.SequOOL.SequOOL_node
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+.. autoclass:: PyXAB.algos.SequOOL.SequOOL
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
 
 ..................................
 

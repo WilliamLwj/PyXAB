@@ -61,7 +61,7 @@ Our implemented *X*\ -Armed Bandit algorithms can be classified into different c
      - |check_|
      - |cross_|
      - |cross_|
-   * - SequOOL
+   * - `SequOOL <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/SequOOL.py>`_
      - |cross_|
      - |cross_|
      - |cross_|

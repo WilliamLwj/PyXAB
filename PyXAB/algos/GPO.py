@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Implementation of GPO (Shang et al, 2019)
+"""Implementation of GPO (Shang et al., 2019)
 """
 # Author: Wenjie Li <li3549@purdue.edu>
 # License: MIT
@@ -9,8 +9,28 @@ from PyXAB.algos.Algo import Algorithm
 
 
 class GPO(Algorithm):
+    """
+    Implementation of the General Parallel Optimization (GPO) algorithm (Shang et al., 2019)
+    """
+    def __init__(self, numax=1.0, rhomax=0.9, rounds=1000, domain=None, partition=None, algo=None):
+        """
+        Initialization of the wrapper function.
 
-    def __init__(self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=None, algo=None):
+        Parameters
+        ----------
+        numax: float
+            parameter nu_max in the algorithm
+        rhomax: float
+            parameter rho_max in the algorithm, the maximum rho used
+        rounds: int
+            the number of rounds/budget
+        domain: list(list)
+            the domain of the objective function
+        partition:
+            the partition used in the optimization process
+        algo:
+            the baseline algorithm used by the wrapper, such as T_HOO or HCT
+        """
         super(GPO, self).__init__()
         if domain is None:
             raise ValueError("Parameter space is not given.")
@@ -46,7 +66,19 @@ class GPO(Algorithm):
         self.V_reward = []
 
     def pull(self, time):
+        """
+        The pull function of GPO that returns a point to be evaluated
 
+        Parameters
+        ----------
+        time: int
+            The time step of the online process.
+
+        Returns
+        -------
+        point: list
+            The point chosen by the GPO algorithm
+        """
         if self.phase > self.N: # If already finished
             return self.goodx
         else:
@@ -74,7 +106,20 @@ class GPO(Algorithm):
         return point
 
     def receive_reward(self, time, reward):
+        """
+        The receive_reward function of GPO to receive the reward for the chosen point
 
+        Parameters
+        ----------
+        time: int
+            The time step of the online process.
+
+        reward: float
+            The (Stochastic) reward of the pulled point
+
+        Returns
+        -------
+        """
         if self.phase > self.N: # If already finished
             pass
         elif self.phase == self.N:
