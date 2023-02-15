@@ -15,6 +15,7 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
             rounds=rounds, domain=domain, partition=partition, algo=HOO.T_HOO
         ),
         "PCT": PCT.PCT(rounds=rounds, domain=domain, partition=partition),
+        "VPCT": VPCT.VPCT(rounds=rounds, domain=domain, partition=partition),
     }
 
     for name in algo_list:
@@ -59,6 +60,9 @@ regret_array_PCT = np.array(
     [main(["PCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
 )
 
+regret_array_VPCT = np.array(
+    [main(["VPCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
+)
 
 regret_dic = {
     "regret": [
@@ -67,9 +71,10 @@ regret_dic = {
         regret_array_HOO,
         regret_array_POO,
         regret_array_PCT,
+        regret_array_VPCT,
     ],
-    "labels": ["VHCT", "HCT", "T-HOO", "POO", "PCT"],
-    "colors": ["red", "blue", "green", "grey", "orange"],
+    "labels": ["VHCT", "HCT", "T-HOO", "POO", "PCT", "VPCT"],
+    "colors": ["red", "blue", "green", "grey", "orange", "yellow"],
 }
 
 compare_regret_withsd(regret_dic)

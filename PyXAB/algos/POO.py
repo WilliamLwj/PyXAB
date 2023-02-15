@@ -78,7 +78,7 @@ class POO(Algorithm):
         Returns
         -------
         point: list
-            The point chosen by the GPO algorithm
+            The point chosen by the POO algorithm
         """
 
         if self.N <= 0.5 * self.Dmax * np.log(self.n / np.log(self.n)):

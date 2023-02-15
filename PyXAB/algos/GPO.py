@@ -17,7 +17,7 @@ class GPO(Algorithm):
         self, numax=1.0, rhomax=0.9, rounds=1000, domain=None, partition=None, algo=None
     ):
         """
-        Initialization of the wrapper function.
+        Initialization of the wrapper algorithm
 
         Parameters
         ----------
