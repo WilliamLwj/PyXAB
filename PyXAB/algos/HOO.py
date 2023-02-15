@@ -10,9 +10,9 @@ import numpy as np
 from PyXAB.algos.Algo import Algorithm
 import pdb
 
-class T_HOO(Algorithm):
 
-    def __init__(self, nu=1, rho=0.5, rounds=1000, domain=None,  partition=None):
+class T_HOO(Algorithm):
+    def __init__(self, nu=1, rho=0.5, rounds=1000, domain=None, partition=None):
         super(T_HOO, self).__init__()
         if domain is None:
             raise ValueError("Parameter space is not given.")
@@ -52,7 +52,9 @@ class T_HOO(Algorithm):
         while curr_node.get_children() is not None:
             children = curr_node.get_children()
             maxchild = None
-            maxindex = children[0].get_index()  # temporarily set the maxindex to be the first child
+            maxindex = children[
+                0
+            ].get_index()  # temporarily set the maxindex to be the first child
             for child in children:
                 c_depth = child.get_depth()
                 c_index = child.get_index()
@@ -61,7 +63,10 @@ class T_HOO(Algorithm):
                 if not self.visited[c_depth][c_index - 1]:
                     maxchild = None
                     break
-                elif self.Bvalues[c_depth][c_index - 1] >= self.Bvalues[c_depth][maxindex - 1]:
+                elif (
+                    self.Bvalues[c_depth][c_index - 1]
+                    >= self.Bvalues[c_depth][maxindex - 1]
+                ):
                     maxchild = child
                     maxindex = c_index
 
@@ -83,9 +88,11 @@ class T_HOO(Algorithm):
             # Update the visited times and the average reward of the pulled node
 
             self.visitedTimes[depth][index - 1] += 1
-            self.Rewards[depth][index - 1] = \
-                ((self.visitedTimes[depth][index - 1] - 1) / self.visitedTimes[depth][index - 1]
-                * self.Rewards[depth][index - 1]) + (reward / self.visitedTimes[depth][index - 1])
+            self.Rewards[depth][index - 1] = (
+                (self.visitedTimes[depth][index - 1] - 1)
+                / self.visitedTimes[depth][index - 1]
+                * self.Rewards[depth][index - 1]
+            ) + (reward / self.visitedTimes[depth][index - 1])
 
         self.iteration += 1
 
@@ -99,15 +106,20 @@ class T_HOO(Algorithm):
                 if self.visitedTimes[depth][index - 1] == 0:
                     continue
                 else:
-                    UCB = math.sqrt(2 * math.log(self.rounds) / self.visitedTimes[depth][index - 1])
-                    self.Uvalues[depth][index - 1] = self.Rewards[depth][index - 1] + UCB + self.nu * (self.rho ** depth)
-
+                    UCB = math.sqrt(
+                        2 * math.log(self.rounds) / self.visitedTimes[depth][index - 1]
+                    )
+                    self.Uvalues[depth][index - 1] = (
+                        self.Rewards[depth][index - 1]
+                        + UCB
+                        + self.nu * (self.rho ** depth)
+                    )
 
     def updateBackwardTree(self):
 
         nodes = self.partition.get_node_list()
 
-        for i in range(1, self.partition.get_depth()+1):
+        for i in range(1, self.partition.get_depth() + 1):
 
             layer = nodes[-i]
             for node in layer:
@@ -128,9 +140,13 @@ class T_HOO(Algorithm):
                         for child in node.get_children():
                             c_depth = child.get_depth()
                             c_index = child.get_index()
-                            tempB = np.maximum(tempB, self.Bvalues[c_depth][c_index - 1])
+                            tempB = np.maximum(
+                                tempB, self.Bvalues[c_depth][c_index - 1]
+                            )
 
-                        self.Bvalues[depth][index - 1] = np.minimum(self.Uvalues[depth][index - 1], tempB)
+                        self.Bvalues[depth][index - 1] = np.minimum(
+                            self.Uvalues[depth][index - 1], tempB
+                        )
 
     def expand(self, parent):
 
@@ -155,13 +171,14 @@ class T_HOO(Algorithm):
                 c_index = child.get_index()
                 self.visited[c_depth][c_index - 1] = True
 
-
     def updateAllTree(self, path, reward):
 
         self.updateRewardTree(path, reward)
         self.updateUvalueTree()
         # Truncate or not
-        if path[-1].depth <= np.ceil((np.log(self.rounds)/2 - np.log(1/self.nu))/np.log(1/self.rho)):
+        if path[-1].depth <= np.ceil(
+            (np.log(self.rounds) / 2 - np.log(1 / self.nu)) / np.log(1 / self.rho)
+        ):
             self.expand(path[-1])
         self.updateBackwardTree()
 
@@ -181,7 +198,3 @@ class T_HOO(Algorithm):
     def receive_reward(self, time, reward):
 
         self.updateAllTree(self.path, reward)
-
-
-
-

@@ -6,14 +6,12 @@ from PyXAB.partition.Partition import Partition
 
 
 class DimensionBinaryPartition(Partition):
-
     def __init__(self, domain, node=P_node):
 
         super(DimensionBinaryPartition, self).__init__(domain=domain, node=node)
 
     # Rewrite the make_children function in the Partition class
     def make_children(self, parent, newlayer=False):
-
 
         parent_domain = parent.get_domain()
         children_list = []
@@ -38,8 +36,12 @@ class DimensionBinaryPartition(Partition):
                 ind = ind - j * 2 ** (len(parent_domain) - dim - 1)
 
             domain.reverse()
-            new_node = self.node(depth=parent.get_depth() + 1, index=num_children * (parent.get_index() - 1) + i + 1,
-                              parent=parent, domain=domain)
+            new_node = self.node(
+                depth=parent.get_depth() + 1,
+                index=num_children * (parent.get_index() - 1) + i + 1,
+                parent=parent,
+                domain=domain,
+            )
 
             children_list.append(new_node)
 
@@ -50,4 +52,3 @@ class DimensionBinaryPartition(Partition):
             self.depth += 1
         else:
             self.node_list[parent.get_depth() + 1] += children_list
-

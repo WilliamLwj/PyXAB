@@ -9,12 +9,12 @@ import pdb
 
 
 T = 1000
-H = math.floor(T / (2 * (np.log2(T) + 1)**2))
+H = math.floor(T / (2 * (np.log2(T) + 1) ** 2))
 # Target = Garland.Garland()
 Target = DoubleSine.DoubleSine()
 domain = [[0, 1]]
 partition = BinaryPartition
-algo = StroquOOL(n = T, domain=domain, partition=partition)
+algo = StroquOOL(n=T, domain=domain, partition=partition)
 
 for t in range(1, T + 1):
     point = algo.pull(t)

@@ -13,6 +13,7 @@ class Partition(ABC):
     """
     Abstract class for partition of the parameter domain
     """
+
     def __init__(self, domain, node=P_node):
         """
         Initialization of the partition
@@ -99,7 +100,6 @@ class Partition(ABC):
 
         """
         return self.node_list
-
 
     def get_root(self):
         """

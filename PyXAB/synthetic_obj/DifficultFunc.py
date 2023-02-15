@@ -8,9 +8,10 @@
 import numpy as np
 from PyXAB.synthetic_obj.Objective import Objective
 
+
 def threshold(x):
 
-    if(x - np.floor(x) < 0.5):
+    if x - np.floor(x) < 0.5:
         x = 0
     else:
         x = 1
@@ -20,11 +21,11 @@ def threshold(x):
 
 class DifficultFunc(Objective):
     def __init__(self):
-        self.fmax = 0.
+        self.fmax = 0.0
 
     def f(self, x):
         x = x[0]
-        y = np.abs(x-0.5)
+        y = np.abs(x - 0.5)
         if y == 0:
             return 0
         else:

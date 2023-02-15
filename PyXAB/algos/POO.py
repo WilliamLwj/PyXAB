@@ -13,7 +13,10 @@ class POO(Algorithm):
     Implementation of the Parallel Optimistic Optimization (POO) algorithm (Grill et al., 2015), with the general
     definition in Shang et al., 2019.
     """
-    def __init__(self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=None, algo=None):
+
+    def __init__(
+        self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=None, algo=None
+    ):
         """
 
         Parameters
@@ -42,11 +45,10 @@ class POO(Algorithm):
         self.rounds = rounds
         self.rhomax = rhomax
         self.numax = numax
-        self.Dmax = np.log(2) / np.log(1/rhomax) #TODO: Change this 2 to K-arm
-        self.domain= domain
+        self.Dmax = np.log(2) / np.log(1 / rhomax)  # TODO: Change this 2 to K-arm
+        self.domain = domain
         self.partition = partition
         self.algo = algo
-
 
         # The big-N and small-n in the algorithm (The first iteration is useless)
         self.N = 2
@@ -59,7 +61,6 @@ class POO(Algorithm):
         self.curr_algo = None
         self.counter = 0
         self.goodx = None
-
 
         # The cross-validation list
         self.V_algo = []
@@ -80,10 +81,12 @@ class POO(Algorithm):
             The point chosen by the GPO algorithm
         """
 
-        if self.N <= 0.5 * self.Dmax * np.log(self.n/np.log(self.n)):
+        if self.N <= 0.5 * self.Dmax * np.log(self.n / np.log(self.n)):
             if self.counter == 0:
                 rho = self.rhomax ** (2 * self.N / (2 * self.phase + 1))
-                self.curr_algo = self.algo(nu=self.numax, rho=rho, domain=self.domain, partition=self.partition)
+                self.curr_algo = self.algo(
+                    nu=self.numax, rho=rho, domain=self.domain, partition=self.partition
+                )
                 self.V_algo.append(self.curr_algo)
                 self.V_reward.append(0)
             point = self.curr_algo.pull(time)
@@ -110,8 +113,6 @@ class POO(Algorithm):
 
         return point
 
-
-
     def receive_reward(self, time, reward):
         """
         The receive_reward function of POO to receive the reward for the chosen point
@@ -128,15 +129,18 @@ class POO(Algorithm):
         -------
 
         """
-        if self.N <= 0.5 * self.Dmax * np.log(self.n/np.log(self.n)):
+        if self.N <= 0.5 * self.Dmax * np.log(self.n / np.log(self.n)):
             self.curr_algo.receive_reward(time, reward)
-            self.V_reward[-1] = (self.V_reward[-1] * (self.counter) + reward) / (self.counter + 1)
+            self.V_reward[-1] = (self.V_reward[-1] * (self.counter) + reward) / (
+                self.counter + 1
+            )
             self.counter += 1
 
         else:
             self.V_algo[self.algo_counter].receive_reward(time, reward)
-            self.V_reward[self.algo_counter] = (self.V_reward[self.algo_counter] * np.ceil(self.N / self.n) + reward) \
-                    /(np.ceil(self.N / self.n) + 1)
+            self.V_reward[self.algo_counter] = (
+                self.V_reward[self.algo_counter] * np.ceil(self.N / self.n) + reward
+            ) / (np.ceil(self.N / self.n) + 1)
 
     def get_last_point(self):
         """

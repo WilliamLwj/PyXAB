@@ -8,6 +8,7 @@
 import numpy as np
 from PyXAB.synthetic_obj.Objective import Objective
 
+
 class Garland(Objective):
     def __init__(self):
 
@@ -17,12 +18,13 @@ class Garland(Objective):
 
         x = x[0]
 
-        return x * (1-x) * (4 - np.sqrt(np.abs(np.sin(60 * x))))
+        return x * (1 - x) * (4 - np.sqrt(np.abs(np.sin(60 * x))))
+
 
 # Garland function perturbed by Gaussian noise
 
-class Perturbed_Garland(Objective):
 
+class Perturbed_Garland(Objective):
     def __init__(self):
 
         self.perturb = np.random.normal(0, 1)
@@ -33,4 +35,4 @@ class Perturbed_Garland(Objective):
 
         x = x[0]
 
-        return x * (1-x) * (4 - np.sqrt(np.abs(np.sin(60 * x)))) + self.perturb
+        return x * (1 - x) * (4 - np.sqrt(np.abs(np.sin(60 * x)))) + self.perturb

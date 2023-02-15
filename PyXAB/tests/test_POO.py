@@ -17,15 +17,12 @@ T_HOO_regret_list = []
 regret = 0
 
 
-
 POO = POO(rounds=T, domain=domain, partition=partition, algo=T_HOO)
 POO_regret_list = []
 POO_regret = 0
 
 
-
-
-for t in range(1, T+1):
+for t in range(1, T + 1):
 
     # T-HOO
     point = algo.pull(t)
@@ -45,8 +42,6 @@ for t in range(1, T+1):
     POO_regret_list.append(POO_regret)
 
 
-
-regret_dic = {'T_HOO': np.array(T_HOO_regret_list),
-              'POO': np.array(POO_regret_list)}
+regret_dic = {"T_HOO": np.array(T_HOO_regret_list), "POO": np.array(POO_regret_list)}
 
 compare_regret(regret_dic)

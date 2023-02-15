@@ -18,7 +18,7 @@ cumulative_regret_list = []
 
 ## uniform noise
 
-for t in range(1, T+1):
+for t in range(1, T + 1):
 
     point = algo.pull(t)
     reward = target.f(point) + np.random.uniform(-0.1, 0.1)

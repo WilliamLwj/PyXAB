@@ -18,15 +18,12 @@ HCT_regret_list = []
 regret = 0
 
 
-
 GPO = GPO(rounds=T, domain=domain, partition=partition, algo=HCT)
 GPO_regret_list = []
 GPO_regret = 0
 
 
-
-
-for t in range(1, T+1):
+for t in range(1, T + 1):
 
     # T-HOO
     point = algo.pull(t)
@@ -45,6 +42,5 @@ for t in range(1, T+1):
     GPO_regret += inst_regret
     GPO_regret_list.append(GPO_regret)
 
-regret_dic = {'VPCT': np.array(HCT_regret_list),
-              'PCT': np.array(GPO_regret_list)}
+regret_dic = {"VPCT": np.array(HCT_regret_list), "PCT": np.array(GPO_regret_list)}
 compare_regret(regret_dic)

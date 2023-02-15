@@ -19,7 +19,7 @@ HOO_regret_list = []
 regret = 0
 
 
-for t in range(1, T+1):
+for t in range(1, T + 1):
 
     # T-HOO
     print(t)
@@ -30,10 +30,12 @@ for t in range(1, T+1):
     cumulative_regret += inst_regret
     cumulative_regret_list.append(cumulative_regret)
 
-    print('T-HOO: ', point)
+    print("T-HOO: ", point)
 
-    #pdb.set_trace()
+    # pdb.set_trace()
 
-regret_dic = {'T-HOO': np.array(cumulative_regret_list),
-              'HOO': np.array(HOO_regret_list)}
+regret_dic = {
+    "T-HOO": np.array(cumulative_regret_list),
+    "HOO": np.array(HOO_regret_list),
+}
 compare_regret(regret_dic)

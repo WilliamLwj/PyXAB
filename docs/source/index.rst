@@ -26,6 +26,9 @@ PyXAB - Python *X*\ -Armed Bandit
    <a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
    <img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?color=purple" alt="github-PyXAB license" />
    </a>
+    <a href="https://github.com/psf/black" target="blank">
+    <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black" />
+    </a>
    </p>
 
 

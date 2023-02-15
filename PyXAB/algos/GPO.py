@@ -12,7 +12,10 @@ class GPO(Algorithm):
     """
     Implementation of the General Parallel Optimization (GPO) algorithm (Shang et al., 2019)
     """
-    def __init__(self, numax=1.0, rhomax=0.9, rounds=1000, domain=None, partition=None, algo=None):
+
+    def __init__(
+        self, numax=1.0, rhomax=0.9, rounds=1000, domain=None, partition=None, algo=None
+    ):
         """
         Initialization of the wrapper function.
 
@@ -42,24 +45,24 @@ class GPO(Algorithm):
         self.rounds = rounds
         self.rhomax = rhomax
         self.numax = numax
-        self.Dmax = np.log(2) / np.log(1/rhomax)
-        self.domain= domain
+        self.Dmax = np.log(2) / np.log(1 / rhomax)
+        self.domain = domain
         self.partition = partition
         self.algo = algo
 
-
         # The big-N in the algorithm
-        self.N = np.ceil(0.5 * self.Dmax * np.log(self.rounds/2) / np.log(self.rounds/2))
+        self.N = np.ceil(
+            0.5 * self.Dmax * np.log(self.rounds / 2) / np.log(self.rounds / 2)
+        )
 
         # phase number
         self.phase = 1
 
         # Starts with a none algorithm
         self.curr_algo = None
-        self.half_phase_length = np.floor(self.rounds/(2 * self.N))
+        self.half_phase_length = np.floor(self.rounds / (2 * self.N))
         self.counter = 0
         self.goodx = None
-
 
         # The cross-validation list
         self.V_x = []
@@ -79,13 +82,15 @@ class GPO(Algorithm):
         point: list
             The point chosen by the GPO algorithm
         """
-        if self.phase > self.N: # If already finished
+        if self.phase > self.N:  # If already finished
             return self.goodx
         else:
             if self.counter == 0:
                 rho = self.rhomax ** (2 * self.N / (2 * self.phase + 1))
                 # TODO: for algorithms that do not need nu or rho
-                self.curr_algo = self.algo(nu=self.numax, rho=rho, domain=self.domain, partition=self.partition)
+                self.curr_algo = self.algo(
+                    nu=self.numax, rho=rho, domain=self.domain, partition=self.partition
+                )
 
             if self.counter < self.half_phase_length:
 
@@ -120,7 +125,7 @@ class GPO(Algorithm):
         Returns
         -------
         """
-        if self.phase > self.N: # If already finished
+        if self.phase > self.N:  # If already finished
             pass
         elif self.phase == self.N:
             maxind = np.argmax(np.array(self.V_reward))
@@ -130,8 +135,10 @@ class GPO(Algorithm):
             if self.counter < self.half_phase_length:
                 self.curr_algo.receive_reward(time, reward)
             else:
-                self.V_reward[self.phase-1] = (self.V_reward[self.phase-1] * (self.counter - self.half_phase_length) + reward) \
-                                              / (self.counter - self.half_phase_length + 1)
-
+                self.V_reward[self.phase - 1] = (
+                    self.V_reward[self.phase - 1]
+                    * (self.counter - self.half_phase_length)
+                    + reward
+                ) / (self.counter - self.half_phase_length + 1)
 
         self.counter += 1

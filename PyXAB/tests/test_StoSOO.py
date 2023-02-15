@@ -17,9 +17,7 @@ regret = 0
 StoSOO_regret_list = []
 
 
-
-
-for t in range(1, T+1):
+for t in range(1, T + 1):
 
     # T-HOO
     point = algo.pull(t)
@@ -33,6 +31,6 @@ for t in range(1, T+1):
 last_point = algo.get_last_point()
 print(T, Target.fmax - Target.f(last_point))
 
-regret_dic = {'StoSOO': np.array(StoSOO_regret_list)}
+regret_dic = {"StoSOO": np.array(StoSOO_regret_list)}
 
 compare_regret(regret_dic)

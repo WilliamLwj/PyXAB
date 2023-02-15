@@ -20,7 +20,7 @@ VHCT_regret_list = []
 regret = 0
 
 
-for t in range(1, T+1):
+for t in range(1, T + 1):
 
     # T-HOO
     point = algo.pull(t)
@@ -30,8 +30,10 @@ for t in range(1, T+1):
     cumulative_regret += inst_regret
     cumulative_regret_list.append(cumulative_regret)
 
-    print('t: ', t,'VHCT: ', point)
+    print("t: ", t, "VHCT: ", point)
 
-regret_dic = {'VHCT': np.array(cumulative_regret_list),
-              'VHCT_old': np.array(VHCT_regret_list)}
+regret_dic = {
+    "VHCT": np.array(cumulative_regret_list),
+    "VHCT_old": np.array(VHCT_regret_list),
+}
 compare_regret(regret_dic)
