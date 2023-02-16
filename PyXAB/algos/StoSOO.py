@@ -22,12 +22,10 @@ class StoSOO_node(P_node):
         self.mean_reward = 0
 
     def update_reward(self, reward):
-
         self.visited_times += 1
         self.rewards.append(reward)
 
     def compute_b_value(self, n, k, delta):
-
         if self.visited_times == 0:
             self.b_value = np.inf
         else:
@@ -37,15 +35,12 @@ class StoSOO_node(P_node):
             )
 
     def get_visited_times(self):
-
         return self.visited_times
 
     def get_b_value(self):
-
         return self.b_value
 
     def get_mean_reward(self):
-
         return self.mean_reward
 
 
@@ -100,7 +95,6 @@ class StoSOO(Algorithm):
                 if max_b_node_ind is not None:  # If there exists a leaf node in layer h
                     if node_list[h][max_b_node_ind].get_b_value() >= self.b_max:
                         if node_list[h][max_b_node_ind].get_visited_times() < self.k:
-
                             self.max_b_node_ind = max_b_node_ind
                             self.max_b_node_h = h
 
@@ -118,12 +112,10 @@ class StoSOO(Algorithm):
                 h += 1  # increase the search depth
 
     def receive_reward(self, time, reward):
-
         node_list = self.partition.get_node_list()
         node_list[self.max_b_node_h][self.max_b_node_ind].update_reward(reward)
 
     def get_last_point(self):
-
         max_depth = self.partition.get_depth()
         max_mu = -np.inf
         max_x = None

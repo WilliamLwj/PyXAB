@@ -80,7 +80,6 @@ class T_HOO(Algorithm):
         return curr_node, path
 
     def updateRewardTree(self, path, reward):
-
         for node in path:
             depth = node.get_depth()
             index = node.get_index()
@@ -112,15 +111,13 @@ class T_HOO(Algorithm):
                     self.Uvalues[depth][index - 1] = (
                         self.Rewards[depth][index - 1]
                         + UCB
-                        + self.nu * (self.rho ** depth)
+                        + self.nu * (self.rho**depth)
                     )
 
     def updateBackwardTree(self):
-
         nodes = self.partition.get_node_list()
 
         for i in range(1, self.partition.get_depth() + 1):
-
             layer = nodes[-i]
             for node in layer:
                 depth = node.get_depth()
@@ -149,7 +146,6 @@ class T_HOO(Algorithm):
                         )
 
     def expand(self, parent):
-
         if parent.get_depth() > self.partition.get_depth():
             raise ValueError("parent depth larger than partition depth")
         elif parent.get_depth() == self.partition.get_depth():
@@ -163,7 +159,6 @@ class T_HOO(Algorithm):
 
         children = parent.get_children()
         if children is None:
-
             raise ValueError("No Children")
         else:
             for child in children:
@@ -172,7 +167,6 @@ class T_HOO(Algorithm):
                 self.visited[c_depth][c_index - 1] = True
 
     def updateAllTree(self, path, reward):
-
         self.updateRewardTree(path, reward)
         self.updateUvalueTree()
         # Truncate or not
@@ -183,7 +177,6 @@ class T_HOO(Algorithm):
         self.updateBackwardTree()
 
     def pull(self, time):
-
         curr_node, self.path = self.optTraverse()
         sample_range = curr_node.get_domain()
         point = []
@@ -196,5 +189,4 @@ class T_HOO(Algorithm):
         return point
 
     def receive_reward(self, time, reward):
-
         self.updateAllTree(self.path, reward)

@@ -23,22 +23,18 @@ class StroquOOL_node(P_node):
         self.mean_reward = 0
 
     def update_reward(self, reward):
-
         self.rewards.append(reward)
 
     def get_visited_times(self):
-
         return self.visited_times
 
     def compute_mean_reward(self):
-
         if self.visited_times == 0:
             self.mean_reward = -np.inf
         else:
             self.mean_reward = np.sum(np.array(self.rewards)) / len(self.rewards)
 
     def get_mean_reward(self):
-
         return self.mean_reward
 
     def not_opened(self):
@@ -51,7 +47,6 @@ class StroquOOL_node(P_node):
         self.rewards = []
 
     def get_randompoint(self):
-
         randompoint = []
         for x in self.domain:
             # Randomly chosen point from cotinuous domain
@@ -90,18 +85,15 @@ class StroquOOL(Algorithm):
 
     @staticmethod
     def harmonic_series_sum(n):
-
         res = 0
         for i in range(1, n + 1):
             res += 1 / i
         return res
 
     def reset_p(self):
-
         self.curr_p = math.floor(np.log2(self.h_max / self.curr_depth))
 
     def pull(self, time):
-
         self.iteration = time
         node_list = self.partition.get_node_list()
 
@@ -132,7 +124,7 @@ class StroquOOL(Algorithm):
                         node = node_list[self.curr_depth][i]
                         if (
                             node.not_opened()
-                            and node.get_visited_times() >= 2 ** self.curr_p
+                            and node.get_visited_times() >= 2**self.curr_p
                         ):
                             node.compute_mean_reward()
                             if node.get_mean_reward() >= max_reward:
@@ -145,11 +137,11 @@ class StroquOOL(Algorithm):
                         self.chosen.append(self.max_node.get_children()[0])
                         self.chosen.append(self.max_node.get_children()[1])
                 # evaluate children
-                if self.iteration <= self.time_stamp + 2 ** self.curr_p:
+                if self.iteration <= self.time_stamp + 2**self.curr_p:
                     self.curr_node = self.max_node.get_children()[0]
                     return self.max_node.get_children()[0].get_cpoint()
                 if (
-                    self.time_stamp + 2 ** self.curr_p
+                    self.time_stamp + 2**self.curr_p
                     < self.iteration
                     <= self.time_stamp + 2 ** (self.curr_p + 1)
                 ):
@@ -171,7 +163,7 @@ class StroquOOL(Algorithm):
                     max_value = -np.inf
                     max_node = None
                     for i in range(len(self.chosen)):
-                        if self.chosen[i].get_visited_times() >= 2 ** p:
+                        if self.chosen[i].get_visited_times() >= 2**p:
                             if self.chosen[i].get_mean_reward() >= max_value:
                                 max_value = self.chosen[i].get_mean_reward()
                                 max_node = self.chosen[i]
@@ -192,7 +184,6 @@ class StroquOOL(Algorithm):
         )  # TODO: change synthetic obj so that when it receive None, it passes.
 
     def receive_reward(self, t, reward):
-
         if not self.end:
             self.curr_node.visited_times += 1
             self.curr_node.update_reward(reward)
@@ -206,7 +197,6 @@ class StroquOOL(Algorithm):
         return self.h_max
 
     def get_last_point(self):
-
         max_value = -np.inf
         max_node = None
         for node in self.candidate:

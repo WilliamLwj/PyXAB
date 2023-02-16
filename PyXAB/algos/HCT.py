@@ -17,9 +17,7 @@ def compute_t_plus(x):
 
 
 class HCT(Algorithm):
-    """
-
-    """
+    """ """
 
     def __init__(self, nu=1, rho=0.5, delta=0.01, domain=None, partition=None):
         super(HCT, self).__init__()
@@ -48,7 +46,7 @@ class HCT(Algorithm):
 
     def optTraverse(self):
         """
-        
+
         Returns
         -------
 
@@ -59,13 +57,12 @@ class HCT(Algorithm):
         delta_tilde = np.minimum(1.0 / 2, self.c1 * self.delta / t_plus)
         self.tau_h = [0.0]
         for i in range(1, self.partition.get_depth() + 1):
-
             self.tau_h.append(
                 np.ceil(
-                    self.c ** 2
+                    self.c**2
                     * math.log(1 / delta_tilde)
                     * self.rho ** (-2 * i)
-                    / self.nu ** 2
+                    / self.nu**2
                 )
             )
 
@@ -107,7 +104,6 @@ class HCT(Algorithm):
         return curr_node, path
 
     def updateRewardTree(self, path, reward):
-
         node = path[-1]
         depth = node.get_depth()
         index = node.get_index()
@@ -124,7 +120,6 @@ class HCT(Algorithm):
         self.iteration += 1
 
     def updateUvalueTree(self):
-
         t_plus = compute_t_plus(self.iteration)
         delta_tilde = np.minimum(1, self.c1 * self.delta / t_plus)
         node_list = self.partition.get_node_list()
@@ -137,21 +132,19 @@ class HCT(Algorithm):
                     continue
                 else:
                     UCB = math.sqrt(
-                        self.c ** 2
+                        self.c**2
                         * math.log(1 / delta_tilde)
                         / self.visitedTimes[depth][index - 1]
                     )
                     self.Uvalues[depth][index - 1] = (
                         self.Rewards[depth][index - 1]
                         + UCB
-                        + self.nu * (self.rho ** depth)
+                        + self.nu * (self.rho**depth)
                     )
 
     def updateBackwardTree(self):
-
         nodes = self.partition.get_node_list()
         for i in range(1, self.partition.get_depth() + 1):
-
             layer = nodes[-i]
             for node in layer:
                 depth = node.get_depth()
@@ -180,7 +173,6 @@ class HCT(Algorithm):
                         )
 
     def expand(self, parent):
-
         if parent.get_depth() > self.partition.get_depth():
             raise ValueError
         elif parent.get_depth() == self.partition.get_depth():
@@ -202,12 +194,10 @@ class HCT(Algorithm):
                 self.visited[c_depth][c_index - 1] = True
 
     def updateAllTree(self, path, end_node, reward):
-
         t_plus = compute_t_plus(self.iteration)
         delta_tilde = np.minimum(1, self.c1 * self.delta / t_plus)
 
         if self.iteration == compute_t_plus(self.iteration):
-
             self.updateUvalueTree()
             self.updateBackwardTree()
 
@@ -222,11 +212,11 @@ class HCT(Algorithm):
         self.Uvalues[en_depth][en_index - 1] = (
             self.Rewards[en_depth][en_index - 1]
             + math.sqrt(
-                self.c ** 2
+                self.c**2
                 * math.log(1 / delta_tilde)
                 / self.visitedTimes[en_depth][en_index - 1]
             )
-            + self.nu * (self.rho ** end_node.depth)
+            + self.nu * (self.rho**end_node.depth)
         )
 
         self.updateBackwardTree()
@@ -235,7 +225,6 @@ class HCT(Algorithm):
             self.expand(end_node)
 
     def pull(self, time):
-
         self.curr_node, self.path = self.optTraverse()
         sample_range = self.curr_node.get_domain()
         point = []
@@ -246,5 +235,4 @@ class HCT(Algorithm):
         return point
 
     def receive_reward(self, time, reward):
-
         self.updateAllTree(self.path, self.curr_node, reward)

@@ -4,7 +4,10 @@
 
 <p align="left">
 <a href='https://pypi.org/project/PyXAB/'>
-       <img src='https://img.shields.io/pypi/v/PyXAB.svg?color=brightgreen' alt='PyPI version' />
+       <img src='https://img.shields.io/pypi/v/PyXAB.svg?color=yellow' alt='PyPI version' />
+</a>
+<a href="https://github.com/psf/black" target="blank">
+<img src="https://github.com/WilliamLwj/PyXAB/actions/workflows/codeql.yml/badge.svg" alt="Code style: black" />
 </a>
 <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
@@ -25,7 +28,6 @@
 <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black" />
 </a>
 </p>
-
 
 
 PyXAB is a Python open-source library for *X*-armed bandit algorithms, a prestigious set of optimizers for online black-box optimization, i.e., optimize an objective without gradients, also known as the continuous-arm bandit (CAB), Lipschitz bandit, 

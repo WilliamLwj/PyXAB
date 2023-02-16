@@ -8,7 +8,6 @@ import pickle
 
 
 def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
-
     algo_dictionary = {
         "T-HOO": HOO.T_HOO(rounds=rounds, rho=0.5, domain=domain, partition=partition),
         "HCT": HCT.HCT(domain=domain, rho=0.5, partition=partition),
@@ -24,7 +23,6 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
         regret_list = []
         regret = 0
         for t in range(1, rounds + 1):
-
             print(t)
             point = algo.pull(t)
             reward = target.f(point)

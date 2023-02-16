@@ -103,7 +103,6 @@ class POO(Algorithm):
                 self.counter = 0
                 self.algo_counter = 0
         else:
-
             algo = self.V_algo[self.algo_counter]
             point = algo.pull(time)
             self.algo_counter += 1

@@ -10,7 +10,6 @@ from PyXAB.synthetic_obj.Objective import Objective
 
 
 def threshold(x):
-
     if x - np.floor(x) < 0.5:
         x = 0
     else:
@@ -29,7 +28,7 @@ class DifficultFunc(Objective):
         if y == 0:
             return 0
         else:
-            return threshold(np.log(y)) * (np.sqrt(y) - y ** 2) - np.sqrt(y)
+            return threshold(np.log(y)) * (np.sqrt(y) - y**2) - np.sqrt(y)
 
     def fmax(self):
         return self.fmax

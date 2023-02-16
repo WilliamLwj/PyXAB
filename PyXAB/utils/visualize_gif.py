@@ -56,7 +56,6 @@ from PyXAB.algos.HCT import HCT
 
 
 def visualize_trajectory():
-
     target = Himmelblau.Himmelblau_Normalized()
     domain = [[-5, 5], [-5, 5]]
 
@@ -79,7 +78,6 @@ def visualize_trajectory():
         cumulative_regret_list.append(cumulative_regret)
 
         if point not in point_list and len(point_list) < 18:
-
             point_list.append(point)
             fig = plt.figure()
             ax = fig.add_subplot(111, projection="3d")
@@ -87,7 +85,7 @@ def visualize_trajectory():
             x = np.linspace(domain[0][0], domain[0][1], 1000)
             y = np.linspace(domain[0][0], domain[0][1], 1000)
             xx, yy = np.meshgrid(x, y)
-            z = (-((xx ** 2 + yy - 11) ** 2) - (xx + yy ** 2 - 7) ** 2) / 890
+            z = (-((xx**2 + yy - 11) ** 2) - (xx + yy**2 - 7) ** 2) / 890
             ax.plot_surface(xx, yy, z, alpha=0.4)
 
             px = np.array([p[0] for p in point_list])

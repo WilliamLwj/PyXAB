@@ -8,7 +8,6 @@ import numpy as np
 
 
 def plot_regret(regret_list, name="T-HOO"):
-
     x = np.arange(regret_list.shape[0])
     plt.plot(x, regret_list, linewidth=2, label=name, alpha=0.9)
     plt.legend(loc="upper right", prop={"size": 14})
@@ -16,7 +15,6 @@ def plot_regret(regret_list, name="T-HOO"):
 
 
 def compare_regret(regret_dic):
-
     for name in regret_dic.keys():
         regret_list = regret_dic[name]
         x = np.arange(regret_list.shape[0])
@@ -27,7 +25,6 @@ def compare_regret(regret_dic):
 
 
 def compare_regret_withsd(dictionary, x_range=None, y_range=None):
-
     regret = dictionary["regret"]
     colors = dictionary["colors"]
     labels = dictionary["labels"]

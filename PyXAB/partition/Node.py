@@ -43,7 +43,6 @@ class P_node:
 
         point = []
         for x in self.domain:
-
             point.append((x[0] + x[1]) / 2)
 
             # TODO: Different Domains Other Than Continuous Domains

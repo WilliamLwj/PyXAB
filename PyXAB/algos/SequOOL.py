@@ -21,19 +21,15 @@ class SequOOL_node(P_node):
         self.opened = False
 
     def update_reward(self, reward):
-
         self.rewards.append(reward)
 
     def get_reward(self):
-
         return self.rewards[0]
 
     def open(self):
-
         self.opened = True
 
     def not_opened(self):
-
         return False if self.opened else True
 
 
@@ -55,14 +51,12 @@ class SequOOL(Algorithm):
 
     @staticmethod
     def harmonic_series_sum(n):
-
         res = 0
         for i in range(1, n + 1):
             res += 1 / i
         return res
 
     def pull(self, t):
-
         node_list = self.partition.get_node_list()
         self.iteration = t
 
@@ -119,11 +113,9 @@ class SequOOL(Algorithm):
             return node_list[0][0].get_cpoint()
 
     def receive_reward(self, t, reward):
-
         self.curr_node.update_reward(reward)
 
     def get_last_point(self):
-
         max_node = None
         max_value = -np.inf
 

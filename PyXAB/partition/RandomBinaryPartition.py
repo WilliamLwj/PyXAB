@@ -10,13 +10,45 @@ import numpy as np
 
 
 class RandomBinaryPartition(Partition):
-    def __init__(self, domain, node=P_node):
+    """
+    Implementation of Random Binary Partition
+    """
 
+    def __init__(self, domain, node=P_node):
+        """
+        Initialization of the Random Binary Partition
+
+        Parameters
+        ----------
+        domain: list(list)
+            The domain of the objective function to be optimized, should be in the form of list of lists (hypercubes),
+            i.e., [[range1], [range2], ... [range_d]], where [range_i] is a list indicating the domain's projection on
+            the i-th dimension, e.g., [-1, 1]
+
+        node
+            The node used in the partition, with the default choice to be P_node.
+        """
         super(RandomBinaryPartition, self).__init__(domain=domain, node=node)
 
     # Rewrite the make_children function in the Partition class
     def make_children(self, parent, newlayer=False):
+        """
+        The function to make children for the parent node with a random binary partition, i.e., split every
+        parent node randomly into two children. If there are multiple dimensions, the dimension to split the parent is
+        chosen randomly
 
+        Parameters
+        ----------
+        parent:
+            The parent node to be expanded into children nodes
+
+        newlayer: bool
+            Boolean variable that indicates whether or not a new layer is created
+
+        Returns
+        -------
+
+        """
         parent_domain = parent.get_domain()
         dim = np.random.randint(0, len(parent_domain))
         selected_dim = parent_domain[dim]

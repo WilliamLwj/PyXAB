@@ -22,11 +22,11 @@ class GPO(Algorithm):
         Parameters
         ----------
         numax: float
-            parameter nu_max in the algorithm
+            parameter nu_max in the algorithm (default 1.0)
         rhomax: float
-            parameter rho_max in the algorithm, the maximum rho used
+            parameter rho_max in the algorithm, the maximum rho used (default 0.9)
         rounds: int
-            the number of rounds/budget
+            the number of rounds/budget (default 1000)
         domain: list(list)
             the domain of the objective function
         partition:
@@ -93,7 +93,6 @@ class GPO(Algorithm):
                 )
 
             if self.counter < self.half_phase_length:
-
                 point = self.curr_algo.pull(time)
                 self.goodx = point
 

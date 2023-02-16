@@ -24,7 +24,6 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
         regret_list = []
         regret = 0
         for t in range(1, rounds + 1):
-
             print(t)
             point = algo.pull(t)
             reward = target.f(point) + np.random.uniform(-noise, noise)

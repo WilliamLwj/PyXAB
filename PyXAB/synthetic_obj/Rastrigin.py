@@ -11,7 +11,6 @@ from PyXAB.synthetic_obj.Objective import Objective
 
 class Rastrigin(Objective):
     def __init__(self):
-
         self.fmax = 0
 
     def f(self, x):
@@ -25,7 +24,6 @@ class Rastrigin(Objective):
 
 class Rastrigin_Normalized(Objective):
     def __init__(self, k=20):
-
         self.fmax = 0
         self.k = k  # Normalization constant
 

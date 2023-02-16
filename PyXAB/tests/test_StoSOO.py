@@ -18,7 +18,6 @@ StoSOO_regret_list = []
 
 
 for t in range(1, T + 1):
-
     # T-HOO
     point = algo.pull(t)
     reward = Target.f(point) + np.random.uniform(-0.1, 0.1)

@@ -54,7 +54,7 @@ class Partition(ABC):
     @abstractmethod
     def make_children(self, parent, newlayer=False):
         """
-        The function to make children for the parent node, and whether a new layer is needed
+        The function to make children for the parent node
 
         Parameters
         ----------

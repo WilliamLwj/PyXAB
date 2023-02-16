@@ -20,7 +20,6 @@ regret = 0
 
 
 for t in range(1, T + 1):
-
     # T-HOO
     print(t)
     point = algo.pull(t)
