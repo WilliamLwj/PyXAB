@@ -6,7 +6,7 @@ from PyXAB.partition.BinaryPartition import BinaryPartition
 from PyXAB.utils.plot import compare_regret
 import numpy as np
 
-T = 1000
+T = 100
 Target = DoubleSine.DoubleSine()
 domain = [[0, 1]]
 partition = BinaryPartition
@@ -14,10 +14,6 @@ algo = VHCT(domain=domain, partition=partition)
 
 cumulative_regret = 0
 cumulative_regret_list = [0]
-
-
-VHCT_regret_list = []
-regret = 0
 
 
 for t in range(1, T + 1):
@@ -31,8 +27,9 @@ for t in range(1, T + 1):
 
     print("t: ", t, "VHCT: ", point)
 
-regret_dic = {
-    "VHCT": np.array(cumulative_regret_list),
-    "VHCT_old": np.array(VHCT_regret_list),
-}
-compare_regret(regret_dic)
+
+# plot regret
+# regret_dic = {
+#     "VHCT": np.array(cumulative_regret_list),
+# }
+# compare_regret(regret_dic)

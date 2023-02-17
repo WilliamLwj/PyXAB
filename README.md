@@ -6,6 +6,9 @@
 <a href='https://pypi.org/project/PyXAB/'>
        <img src='https://img.shields.io/pypi/v/PyXAB.svg?color=yellow' alt='PyPI version' />
 </a>
+<a href="https://codecov.io/gh/WilliamLwj/PyXAB" > 
+ <img src="https://codecov.io/gh/WilliamLwj/PyXAB/branch/main/graph/badge.svg?token=VACRX9AQBM"/> 
+ </a>
 <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
 </a>

@@ -7,7 +7,7 @@ import numpy as np
 import pdb
 
 
-T = 1000
+T = 100
 Target = Garland.Garland()
 domain = [[0, 1]]
 partition = BinaryPartition
@@ -29,7 +29,6 @@ for t in range(1, T + 1):
 
 last_point = algo.get_last_point()
 print(T, Target.fmax - Target.f(last_point))
-
-regret_dic = {"StoSOO": np.array(StoSOO_regret_list)}
-
-compare_regret(regret_dic)
+# plot the regret
+# regret_dic = {"StoSOO": np.array(StoSOO_regret_list)}
+# compare_regret(regret_dic)

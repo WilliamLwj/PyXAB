@@ -1,6 +1,6 @@
 from PyXAB.synthetic_obj import *
 
-from PyXAB.algos.HCT import HCT
+from PyXAB.algos.PCT import PCT
 from PyXAB.partition.BinaryPartition import BinaryPartition
 import numpy as np
 from PyXAB.utils.plot import plot_regret
@@ -10,7 +10,7 @@ T = 100
 target = Himmelblau.Himmelblau()
 domain = [[-5, 5], [-5, 5]]
 partition = BinaryPartition
-algo = HCT(domain=domain, partition=partition)
+algo = PCT(domain=domain, partition=partition)
 
 cumulative_regret = 0
 cumulative_regret_list = []
