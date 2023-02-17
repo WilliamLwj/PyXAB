@@ -1,4 +1,5 @@
 name: Testing
+
 on: [push, pull_request]
 jobs:
   run:
@@ -7,12 +8,12 @@ jobs:
       OS: ubuntu-latest
       PYTHON: '3.9'
     steps:
-    - uses: checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: ‘2’
 
     - name: Setup Python
-      uses: actions/setup-python@master
+      uses: actions/setup-python@v2
       with:
         python-version: 3.7
     - name: Install Packages
