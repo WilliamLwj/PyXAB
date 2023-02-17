@@ -6,7 +6,7 @@ import numpy as np
 from PyXAB.utils.plot import plot_regret
 
 
-T = 1000
+T = 100
 target = Himmelblau.Himmelblau()
 domain = [[-5, 5], [-5, 5]]
 partition = BinaryPartition
@@ -26,4 +26,4 @@ for t in range(1, T + 1):
     cumulative_regret += inst_regret
     cumulative_regret_list.append(cumulative_regret)
 
-plot_regret(np.array(cumulative_regret_list))
+# plot_regret(np.array(cumulative_regret_list))
