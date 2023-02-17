@@ -1,6 +1,18 @@
 from PyXAB.partition.RandomBinaryPartition import RandomBinaryPartition
 from PyXAB.partition.DimensionPartition import DimensionBinaryPartition
 
+
+
+domain = [[0, 1]]
+part =RandomBinaryPartition(domain)
+
+for i in range(5):
+    part.deepen()
+    nodelist = part.get_node_list()
+    for node in nodelist[-1]:
+        print(node.depth, node.index, node.domain, "\\")
+
+
 domain = [[0, 1]]
 part = DimensionBinaryPartition(domain)
 
