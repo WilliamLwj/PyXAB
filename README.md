@@ -12,10 +12,10 @@
 <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
 </a>
-<a href="https://github.com/psf/black" target="blank">
+<a href="https://github.com/WilliamLwj/PyXAB/actions/workflows/codeql.yml" target="blank">
 <img src="https://github.com/WilliamLwj/PyXAB/actions/workflows/codeql.yml/badge.svg" alt="Code style: black" />
 </a>
-<a href="https://github.com/psf/black" target="blank">
+<a href="https://github.com/WilliamLwj/PyXAB/actions/workflows/testing.yml" target="blank">
 <img src="https://github.com/WilliamLwj/PyXAB/actions/workflows/testing.yml/badge.svg" alt="testing" />
 </a>
 <a href="https://github.com/WilliamLwj/PyXAB/fork" target="blank">
