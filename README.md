@@ -15,6 +15,9 @@
 <a href="https://github.com/psf/black" target="blank">
 <img src="https://github.com/WilliamLwj/PyXAB/actions/workflows/codeql.yml/badge.svg" alt="Code style: black" />
 </a>
+<a href="https://github.com/psf/black" target="blank">
+<img src="https://github.com/WilliamLwj/PyXAB/actions/workflows/testing.yml/badge.svg" alt="testing" />
+</a>
 <a href="https://github.com/WilliamLwj/PyXAB/fork" target="blank">
 <img src="https://img.shields.io/github/forks/WilliamLwj/PyXAB?" alt="github-PyXAB forks"/>
 </a>

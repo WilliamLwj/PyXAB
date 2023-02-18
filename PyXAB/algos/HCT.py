@@ -17,7 +17,7 @@ def compute_t_plus(x):
 
 
 class HCT(Algorithm):
-    """ """
+    """"""
 
     def __init__(self, nu=1, rho=0.5, delta=0.01, domain=None, partition=None):
         super(HCT, self).__init__()

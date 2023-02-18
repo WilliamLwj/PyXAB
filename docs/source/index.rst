@@ -18,7 +18,10 @@ PyXAB - Python *X*\ -Armed Bandit
     <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
     </a>
     <a href="https://github.com/psf/black" target="blank">
-    <img src="https://github.com/WilliamLwj/PyXAB/actions/workflows/codeql.yml/badge.svg" alt="Code style: black" />
+    <img src="https://github.com/WilliamLwj/PyXAB/actions/workflows/codeql.yml/badge.svg" alt="codeql" />
+    </a>
+    <a href="https://github.com/psf/black" target="blank">
+    <img src="https://github.com/WilliamLwj/PyXAB/actions/workflows/testing.yml/badge.svg" alt="testing" />
     </a>
     <a href="https://github.com/WilliamLwj/PyXAB/fork" target="blank">
     <img src="https://img.shields.io/github/forks/WilliamLwj/PyXAB?" alt="github-PyXAB forks"/>
