@@ -4,10 +4,16 @@
 
 <p align="left">
 <a href='https://pypi.org/project/PyXAB/'>
-       <img src='https://img.shields.io/pypi/v/PyXAB.svg?color=brightgreen' alt='PyPI version' />
+       <img src='https://img.shields.io/pypi/v/PyXAB.svg?color=yellow' alt='PyPI version' />
 </a>
+<a href="https://codecov.io/gh/WilliamLwj/PyXAB" > 
+ <img src="https://codecov.io/gh/WilliamLwj/PyXAB/branch/main/graph/badge.svg?token=VACRX9AQBM"/> 
+ </a>
 <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
+</a>
+<a href="https://github.com/psf/black" target="blank">
+<img src="https://github.com/WilliamLwj/PyXAB/actions/workflows/codeql.yml/badge.svg" alt="Code style: black" />
 </a>
 <a href="https://github.com/WilliamLwj/PyXAB/fork" target="blank">
 <img src="https://img.shields.io/github/forks/WilliamLwj/PyXAB?" alt="github-PyXAB forks"/>
@@ -21,8 +27,10 @@
 <a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
 <img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?color=purple" alt="github-PyXAB license" />
 </a>
+<a href="https://github.com/psf/black" target="blank">
+<img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black" />
+</a>
 </p>
-
 
 
 PyXAB is a Python open-source library for *X*-armed bandit algorithms, a prestigious set of optimizers for online black-box optimization, i.e., optimize an objective without gradients, also known as the continuous-arm bandit (CAB), Lipschitz bandit, 
@@ -46,7 +54,7 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 - [Documentations](#Documentations)
 - [Installation](#Installation)
 - [Features](#Features)
-  * [Stochastic *X*-armed bandit algorithms](#Stochastic-X-armed-bandit-algorithms)
+  * [*X*-armed bandit algorithms](#Stochastic-X-armed-bandit-algorithms)
   * [Hierarchical partition ](#Hierarchical-partition)
   * [Synthetic objectives](#Synthetic-objectives)
 - [Contributing](#Contributing)
@@ -94,21 +102,22 @@ pip install --upgrade PyXAB       # or update if needed
 
 ## Features:
 
-### Stochastic *X*-armed bandit algorithms
+### *X*-armed bandit algorithms
 
 * Algorithm starred are meta-algorithms (wrappers)
 
-| Algorithm                                                                     | Research Paper | Year |
-|-------------------------------------------------------------------------------| --- |------|
-| [T-HOO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/HOO.py)     | [*X*-Armed Bandit](https://jmlr.org/papers/v12/bubeck11a.html) | 2011 |
-| [StoSOO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py) | [Stochastic Simultaneous Optimistic Optimization](http://proceedings.mlr.press/v28/valko13.pdf) | 2013 |
-| [HCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/HCT.py)       | [Online Stochastic Optimization Under Correlated Bandit Feedback](https://proceedings.mlr.press/v32/azar14.html) | 2014 |
-| [POO*](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/POO.py)      | [Black-box optimization of noisy functions with unknown smoothness](https://papers.nips.cc/paper/2015/hash/ab817c9349cf9c4f6877e1894a1faa00-Abstract.html) | 2015 |
-| [GPO*](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/GPO.py)      | [General Parallel Optimization Without A Metric](https://proceedings.mlr.press/v98/xuedong19a.html) | 2019 |
-| [PCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/PCT.py)       | [General Parallel Optimization Without A Metric](https://proceedings.mlr.press/v98/xuedong19a.html) | 2019 |
-| [StroquOOL](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py)       |[A Simple Parameter-free And Adaptive Approach to Optimization Under A Minimal Local Smoothness Assumption](https://arxiv.org/pdf/1810.00997.pdf) | 2019 |
-| [VHCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VHCT.py)     | [Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization](https://arxiv.org/abs/2106.09215) | 2021 |
-| [VPCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VPCT.py)     | N.A. ([GPO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/GPO.py) + [VHCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VHCT.py)) | N.A. |
+| Algorithm                                                                           | Research Paper | Year |
+|-------------------------------------------------------------------------------------| --- |------|
+| [T-HOO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/HOO.py)           | [*X*-Armed Bandit](https://jmlr.org/papers/v12/bubeck11a.html) | 2011 |
+| [StoSOO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py)       | [Stochastic Simultaneous Optimistic Optimization](http://proceedings.mlr.press/v28/valko13.pdf) | 2013 |
+| [HCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/HCT.py)             | [Online Stochastic Optimization Under Correlated Bandit Feedback](https://proceedings.mlr.press/v32/azar14.html) | 2014 |
+| [POO*](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/POO.py)            | [Black-box optimization of noisy functions with unknown smoothness](https://papers.nips.cc/paper/2015/hash/ab817c9349cf9c4f6877e1894a1faa00-Abstract.html) | 2015 |
+| [GPO*](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/GPO.py)            | [General Parallel Optimization Without A Metric](https://proceedings.mlr.press/v98/xuedong19a.html) | 2019 |
+| [PCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/PCT.py)             | [General Parallel Optimization Without A Metric](https://proceedings.mlr.press/v98/xuedong19a.html) | 2019 |
+| [SequOOL](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/SequOOL.py)     |[A Simple Parameter-free And Adaptive Approach to Optimization Under A Minimal Local Smoothness Assumption](https://arxiv.org/pdf/1810.00997.pdf) | 2019 |
+| [StroquOOL](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py) |[A Simple Parameter-free And Adaptive Approach to Optimization Under A Minimal Local Smoothness Assumption](https://arxiv.org/pdf/1810.00997.pdf) | 2019 |
+| [VHCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VHCT.py)           | [Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization](https://arxiv.org/abs/2106.09215) | 2021 |
+| [VPCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VPCT.py)           | N.A. ([GPO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/GPO.py) + [VHCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VHCT.py)) | N.A. |
 
 
 ### Hierarchical partition 

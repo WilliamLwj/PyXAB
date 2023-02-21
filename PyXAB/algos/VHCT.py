@@ -11,14 +11,14 @@ from PyXAB.algos.Algo import Algorithm
 
 # TODO: Modify the VHCT algorithm
 
+
 def compute_t_plus(x):
     return np.power(2, np.ceil(np.log(x) / np.log(2)))
 
 
 class VHCT(Algorithm):
-    """
+    """ """
 
-    """
     def __init__(self, nu=1, rho=0.5, delta=0.01, bound=1, domain=None, partition=None):
         super(VHCT, self).__init__()
         if domain is None:
@@ -62,20 +62,44 @@ class VHCT(Algorithm):
         for i in range(1, self.partition.get_depth() + 1):
             tau_h = []
             for j in range(len(self.partition.get_layer_node_list(depth=i))):
-                tau_h.append(np.ceil((self.Variances[i][j] + 3* self.bound * self.nu * self.rho ** i + self.Variances[i][j]
-                               * np.sqrt(1 + 6 * self.bound * self.nu * self.rho ** i/self.Variances[i][j] ) ) * \
-                              (self.c ** 2 * math.log(1/delta_tilde) * self.rho ** (-2 * i) / self.nu ** 2)) )
+                tau_h.append(
+                    np.ceil(
+                        (
+                            self.Variances[i][j]
+                            + 3 * self.bound * self.nu * self.rho**i
+                            + self.Variances[i][j]
+                            * np.sqrt(
+                                1
+                                + 6
+                                * self.bound
+                                * self.nu
+                                * self.rho**i
+                                / self.Variances[i][j]
+                            )
+                        )
+                        * (
+                            self.c**2
+                            * math.log(1 / delta_tilde)
+                            * self.rho ** (-2 * i)
+                            / self.nu**2
+                        )
+                    )
+                )
             self.tau_hi.append(tau_h)
 
         curr_node = self.partition.get_root()
         path = [curr_node]
 
-        while self.visitedTimes[curr_node.get_depth()][curr_node.get_index() - 1] >= \
-                self.tau_hi[curr_node.get_depth()][curr_node.get_index() - 1] \
-                and curr_node.get_children() is not None:
+        while (
+            self.visitedTimes[curr_node.get_depth()][curr_node.get_index() - 1]
+            >= self.tau_hi[curr_node.get_depth()][curr_node.get_index() - 1]
+            and curr_node.get_children() is not None
+        ):
             children = curr_node.get_children()
             maxchild = None
-            maxindex = children[0].get_index()  # temporarily set the maxindex to be the first child
+            maxindex = children[
+                0
+            ].get_index()  # temporarily set the maxindex to be the first child
             for child in children:
                 c_depth = child.get_depth()
                 c_index = child.get_index()
@@ -84,7 +108,10 @@ class VHCT(Algorithm):
                 if not self.visited[c_depth][c_index - 1]:
                     maxchild = None
                     break
-                elif self.Bvalues[c_depth][c_index - 1] >= self.Bvalues[c_depth][maxindex - 1]:
+                elif (
+                    self.Bvalues[c_depth][c_index - 1]
+                    >= self.Bvalues[c_depth][maxindex - 1]
+                ):
                     maxchild = child
                     maxindex = c_index
 
@@ -97,9 +124,7 @@ class VHCT(Algorithm):
 
         return curr_node, path
 
-
     def updateRewardTree(self, path, reward):
-
         node = path[-1]
         depth = node.get_depth()
         index = node.get_index()
@@ -109,18 +134,26 @@ class VHCT(Algorithm):
         self.visitedTimes[depth][index - 1] += 1
 
         # Use the previous average to compute the new variance first
-        newVariance = (self.visitedTimes[depth][index - 1] - 1) / self.visitedTimes[depth][index - 1] *\
-                      (self.Variances[depth][index - 1] + (self.Rewards[depth][index - 1] - reward) ** 2 /self.visitedTimes[depth][index - 1] )
+        newVariance = (
+            (self.visitedTimes[depth][index - 1] - 1)
+            / self.visitedTimes[depth][index - 1]
+            * (
+                self.Variances[depth][index - 1]
+                + (self.Rewards[depth][index - 1] - reward) ** 2
+                / self.visitedTimes[depth][index - 1]
+            )
+        )
         self.Variances[depth][index - 1] = np.maximum(self.minimumVar, newVariance)
 
-        self.Rewards[depth][index - 1] = \
-            ((self.visitedTimes[depth][index - 1] - 1) / self.visitedTimes[depth][index - 1]
-             * self.Rewards[depth][index - 1]) + (reward / self.visitedTimes[depth][index - 1])
+        self.Rewards[depth][index - 1] = (
+            (self.visitedTimes[depth][index - 1] - 1)
+            / self.visitedTimes[depth][index - 1]
+            * self.Rewards[depth][index - 1]
+        ) + (reward / self.visitedTimes[depth][index - 1])
 
         self.iteration += 1
 
     def updateUvalueTree(self):
-
         t_plus = compute_t_plus(self.iteration)
         delta_tilde = np.minimum(1, self.c1 * self.delta / t_plus)
         node_list = self.partition.get_node_list()
@@ -132,17 +165,30 @@ class VHCT(Algorithm):
                 if self.visitedTimes[depth][index - 1] == 0:
                     continue
                 else:
-                    UCB =  math.sqrt(self.c ** 2 * 2 * self.Variances[depth][index - 1] * math.log(1/delta_tilde) \
-                        /self.visitedTimes[depth][index - 1]) + 3 * self.bound * self.c**2 * math.log(1/delta_tilde)\
-                        /self.visitedTimes[depth][index - 1]
+                    UCB = (
+                        math.sqrt(
+                            self.c**2
+                            * 2
+                            * self.Variances[depth][index - 1]
+                            * math.log(1 / delta_tilde)
+                            / self.visitedTimes[depth][index - 1]
+                        )
+                        + 3
+                        * self.bound
+                        * self.c**2
+                        * math.log(1 / delta_tilde)
+                        / self.visitedTimes[depth][index - 1]
+                    )
 
-                    self.Uvalues[depth][index - 1] = self.Rewards[depth][index - 1] + UCB + self.nu * (self.rho ** depth)
+                    self.Uvalues[depth][index - 1] = (
+                        self.Rewards[depth][index - 1]
+                        + UCB
+                        + self.nu * (self.rho**depth)
+                    )
 
     def updateBackwardTree(self):
-
         nodes = self.partition.get_node_list()
         for i in range(1, self.partition.get_depth() + 1):
-
             layer = nodes[-i]
             for node in layer:
                 depth = node.get_depth()
@@ -162,12 +208,15 @@ class VHCT(Algorithm):
                         for child in node.get_children():
                             c_depth = child.get_depth()
                             c_index = child.get_index()
-                            tempB = np.maximum(tempB, self.Bvalues[c_depth][c_index - 1])
+                            tempB = np.maximum(
+                                tempB, self.Bvalues[c_depth][c_index - 1]
+                            )
 
-                        self.Bvalues[depth][index - 1] = np.minimum(self.Uvalues[depth][index - 1], tempB)
+                        self.Bvalues[depth][index - 1] = np.minimum(
+                            self.Uvalues[depth][index - 1], tempB
+                        )
 
     def expand(self, parent):
-
         if parent.get_depth() > self.partition.get_depth():
             raise ValueError
         elif parent.get_depth() == self.partition.get_depth():
@@ -180,7 +229,6 @@ class VHCT(Algorithm):
             self.Rewards.append([0] * num_nodes)
             self.Variances.append([self.minimumVar] * num_nodes)
 
-
         children = parent.get_children()
         if children is None:
             raise ValueError
@@ -191,7 +239,6 @@ class VHCT(Algorithm):
                 self.visited[c_depth][c_index - 1] = True
 
     def updateAllTree(self, path, end_node, reward):
-
         t_plus = compute_t_plus(self.iteration)
         delta_tilde = np.minimum(1, self.c1 * self.delta / t_plus)
 
@@ -207,19 +254,32 @@ class VHCT(Algorithm):
         en_depth = end_node.get_depth()
         en_index = end_node.get_index()
 
-        self.Uvalues[en_depth][en_index - 1] = self.Rewards[en_depth][en_index - 1] + \
-                         math.sqrt(self.c ** 2 * 2 * self.Variances[en_depth][en_index - 1] * math.log(1/delta_tilde) \
-                        /self.visitedTimes[en_depth][en_index - 1]) + 3 * self.bound * self.c**2 * math.log(1/delta_tilde)\
-                        /self.visitedTimes[en_depth][en_index - 1] + \
-                        self.nu * (self.rho ** end_node.depth)
+        self.Uvalues[en_depth][en_index - 1] = (
+            self.Rewards[en_depth][en_index - 1]
+            + math.sqrt(
+                self.c**2
+                * 2
+                * self.Variances[en_depth][en_index - 1]
+                * math.log(1 / delta_tilde)
+                / self.visitedTimes[en_depth][en_index - 1]
+            )
+            + 3
+            * self.bound
+            * self.c**2
+            * math.log(1 / delta_tilde)
+            / self.visitedTimes[en_depth][en_index - 1]
+            + self.nu * (self.rho**end_node.depth)
+        )
 
         self.updateBackwardTree()
 
-        if self.visitedTimes[en_depth][en_index - 1] >= self.tau_hi[en_depth][en_index - 1]:
+        if (
+            self.visitedTimes[en_depth][en_index - 1]
+            >= self.tau_hi[en_depth][en_index - 1]
+        ):
             self.expand(end_node)
 
     def pull(self, time):
-
         self.curr_node, self.path = self.optTraverse()
         sample_range = self.curr_node.get_domain()
         point = []
@@ -230,7 +290,4 @@ class VHCT(Algorithm):
         return point
 
     def receive_reward(self, time, reward):
-
         self.updateAllTree(self.path, self.curr_node, reward)
-
-

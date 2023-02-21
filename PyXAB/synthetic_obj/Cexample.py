@@ -8,14 +8,11 @@
 import numpy as np
 from PyXAB.synthetic_obj.Objective import Objective
 
+
 class Cexample(Objective):
     def __init__(self):
-
         self.fmax = 1
 
     def f(self, x):
-
         x = x[0]
-        return 1+1 / np.log(x)
-
-
+        return 1 + 1 / np.log(x)

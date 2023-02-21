@@ -56,4 +56,3 @@ class Algorithm(ABC):
         -------
         """
         pass
-

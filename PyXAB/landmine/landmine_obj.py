@@ -4,11 +4,8 @@ from sklearn import svm
 from sklearn.metrics import roc_auc_score
 
 
-
 class obj_func_landmine(Objective):
-
     def __init__(self, X_train, Y_train, X_test, Y_test):
-
         self.X_train = X_train
         self.Y_train = Y_train
         self.X_test = X_test

@@ -7,27 +7,35 @@ PyXAB - Python *X*\ -Armed Bandit
 
 .. raw:: html
 
-   <p align="left">
-   <a href='https://pypi.org/project/PyXAB/'>
-       <img src='https://img.shields.io/pypi/v/PyXAB.svg?color=brightgreen' alt='PyPI version' />
-   </a>
-   <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
-       <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
-   </a>
-   <a href="https://github.com/WilliamLwj/PyXAB/fork" target="blank">
-   <img src="https://img.shields.io/github/forks/WilliamLwj/PyXAB?" alt="github-PyXAB forks"/>
-   </a>
-   <a href="https://github.com/WilliamLwj/PyXAB/stargazers" target="blank">
-   <img src="https://img.shields.io/github/stars/WilliamLwj/PyXAB?" alt="github-PyXAB stars"/>
-   </a>
+    <p align="left">
+    <a href='https://pypi.org/project/PyXAB/'>
+           <img src='https://img.shields.io/pypi/v/PyXAB.svg?color=yellow' alt='PyPI version' />
+    </a>
+    <a href="https://codecov.io/gh/WilliamLwj/PyXAB" >
+    <img src="https://codecov.io/gh/WilliamLwj/PyXAB/branch/main/graph/badge.svg?token=VACRX9AQBM"/>
+    </a>
+    <a href='https://pyxab.readthedocs.io/en/latest/?badge=latest'>
+    <img src='https://readthedocs.org/projects/pyxab/badge/?version=latest' alt='Documentation Status' />
+    </a>
+    <a href="https://github.com/psf/black" target="blank">
+    <img src="https://github.com/WilliamLwj/PyXAB/actions/workflows/codeql.yml/badge.svg" alt="Code style: black" />
+    </a>
+    <a href="https://github.com/WilliamLwj/PyXAB/fork" target="blank">
+    <img src="https://img.shields.io/github/forks/WilliamLwj/PyXAB?" alt="github-PyXAB forks"/>
+    </a>
+    <a href="https://github.com/WilliamLwj/PyXAB/stargazers" target="blank">
+    <img src="https://img.shields.io/github/stars/WilliamLwj/PyXAB?" alt="github-PyXAB stars"/>
+    </a>
     <a href="https://pepy.tech/project/pyxab" target="blank">
     <img src="https://static.pepy.tech/badge/pyxab" alt="downloads"/>
     </a>
-   <a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
-   <img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?color=purple" alt="github-PyXAB license" />
-   </a>
-   </p>
-
+    <a href="https://github.com/WilliamLwj/PyXAB/blob/main/LICENSE" target="blank">
+    <img src="https://img.shields.io/github/license/WilliamLwj/PyXAB?color=purple" alt="github-PyXAB license" />
+    </a>
+    <a href="https://github.com/psf/black" target="blank">
+    <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black" />
+    </a>
+    </p>
 
 PyXAB is a Python open-source library for *X*-armed bandit algorithms, a prestigious set of optimizers for online black-box optimization, i.e., optimize an objective without gradients, also known as the continuous-arm bandit (CAB), Lipschitz bandit,
 global optimization (GO) and bandit-based black-box optimization problems.

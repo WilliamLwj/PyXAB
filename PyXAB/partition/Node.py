@@ -15,6 +15,7 @@ class P_node:
     The most basic node class that contains everything needed to be inside a partition
 
     """
+
     def __init__(self, depth, index, parent, domain):
         """
         Initialization of the P_node class
@@ -42,10 +43,9 @@ class P_node:
 
         point = []
         for x in self.domain:
-
             point.append((x[0] + x[1]) / 2)
 
-            #TODO: Different Domains Other Than Continuous Domains
+            # TODO: Different Domains Other Than Continuous Domains
 
         self.c_point = point
 

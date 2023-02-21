@@ -1,4 +1,12 @@
-__all__ = ["Ackley", "DifficultFunc", "DoubleSine", "Garland", "Himmelblau", "Rastrigin", "Cexample"]
+__all__ = [
+    "Ackley",
+    "DifficultFunc",
+    "DoubleSine",
+    "Garland",
+    "Himmelblau",
+    "Rastrigin",
+    "Cexample",
+]
 
 
 # from .Ackley import Ackley

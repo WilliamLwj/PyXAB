@@ -14,7 +14,7 @@ T = 500
 Target = DoubleSine.DoubleSine()
 domain = [[0, 1]]
 partition = BinaryPartition
-algo = StroquOOL(n = T, domain=domain, partition=partition)
+algo = StroquOOL(n=T, domain=domain, partition=partition)
 
 for t in range(1, T + 1):
     point = algo.pull(t)
