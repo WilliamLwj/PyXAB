@@ -7,6 +7,8 @@ We appreciate all forms of help and contributions, including but not limited to
 * Open an issue for any bugs you find or features you want to add to our library
 * Fork our project and submit a pull request with your valuable codes
 
+...........................
+
 For Enhancements
 --------------------------
 
@@ -21,6 +23,7 @@ After implementation, please test your algorithm by running it on some of our
 
 
 
+...............
 
 Optional
 ---------------
@@ -34,15 +37,18 @@ In PyXAB, we follow the black codestyle. See more details `on webpage of black <
 First, run the following lines of code to install black
 
 .. code-block:: bash
+
     python -m pip install --upgrade pip
     python -m pip install black
 
 After implementing your own classes with documentations, run the following lines to change your code style
 
 .. code-block:: bash
-    black PyXAB
-    python -m black PyXAB # if the above line does not work
 
+    black PyXAB
+    python -m black PyXAB #if the above line does not work
+
+..........................
 
 Local Testing and Coverage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
