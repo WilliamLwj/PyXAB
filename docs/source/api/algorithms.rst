@@ -14,6 +14,28 @@ Truncated HOO Algorithm
 
 ..................................
 
+DOO Algorithm
+-----------------------
+.. autoclass:: PyXAB.algos.DOO.DOO_node
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+.. autoclass:: PyXAB.algos.DOO.DOO
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+
+
+
+
+..................................
+
 StoSOO Algorithm
 -----------------------
 .. autoclass:: PyXAB.algos.StoSOO.StoSOO_node

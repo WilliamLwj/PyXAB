@@ -65,7 +65,7 @@ Deterministic Algorithms
    * - DiRect
      - `Lipschitzian Optimization Without the Lipschitz Constant <https://link.springer.com/article/10.1007/BF00941892>`_
      - 1993
-   * - DOO
+   * - `DOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/DOO.py>`_
      - `Optimistic Optimization of a Deterministic Function without the Knowledge of its Smoothness <https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf>`_
      - 2011
    * - SOO
