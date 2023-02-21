@@ -25,7 +25,7 @@ Our implemented *X*\ -Armed Bandit algorithms can be classified into different c
      - |cross_|
      - |cross_|
      - |cross_|
-   * - DOO
+   * - `DOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/DOO.py>`_
      - |cross_|
      - |cross_|
      - |cross_|
