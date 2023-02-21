@@ -1,6 +1,6 @@
 from PyXAB.synthetic_obj import *
 
-from PyXAB.algos.StroquOOL import StroquOOL
+from PyXAB.algos.DOO import DOO
 from PyXAB.partition.BinaryPartition import BinaryPartition
 from PyXAB.utils.plot import compare_regret
 
