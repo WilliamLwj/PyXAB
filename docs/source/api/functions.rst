@@ -56,3 +56,15 @@ Rastrigin
     :show-inheritance:
     :inherited-members:
     :special-members: __init__
+
+
+..................................
+
+Difficult Functions
+-----------------------
+.. autoclass:: PyXAB.synthetic_obj.DifficultFunc.DifficultFunc
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__

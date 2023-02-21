@@ -10,7 +10,7 @@ from PyXAB.synthetic_obj.Objective import Objective
 
 class Ackley(Objective):
     """
-    Ackley objective implementation
+    Ackley objective implementation, with the domain [-1, 1]^2
     """
     def __init__(self):
         """
@@ -31,9 +31,9 @@ class Ackley(Objective):
         -------
         y: float
             Evaluated value of the function at the particular point x = [x1, x2], returns
-            20 * np.exp(-0.2 * np.sqrt(0.5 * (x1**2 + x2**2)))
-            + np.exp(0.5 * (np.cos(2 * np.pi * x1) + np.cos(2 * np.pi * x2)))
-            - np.e - 20
+            20 * exp(-0.2 * sqrt(0.5 * (x1**2 + x2**2)))
+            + exp(0.5 * (cos(2 * \pi * x1) + cos(2 * \pi * x2)))
+            - e - 20
         """
         if len(x) != 2:
             raise ValueError("The dimension of the point should be 2 in Ackley")
@@ -70,9 +70,9 @@ class Ackley_Normalized(Objective):
         -------
         y: float
             Evaluated value of the function at the particular point x = [x1, x2], returns
-            20 * np.exp(-0.2 * np.sqrt(0.5 * (x1**2 + x2**2)))
-            + np.exp(0.5 * (np.cos(2 * np.pi * x1) + np.cos(2 * np.pi * x2)))
-            - np.e - 20 / S, where S is the maximum of Ackley in [-1, 1]
+            20 * exp(-0.2 * sqrt(0.5 * (x1**2 + x2**2)))
+            + exp(0.5 * (cos(2 * \pi * x1) + np.cos(2 * \pi * x2)))
+            - e - 20 / S, where S is the maximum of Ackley in [-1, 1]^2
         """
         if len(x) != 2:
             raise ValueError("The dimension of the point should be 2 in Ackley")
