@@ -15,6 +15,3 @@ def test_DoubleSine_2():
     objective2 = DoubleSine.Perturbed_DoubleSine()
     assert 0 == pytest.approx(objective1.f(point))
     assert 0 == pytest.approx(objective2.f(point) - objective2.fmax)
-
-
-

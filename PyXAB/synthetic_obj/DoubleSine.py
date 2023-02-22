@@ -17,6 +17,7 @@ class DoubleSine(Objective):
     """
     DoubleSine objective implementation, with the domain [0, 1]
     """
+
     def __init__(self, rho1=0.3, rho2=0.8, tmax=0.5):
         """
         Initialization with fmax = 0
@@ -66,6 +67,7 @@ class Perturbed_DoubleSine(Objective):
     """
     Perturbed DoubleSine objective implementation, with the domain [0, 1]
     """
+
     def __init__(self, rho1=0.3, rho2=0.8, tmax=0.5):
         """
         Initialization with fmax = 0 + perturbation

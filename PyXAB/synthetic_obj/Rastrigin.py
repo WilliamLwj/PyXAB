@@ -13,6 +13,7 @@ class Rastrigin(Objective):
     """
     Rastrigin objective implementation, with the domain [-1, 1]^p
     """
+
     def __init__(self):
         """
         Initialization with fmax = 0
@@ -46,6 +47,7 @@ class Rastrigin_Normalized(Objective):
     """
     Normalized Rastrigin objective implementation, with the domain [-1, 1]^p
     """
+
     def __init__(self, k=20):
         """
         Initialization with fmax = 0, normalization constant k

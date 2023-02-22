@@ -13,6 +13,7 @@ class Cexample(Objective):
     """
     An example of objective failing exponential smoothness, with the domain [0, 1/e]
     """
+
     def __init__(self):
         """
         Initialization of fmax = 1

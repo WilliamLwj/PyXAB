@@ -2,9 +2,8 @@ from PyXAB.partition.RandomBinaryPartition import RandomBinaryPartition
 from PyXAB.partition.DimensionPartition import DimensionBinaryPartition
 
 
-
 domain = [[0, 1]]
-part =RandomBinaryPartition(domain)
+part = RandomBinaryPartition(domain)
 
 for i in range(5):
     part.deepen()

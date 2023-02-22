@@ -7,7 +7,6 @@ def test_DifficultFunc_1():
     assert objective1.fmax == 0.0
 
 
-
 def test_DifficultFunc_2():
     point = [0.5]
     objective1 = DifficultFunc.DifficultFunc()

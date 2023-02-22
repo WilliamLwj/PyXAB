@@ -60,7 +60,7 @@ Rastrigin
 
 ..................................
 
-Difficult Functions
+Difficult Function
 -----------------------
 .. autoclass:: PyXAB.synthetic_obj.DifficultFunc.DifficultFunc
     :members:

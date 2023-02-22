@@ -124,7 +124,7 @@ class StroquOOL(Algorithm):
                         node = node_list[self.curr_depth][i]
                         if (
                             node.not_opened()
-                            and node.get_visited_times() >= 2**self.curr_p
+                            and node.get_visited_times() >= 2 ** self.curr_p
                         ):
                             node.compute_mean_reward()
                             if node.get_mean_reward() >= max_reward:
@@ -137,11 +137,11 @@ class StroquOOL(Algorithm):
                         self.chosen.append(self.max_node.get_children()[0])
                         self.chosen.append(self.max_node.get_children()[1])
                 # evaluate children
-                if self.iteration <= self.time_stamp + 2**self.curr_p:
+                if self.iteration <= self.time_stamp + 2 ** self.curr_p:
                     self.curr_node = self.max_node.get_children()[0]
                     return self.max_node.get_children()[0].get_cpoint()
                 if (
-                    self.time_stamp + 2**self.curr_p
+                    self.time_stamp + 2 ** self.curr_p
                     < self.iteration
                     <= self.time_stamp + 2 ** (self.curr_p + 1)
                 ):
@@ -163,7 +163,7 @@ class StroquOOL(Algorithm):
                     max_value = -np.inf
                     max_node = None
                     for i in range(len(self.chosen)):
-                        if self.chosen[i].get_visited_times() >= 2**p:
+                        if self.chosen[i].get_visited_times() >= 2 ** p:
                             if self.chosen[i].get_mean_reward() >= max_value:
                                 max_value = self.chosen[i].get_mean_reward()
                                 max_node = self.chosen[i]

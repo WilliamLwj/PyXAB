@@ -111,7 +111,7 @@ class T_HOO(Algorithm):
                     self.Uvalues[depth][index - 1] = (
                         self.Rewards[depth][index - 1]
                         + UCB
-                        + self.nu * (self.rho**depth)
+                        + self.nu * (self.rho ** depth)
                     )
 
     def updateBackwardTree(self):

@@ -13,11 +13,14 @@ class Garland(Objective):
     """
     Garland objective implementation, with the domain [0, 1]
     """
+
     def __init__(self):
         """
         Initialization with fmax = 1
         """
-        self.fmax = 1 #TODO: The actual maximum is not 1 but very close to 1, update this
+        self.fmax = (
+            1  # TODO: The actual maximum is not 1 but very close to 1, update this
+        )
 
     def f(self, x):
         """
@@ -46,6 +49,7 @@ class Perturbed_Garland(Objective):
     """
     Perturbed Garland objective implementation, with the domain [0, 1]
     """
+
     def __init__(self):
         """
         Initialization with fmax = 1 +  perturbation

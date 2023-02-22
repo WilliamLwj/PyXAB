@@ -125,5 +125,3 @@ class SequOOL(Algorithm):
                 max_value = node.get_reward()
 
         return max_node.get_cpoint()
-    
-    

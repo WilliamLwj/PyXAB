@@ -15,6 +15,3 @@ def test_Garland_2():
     objective2 = Garland.Perturbed_Garland()
     assert 0.7515 == pytest.approx(objective1.f(point))
     assert 0.7515 == pytest.approx(objective2.f(point) - objective2.perturb)
-
-
-

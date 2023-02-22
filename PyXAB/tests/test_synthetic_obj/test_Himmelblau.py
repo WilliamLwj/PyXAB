@@ -14,7 +14,4 @@ def test_Himmelblau_2():
     objective1 = Himmelblau.Himmelblau()
     objective2 = Himmelblau.Himmelblau_Normalized()
     assert 0 == pytest.approx(objective1.f(point) + 170)
-    assert 0 == pytest.approx(objective2.f(point) + 170/890)
-
-
-
+    assert 0 == pytest.approx(objective2.f(point) + 170 / 890)

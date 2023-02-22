@@ -12,6 +12,7 @@ class Himmelblau(Objective):
     """
     Himmelblau objective implementation, with the domain [-5, 5]^2
     """
+
     def __init__(self):
         """
         Initialization with fmax = 0
@@ -35,7 +36,7 @@ class Himmelblau(Objective):
         """
         x1 = x[0]
         x2 = x[1]
-        return -((x1**2 + x2 - 11) ** 2) - (x1 + x2**2 - 7) ** 2
+        return -((x1 ** 2 + x2 - 11) ** 2) - (x1 + x2 ** 2 - 7) ** 2
 
 
 class Himmelblau_Normalized(Objective):
@@ -43,6 +44,7 @@ class Himmelblau_Normalized(Objective):
     Normalized Himmelblau objective implementation, with the domain [-5, 5]^2, normalized so that the response is
     between [0, 1]
     """
+
     def __init__(self):
         """
         Initialization with fmax = 0
@@ -67,7 +69,7 @@ class Himmelblau_Normalized(Objective):
         x1 = x[0]
         x2 = x[1]
 
-        S = -((x1**2 + x2 - 11) ** 2) - (x1 + x2**2 - 7) ** 2
+        S = -((x1 ** 2 + x2 - 11) ** 2) - (x1 + x2 ** 2 - 7) ** 2
         # Only devided by an upper bound in [-5, 5]^2
 
         return S / 890

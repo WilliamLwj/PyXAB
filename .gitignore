@@ -1,9 +1,11 @@
-*.idea*
 *mnist*
 *landmine/logs*
 *BO_landmine.py*
+
+# System files
 *DS_Store*
 *pycache*
+*.idea*
 
 # PyPI upload files
 dist*
@@ -16,3 +18,4 @@ build*
 
 # Testing files
 .coverage
+.pytest_cache

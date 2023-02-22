@@ -22,6 +22,7 @@ class DifficultFunc(Objective):
     """
     DifficultFunc objective implementation, with the domain [0, 1]
     """
+
     def __init__(self):
         """
         Initialization with fmax = 1
@@ -48,5 +49,4 @@ class DifficultFunc(Objective):
         if y == 0:
             return 0
         else:
-            return threshold(np.log(y)) * (np.sqrt(y) - y**2) - np.sqrt(y)
-
+            return threshold(np.log(y)) * (np.sqrt(y) - y ** 2) - np.sqrt(y)

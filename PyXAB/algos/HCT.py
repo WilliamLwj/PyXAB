@@ -59,10 +59,10 @@ class HCT(Algorithm):
         for i in range(1, self.partition.get_depth() + 1):
             self.tau_h.append(
                 np.ceil(
-                    self.c**2
+                    self.c ** 2
                     * math.log(1 / delta_tilde)
                     * self.rho ** (-2 * i)
-                    / self.nu**2
+                    / self.nu ** 2
                 )
             )
 
@@ -132,14 +132,14 @@ class HCT(Algorithm):
                     continue
                 else:
                     UCB = math.sqrt(
-                        self.c**2
+                        self.c ** 2
                         * math.log(1 / delta_tilde)
                         / self.visitedTimes[depth][index - 1]
                     )
                     self.Uvalues[depth][index - 1] = (
                         self.Rewards[depth][index - 1]
                         + UCB
-                        + self.nu * (self.rho**depth)
+                        + self.nu * (self.rho ** depth)
                     )
 
     def updateBackwardTree(self):
@@ -212,11 +212,11 @@ class HCT(Algorithm):
         self.Uvalues[en_depth][en_index - 1] = (
             self.Rewards[en_depth][en_index - 1]
             + math.sqrt(
-                self.c**2
+                self.c ** 2
                 * math.log(1 / delta_tilde)
                 / self.visitedTimes[en_depth][en_index - 1]
             )
-            + self.nu * (self.rho**end_node.depth)
+            + self.nu * (self.rho ** end_node.depth)
         )
 
         self.updateBackwardTree()

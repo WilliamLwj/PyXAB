@@ -6,6 +6,7 @@ from PyXAB.utils.plot import compare_regret
 import numpy as np
 import pytest
 
+
 def test_optimize_Garland():
 
     T = 100
@@ -34,5 +35,3 @@ def test_optimize_Garland():
     #     "T-HOO": np.array(cumulative_regret_list),
     # }
     # compare_regret(regret_dic)
-
-

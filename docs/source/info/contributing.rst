@@ -9,23 +9,38 @@ We appreciate all forms of help and contributions, including but not limited to
 
 ...........................
 
-For Enhancements
+To Implement New Features
 --------------------------
 
-Please see the :ref:`api-cheatsheet` and :ref:`api-reference` for the API of our implemented classes and the abstract methods
-that need to be implemented when creating a new algorithm/partition/objective/node.
+**Before Implementation**.
 
-For example, every algorithm needs to inherit the class :class:`PyXAB.algos.Algo.Algorithm`, and has to implement
-the abstract methods :func:`PyXAB.algos.Algo.Algorithm.pull` and :func:`PyXAB.algos.Algo.Algorithm.receive_reward`.
+Please read the :ref:`api-cheatsheet` and :ref:`api-reference` for the API of our implemented classes and the abstract methods that need to be implemented when creating a new algorithm/partition/objective/node.
 
-After implementation, please test your algorithm by running it on some of our
-`synthetic objectives <https://pyxab.readthedocs.io/en/latest/api/functions.html>`_ for debugging and improvements.
+**During Implementation**.
 
+Please carefully follow our API. For example, every algorithm needs to inherit the class :class:`PyXAB.algos.Algo.Algorithm`, and has to implement the abstract methods :func:`PyXAB.algos.Algo.Algorithm.pull` and :func:`PyXAB.algos.Algo.Algorithm.receive_reward`.
+
+**Documentations**.
+
+We do not ask for detailed documentations, but if it is possible, please add some comments and documentations for your implemented functions/classes, following the `numpy docstring <https://numpydoc.readthedocs.io/en/latest/format.html>`_ style.
+
+**Testing and Debug**.
+
+After implementation, please test your algorithm by running it on some of our `synthetic objectives <https://pyxab.readthedocs.io/en/latest/api/functions.html>`_ for debugging and improvements and write a test_xxx.py file.
+
+**Final Check**.
+
+Before submitting the pull request, please make sure you have the following files ready
+
+.. code-block:: text
+
+    xxx.py
+    test_xxx.py
 
 
 ...............
 
-Optional
+Optional Steps
 ---------------
 
 Black CodeStyle
