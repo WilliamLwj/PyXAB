@@ -66,7 +66,7 @@ class Perturbed_DoubleSine(Objective):
     """
     Perturbed DoubleSine objective implementation, with the domain [0, 1]
     """
-    def __init__(self, rho1, rho2, tmax):
+    def __init__(self, rho1=0.3, rho2=0.8, tmax=0.5):
         """
         Initialization with fmax = 0 + perturbation
 
@@ -105,7 +105,7 @@ class Perturbed_DoubleSine(Objective):
         x = x[0]
         u = 2 * np.fabs(x - self.tmax)
         if u == 0:
-            return 0.0
+            return 0.0 + self.perturb
         else:
             envelope_width = math.pow(u, self.ep2) - math.pow(u, self.ep1)
             return (

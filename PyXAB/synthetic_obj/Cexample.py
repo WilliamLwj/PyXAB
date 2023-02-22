@@ -11,7 +11,7 @@ from PyXAB.synthetic_obj.Objective import Objective
 
 class Cexample(Objective):
     """
-    An example of objective failing exponential smoothness, with the domain (0, 1/e]
+    An example of objective failing exponential smoothness, with the domain [0, 1/e]
     """
     def __init__(self):
         """
@@ -35,4 +35,7 @@ class Cexample(Objective):
             1 + 1 / log(x)
         """
         x = x[0]
-        return 1 + 1 / np.log(x)
+        if x == 0:
+            return 1
+        else:
+            return 1 + 1 / np.log(x)

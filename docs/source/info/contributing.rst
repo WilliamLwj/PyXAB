@@ -62,8 +62,9 @@ First, run the following lines of code to install pytest and coverage
     python -m pip install coverage
 
 
-To obtain the code coverage report, run the following lines
+To obtain the testing results and the code coverage report, run the following lines
 
 .. code-block:: bash
 
     coverage run --source=PyXAB -m pytest
+    coverage report

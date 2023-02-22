@@ -17,7 +17,7 @@ class Garland(Objective):
         """
         Initialization with fmax = 1
         """
-        self.fmax = 1
+        self.fmax = 1 #TODO: The actual maximum is not 1 but very close to 1, update this
 
     def f(self, x):
         """
