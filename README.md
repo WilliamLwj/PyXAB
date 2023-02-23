@@ -90,6 +90,13 @@ algo.receive_reward(t, reward)
 
 ## Installation
 
+To install via pip, run the following lines of code
+```bash
+pip install PyXAB                 # normal install
+pip install --upgrade PyXAB       # or update if needed
+```
+
+
 To install via git, run the following lines of code
 ```bash
 git clone https://github.com/WilliamLwj/PyXAB.git
@@ -97,11 +104,6 @@ cd PyXAB
 pip install .
 ```
 
-To install via pip, run the following lines of code
-```bash
-pip install PyXAB                 # normal install
-pip install --upgrade PyXAB       # or update if needed
-```
 
 ## Features:
 
@@ -126,11 +128,11 @@ pip install --upgrade PyXAB       # or update if needed
 
 ### Hierarchical partition 
 
-| Partition | Description |
-| --- | --- |
-| [BinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/BinaryPartition.py) | Equal-size binary partition of the parameter space, the split dimension is chosen uniform randomly|
-| [RandomBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/RandomBinaryPartition.py) | The same as BinaryPartition but with a randomly chosen split point |
-| [DimensionBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/DimensionPartition.py) | Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d|
+| Partition                                                                                                             | Description |
+|-----------------------------------------------------------------------------------------------------------------------| --- |
+| [BinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/BinaryPartition.py)                   | Equal-size binary partition of the parameter space, the split dimension is chosen uniform randomly|
+| [RandomBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/RandomBinaryPartition.py)       | The same as BinaryPartition but with a randomly chosen split point |
+| [DimensionBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/DimensionBinaryPartition.py) | Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d|
 
 ### Synthetic objectives
 
