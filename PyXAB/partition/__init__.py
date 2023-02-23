@@ -1,1 +1,1 @@
-__all__ = ["BinaryPartition", "DimensionPartition"]
+__all__ = ["BinaryPartition", "DimensionBinaryPartition", "RandomBinaryPartition"]
