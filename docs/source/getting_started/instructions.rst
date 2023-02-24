@@ -1,35 +1,8 @@
 General Instructions
 ===================================
-To use PyXAB, the objective, the domain, and the pre-defined partition on the domain needs to be defined. Then the algorithms
+To use PyXAB, the objective, the domain, and the hierarchical partition on the domain needs to be defined. Then the algorithms
 evaluate the objective at one point in every round and receives a stochastic reward.
 
-..................................
-
-(Optional) Objective Function
--------------------------------
-
-.. note::
-
-    It is unnecessary to define the objective function in the following way, but for consistency we recommend doing so. As long as
-    the objective function can return a reward to the algorithm, then the optimization process could run.
-
-The objective function (class) needs to have an attribute ```fmax```, which is the
-maximum reward obtainable, preferably ```fmax = 1```. Besides, the objective function 
-should have a function ```f(x)```, which will return the reward of the point ```x```.
-See the following simple example for a better illustration.
-
-.. code-block:: python3
-
-    from PyXAB.synthetic_obj.Objective import Objective
-    import numpy as np
-
-    # The sine function f(x) = sin(x)
-    class Sine(Objective):
-        def __init__(self):
-            self.fmax = 1
-
-        def f(self, x):
-            return np.sin(x)
 
 ..................................
 
@@ -60,6 +33,37 @@ The user can choose any designed partition, e.g., a binary partition would be
 
     from PyXAB.partition.BinaryPartition import BinaryPartition
     partition = BinaryPartition
+
+..................................
+
+(Optional) Objective Function
+-------------------------------
+.. note::
+
+    The objective function ``f`` should be bounded by -1 and 1 for the best performance of most algorithms, i.e., ``-1 <= f(x) <= 1``
+
+.. note::
+
+    It is unnecessary to define the objective function in the following way, but for consistency we recommend doing so. As long as
+    the objective function can return a reward to the algorithm, then the optimization process could run.
+
+The objective function has an attribute ``fmax``, which is the
+maximum reward obtainable. Besides, the objective function
+should have a function ``f(x)``, which will return the reward of the point ``x``.
+See the following simple example for a better illustration.
+
+.. code-block:: python3
+
+    from PyXAB.synthetic_obj.Objective import Objective
+    import numpy as np
+
+    # The sine function f(x) = sin(x)
+    class Sine(Objective):
+        def __init__(self):
+            self.fmax = 1
+
+        def f(self, x):
+            return np.sin(x)
 
 
 ..................................
