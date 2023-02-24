@@ -44,6 +44,8 @@ class DifficultFunc(Objective):
             Evaluated value of the function at the particular point x = [x1], returns
             threshold(log(y)) * (sqrt(y) - y**2) - sqrt(y)
         """
+        if len(x) != 1:
+            raise ValueError("The dimension of the point should be 1 in DifficultFunc")
         x = x[0]
         y = np.abs(x - 0.5)
         if y == 0:

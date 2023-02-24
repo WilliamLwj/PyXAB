@@ -153,6 +153,6 @@ class POO(Algorithm):
 
         max_param = np.argmax(V_reward)
 
-        point = self.V_algo[max_param].pull()
+        point = self.V_algo[max_param].pull(time=self.rounds)
 
         return point
