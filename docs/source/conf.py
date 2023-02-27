@@ -71,6 +71,6 @@ html_static_path = []
 
 
 sphinx_gallery_conf = {
-     'examples_dirs': '../examples',   # path to your example scripts
-     'gallery_dirs': 'getting_started/auto_examples',  # path to where to save gallery generated output
+     'examples_dirs': ['../examples', '../contribute_examples'],  # path to your example scripts
+     'gallery_dirs':  ['getting_started/auto_examples',  'info/auto_examples'] # path to where to save gallery generated output
 }
