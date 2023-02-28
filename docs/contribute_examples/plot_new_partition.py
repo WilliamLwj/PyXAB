@@ -15,7 +15,7 @@ import numpy as np
 
 
 # %%
-# Now let us suppose that we want to define a new binary partition that always split the domain into
+# Now let us suppose that we want to implement a new binary partition that always split the domain into
 # two nodes that are 1/3 and 2/3 of its original size, i.e., if the original projection on the chosen dimension is
 # ``[a, b]``, we split the domain into ``[a, 0.67a + 0.33b]`` and ``[0.67a + 0.33b, b]``.
 
@@ -25,8 +25,6 @@ class NewBinaryPartition(Partition):
 
         super(NewBinaryPartition, self).__init__(domain=domain, node=node)
 
-
-    # %%
     # We rewrite the make_chilren function for the new partition
     def make_children(self, parent, newlayer=False):
 
@@ -76,7 +74,7 @@ class NewBinaryPartition(Partition):
 
 # %%
 # Define the number of rounds, the target, the domain, the partition, and the algorithm for the learning process
-T = 1000
+T = 100
 target = Garland()
 domain = [[0, 1]]
 partition = NewBinaryPartition                      # the new partition chosen is NewBinaryPartition

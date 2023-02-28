@@ -38,7 +38,7 @@ class Constant_2():
 # Let us suppose the domain for this objective is ``[0, 10]``, and we use the binary partition for the domain and the HOO
 # algorithm to optimize the objectives
 
-T = 10
+T = 100
 target1 = Constant_1()
 target2 = Constant_2()
 domain = [[0, 10]]

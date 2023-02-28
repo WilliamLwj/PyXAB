@@ -22,7 +22,7 @@ T = 1000                                            # the number of rounds is 10
 target = Garland()                                  # the objective to optimize is Garland
 domain = [[0, 1]]                                   # the domain is [[0, 1]]
 partition = BinaryPartition                         # the partition chosen is BinaryPartition
-algo = T_HOO(domain=domain, partition=partition)    # the algorithm is T_HOO
+algo = T_HOO(rounds=1000, domain=domain, partition=partition)    # the algorithm is T_HOO
 
 
 # %%

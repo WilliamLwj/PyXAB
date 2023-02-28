@@ -7,6 +7,10 @@ We appreciate all forms of help and contributions, including but not limited to
 * Open an issue for any bugs you find or features you want to add to our library
 * Fork our project and submit a pull request with your valuable codes
 
+.. note::
+    We have some TODOs listed in the `Roadmap <https://github.com/users/WilliamLwj/projects/1/views/1>`_ that we need help with.
+
+
 ...........................
 
 To Implement New Features
