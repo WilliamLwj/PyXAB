@@ -15,7 +15,7 @@ class RandomKaryPartition(Partition):
     Implementation of Random K-ary Partition especially when K >= 3, i.e., Ternary, Quaternary, and so on
     """
 
-    def __init__(self, domain, K=3, node=P_node):
+    def __init__(self, domain=None, K=3, node=P_node):
         """
         Initialization of the Random K-ary Partition
 
@@ -30,6 +30,8 @@ class RandomKaryPartition(Partition):
         node
             The node used in the partition, with the default choice to be P_node.
         """
+        if domain is None:
+            raise ValueError('domain is not provided to the Random K-ary Partition')
         self.K = K
         super(RandomKaryPartition, self).__init__(domain=domain, node=node)
 

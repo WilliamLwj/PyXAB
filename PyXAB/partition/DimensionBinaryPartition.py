@@ -13,7 +13,7 @@ class DimensionBinaryPartition(Partition):
     Implementation of Dimension-wise Binary Partition
     """
 
-    def __init__(self, domain, node=P_node):
+    def __init__(self, domain=None, node=P_node):
         """
         Initialization of the Dimension-wise Binary Partition
 
@@ -28,7 +28,8 @@ class DimensionBinaryPartition(Partition):
             The node used in the partition, with the default choice to be P_node.
 
         """
-
+        if domain is None:
+            raise ValueError('domain is not provided to the Dimension Binary Partition')
         super(DimensionBinaryPartition, self).__init__(domain=domain, node=node)
 
     # Rewrite the make_children function in the Partition class

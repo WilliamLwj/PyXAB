@@ -14,7 +14,7 @@ class RandomBinaryPartition(Partition):
     Implementation of Random Binary Partition
     """
 
-    def __init__(self, domain, node=P_node):
+    def __init__(self, domain=None, node=P_node):
         """
         Initialization of the Random Binary Partition
 
@@ -28,6 +28,8 @@ class RandomBinaryPartition(Partition):
         node
             The node used in the partition, with the default choice to be P_node.
         """
+        if domain is None:
+            raise ValueError('domain is not provided to the RandomBinary Partition')
         super(RandomBinaryPartition, self).__init__(domain=domain, node=node)
 
     # Rewrite the make_children function in the Partition class

@@ -23,7 +23,7 @@ We provide several choices of the hierarchical partition that separates the para
    * - `BinaryPartition <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/BinaryPartition.py>`_
      - Equal-size binary partition of the parameter space, the split dimension is chosen uniform randomly
    * - `RandomBinaryPartition <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/RandomBinaryPartition.py>`_
-     - Random-size K-ary partition of the parameter space, the split dimension is chosen uniform randomly
+     - Random-size binary partition of the parameter space, the split dimension is chosen uniform randomly
    * - `DimensionBinaryPartition <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/DimensionBinaryPartition.py>`_
      - Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d
    * - `KaryPartition <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/KaryPartition.py>`_

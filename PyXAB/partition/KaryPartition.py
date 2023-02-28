@@ -15,7 +15,7 @@ class KaryPartition(Partition):
     Implementation of K-ary Partition especially when K >= 3, i.e., Ternary, Quaternary, and so on
     """
 
-    def __init__(self, domain, K=3, node=P_node):
+    def __init__(self, domain=None, K=3, node=P_node):
         """
         Initialization of the K-ary Partition
 
@@ -26,10 +26,12 @@ class KaryPartition(Partition):
             i.e., [[range1], [range2], ... [range_d]], where [range_i] is a list indicating the domain's projection on
             the i-th dimension, e.g., [-1, 1]
         K: int
-            The number of children of each parent
+            The number of children of each parent, with the default choice to be 3
         node
             The node used in the partition, with the default choice to be P_node.
         """
+        if domain is None:
+            raise ValueError('domain is not provided to the K-ary Partition')
         self.K = K
         super(KaryPartition, self).__init__(domain=domain, node=node)
 
