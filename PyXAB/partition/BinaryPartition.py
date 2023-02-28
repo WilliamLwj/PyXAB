@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Implmentation of Binary Partition
+"""Implementation of Binary Partition
 """
 # Author: Wenjie Li <li3549@purdue.edu>
 # License: MIT

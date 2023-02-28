@@ -1,5 +1,8 @@
-"""Implmentation of Dimension-wise Binary Partition
+# -*- coding: utf-8 -*-
+"""Implementation of Dimension-wise Binary Partition
 """
+# Author: Wenjie Li <li3549@purdue.edu>
+# License: MIT
 
 from PyXAB.partition.Node import P_node
 from PyXAB.partition.Partition import Partition
