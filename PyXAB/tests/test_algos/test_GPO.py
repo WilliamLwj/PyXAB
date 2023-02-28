@@ -18,7 +18,6 @@ GPO_regret = 0
 
 
 for t in range(1, T + 1):
-
     point = GPO.pull(t)
     reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
     GPO.receive_reward(t, reward)

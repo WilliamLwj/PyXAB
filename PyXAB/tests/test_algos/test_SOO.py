@@ -16,7 +16,7 @@ Target = Ackley.Ackley_Normalized()
 domain = [[0, 1], [0, 1]]
 # domain = [[0, 1]]
 partition = BinaryPartition
-algo = SOO(n=T, h_max = 100, domain=domain, partition=partition)
+algo = SOO(n=T, h_max=100, domain=domain, partition=partition)
 
 for t in range(1, T + 1):
     point = algo.pull(t)
@@ -24,4 +24,4 @@ for t in range(1, T + 1):
     algo.receive_reward(t, reward)
 
 last_point = algo.get_last_point()
-print(algo.iteration, Target.fmax - Target.f(last_point), last_point)        
+print(algo.iteration, Target.fmax - Target.f(last_point), last_point)
