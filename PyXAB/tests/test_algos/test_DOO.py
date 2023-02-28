@@ -10,9 +10,11 @@ import pdb
 
 T = 100
 # H = math.floor(T / (2 * (np.log2(T) + 1)**2))
-Target = Ackley.Ackley()
+# Target = Ackley.Ackley_Normalized()
 # Target = DoubleSine.DoubleSine()
-domain = [[0, 1], [0, 1]]
+Target = Garland.Garland()
+# domain = [[0, 1], [0, 1]]
+domain = [[0, 1]]
 partition = BinaryPartition
 algo = DOO(n=T, domain=domain, partition=partition)
 
