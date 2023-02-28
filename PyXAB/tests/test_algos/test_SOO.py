@@ -11,17 +11,17 @@ import pytest
 
 
 def test_SOO_1():
-    algo = SOO
     partition = BinaryPartition
+    domain = [[0, 1]]
     with pytest.raises(ValueError):
-        algo = SOO(partition=partition, algo=algo)
+        algo = SOO(domain=domain, partition=partition)
 
 
 def test_SOO_2():
-    algo = SOO
+    partition = BinaryPartition
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        algo = SOO(domain=domain, algo=algo)
+        algo = SOO(domain=domain, partition = partition)
 
 
 def test_SOO_3():
