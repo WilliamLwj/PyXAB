@@ -53,7 +53,7 @@ Simple Regret Minimization Algorithms
    * - `DOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/DOO.py>`_
      - `Optimistic Optimization of a Deterministic Function without the Knowledge of its Smoothness <https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf>`_
      - 2011
-   * - SOO
+   * - `SOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/SOO.py>`_
      - `Optimistic Optimization of a Deterministic Function without the Knowledge of its Smoothness <https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf>`_
      - 2011
    * - `StoSOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py>`_
