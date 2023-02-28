@@ -12,26 +12,17 @@ import pytest
 
 def test_SOO_1():
     partition = BinaryPartition
-    domain = [[0, 1]]
     with pytest.raises(ValueError):
-        algo = SOO(domain=domain, partition=partition)
+        algo = SOO(partition=partition)
 
 
 def test_SOO_2():
-    partition = BinaryPartition
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        algo = SOO(domain=domain, partition = partition)
+        algo = SOO(domain=domain)
 
 
 def test_SOO_3():
-    domain = [[0, 1]]
-    partition = BinaryPartition
-    with pytest.raises(ValueError):
-        algo = SOO(domain=domain, partition=partition)
-
-
-def test_SOO_4():
     T = 100
     Target = Garland.Garland()
     domain = [[0, 1]]
@@ -49,7 +40,7 @@ def test_SOO_4():
     # compare_regret(regret_dic)
 
 
-def test_SOO_5():
+def test_SOO_4():
     T = 100
     Target = Ackley.Ackley_Normalized()
     domain = [[0, 1], [0, 1]]
