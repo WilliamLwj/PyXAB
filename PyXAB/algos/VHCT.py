@@ -66,22 +66,22 @@ class VHCT(Algorithm):
                     np.ceil(
                         (
                             self.Variances[i][j]
-                            + 3 * self.bound * self.nu * self.rho ** i
+                            + 3 * self.bound * self.nu * self.rho**i
                             + self.Variances[i][j]
                             * np.sqrt(
                                 1
                                 + 6
                                 * self.bound
                                 * self.nu
-                                * self.rho ** i
+                                * self.rho**i
                                 / self.Variances[i][j]
                             )
                         )
                         * (
-                            self.c ** 2
+                            self.c**2
                             * math.log(1 / delta_tilde)
                             * self.rho ** (-2 * i)
-                            / self.nu ** 2
+                            / self.nu**2
                         )
                     )
                 )
@@ -167,7 +167,7 @@ class VHCT(Algorithm):
                 else:
                     UCB = (
                         math.sqrt(
-                            self.c ** 2
+                            self.c**2
                             * 2
                             * self.Variances[depth][index - 1]
                             * math.log(1 / delta_tilde)
@@ -175,7 +175,7 @@ class VHCT(Algorithm):
                         )
                         + 3
                         * self.bound
-                        * self.c ** 2
+                        * self.c**2
                         * math.log(1 / delta_tilde)
                         / self.visitedTimes[depth][index - 1]
                     )
@@ -183,7 +183,7 @@ class VHCT(Algorithm):
                     self.Uvalues[depth][index - 1] = (
                         self.Rewards[depth][index - 1]
                         + UCB
-                        + self.nu * (self.rho ** depth)
+                        + self.nu * (self.rho**depth)
                     )
 
     def updateBackwardTree(self):
@@ -257,7 +257,7 @@ class VHCT(Algorithm):
         self.Uvalues[en_depth][en_index - 1] = (
             self.Rewards[en_depth][en_index - 1]
             + math.sqrt(
-                self.c ** 2
+                self.c**2
                 * 2
                 * self.Variances[en_depth][en_index - 1]
                 * math.log(1 / delta_tilde)
@@ -265,10 +265,10 @@ class VHCT(Algorithm):
             )
             + 3
             * self.bound
-            * self.c ** 2
+            * self.c**2
             * math.log(1 / delta_tilde)
             / self.visitedTimes[en_depth][en_index - 1]
-            + self.nu * (self.rho ** end_node.depth)
+            + self.nu * (self.rho**end_node.depth)
         )
 
         self.updateBackwardTree()
