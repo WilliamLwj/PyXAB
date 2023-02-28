@@ -1,3 +1,4 @@
+# Non-package files
 *mnist*
 *landmine/logs*
 *BO_landmine.py*
@@ -11,7 +12,7 @@
 dist*
 *egg-info*
 
-# Sphinx files
+# Sphinx build files
 docs/build*
 *auto_examples*
 build*

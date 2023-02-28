@@ -29,7 +29,7 @@ Random Binary Partition
 
 Dimension-wise Binary Partition
 ----------------------------------------------
-.. autoclass:: PyXAB.partition.DimensionPartition.DimensionBinaryPartition
+.. autoclass:: PyXAB.partition.DimensionBinaryPartition.DimensionBinaryPartition
     :members:
     :undoc-members:
     :show-inheritance:

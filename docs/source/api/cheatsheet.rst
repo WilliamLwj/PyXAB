@@ -4,7 +4,7 @@ API Cheatsheet
 ==========================
 
 
-We list all the important functions from the general base classes as follows.
+We list all the important (abstract) functions from the base classes as follows.
 
 Algorithm
 ---------------------------
@@ -23,9 +23,10 @@ Objective
 * :func:`PyXAB.synthetic_obj.Objective.Objective.f`: Evaluate the point and return the reward (stochastic or deterministic)
 
 
-...............................
 
-Below are the general base classes
+.. note::
+
+    The general base classes and the implemented functions are listed as follows
 
 PyXAB.algos.Algo.Algorithm
 ---------------------------

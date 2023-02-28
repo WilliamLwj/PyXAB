@@ -33,6 +33,12 @@ class VPCT(Algorithm):
             the partition used in the optimization process
         """
         super(VPCT, self).__init__()
+
+        if domain is None:
+            raise ValueError("Parameter space is not given.")
+        if partition is None:
+            raise ValueError("Partition of the parameter space is not given.")
+
         self.algorithm = GPO(
             numax=numax,
             rhomax=rhomax,
@@ -41,10 +47,6 @@ class VPCT(Algorithm):
             partition=partition,
             algo=VHCT,
         )
-        if domain is None:
-            raise ValueError("Parameter space is not given.")
-        if partition is None:
-            raise ValueError("Partition of the parameter space is not given.")
 
     def pull(self, time):
         """

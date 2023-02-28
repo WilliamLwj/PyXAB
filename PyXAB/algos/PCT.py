@@ -33,6 +33,11 @@ class PCT(Algorithm):
             the partition used in the optimization process
         """
         super(PCT, self).__init__()
+        if domain is None:
+            raise ValueError("Parameter space is not given.")
+        if partition is None:
+            raise ValueError("Partition of the parameter space is not given.")
+
         self.algorithm = GPO(
             numax=numax,
             rhomax=rhomax,
@@ -41,10 +46,6 @@ class PCT(Algorithm):
             partition=partition,
             algo=HCT,
         )
-        if domain is None:
-            raise ValueError("Parameter space is not given.")
-        if partition is None:
-            raise ValueError("Partition of the parameter space is not given.")
 
     def pull(self, time):
         """

@@ -25,12 +25,19 @@ class DoubleSine(Objective):
         Parameters
         ----------
         rho1: float
-            The parameter rho1 to compute ep1
+            The parameter rho1 between 0 and 1 to compute ep1
         rho2: float
-            The parameter rho2 to compute ep2
+            The parameter rho2 between 0 and 1 to compute ep2
         tmax: float
-            The parameter tmax to truncate x
+            The parameter tmax between 0 and 1 to truncate x
         """
+        if rho1 <= 0 or rho1 > 1:
+            raise ValueError("The parameter rho_1 should satisfy 0 < rho1 <= 1")
+        if rho2 <= 0 or rho2 > 1:
+            raise ValueError("The parameter rho_2 should satisfy 0 < rho2 <= 1")
+        if tmax < 0 or tmax > 1:
+            raise ValueError("The parameter tmax should satisfy 0 <= tmax <= 1")
+
         self.ep1 = -math.log(rho1, 2)
         self.ep2 = -math.log(rho2, 2)
         self.tmax = tmax
@@ -51,6 +58,8 @@ class DoubleSine(Objective):
             Evaluated value of the function at the particular point x = [x1], returns
             mysin2(log(u, 2) / 2.0) * envelope_width - pow(u, self.ep2)
         """
+        if len(x) != 1:
+            raise ValueError("The dimension of the point should be 1 in DoubleSine")
         x = x[0]
         u = 2 * np.fabs(x - self.tmax)
         if u == 0:
@@ -75,13 +84,20 @@ class Perturbed_DoubleSine(Objective):
         Parameters
         ----------
         rho1: float
-            The parameter rho1 to compute ep1
+            The parameter rho1 between 0 and 1 to compute ep1
         rho2: float
-            The parameter rho2 to compute ep2
+            The parameter rho2 between 0 and 1 to compute ep2
         tmax: float
-            The parameter tmax to truncate x
+            The parameter tmax between 0 and 1 to truncate x
 
         """
+        if rho1 <= 0 or rho1 > 1:
+            raise ValueError("The parameter rho_1 should satisfy 0 < rho1 <= 1")
+        if rho2 <= 0 or rho2 > 1:
+            raise ValueError("The parameter rho_2 should satisfy 0 < rho2 <= 1")
+        if tmax < 0 or tmax > 1:
+            raise ValueError("The parameter tmax should satisfy 0 <= tmax <= 1")
+
         self.ep1 = -math.log(rho1, 2)
         self.ep2 = -math.log(rho2, 2)
         self.tmax = tmax
@@ -104,6 +120,8 @@ class Perturbed_DoubleSine(Objective):
             Evaluated value of the function at the particular point x = [x1], returns
             mysin2(log(u, 2) / 2.0) * envelope_width - pow(u, self.ep2) + perturbation
         """
+        if len(x) != 1:
+            raise ValueError("The dimension of the point should be 1 in Perturbed DoubleSine")
         x = x[0]
         u = 2 * np.fabs(x - self.tmax)
         if u == 0:
