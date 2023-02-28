@@ -85,7 +85,7 @@ def visualize_trajectory():
             x = np.linspace(domain[0][0], domain[0][1], 1000)
             y = np.linspace(domain[0][0], domain[0][1], 1000)
             xx, yy = np.meshgrid(x, y)
-            z = (-((xx ** 2 + yy - 11) ** 2) - (xx + yy ** 2 - 7) ** 2) / 890
+            z = (-((xx**2 + yy - 11) ** 2) - (xx + yy**2 - 7) ** 2) / 890
             ax.plot_surface(xx, yy, z, alpha=0.4)
 
             px = np.array([p[0] for p in point_list])

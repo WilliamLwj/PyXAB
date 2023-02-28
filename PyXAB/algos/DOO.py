@@ -21,26 +21,21 @@ class DOO_node(P_node):
         self.visited = False
 
     def update_reward(self, reward):
-
         self.reward = reward
 
     def compute_b_value(self, delta):
-
         if self.visited:
             self.b_value = self.reward + delta
         else:
             self.b_value = np.inf
 
     def get_b_value(self):
-
         return self.b_value
 
     def visit(self):
-
         self.visited = True
 
     def get_reward(self):
-
         return self.reward
 
 
@@ -60,7 +55,6 @@ class DOO(Algorithm):
         self.n = n
 
     def pull(self, time):
-
         self.iteration = time
         node_list = self.partition.get_node_list()
 
@@ -87,11 +81,9 @@ class DOO(Algorithm):
                 h = 0
 
     def receive_reward(self, time, reward):
-
         self.curr_node.update_reward(reward)
 
     def get_last_point(self):
-
         max_value = -np.inf
         max_node = None
 
@@ -105,7 +97,6 @@ class DOO(Algorithm):
         return max_node.get_cpoint()
 
     def delta_init(self, h):  # delta that satisfies Assumption 3
-
         node_list = self.partition.get_node_list()
 
         max_value = -np.inf

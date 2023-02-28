@@ -8,7 +8,6 @@ import pytest
 
 
 def test_optimize_Garland():
-
     T = 100
     Target = Garland.Garland()
     domain = [[0, 1]]

@@ -51,4 +51,4 @@ class DifficultFunc(Objective):
         if y == 0:
             return 0
         else:
-            return threshold(np.log(y)) * (np.sqrt(y) - y ** 2) - np.sqrt(y)
+            return threshold(np.log(y)) * (np.sqrt(y) - y**2) - np.sqrt(y)
