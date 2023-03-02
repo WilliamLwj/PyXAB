@@ -7,19 +7,19 @@ import numpy as np
 import pytest
 import pdb
 
-def test_StoSOO_1():
+def test_StoSOO_value_error_1():
     T = 1000
     partition = BinaryPartition
     with pytest.raises(ValueError):
         StoSOO(n=T, partition=partition)
 
-def test_StoSOO_2():
+def test_StoSOO_value_error_2():
     T = 1000
     domain = [[0, 1]]
     with pytest.raises(ValueError):
         StoSOO(n=T, domain=domain)
 
-def test_StoSOO_3():
+def test_StoSOO_Garland():
     T = 100
     Target = Garland.Garland()
     domain = [[0, 1]]
