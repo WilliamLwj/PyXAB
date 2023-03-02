@@ -6,8 +6,28 @@ from PyXAB.utils.plot import compare_regret
 import numpy as np
 import pytest
 
+def test_HOO_value_error_1():
+    T = 1000
+    partition = BinaryPartition
+    with pytest.raises(ValueError):
+        T_HOO(rounds=T, partition=partition)
 
-def test_HOO_1():
+def test_HOO_value_error_2():
+    T = 1000
+    domain = [[0, 1]]
+    with pytest.raises(ValueError):
+        T_HOO(rounds=T, domain=domain)
+
+def test_HOO_initialization():
+    T = 1000
+    partition = BinaryPartition
+    domain = [[0, 1]]
+    algo = T_HOO(rounds=T, domain=domain, partition=partition)
+    root = algo.partition.get_root()
+    assert root.get_mean_reward() == 0
+    assert root.get_visited_times() == 0
+
+def test_HOO_Garland():
     T = 100
     Target = Garland.Garland()
     domain = [[0, 1]]

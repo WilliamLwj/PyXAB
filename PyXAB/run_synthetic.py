@@ -35,8 +35,8 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
     return np.array(regret_list)
 
 
-target = DoubleSine.DoubleSine()
-domain = [[0, 1]]
+target = Himmelblau.Himmelblau_Normalized()
+domain = [[-5, 5],[-5, 5]]
 partition = BinaryPartition
 rounds = 500
 noise = 0.5

@@ -220,7 +220,7 @@ class StoSOO(Algorithm):
         time: int
             The time stamp parameter
         reward: float
-            The reward of the evaluation
+            the reward of the evaluation
 
         Returns
         -------
