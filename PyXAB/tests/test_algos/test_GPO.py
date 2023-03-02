@@ -12,7 +12,7 @@ def test_GPO_1():
     algo = HCT
     partition = BinaryPartition
     with pytest.raises(ValueError):
-        algo = GPO(partition=partition, algo=algo)
+        GPO(partition=partition, algo=algo)
 
 
 
@@ -20,13 +20,13 @@ def test_GPO_2():
     algo = HCT
     domain = [[-5, 5], [-5, 5]]
     with pytest.raises(ValueError):
-        algo = GPO(domain=domain, algo=algo)
+        GPO(domain=domain, algo=algo)
 
 def test_GPO_3():
     domain = [[-5, 5], [-5, 5]]
     partition = BinaryPartition
     with pytest.raises(ValueError):
-        algo = GPO(domain=domain, partition=partition)
+        GPO(domain=domain, partition=partition)
 
 
 def test_GPO_4():

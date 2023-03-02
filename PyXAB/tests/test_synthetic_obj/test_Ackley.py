@@ -2,7 +2,7 @@ from PyXAB.synthetic_obj import Ackley
 import pytest
 
 
-def test_Ackley_1():
+def test_Ackley_value_error_1():
     point = [0]  # An invalid point
     objective1 = Ackley.Ackley()
     objective2 = Ackley.Ackley_Normalized()
@@ -12,7 +12,7 @@ def test_Ackley_1():
         objective2.f(point)
 
 
-def test_Ackley_2():
+def test_Ackley_value_initialization():
     objective1 = Ackley.Ackley()
     objective2 = Ackley.Ackley_Normalized()
     assert objective1.fmax == 0
@@ -20,7 +20,7 @@ def test_Ackley_2():
 
 
 
-def test_Ackley_3():
+def test_Ackley_evaluation():
     point = [0, 0]
     objective1 = Ackley.Ackley()
     objective2 = Ackley.Ackley_Normalized()

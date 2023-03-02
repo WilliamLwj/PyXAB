@@ -7,7 +7,7 @@ import numpy as np
 import pytest
 
 
-def test_optimize_Garland():
+def test_HOO_1():
     T = 100
     Target = Garland.Garland()
     domain = [[0, 1]]

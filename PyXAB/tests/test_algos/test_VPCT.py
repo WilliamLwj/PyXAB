@@ -9,14 +9,14 @@ import pytest
 def test_VPCT_1():
     partition = BinaryPartition
     with pytest.raises(ValueError):
-        algo = VPCT(partition=partition)
+        VPCT(partition=partition)
 
 
 
 def test_VPCT_2():
     domain = [[-5, 5], [-5, 5]]
     with pytest.raises(ValueError):
-        algo = VPCT(domain=domain)
+        VPCT(domain=domain)
 
 
 
