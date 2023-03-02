@@ -7,7 +7,7 @@
 from PyXAB.partition.Node import P_node
 from PyXAB.partition.Partition import Partition
 import numpy as np
-
+import copy
 
 class RandomBinaryPartition(Partition):
     """
@@ -55,8 +55,8 @@ class RandomBinaryPartition(Partition):
         dim = np.random.randint(0, len(parent_domain))
         selected_dim = parent_domain[dim]
 
-        domain1 = parent_domain.copy()
-        domain2 = parent_domain.copy()
+        domain1 = copy.deepcopy(parent_domain)
+        domain2 = copy.deepcopy(parent_domain)
 
         split_point = np.random.uniform(selected_dim[0], selected_dim[1])
         domain1[dim] = [selected_dim[0], split_point]

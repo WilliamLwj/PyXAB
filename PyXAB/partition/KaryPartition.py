@@ -7,6 +7,7 @@
 from PyXAB.partition.Node import P_node
 from PyXAB.partition.Partition import Partition
 import numpy as np
+import copy
 import pdb
 
 
@@ -62,7 +63,7 @@ class KaryPartition(Partition):
         new_nodes = []
         boundary_points = np.linspace(selected_dim[0], selected_dim[1], num=self.K+1)
         for i in range(self.K):
-            domain = parent_domain.copy()
+            domain = copy.deepcopy(parent_domain)
             domain[dim] = [boundary_points[i], boundary_points[i+1]]
             node = self.node(
                 depth=parent.get_depth() + 1,

@@ -7,6 +7,7 @@
 from PyXAB.partition.Node import P_node
 from PyXAB.partition.Partition import Partition
 import numpy as np
+import copy
 import pdb
 
 
@@ -69,7 +70,7 @@ class RandomKaryPartition(Partition):
                 boundary_point_1 = np.random.uniform(boundary_point_0, selected_dim[1])
             else:
                 boundary_point_1 = selected_dim[1]
-            domain = parent_domain.copy()
+            domain = copy.deepcopy(parent_domain)
             domain[dim] = [boundary_point_0, boundary_point_1]
             node = self.node(
                 depth=parent.get_depth() + 1,
