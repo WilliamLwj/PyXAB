@@ -53,6 +53,7 @@ class StoSOO_node(P_node):
         """
         self.visited_times += 1
         self.rewards.append(reward)
+        self.mean_reward = np.sum(np.array(self.rewards)) / self.visited_times
 
     def compute_b_value(self, n, k, delta):
         """

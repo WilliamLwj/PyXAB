@@ -175,7 +175,7 @@ class T_HOO(Algorithm):
 
     def optTraverse(self):
         """
-        Traverse the exploration tree to find the best path and the best node to pull at this moment.
+        The function to traverse the exploration tree to find the best path and the best node to pull at this moment.
 
         Returns
         -------
