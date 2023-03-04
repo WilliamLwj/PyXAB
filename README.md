@@ -115,6 +115,7 @@ pip install .
 |-------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
 | [T-HOO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/HOO.py)           | [*X*-Armed Bandit](https://jmlr.org/papers/v12/bubeck11a.html)                                                                                                                           | 2011 |
 | [DOO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/DOO.py)             | [Optimistic Optimization of a Deterministic Function without the Knowledge of its Smoothness](https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf) | 2011 |
+| [SOO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/SOO.py)             | [Optimistic Optimization of a Deterministic Function without the Knowledge of its Smoothness](https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf) | 2011 |
 | [StoSOO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py)       | [Stochastic Simultaneous Optimistic Optimization](http://proceedings.mlr.press/v28/valko13.pdf)                                                                                          | 2013 |
 | [HCT](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/HCT.py)             | [Online Stochastic Optimization Under Correlated Bandit Feedback](https://proceedings.mlr.press/v32/azar14.html)                                                                         | 2014 |
 | [POO*](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/POO.py)            | [Black-box optimization of noisy functions with unknown smoothness](https://papers.nips.cc/paper/2015/hash/ab817c9349cf9c4f6877e1894a1faa00-Abstract.html)                               | 2015 |
@@ -128,11 +129,13 @@ pip install .
 
 ### Hierarchical partition 
 
-| Partition                                                                                                             | Description |
-|-----------------------------------------------------------------------------------------------------------------------| --- |
-| [BinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/BinaryPartition.py)                   | Equal-size binary partition of the parameter space, the split dimension is chosen uniform randomly|
-| [RandomBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/RandomBinaryPartition.py)       | The same as BinaryPartition but with a randomly chosen split point |
-| [DimensionBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/DimensionBinaryPartition.py) | Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d|
+| Partition                                                                                                             | Description                                                                                                        |
+|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| [BinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/BinaryPartition.py)                   | Equal-size binary partition of the parameter space, the split dimension is chosen uniform randomly                 |
+| [RandomBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/RandomBinaryPartition.py)       | Random-size binary partition of the parameter space, the split dimension is chosen uniform randomly                |
+| [DimensionBinaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/DimensionBinaryPartition.py) | Equal-size partition of the space with a binary split on each dimension, the number of children of one node is 2^d |
+| [KaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/KaryPartition.py)       | Equal-size K-ary partition of the parameter space, the split dimension is chosen uniform randomly                  |
+| [RandomKaryPartition](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/partition/RandomKaryPartition.py) | Random-size K-ary partition of the parameter space, the split dimension is chosen uniform randomly                 |
 
 ### Synthetic objectives
 

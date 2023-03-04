@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Base Implmentation of a Partition
+"""Base Implementation of a Partition
 """
 # Author: Wenjie Li <li3549@purdue.edu>
 # License: MIT

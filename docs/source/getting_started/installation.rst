@@ -1,7 +1,7 @@
 Installation
 ==========================
 .. note::
-    The PyXAB package is still under active development. Make sure that you install the latest version of our package to enjoy
+    The PyXAB package is under active development. Please make sure that you install the latest version of our package to enjoy
     all the features. At this moment, we recommend directly installing the package with git.
 
 

@@ -7,6 +7,10 @@ We appreciate all forms of help and contributions, including but not limited to
 * Open an issue for any bugs you find or features you want to add to our library
 * Fork our project and submit a pull request with your valuable codes
 
+.. note::
+    We have some TODOs listed in the `Roadmap <https://github.com/users/WilliamLwj/projects/1/views/1>`_ that we need help with.
+
+
 ...........................
 
 To Implement New Features
@@ -22,7 +26,7 @@ Please read the :ref:`api-cheatsheet` and :ref:`api-reference` for the API of ou
 
 **During Implementation**
 
-Please carefully follow our API. For example, every algorithm needs to inherit the class :class:`PyXAB.algos.Algo.Algorithm`, and has to implement the abstract methods :func:`PyXAB.algos.Algo.Algorithm.pull` and :func:`PyXAB.algos.Algo.Algorithm.receive_reward`.
+Please carefully follow our API and the :ref:`gallery_of_examples`. For example, every algorithm needs to inherit the class :class:`PyXAB.algos.Algo.Algorithm`, and has to implement the abstract methods :func:`PyXAB.algos.Algo.Algorithm.pull` and :func:`PyXAB.algos.Algo.Algorithm.receive_reward`.
 
 **Documentations**
 

@@ -133,4 +133,5 @@ If you use our package in your research or projects, we kindly ask you to cite o
    :caption: Additional Info
 
    info/contributing
+   info/auto_examples/index
    info/team_members

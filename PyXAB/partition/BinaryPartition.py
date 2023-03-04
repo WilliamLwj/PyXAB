@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Implmentation of Binary Partition
+"""Implementation of Binary Partition
 """
 # Author: Wenjie Li <li3549@purdue.edu>
 # License: MIT
@@ -15,7 +15,7 @@ class BinaryPartition(Partition):
     Implementation of Binary Partition
     """
 
-    def __init__(self, domain, node=P_node):
+    def __init__(self, domain=None, node=P_node):
         """
         Initialization of the Binary Partition
 
@@ -29,6 +29,8 @@ class BinaryPartition(Partition):
         node
             The node used in the partition, with the default choice to be P_node.
         """
+        if domain is None:
+            raise ValueError('domain is not provided to the Binary Partition')
         super(BinaryPartition, self).__init__(domain=domain, node=node)
 
     # Rewrite the make_children function in the Partition class

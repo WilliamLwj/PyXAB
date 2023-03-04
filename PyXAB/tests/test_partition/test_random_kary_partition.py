@@ -1,13 +1,13 @@
-from PyXAB.partition.BinaryPartition import BinaryPartition
+from PyXAB.partition.RandomKaryPartition import RandomKaryPartition
 import pytest
 
-def test_binary_partition_1():
+def test_random_kary_partition_1():
     with pytest.raises(ValueError):
-        BinaryPartition()
+        RandomKaryPartition()
 
-def test_binary_partition_2():
+def test_random_kary_partition_2():
     domain = [[0, 1]]
-    part = BinaryPartition(domain)
+    part = RandomKaryPartition(domain)
 
     for i in range(5):
         part.deepen()
@@ -15,9 +15,9 @@ def test_binary_partition_2():
         for node in nodelist[-1]:
             print(node.depth, node.index, node.domain, "\\")
 
-def test_binary_partition_3():
+def test_random_kary_partition_3():
     domain = [[0, 1], [10, 50], [-5, -10]]
-    part = BinaryPartition(domain)
+    part = RandomKaryPartition(domain)
 
     for i in range(2):
         part.deepen()

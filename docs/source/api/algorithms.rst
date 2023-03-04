@@ -31,6 +31,24 @@ DOO Algorithm
     :special-members: __init__
 
 
+..................................
+
+SOO Algorithm
+-----------------------
+.. autoclass:: PyXAB.algos.SOO.SOO_node
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+.. autoclass:: PyXAB.algos.SOO.SOO
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
 
 
 

@@ -35,3 +35,30 @@ Dimension-wise Binary Partition
     :show-inheritance:
     :inherited-members:
     :special-members: __init__
+
+
+
+..................................
+
+Kary Partition
+----------------------------------------------
+.. autoclass:: PyXAB.partition.KaryPartition.KaryPartition
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+
+
+
+..................................
+
+RandomKary Partition
+----------------------------------------------
+.. autoclass:: PyXAB.partition.RandomKaryPartition.RandomKaryPartition
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__

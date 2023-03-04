@@ -1,8 +1,17 @@
-Gallery of Examples
+.. _gallery_of_examples:
+
+
+Usage Examples
 ===================
 
-Below is a gallery of examples to run X-armed bandit algorithms on different objective functions
+Below are examples of using the PyXAB package
 
 .. toctree::
     :hidden:
+
+
+
+
+
+
 

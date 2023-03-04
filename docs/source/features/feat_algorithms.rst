@@ -29,7 +29,7 @@ Our implemented *X*\ -Armed Bandit algorithms can be classified into different c
      - |cross_|
      - |cross_|
      - |cross_|
-   * - SOO
+   * - `SOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/SOO.py>`_
      - |cross_|
      - |cross_|
      - |cross_|
