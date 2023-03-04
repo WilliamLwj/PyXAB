@@ -51,8 +51,6 @@ def test_SOO_4():
         point = algo.pull(t)
         reward = Target.f(point)
         algo.receive_reward(t, reward)
-
-    algo.get_last_point()
     # plot the regret
     # regret_dic = {"POO": np.array(POO_regret_list)}
     # compare_regret(regret_dic)
