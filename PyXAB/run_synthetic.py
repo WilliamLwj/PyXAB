@@ -35,14 +35,14 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
     return np.array(regret_list)
 
 
-target = Himmelblau.Himmelblau_Normalized()
-domain = [[-5, 5],[-5, 5]]
+target = Garland.Garland()
+domain = [[0, 1]]
 partition = BinaryPartition
-rounds = 500
-noise = 0.5
+rounds = 1000
+noise = 0.1
 
 
-trials = 3
+trials = 10
 regret_array_HOO = np.array(
     [main(["T-HOO"], target, domain, partition, noise, rounds) for _ in range(trials)]
 )

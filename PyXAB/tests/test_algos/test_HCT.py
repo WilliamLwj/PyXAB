@@ -38,7 +38,6 @@ def test_HCT_Garland():
     cumulative_regret_list = [0]
 
     for t in range(1, T + 1):
-        # T-HOO
         print(t)
         point = algo.pull(t)
         reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
@@ -61,7 +60,6 @@ def test_HCT_Himmelblau():
     cumulative_regret_list = [0]
 
     for t in range(1, T + 1):
-        # T-HOO
         print(t)
         point = algo.pull(t)
         reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
