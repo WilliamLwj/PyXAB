@@ -85,16 +85,44 @@ At every round  ``t``\ , call ``algo.pull(t)`` to get a point. After receiving t
 Citations
 ---------
 
+
+
 If you use our package in your research or projects, we kindly ask you to cite our work
 
 .. code-block:: text
 
-   @article{li2021optimum,
-     title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
-     author={Li, Wenjie and Wang, Chi-Hua, Qifan Song and Cheng, Guang},
-     journal={arXiv preprint arXiv:2106.09215},
-     year={2021}
-   }
+    @misc{Li2023PyXAB,
+        doi = {10.48550/ARXIV.2303.04030},
+        url = {https://arxiv.org/abs/2303.04030},
+        author = {Li, Wenjie and Li, Haoze and Honorio, Jean and Song, Qifan},
+        title = {PyXAB -- A Python Library for $\mathcal{X}$-Armed Bandit and Online Blackbox Optimization Algorithms},
+        publisher = {arXiv},
+        year = {2023},
+     }
+
+We would appreciate it if you could cite our related works.
+
+.. code-block:: text
+
+    @article{li2021optimum,
+        title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
+        author={Li, Wenjie and Wang, Chi-Hua, Qifan Song and Cheng, Guang},
+        journal={arXiv preprint arXiv:2106.09215},
+        year={2021}
+    }
+```
+
+.. code-block:: text
+
+    @misc{li2022Federated,
+        doi = {10.48550/ARXIV.2205.15268},
+        url = {https://arxiv.org/abs/2205.15268},
+        author = {Li, Wenjie and Song, Qifan and Honorio, Jean and Lin, Guang},
+        title = {Federated X-Armed Bandit},
+        publisher = {arXiv},
+        year = {2022},
+    }
+```
 
 .. toctree::
    :maxdepth: 3
