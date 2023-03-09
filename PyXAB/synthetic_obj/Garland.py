@@ -76,7 +76,9 @@ class Perturbed_Garland(Objective):
             x * (1 - x) * (4 - sqrt(abs(sin(60 * x)))) + perturbation
         """
         if len(x) != 1:
-            raise ValueError("The dimension of the point should be 1 in Perturbed Garland")
+            raise ValueError(
+                "The dimension of the point should be 1 in Perturbed Garland"
+            )
 
         x = x[0]
 

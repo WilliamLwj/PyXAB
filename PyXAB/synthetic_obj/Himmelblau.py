@@ -38,7 +38,7 @@ class Himmelblau(Objective):
             raise ValueError("The dimension of the point should be 2 in Himmelblau")
         x1 = x[0]
         x2 = x[1]
-        return -((x1**2 + x2 - 11) ** 2) - (x1 + x2**2 - 7) ** 2
+        return -((x1 ** 2 + x2 - 11) ** 2) - (x1 + x2 ** 2 - 7) ** 2
 
 
 class Himmelblau_Normalized(Objective):
@@ -69,11 +69,13 @@ class Himmelblau_Normalized(Objective):
             [-((x1**2 + x2 - 11) ** 2) - (x1 + x2**2 - 7) ** 2]/ 890
         """
         if len(x) != 2:
-            raise ValueError("The dimension of the point should be 2 in Himmelblau_Normalized")
+            raise ValueError(
+                "The dimension of the point should be 2 in Himmelblau_Normalized"
+            )
         x1 = x[0]
         x2 = x[1]
 
-        S = -((x1**2 + x2 - 11) ** 2) - (x1 + x2**2 - 7) ** 2
+        S = -((x1 ** 2 + x2 - 11) ** 2) - (x1 + x2 ** 2 - 7) ** 2
         # Only devided by an upper bound in [-5, 5]^2
 
         return S / 890

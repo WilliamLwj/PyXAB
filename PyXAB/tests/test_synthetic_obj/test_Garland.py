@@ -22,7 +22,6 @@ def test_Garland_value_error_2():
         objective2.f(point)
 
 
-
 def test_Garland_initialization():
     objective1 = Garland.Garland()
     objective2 = Garland.Perturbed_Garland()

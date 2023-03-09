@@ -15,12 +15,12 @@ def test_GPO_1():
         GPO(partition=partition, algo=algo)
 
 
-
 def test_GPO_2():
     algo = HCT
     domain = [[-5, 5], [-5, 5]]
     with pytest.raises(ValueError):
         GPO(domain=domain, algo=algo)
+
 
 def test_GPO_3():
     domain = [[-5, 5], [-5, 5]]
@@ -51,5 +51,3 @@ def test_GPO_4():
     # plot the regret
     # regret_dic = {"GPO": np.array(GPO_regret_list)}
     # compare_regret(regret_dic)
-
-

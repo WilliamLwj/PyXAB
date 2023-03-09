@@ -7,6 +7,7 @@ from PyXAB.utils.plot import compare_regret
 import numpy as np
 import pytest
 
+
 def test_POO_1():
     algo = T_HOO
     partition = BinaryPartition
@@ -14,12 +15,12 @@ def test_POO_1():
         algo = POO(partition=partition, algo=algo)
 
 
-
 def test_POO_2():
     algo = T_HOO
     domain = [[0, 1]]
     with pytest.raises(ValueError):
         algo = POO(domain=domain, algo=algo)
+
 
 def test_POO_3():
     domain = [[0, 1]]
@@ -50,5 +51,3 @@ def test_POO_4():
     # plot the regret
     # regret_dic = {"POO": np.array(POO_regret_list)}
     # compare_regret(regret_dic)
-
-

@@ -6,17 +6,20 @@ import numpy as np
 from PyXAB.utils.plot import plot_regret, compare_regret_withsd, compare_regret
 import pytest
 
+
 def test_HCT_value_error_1():
 
     partition = BinaryPartition
     with pytest.raises(ValueError):
-        HCT( partition=partition)
+        HCT(partition=partition)
+
 
 def test_HCT_value_error_2():
 
     domain = [[0, 1]]
     with pytest.raises(ValueError):
         HCT(domain=domain)
+
 
 def test_HCT_initialization():
 
@@ -27,12 +30,13 @@ def test_HCT_initialization():
     assert root.get_mean_reward() == 0
     assert root.get_visited_times() == 0
 
+
 def test_HCT_Garland():
     T = 100
     Target = Garland.Garland()
     domain = [[0, 1]]
     partition = BinaryPartition
-    algo = HCT( domain=domain, partition=partition)
+    algo = HCT(domain=domain, partition=partition)
 
     cumulative_regret = 0
     cumulative_regret_list = [0]

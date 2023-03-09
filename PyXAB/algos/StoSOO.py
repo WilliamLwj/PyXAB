@@ -16,6 +16,7 @@ class StoSOO_node(P_node):
     """
     Implementation of the node in the StoSOO algorithm
     """
+
     def __init__(self, depth, index, parent, domain):
         """
         Initialization of the StoSOO node
@@ -115,6 +116,7 @@ class StoSOO(Algorithm):
     """
     The implementation of the StoSOO algorithm (Valko et al., 2013)
     """
+
     def __init__(
         self, n=100, k=None, h_max=100, delta=None, domain=None, partition=None
     ):

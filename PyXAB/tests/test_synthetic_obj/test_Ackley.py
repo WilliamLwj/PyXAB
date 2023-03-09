@@ -19,7 +19,6 @@ def test_Ackley_value_initialization():
     assert objective2.fmax == 0
 
 
-
 def test_Ackley_evaluation():
     point = [0, 0]
     objective1 = Ackley.Ackley()

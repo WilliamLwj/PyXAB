@@ -7,17 +7,20 @@ import numpy as np
 import pytest
 import pdb
 
+
 def test_StoSOO_value_error_1():
     T = 1000
     partition = BinaryPartition
     with pytest.raises(ValueError):
         StoSOO(n=T, partition=partition)
 
+
 def test_StoSOO_value_error_2():
     T = 1000
     domain = [[0, 1]]
     with pytest.raises(ValueError):
         StoSOO(n=T, domain=domain)
+
 
 def test_StoSOO_Garland():
     T = 100
@@ -40,6 +43,8 @@ def test_StoSOO_Garland():
 
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
+
+
 # plot the regret
 # regret_dic = {"StoSOO": np.array(StoSOO_regret_list)}
 # compare_regret(regret_dic)

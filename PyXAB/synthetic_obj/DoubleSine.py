@@ -121,7 +121,9 @@ class Perturbed_DoubleSine(Objective):
             mysin2(log(u, 2) / 2.0) * envelope_width - pow(u, self.ep2) + perturbation
         """
         if len(x) != 1:
-            raise ValueError("The dimension of the point should be 1 in Perturbed DoubleSine")
+            raise ValueError(
+                "The dimension of the point should be 1 in Perturbed DoubleSine"
+            )
         x = x[0]
         u = 2 * np.fabs(x - self.tmax)
         if u == 0:

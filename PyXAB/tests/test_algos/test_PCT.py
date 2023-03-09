@@ -6,10 +6,12 @@ import numpy as np
 from PyXAB.utils.plot import plot_regret
 import pytest
 
+
 def test_PCT_1():
     partition = BinaryPartition
     with pytest.raises(ValueError):
         algo = PCT(partition=partition)
+
 
 def test_PCT_2():
     domain = [[-5, 5], [-5, 5]]

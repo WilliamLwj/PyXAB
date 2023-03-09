@@ -2,7 +2,6 @@ from PyXAB.synthetic_obj import DoubleSine
 import pytest
 
 
-
 def test_DoubleSine_value_error_1():
     rho1 = 0
     rho2 = 0.8
@@ -22,6 +21,7 @@ def test_DoubleSine_value_error_2():
     with pytest.raises(ValueError):
         DoubleSine.Perturbed_DoubleSine(rho1=rho1, rho2=rho2, tmax=tmax)
 
+
 def test_DoubleSine_value_error_3():
     rho1 = 0.3
     rho2 = 0
@@ -40,6 +40,7 @@ def test_DoubleSine_value_error_4():
         DoubleSine.DoubleSine(rho1=rho1, rho2=rho2, tmax=tmax)
     with pytest.raises(ValueError):
         DoubleSine.Perturbed_DoubleSine(rho1=rho1, rho2=rho2, tmax=tmax)
+
 
 def test_DoubleSine_value_error_5():
     rho1 = 0.3
@@ -94,7 +95,6 @@ def test_DoubleSine_evaluation_1():
     objective2 = DoubleSine.Perturbed_DoubleSine()
     assert 0 == pytest.approx(objective1.f(point))
     assert 0 == pytest.approx(objective2.f(point) - objective2.fmax)
-
 
 
 def test_DoubleSine_evaluation_2():

@@ -6,18 +6,17 @@ from PyXAB.utils.plot import compare_regret
 import numpy as np
 import pytest
 
+
 def test_VPCT_1():
     partition = BinaryPartition
     with pytest.raises(ValueError):
         VPCT(partition=partition)
 
 
-
 def test_VPCT_2():
     domain = [[-5, 5], [-5, 5]]
     with pytest.raises(ValueError):
         VPCT(domain=domain)
-
 
 
 def test_VPCT_3():

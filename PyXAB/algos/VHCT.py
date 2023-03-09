@@ -10,15 +10,16 @@ import numpy as np
 from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
 
+
 def compute_t_plus(x):
     return np.power(2, np.ceil(np.log(x) / np.log(2)))
-
 
 
 class VHCT_node(P_node):
     """
     Implementation of VHCT node
     """
+
     def __init__(self, depth, index, parent, domain):
         """
         Initialization of the VHCT node
@@ -86,26 +87,19 @@ class VHCT_node(P_node):
 
         """
         self.tau = np.ceil(
-                        (
-                            self.variance
-                            + 3 * bound * nu * rho ** self.get_depth()
-                            + self.variance
-                            * np.sqrt(
-                                1
-                                + 6
-                                * bound
-                                * nu
-                                * rho**self.get_depth()
-                                / self.variance
-                            )
-                        )
-                        * (
-                            c**2
-                            * math.log(1 / delta_tilde)
-                            * rho ** (-2 * self.get_depth())
-                            / nu**2
-                        )
-                    )
+            (
+                self.variance
+                + 3 * bound * nu * rho ** self.get_depth()
+                + self.variance
+                * np.sqrt(1 + 6 * bound * nu * rho ** self.get_depth() / self.variance)
+            )
+            * (
+                c ** 2
+                * math.log(1 / delta_tilde)
+                * rho ** (-2 * self.get_depth())
+                / nu ** 2
+            )
+        )
 
     def compute_u_value(self, nu, rho, c, bound, delta_tilde):
         """
@@ -129,18 +123,14 @@ class VHCT_node(P_node):
         else:
             self.mean_reward = np.average(np.array(self.rewards))
             UCB = (
-                    math.sqrt(
-                        c ** 2
-                        * 2
-                        * self.variance
-                        * math.log(1 / delta_tilde)
-                        / self.visited_times
-                    )
-                    + 3
-                    * bound
-                    * c ** 2
+                math.sqrt(
+                    c ** 2
+                    * 2
+                    * self.variance
                     * math.log(1 / delta_tilde)
                     / self.visited_times
+                )
+                + 3 * bound * c ** 2 * math.log(1 / delta_tilde) / self.visited_times
             )
 
             self.u_value = self.mean_reward + UCB + nu * (rho ** self.depth)
@@ -211,12 +201,15 @@ class VHCT_node(P_node):
 
         return self.tau
 
+
 class VHCT(Algorithm):
     """
     The implementation of the Variance High Confidence Tree algorithm
     """
 
-    def __init__(self, nu=1, rho=0.5, c=0.1, delta=0.01, bound=1, domain=None, partition=None):
+    def __init__(
+        self, nu=1, rho=0.5, c=0.1, delta=0.01, bound=1, domain=None, partition=None
+    ):
         """
         Initialization of the VHCT algorithm
 
@@ -271,14 +264,19 @@ class VHCT(Algorithm):
         delta_tilde = np.minimum(1.0 / 2, self.c1 * self.delta / t_plus)
         for h in range(1, self.partition.get_depth() + 1):
             for node in self.partition.get_layer_node_list(depth=h):
-                node.compute_tau_hi_value(nu=self.nu, rho=self.rho, c=self.c, bound=self.bound, delta_tilde=delta_tilde)
+                node.compute_tau_hi_value(
+                    nu=self.nu,
+                    rho=self.rho,
+                    c=self.c,
+                    bound=self.bound,
+                    delta_tilde=delta_tilde,
+                )
 
         curr_node = self.partition.get_root()
         path = [curr_node]
 
         while (
-            curr_node.get_visited_times()
-            >= curr_node.get_tau_hi_value()
+            curr_node.get_visited_times() >= curr_node.get_tau_hi_value()
             and curr_node.get_children() is not None
         ):
             children = curr_node.get_children()
@@ -326,8 +324,13 @@ class VHCT(Algorithm):
         node_list = self.partition.get_node_list()
         for layer in node_list:
             for node in layer:
-                node.compute_u_value(nu=self.nu, rho=self.rho, c=self.c, bound=self.bound, delta_tilde=delta_tilde)
-
+                node.compute_u_value(
+                    nu=self.nu,
+                    rho=self.rho,
+                    c=self.c,
+                    bound=self.bound,
+                    delta_tilde=delta_tilde,
+                )
 
     def updateBackwardTree(self):
         """
@@ -345,11 +348,9 @@ class VHCT(Algorithm):
                 if children is None:
                     node.update_b_value(node.get_u_value())
                 else:
-                    tempB = - np.inf
+                    tempB = -np.inf
                     for child in node.get_children():
-                        tempB = np.maximum(
-                            tempB, child.get_b_value()
-                        )
+                        tempB = np.maximum(tempB, child.get_b_value())
 
                     node.update_b_value(np.minimum(node.get_u_value(), tempB))
 
@@ -398,13 +399,18 @@ class VHCT(Algorithm):
 
         end_node = path[-1]
 
-        end_node.compute_u_value(nu=self.nu, rho=self.rho, c=self.c, bound=self.bound, delta_tilde=delta_tilde)
+        end_node.compute_u_value(
+            nu=self.nu,
+            rho=self.rho,
+            c=self.c,
+            bound=self.bound,
+            delta_tilde=delta_tilde,
+        )
 
         self.updateBackwardTree()
 
         if end_node.get_visited_times() >= end_node.get_tau_hi_value():
             self.expand(end_node)
-
 
     def pull(self, time):
         """
@@ -440,5 +446,3 @@ class VHCT(Algorithm):
 
         """
         self.updateAllTree(self.path, reward)
-
-

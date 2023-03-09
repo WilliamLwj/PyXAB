@@ -12,13 +12,15 @@ def test_VHCT_value_error_1():
 
     partition = BinaryPartition
     with pytest.raises(ValueError):
-        VHCT( partition=partition)
+        VHCT(partition=partition)
+
 
 def test_VHCT_value_error_2():
 
     domain = [[0, 1]]
     with pytest.raises(ValueError):
         VHCT(domain=domain)
+
 
 def test_VHCT_initialization():
 
@@ -28,6 +30,7 @@ def test_VHCT_initialization():
     root = algo.partition.get_root()
     assert root.get_mean_reward() == 0
     assert root.get_visited_times() == 0
+
 
 def test_VHCT_Garland():
     T = 100

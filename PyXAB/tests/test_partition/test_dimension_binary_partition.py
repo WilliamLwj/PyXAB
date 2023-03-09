@@ -1,9 +1,11 @@
 from PyXAB.partition.DimensionBinaryPartition import DimensionBinaryPartition
 import pytest
 
+
 def test_dimension_binary_partition_value_error():
     with pytest.raises(ValueError):
         DimensionBinaryPartition()
+
 
 def test_dimension_binary_partition_1D_deepen():
     domain = [[0, 1]]

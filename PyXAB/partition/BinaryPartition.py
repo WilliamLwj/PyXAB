@@ -31,7 +31,7 @@ class BinaryPartition(Partition):
             The node used in the partition, with the default choice to be P_node.
         """
         if domain is None:
-            raise ValueError('domain is not provided to the Binary Partition')
+            raise ValueError("domain is not provided to the Binary Partition")
         super(BinaryPartition, self).__init__(domain=domain, node=node)
 
     # Rewrite the make_children function in the Partition class

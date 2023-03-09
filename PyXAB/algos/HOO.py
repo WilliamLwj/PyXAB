@@ -11,10 +11,12 @@ from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
 import pdb
 
+
 class HOO_node(P_node):
     """
     Implementation of the HOO_node
     """
+
     def __init__(self, depth, index, parent, domain):
         """
         Initialization of the HOO node
@@ -76,11 +78,8 @@ class HOO_node(P_node):
             self.b_value = np.inf
         else:
             self.mean_reward = np.sum(np.array(self.rewards)) / self.visited_times
-            UCB = math.sqrt(
-                2 * math.log(rounds) / self.visited_times
-            )
+            UCB = math.sqrt(2 * math.log(rounds) / self.visited_times)
             self.u_value = self.mean_reward + UCB + nu * (rho ** self.depth)
-
 
     def update_b_value(self, b_value):
         """
@@ -142,6 +141,7 @@ class T_HOO(Algorithm):
     """
     Implementation of the T_HOO algorithm
     """
+
     def __init__(self, nu=1, rho=0.5, rounds=1000, domain=None, partition=None):
         """
         Initialization of the T_HOO algorithm
@@ -190,11 +190,9 @@ class T_HOO(Algorithm):
 
         while curr_node.get_children() is not None:
             children = curr_node.get_children()
-            maxchild =  children[0]
-            for child in children[1: ]:
-                if (
-                    child.get_b_value() >= maxchild.get_b_value()
-                ):
+            maxchild = children[0]
+            for child in children[1:]:
+                if child.get_b_value() >= maxchild.get_b_value():
                     maxchild = child
 
             curr_node = maxchild
@@ -254,11 +252,9 @@ class T_HOO(Algorithm):
                 if children is None:
                     node.update_b_value(node.get_u_value())
                 else:
-                    tempB = - np.inf
+                    tempB = -np.inf
                     for child in node.get_children():
-                        tempB = np.maximum(
-                            tempB, child.get_b_value()
-                        )
+                        tempB = np.maximum(tempB, child.get_b_value())
                     node.update_b_value(np.minimum(node.get_u_value(), tempB))
 
     def expand(self, parent):
@@ -320,7 +316,6 @@ class T_HOO(Algorithm):
         curr_node, self.path = self.optTraverse()
         return curr_node.get_cpoint()
 
-
     def receive_reward(self, time, reward):
         """
         The receive_reward function of T_HOO to obtain the reward and update the Statistics
@@ -337,4 +332,3 @@ class T_HOO(Algorithm):
 
         """
         self.updateAllTree(self.path, reward)
-

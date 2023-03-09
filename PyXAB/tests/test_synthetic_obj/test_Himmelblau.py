@@ -2,7 +2,6 @@ from PyXAB.synthetic_obj import Himmelblau
 import pytest
 
 
-
 def test_Himmelblau_value_error_1():
     point = [0]
     objective1 = Himmelblau.Himmelblau()
@@ -11,6 +10,7 @@ def test_Himmelblau_value_error_1():
         objective1.f(point)
     with pytest.raises(ValueError):
         objective2.f(point)
+
 
 def test_Himmelblau_value_error_2():
     point = [0, 1, 2]

@@ -15,11 +15,11 @@ def compute_t_plus(x):
     return np.power(2, np.ceil(np.log(x) / np.log(2)))
 
 
-
 class HCT_node(P_node):
     """
     Implementation of HCT node
     """
+
     def __init__(self, depth, index, parent, domain):
         """
         Initialization of the HCT node
@@ -81,11 +81,12 @@ class HCT_node(P_node):
             self.u_value = np.inf
         else:
             self.mean_reward = np.sum(np.array(self.rewards)) / self.visited_times
-            self.u_value = self.mean_reward \
-                         + nu * (rho ** self.get_depth()) \
-                         + math.sqrt(
-                            c ** 2 * math.log(1 / delta_tilde) / self.visited_times
-                            )
+            self.u_value = (
+                self.mean_reward
+                + nu * (rho ** self.get_depth())
+                + math.sqrt(c ** 2 * math.log(1 / delta_tilde) / self.visited_times)
+            )
+
     def update_b_value(self, b_value):
         """
         The function to update the b_{h,i} value of the node
@@ -203,10 +204,10 @@ class HCT(Algorithm):
         for i in range(1, self.partition.get_depth() + 1):
             self.tau_h.append(
                 np.ceil(
-                    self.c**2
+                    self.c ** 2
                     * math.log(1 / delta_tilde)
                     * self.rho ** (-2 * i)
-                    / self.nu**2
+                    / self.nu ** 2
                 )
             )
 
@@ -214,15 +215,14 @@ class HCT(Algorithm):
         path = [curr_node]
 
         while (
-            curr_node.get_visited_times()
-            >= self.tau_h[curr_node.get_depth()]
+            curr_node.get_visited_times() >= self.tau_h[curr_node.get_depth()]
             and curr_node.get_children() is not None
         ):
             children = curr_node.get_children()
             maxchild = children[0]
             for child in children[1:]:
 
-                if (child.get_b_value() >= maxchild.get_b_value()):
+                if child.get_b_value() >= maxchild.get_b_value():
                     maxchild = child
 
             curr_node = maxchild
@@ -265,8 +265,9 @@ class HCT(Algorithm):
         node_list = self.partition.get_node_list()
         for layer in node_list:
             for node in layer:
-                node.compute_u_value(nu=self.nu, rho=self.rho, c=self.c, delta_tilde=delta_tilde)
-
+                node.compute_u_value(
+                    nu=self.nu, rho=self.rho, c=self.c, delta_tilde=delta_tilde
+                )
 
     def updateBackwardTree(self):
         """
@@ -285,11 +286,9 @@ class HCT(Algorithm):
                 if children is None:
                     node.update_b_value(node.get_u_value())
                 else:
-                    tempB = - np.inf
+                    tempB = -np.inf
                     for child in node.get_children():
-                        tempB = np.maximum(
-                            tempB, child.get_b_value()
-                        )
+                        tempB = np.maximum(tempB, child.get_b_value())
 
                     node.update_b_value(np.minimum(node.get_u_value(), tempB))
 
@@ -311,8 +310,6 @@ class HCT(Algorithm):
             self.partition.make_children(parent=parent, newlayer=True)
         else:
             self.partition.make_children(parent=parent, newlayer=False)
-
-
 
     def updateAllTree(self, path, reward):
         """
@@ -336,13 +333,14 @@ class HCT(Algorithm):
             self.updateUvalueTree()
             self.updateBackwardTree()
 
-
         self.updateRewardTree(path, reward)
 
         end_node = path[-1]
         en_depth = end_node.get_depth()
 
-        end_node.compute_u_value(nu=self.nu, rho=self.rho, c=self.c, delta_tilde=delta_tilde)
+        end_node.compute_u_value(
+            nu=self.nu, rho=self.rho, c=self.c, delta_tilde=delta_tilde
+        )
 
         self.updateBackwardTree()
 

@@ -32,7 +32,7 @@ class KaryPartition(Partition):
             The node used in the partition, with the default choice to be P_node.
         """
         if domain is None:
-            raise ValueError('domain is not provided to the K-ary Partition')
+            raise ValueError("domain is not provided to the K-ary Partition")
         self.K = K
         super(KaryPartition, self).__init__(domain=domain, node=node)
 
@@ -61,13 +61,13 @@ class KaryPartition(Partition):
         selected_dim = parent_domain[dim]
 
         new_nodes = []
-        boundary_points = np.linspace(selected_dim[0], selected_dim[1], num=self.K+1)
+        boundary_points = np.linspace(selected_dim[0], selected_dim[1], num=self.K + 1)
         for i in range(self.K):
             domain = copy.deepcopy(parent_domain)
-            domain[dim] = [boundary_points[i], boundary_points[i+1]]
+            domain[dim] = [boundary_points[i], boundary_points[i + 1]]
             node = self.node(
                 depth=parent.get_depth() + 1,
-                index=self.K * parent.get_index() - (self.K-i-1),
+                index=self.K * parent.get_index() - (self.K - i - 1),
                 parent=parent,
                 domain=domain,
             )
