@@ -43,7 +43,6 @@ def test_HOO_Garland():
 
     for t in range(1, T + 1):
         # T-HOO
-        print(t)
         point = algo.pull(t)
         reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
         algo.receive_reward(t, reward)
@@ -51,8 +50,7 @@ def test_HOO_Garland():
         cumulative_regret += inst_regret
         cumulative_regret_list.append(cumulative_regret)
 
-        print("T-HOO: ", point)
-
+    print("HOO: ", algo.get_last_point())
     # plot the result
     # regret_dic = {
     #     "T-HOO": np.array(cumulative_regret_list),

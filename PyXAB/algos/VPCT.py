@@ -83,3 +83,13 @@ class VPCT(Algorithm):
 
         """
         self.algorithm.receive_reward(time, reward)
+
+    def get_last_point(self):
+        """
+        The function to get the last point of VPCT.
+
+        Returns
+        -------
+
+        """
+        self.algorithm.get_last_point()

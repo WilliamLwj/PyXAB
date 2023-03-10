@@ -27,7 +27,7 @@ def test_StoSOO_Garland():
     Target = Garland.Garland()
     domain = [[0, 1]]
     partition = BinaryPartition
-    algo = StoSOO(n=T, domain=domain, partition=partition)
+    algo = StoSOO(n=T, h_max=5, domain=domain, partition=partition)
 
     regret = 0
     StoSOO_regret_list = []
@@ -43,6 +43,9 @@ def test_StoSOO_Garland():
 
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
+
+
+
 
 
 # plot the regret

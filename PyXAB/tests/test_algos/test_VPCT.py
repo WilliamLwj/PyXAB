@@ -30,7 +30,6 @@ def test_VPCT_3():
     regret = 0
 
     for t in range(1, T + 1):
-        # T-HOO
         point = algo.pull(t)
         reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
         algo.receive_reward(t, reward)
@@ -38,6 +37,7 @@ def test_VPCT_3():
         regret += inst_regret
         VPCT_regret_list.append(regret)
 
+    print('VCPT: ', algo.get_last_point())
     # plot the regret
     # regret_dic = {"VPCT": np.array(VPCT_regret_list)}
     # compare_regret(regret_dic)

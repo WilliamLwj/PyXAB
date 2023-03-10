@@ -42,7 +42,7 @@ def test_HCT_Garland():
     cumulative_regret_list = [0]
 
     for t in range(1, T + 1):
-        print(t)
+
         point = algo.pull(t)
         reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
         algo.receive_reward(t, reward)
@@ -50,8 +50,7 @@ def test_HCT_Garland():
         cumulative_regret += inst_regret
         cumulative_regret_list.append(cumulative_regret)
 
-        print("T-HOO: ", point)
-
+    print("HCT: ", algo.get_last_point())
 
 def test_HCT_Himmelblau():
     T = 100
@@ -64,7 +63,7 @@ def test_HCT_Himmelblau():
     cumulative_regret_list = [0]
 
     for t in range(1, T + 1):
-        print(t)
+
         point = algo.pull(t)
         reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
         algo.receive_reward(t, reward)
@@ -72,4 +71,4 @@ def test_HCT_Himmelblau():
         cumulative_regret += inst_regret
         cumulative_regret_list.append(cumulative_regret)
 
-        print("T-HOO: ", point)
+    print("HCT: ", algo.get_last_point())

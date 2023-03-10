@@ -26,7 +26,7 @@ Please read the :ref:`api-cheatsheet` and :ref:`api-reference` for the API of ou
 
 **During Implementation**
 
-Please carefully follow our API and the :ref:`gallery_of_examples`. For example, every algorithm needs to inherit the class :class:`PyXAB.algos.Algo.Algorithm`, and has to implement the abstract methods :func:`PyXAB.algos.Algo.Algorithm.pull` and :func:`PyXAB.algos.Algo.Algorithm.receive_reward`.
+Please carefully follow our API and the :ref:`gallery_of_examples`. For example, every algorithm needs to inherit the class :class:`PyXAB.algos.Algo.Algorithm`, and has to implement the abstract methods :func:`PyXAB.algos.Algo.Algorithm.pull`, :func:`PyXAB.algos.Algo.Algorithm.receive_reward` and :func:`PyXAB.algos.Algo.Algorithm.get_last_point`.
 
 **Documentations**
 

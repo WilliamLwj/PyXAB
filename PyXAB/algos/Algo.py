@@ -56,3 +56,15 @@ class Algorithm(ABC):
         -------
         """
         pass
+
+    @abstractmethod
+    def get_last_point(self):
+        """
+        Every algorithm needs a function to get the last point
+
+        Returns
+        -------
+        chosen_point: list
+            The point chosen by the algorithm
+        """
+        pass

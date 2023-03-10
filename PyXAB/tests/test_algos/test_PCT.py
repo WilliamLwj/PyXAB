@@ -24,7 +24,7 @@ def test_PCT_3():
     target = Himmelblau.Himmelblau()
     domain = [[-5, 5], [-5, 5]]
     partition = BinaryPartition
-    algo = PCT(domain=domain, partition=partition)
+    algo = PCT(rounds=T, domain=domain, partition=partition)
 
     cumulative_regret = 0
     cumulative_regret_list = []
@@ -40,3 +40,5 @@ def test_PCT_3():
         cumulative_regret_list.append(cumulative_regret)
 
     # plot_regret(np.array(cumulative_regret_list))
+
+    print('PCT: ', algo.get_last_point())

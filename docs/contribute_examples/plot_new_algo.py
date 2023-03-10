@@ -48,6 +48,9 @@ class Dummy(Algorithm):
         # No update given the reward for the dummy algorithm
         pass
 
+    def get_last_point(self):
+
+        return self.pull(0)
 
 # %%
 # Define the number of rounds, the target, the domain, the partition, and the algorithm for the learning process
