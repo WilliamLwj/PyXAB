@@ -29,7 +29,7 @@ class DimensionBinaryPartition(Partition):
 
         """
         if domain is None:
-            raise ValueError('domain is not provided to the Dimension Binary Partition')
+            raise ValueError("domain is not provided to the Dimension Binary Partition")
         super(DimensionBinaryPartition, self).__init__(domain=domain, node=node)
 
     # Rewrite the make_children function in the Partition class

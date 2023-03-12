@@ -5,6 +5,14 @@ The API references for X-armed bandit algorithms. Please see the general algorit
 
 Truncated HOO Algorithm
 -----------------------
+.. autoclass:: PyXAB.algos.HOO.HOO_node
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+
 .. autoclass:: PyXAB.algos.HOO.T_HOO
     :members:
     :undoc-members:
@@ -75,6 +83,14 @@ StoSOO Algorithm
 
 HCT Algorithm
 -----------------------
+.. autoclass:: PyXAB.algos.HCT.HCT_node
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+
 .. autoclass:: PyXAB.algos.HCT.HCT
     :members:
     :undoc-members:
@@ -158,6 +174,14 @@ StroquOOL Algorithm
 
 VHCT Algorithm
 ----------------------------
+.. autoclass:: PyXAB.algos.VHCT.VHCT_node
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+
 .. autoclass:: PyXAB.algos.VHCT.VHCT
     :members:
     :undoc-members:

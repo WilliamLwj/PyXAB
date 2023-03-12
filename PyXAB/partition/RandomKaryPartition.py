@@ -7,6 +7,7 @@
 from PyXAB.partition.Node import P_node
 from PyXAB.partition.Partition import Partition
 import numpy as np
+import copy
 import pdb
 
 
@@ -31,7 +32,7 @@ class RandomKaryPartition(Partition):
             The node used in the partition, with the default choice to be P_node.
         """
         if domain is None:
-            raise ValueError('domain is not provided to the Random K-ary Partition')
+            raise ValueError("domain is not provided to the Random K-ary Partition")
         self.K = K
         super(RandomKaryPartition, self).__init__(domain=domain, node=node)
 
@@ -65,15 +66,15 @@ class RandomKaryPartition(Partition):
         for i in range(self.K):
             if i != 0:
                 boundary_point_0 = boundary_point_1
-            if i != self.K-1:
+            if i != self.K - 1:
                 boundary_point_1 = np.random.uniform(boundary_point_0, selected_dim[1])
             else:
                 boundary_point_1 = selected_dim[1]
-            domain = parent_domain.copy()
+            domain = copy.deepcopy(parent_domain)
             domain[dim] = [boundary_point_0, boundary_point_1]
             node = self.node(
                 depth=parent.get_depth() + 1,
-                index=self.K * parent.get_index() - (self.K-i-1),
+                index=self.K * parent.get_index() - (self.K - i - 1),
                 parent=parent,
                 domain=domain,
             )

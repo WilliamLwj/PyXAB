@@ -24,25 +24,25 @@ def main(algo_list, target, domain, partition, noise=0.1, rounds=1000):
         regret_list = []
         regret = 0
         for t in range(1, rounds + 1):
-            print(t)
             point = algo.pull(t)
             reward = target.f(point) + np.random.uniform(-noise, noise)
             algo.receive_reward(t, reward)
             inst_regret = target.fmax - target.f(point)
             regret += inst_regret
             regret_list.append(regret)
-
+    print(regret)
     return np.array(regret_list)
 
 
 target = DoubleSine.DoubleSine()
 domain = [[0, 1]]
 partition = BinaryPartition
-rounds = 500
-noise = 0.5
+rounds = 1000
+noise = 0.1
 
 
-trials = 3
+trials = 1
+
 regret_array_HOO = np.array(
     [main(["T-HOO"], target, domain, partition, noise, rounds) for _ in range(trials)]
 )
@@ -52,25 +52,25 @@ regret_array_HCT = np.array(
 regret_array_VHCT = np.array(
     [main(["VHCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
 )
-regret_array_POO = np.array(
-    [main(["POO"], target, domain, partition, noise, rounds) for _ in range(trials)]
-)
-regret_array_PCT = np.array(
-    [main(["PCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
-)
-
-regret_array_VPCT = np.array(
-    [main(["VPCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
-)
+# regret_array_POO = np.array(
+#     [main(["POO"], target, domain, partition, noise, rounds) for _ in range(trials)]
+# )
+# regret_array_PCT = np.array(
+#     [main(["PCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
+# )
+#
+# regret_array_VPCT = np.array(
+#     [main(["VPCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
+# )
 
 regret_dic = {
     "regret": [
         regret_array_VHCT,
         regret_array_HCT,
         regret_array_HOO,
-        regret_array_POO,
-        regret_array_PCT,
-        regret_array_VPCT,
+        # regret_array_POO,
+        # regret_array_PCT,
+        # regret_array_VPCT,
     ],
     "labels": ["VHCT", "HCT", "T-HOO", "POO", "PCT", "VPCT"],
     "colors": ["red", "blue", "green", "grey", "orange", "yellow"],

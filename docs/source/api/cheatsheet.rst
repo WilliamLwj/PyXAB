@@ -11,6 +11,7 @@ Algorithm
 
 * :func:`PyXAB.algos.Algo.Algorithm.pull`: Generate a point for each time step to be evaluated
 * :func:`PyXAB.algos.Algo.Algorithm.receive_reward`: After receiving the reward, update the parameters of the algorithm
+* :func:`PyXAB.algos.Algo.Algorithm.get_last_point`: The function to retrieve the last output of the algorithm
 
 Partition
 ---------------------------

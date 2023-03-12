@@ -141,3 +141,13 @@ class GPO(Algorithm):
                 ) / (self.counter - self.half_phase_length + 1)
 
         self.counter += 1
+
+    def get_last_point(self):
+        """
+        The function to get the last point in GPO
+
+        Returns
+        -------
+
+        """
+        return self.V_x[np.argmax(np.array(self.V_reward))]

@@ -1,4 +1,3 @@
 [run]
 omit =
     PyXAB/utils/*
-    PyXAB/run_synthetic.py

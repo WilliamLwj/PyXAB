@@ -2,7 +2,7 @@ from PyXAB.synthetic_obj import Garland
 import pytest
 
 
-def test_Garland_1():
+def test_Garland_value_error_1():
     point = [0, 1]  # An invalid point
     objective1 = Garland.Garland()
     objective2 = Garland.Perturbed_Garland()
@@ -12,7 +12,7 @@ def test_Garland_1():
         objective2.f(point)
 
 
-def test_Garland_2():
+def test_Garland_value_error_2():
     point = [0, 1, 2]  # An invalid point
     objective1 = Garland.Garland()
     objective2 = Garland.Perturbed_Garland()
@@ -22,15 +22,14 @@ def test_Garland_2():
         objective2.f(point)
 
 
-
-def test_Garland_3():
+def test_Garland_initialization():
     objective1 = Garland.Garland()
     objective2 = Garland.Perturbed_Garland()
     assert objective1.fmax == 1.0
     assert objective2.fmax == pytest.approx(1.0 + objective2.perturb)
 
 
-def test_Garland_4():
+def test_Garland_evaluation():
     point = [0.5]
     objective1 = Garland.Garland()
     objective2 = Garland.Perturbed_Garland()

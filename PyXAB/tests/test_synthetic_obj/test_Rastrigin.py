@@ -2,14 +2,14 @@ from PyXAB.synthetic_obj import Rastrigin
 import pytest
 
 
-def test_Rastrigin_1():
+def test_Rastrigin_initialization():
     objective1 = Rastrigin.Rastrigin()
     objective2 = Rastrigin.Rastrigin_Normalized()
     assert objective1.fmax == 0
     assert objective2.fmax == 0
 
 
-def test_Rastrigin_2():
+def test_Rastrigin_evaluation():
     point = [0, 0]
     objective1 = Rastrigin.Rastrigin()
     objective2 = Rastrigin.Rastrigin_Normalized()

@@ -7,7 +7,31 @@ import numpy as np
 import pytest
 
 
-def test_optimize_Garland():
+def test_HOO_value_error_1():
+    T = 1000
+    partition = BinaryPartition
+    with pytest.raises(ValueError):
+        T_HOO(rounds=T, partition=partition)
+
+
+def test_HOO_value_error_2():
+    T = 1000
+    domain = [[0, 1]]
+    with pytest.raises(ValueError):
+        T_HOO(rounds=T, domain=domain)
+
+
+def test_HOO_initialization():
+    T = 1000
+    partition = BinaryPartition
+    domain = [[0, 1]]
+    algo = T_HOO(rounds=T, domain=domain, partition=partition)
+    root = algo.partition.get_root()
+    assert root.get_mean_reward() == 0
+    assert root.get_visited_times() == 0
+
+
+def test_HOO_Garland():
     T = 100
     Target = Garland.Garland()
     domain = [[0, 1]]
@@ -19,7 +43,6 @@ def test_optimize_Garland():
 
     for t in range(1, T + 1):
         # T-HOO
-        print(t)
         point = algo.pull(t)
         reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
         algo.receive_reward(t, reward)
@@ -27,8 +50,7 @@ def test_optimize_Garland():
         cumulative_regret += inst_regret
         cumulative_regret_list.append(cumulative_regret)
 
-        print("T-HOO: ", point)
-
+    print("HOO: ", algo.get_last_point())
     # plot the result
     # regret_dic = {
     #     "T-HOO": np.array(cumulative_regret_list),

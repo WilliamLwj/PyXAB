@@ -7,6 +7,7 @@
 from PyXAB.partition.Node import P_node
 from PyXAB.partition.Partition import Partition
 import numpy as np
+import copy
 
 
 class RandomBinaryPartition(Partition):
@@ -29,7 +30,7 @@ class RandomBinaryPartition(Partition):
             The node used in the partition, with the default choice to be P_node.
         """
         if domain is None:
-            raise ValueError('domain is not provided to the RandomBinary Partition')
+            raise ValueError("domain is not provided to the RandomBinary Partition")
         super(RandomBinaryPartition, self).__init__(domain=domain, node=node)
 
     # Rewrite the make_children function in the Partition class
@@ -55,8 +56,8 @@ class RandomBinaryPartition(Partition):
         dim = np.random.randint(0, len(parent_domain))
         selected_dim = parent_domain[dim]
 
-        domain1 = parent_domain.copy()
-        domain2 = parent_domain.copy()
+        domain1 = copy.deepcopy(parent_domain)
+        domain2 = copy.deepcopy(parent_domain)
 
         split_point = np.random.uniform(selected_dim[0], selected_dim[1])
         domain1[dim] = [selected_dim[0], split_point]
