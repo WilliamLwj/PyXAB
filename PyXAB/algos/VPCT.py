@@ -92,4 +92,4 @@ class VPCT(Algorithm):
         -------
 
         """
-        self.algorithm.get_last_point()
+        return self.algorithm.get_last_point()
