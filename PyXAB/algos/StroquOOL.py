@@ -38,7 +38,7 @@ class StroquOOL_node(P_node):
         self.rewards = (
             []
         )  # list of rewards after obtaining the evaluation of some point in the domain of this node
-        self.mean_reward = 0
+        self.mean_reward = -np.inf
 
     def update_reward(self, reward):
         """
@@ -73,10 +73,9 @@ class StroquOOL_node(P_node):
         -------
         
         """
-        if self.visited_times == 0:
-            self.mean_reward = -np.inf
-        else:
+        if self.visited_times > 0:
             self.mean_reward = np.sum(np.array(self.rewards)) / len(self.rewards)
+            
 
     def get_mean_reward(self):
         """
@@ -117,21 +116,6 @@ class StroquOOL_node(P_node):
         
         """
         self.rewards = []
-
-    def get_randompoint(self):
-        """
-        The function to get a random representative point for a node
-
-        Returns
-        -------
-        randompoint: list
-            the list of points for each node in the domain
-        """
-        randompoint = []
-        for x in self.domain:
-            # Randomly chosen point from cotinuous domain
-            randompoint.append(np.random.uniform(x[0], x[1]))
-        return randompoint
 
 
 class StroquOOL(Algorithm):
