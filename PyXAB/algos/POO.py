@@ -42,6 +42,8 @@ class POO(Algorithm):
             raise ValueError("Partition of the parameter space is not given.")
         if algo is None:
             raise ValueError("Algorithm for POO is not given")
+        if algo.__name__ != 'T_HOO' and algo.__name__ != 'HCT' and algo.__name__ != 'VHCT':
+            raise NotImplementedError('POO has not yet included implementations for this algorithm')
 
         self.rounds = rounds
         self.rhomax = rhomax

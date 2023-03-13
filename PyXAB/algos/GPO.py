@@ -42,6 +42,8 @@ class GPO(Algorithm):
             raise ValueError("Partition of the parameter space is not given.")
         if algo is None:
             raise ValueError("Algorithm for GPO is not given")
+        if algo.__name__ != 'T_HOO' and algo.__name__ != 'HCT' and algo.__name__ != 'VHCT':
+            raise NotImplementedError('GPO has not yet included implementations for this algorithm')
 
         self.rounds = rounds
         self.rhomax = rhomax
