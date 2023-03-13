@@ -52,25 +52,25 @@ regret_array_HCT = np.array(
 regret_array_VHCT = np.array(
     [main(["VHCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
 )
-# regret_array_POO = np.array(
-#     [main(["POO"], target, domain, partition, noise, rounds) for _ in range(trials)]
-# )
-# regret_array_PCT = np.array(
-#     [main(["PCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
-# )
-#
-# regret_array_VPCT = np.array(
-#     [main(["VPCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
-# )
+regret_array_POO = np.array(
+    [main(["POO"], target, domain, partition, noise, rounds) for _ in range(trials)]
+)
+regret_array_PCT = np.array(
+    [main(["PCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
+)
+
+regret_array_VPCT = np.array(
+    [main(["VPCT"], target, domain, partition, noise, rounds) for _ in range(trials)]
+)
 
 regret_dic = {
     "regret": [
         regret_array_VHCT,
         regret_array_HCT,
         regret_array_HOO,
-        # regret_array_POO,
-        # regret_array_PCT,
-        # regret_array_VPCT,
+        regret_array_POO,
+        regret_array_PCT,
+        regret_array_VPCT,
     ],
     "labels": ["VHCT", "HCT", "T-HOO", "POO", "PCT", "VPCT"],
     "colors": ["red", "blue", "green", "grey", "orange", "yellow"],
