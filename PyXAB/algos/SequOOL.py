@@ -13,7 +13,24 @@ import pdb
 
 
 class SequOOL_node(P_node):
+    """
+    Implementation of the SequOOL node
+    """
+    
     def __init__(self, depth, index, parent, domain):
+        """
+        Initialization of the SequOOL node
+        Parameters
+        ----------
+        depth: int
+            fepth of the node
+        index: int
+            index of the node
+        parent: 
+            parent node of the current node
+        domain: list(list)
+            domain that this node represents
+        """
         super(SequOOL_node, self).__init__(depth, index, parent, domain)
 
         self.rewards = []
@@ -21,20 +38,69 @@ class SequOOL_node(P_node):
         self.opened = False
 
     def update_reward(self, reward):
+        """
+        The function to update the reward list of the node
+        
+        Parameters
+        ----------
+        reward: float
+            the reward for evaluating the node
+        
+        Returns
+        -------
+        
+        """
         self.rewards.append(reward)
 
     def get_reward(self):
+        """
+        The function to get the reward of the node
+
+        Returns
+        -------
+        
+        """
         return self.rewards[0]
 
     def open(self):
+        """
+        The function to open a node
+        
+        Returns
+        -------
+        
+        """
         self.opened = True
 
     def not_opened(self):
+        """
+        The function to get the status of the node (opened or not)
+
+        Returns
+        -------
+        
+        """
         return False if self.opened else True
 
 
 class SequOOL(Algorithm):
+    """
+    The implementation of the SequOOL algorithm (Barlett, 2019)
+    """
+    
     def __init__(self, n=1000, domain=None, partition=None):
+        """
+        The initialization of the SequOOL algorithm
+        
+        Parameters
+        ----------
+        n: int
+            The totdal number of rounds (budget)
+        domain: list(list)
+            The domain of the objective to be optimized
+        partition:
+            The partition choice of the algorithm
+        """
         super(SequOOL, self).__init__()
         if domain is None:
             raise ValueError("Parameter space is not given.")
@@ -51,12 +117,38 @@ class SequOOL(Algorithm):
 
     @staticmethod
     def harmonic_series_sum(n):
+        """
+        A static method for computing the summation of harmonic series
+        
+        Parameters
+        ----------
+        n: int
+            The number of terms in the summation
+        
+        Returns
+        -------
+        res: float
+            The sum of the series
+        """
         res = 0
         for i in range(1, n + 1):
             res += 1 / i
         return res
 
     def pull(self, t):
+        """
+        The pull function of SequOOL that returns a point in every round
+        
+        Parameters
+        ----------
+        time: int
+            time stamp parameter
+        
+        Returns
+        -------
+        point: list
+            the point to be evaluated
+        """
         node_list = self.partition.get_node_list()
         self.iteration = t
 
@@ -113,9 +205,31 @@ class SequOOL(Algorithm):
             return node_list[0][0].get_cpoint()
 
     def receive_reward(self, t, reward):
+        """
+        The receive_reward function of SequOOL to obtain the reward and update Statistics
+        
+        Parameters
+        ----------
+        t: int
+            The time stamp parameter
+        reward: float
+            The reward of the evaluation
+        
+        Returns
+        -------
+        
+        """
         self.curr_node.update_reward(reward)
 
     def get_last_point(self):
+        """
+        The function to get the last point in SequOOL
+        
+        Returns
+        -------
+        point: list
+            The output of the SequOOL algorithm at last
+        """
         max_node = None
         max_value = -np.inf
 
