@@ -33,8 +33,9 @@ def test_SOO_3():
         point = algo.pull(t)
         reward = Target.f(point)
         algo.receive_reward(t, reward)
-
-    algo.get_last_point()
+        
+    last_point = algo.get_last_point()
+    print(T, Target.fmax - Target.f(last_point))
     # plot the regret
     # regret_dic = {"POO": np.array(POO_regret_list)}
     # compare_regret(regret_dic)
@@ -51,8 +52,25 @@ def test_SOO_4():
         point = algo.pull(t)
         reward = Target.f(point)
         algo.receive_reward(t, reward)
-
-    algo.get_last_point()
+        
+    last_point = algo.get_last_point()
+    print(T, Target.fmax - Target.f(last_point))
     # plot the regret
     # regret_dic = {"POO": np.array(POO_regret_list)}
     # compare_regret(regret_dic)
+
+def test_SOO_5():
+    T = 100
+    Target = Garland.Garland()
+    domain = [[0, 1]]
+    partition = BinaryPartition
+    algo = SOO(n=T, h_max=20, domain=domain, partition=partition)
+
+    for t in range(1, T + 1):
+        point = algo.pull(t)
+        reward = Target.f(point)
+        algo.receive_reward(t, reward)
+        
+    last_point = algo.get_last_point()
+    print(T, Target.fmax - Target.f(last_point))
+

@@ -12,7 +12,25 @@ import pdb
 
 
 class StroquOOL_node(P_node):
+    """
+    Implementation of the node in the StroquOOL algorithm
+    """
+    
     def __init__(self, depth, index, parent, domain):
+        """
+        Initialization of the StroquOOL node
+
+        Paramaters
+        ----------
+        depth: int
+            depth of the node
+        index: int
+            index of the node
+        parent: 
+            parent node of the current node
+        domain: list(list)
+            domain that this node represents
+        """
         super(StroquOOL_node, self).__init__(depth, index, parent, domain)
 
         self.visited_times = 0  # store the number of evaluations of the node
@@ -20,42 +38,104 @@ class StroquOOL_node(P_node):
         self.rewards = (
             []
         )  # list of rewards after obtaining the evaluation of some point in the domain of this node
-        self.mean_reward = 0
+        self.mean_reward = -np.inf
 
     def update_reward(self, reward):
+        """
+        The function to update the reward list of the node
+
+        Parameters
+        ----------
+        reward: float
+            the reward for evaluating the node
+        
+        Returns
+        -------
+
+        """
         self.rewards.append(reward)
 
     def get_visited_times(self):
+        """
+        The function to get the number of visited times of the node
+
+        Returns
+        -------
+            
+        """
         return self.visited_times
 
     def compute_mean_reward(self):
-        if self.visited_times == 0:
-            self.mean_reward = -np.inf
-        else:
+        """
+        The function to compute the mean of the reward list of the node
+        
+        Returns
+        -------
+        
+        """
+        if self.visited_times > 0:
             self.mean_reward = np.sum(np.array(self.rewards)) / len(self.rewards)
+            
 
     def get_mean_reward(self):
+        """
+        The function to get the mean of the reward list of the node
+
+        Returns
+        -------
+        
+        """
         return self.mean_reward
 
     def not_opened(self):
+        """
+        The function to get the status of the node (opened or not)
+        
+        Returns
+        -------
+        
+        """
         return False if self.opened else True
 
     def open_node(self):
+        """
+        The function to open a node
+        
+        Returns
+        -------
+        
+        """
         self.opened = True
 
     def remove_reward(self):
+        """
+        The function to clear the reward list of a node
+        
+        Returns
+        -------
+        
+        """
         self.rewards = []
-
-    def get_randompoint(self):
-        randompoint = []
-        for x in self.domain:
-            # Randomly chosen point from cotinuous domain
-            randompoint.append(np.random.uniform(x[0], x[1]))
-        return randompoint
 
 
 class StroquOOL(Algorithm):
+    """
+    The implementation of the StroquOOL algorithm (Bartlett, 2019)
+    """
+    
     def __init__(self, n=1000, domain=None, partition=None):
+        """
+        The initialization of the StroquOOL algorithm
+
+        Parameters
+        ----------
+        n: int
+            The total number of rounds (budget)
+        domain: list(list)
+            The domain of the objective to be optimized
+        partition: 
+            The partition choice of the algorithm
+        """
         super(StroquOOL).__init__()
         if domain is None:
             raise ValueError("Parameter space is not given.")
@@ -85,20 +165,52 @@ class StroquOOL(Algorithm):
 
     @staticmethod
     def harmonic_series_sum(n):
+        """
+        A static method for computing the summation of harmonic series
+        
+        Parameters
+        ----------
+        n: int
+            The number of terms in the summation
+        
+        Returns
+        -------
+        res: float
+            The sum of the series
+        """
         res = 0
         for i in range(1, n + 1):
             res += 1 / i
         return res
 
     def reset_p(self):
+        """
+        The function to reset p for current situation
+
+        Returns
+        -------
+        
+        """
         self.curr_p = math.floor(np.log2(self.h_max / self.curr_depth))
 
     def pull(self, time):
+        """
+        The pull function of StroquOOL that returns a point in every round
+        
+        Parameters
+        ----------
+        time: int
+            time stamp parameter
+
+        Returns
+        -------
+        point: list
+            the point to be evaluated
+        """
         self.iteration = time
         node_list = self.partition.get_node_list()
 
         if self.curr_depth <= self.h_max:
-            flag = True
             # init
             if self.curr_depth == 0:
                 if node_list[0][0].get_children() is None:
@@ -184,19 +296,36 @@ class StroquOOL(Algorithm):
         )  # TODO: change synthetic obj so that when it receive None, it passes.
 
     def receive_reward(self, t, reward):
+        """
+        The receive_reward function of StroquOOL to obtain the reward and update Statistics. 
+        If the algorithm has ended but there is still time left, then this function just passes
+
+        Parameters
+        ----------
+        t: int
+            The time stamp parameter
+        reward: float
+            The reward of the evaluation
+            
+        Returns
+        -------
+        
+        """
         if not self.end:
             self.curr_node.visited_times += 1
             self.curr_node.update_reward(reward)
         else:
             pass
 
-    def get_chosen(self):
-        return self.chosen
-
-    def get_h_max(self):
-        return self.h_max
-
     def get_last_point(self):
+        """
+        The function to get the last point in StroquOOL
+
+        Returns
+        -------
+        point: list
+            The output of the StroquOOL algorithm at last
+        """
         max_value = -np.inf
         max_node = None
         for node in self.candidate:
