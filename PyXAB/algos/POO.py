@@ -3,6 +3,7 @@
 """
 # Author: Wenjie Li <li3549@purdue.edu>
 # License: MIT
+import pdb
 
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
@@ -65,6 +66,7 @@ class POO(Algorithm):
         # The cross-validation list
         self.V_algo = []
         self.V_reward = []
+        self.Times = []
 
     def pull(self, time):
         """
@@ -82,33 +84,28 @@ class POO(Algorithm):
         """
 
         if self.N <= 0.5 * self.Dmax * np.log(self.n / np.log(self.n)):
+
             if self.counter == 0:
                 rho = self.rhomax ** (2 * self.N / (2 * self.phase + 1))
-                self.curr_algo = self.algo(
-                    nu=self.numax, rho=rho, domain=self.domain, partition=self.partition
-                )
+                if self.algo.__name__ == 'T_HOO':
+                    self.curr_algo = self.algo(
+                        nu=self.numax, rho=rho, rounds=self.rounds, domain=self.domain, partition=self.partition
+                    )
+                elif self.algo.__name__ == 'HCT' or self.algo.__name__ == 'VHCT':
+                    self.curr_algo = self.algo(
+                        nu=self.numax, rho=rho, domain=self.domain, partition=self.partition
+                    )
+                else:
+                    # TODO: add more algorithms that do not need nu or rho
+                    raise NotImplementedError('POO has not yet included implementations for this algorithm')
                 self.V_algo.append(self.curr_algo)
                 self.V_reward.append(0)
-            point = self.curr_algo.pull(time)
+                self.Times.append(0)
+            point = self.V_algo[-1].pull(time)
 
-            if self.counter >= np.ceil(self.N / self.n):
-                self.counter = 0
-                self.phase += 1
-
-            # Refresh, change n and N
-            if self.phase >= self.N:
-                self.n = 2 * self.n
-                self.N = 2 * self.N
-                self.phase = 0
-                self.counter = 0
-                self.algo_counter = 0
         else:
             algo = self.V_algo[self.algo_counter]
             point = algo.pull(time)
-            self.algo_counter += 1
-            if self.algo_counter == len(self.V_algo):
-                self.algo_counter = 0
-                self.n = self.n + self.N
 
         return point
 
@@ -129,17 +126,33 @@ class POO(Algorithm):
 
         """
         if self.N <= 0.5 * self.Dmax * np.log(self.n / np.log(self.n)):
-            self.curr_algo.receive_reward(time, reward)
-            self.V_reward[-1] = (self.V_reward[-1] * (self.counter) + reward) / (
+            self.V_algo[-1].receive_reward(time, reward)
+            self.V_reward[-1] = (self.V_reward[-1] * self.counter + reward) / (
                 self.counter + 1
             )
+            self.Times[-1] += 1
             self.counter += 1
+            if self.counter >= np.ceil(self.n / self.N):
+                self.counter = 0
+                self.phase += 1
 
+            # Refresh, change n and N
+            if self.phase >= self.N:
+                self.n = 2 * self.n
+                self.N = 2 * self.N
+                self.phase = 0
+                self.counter = 0
+                self.algo_counter = 0
         else:
             self.V_algo[self.algo_counter].receive_reward(time, reward)
             self.V_reward[self.algo_counter] = (
-                self.V_reward[self.algo_counter] * np.ceil(self.N / self.n) + reward
-            ) / (np.ceil(self.N / self.n) + 1)
+                self.V_reward[self.algo_counter] * np.ceil(self.n / self.N) + reward
+            ) / (np.ceil(self.n / self.N) + 1)
+            self.Times[self.algo_counter] += 1
+            self.algo_counter += 1
+            if self.algo_counter == len(self.V_algo):
+                self.algo_counter = 0
+                self.n = self.n + self.N
 
     def get_last_point(self):
         """
@@ -150,9 +163,6 @@ class POO(Algorithm):
 
         """
         V_reward = np.array(self.V_reward)
-
         max_param = np.argmax(V_reward)
-
-        point = self.V_algo[max_param].pull(time=self.rounds)
-
+        point = self.V_algo[max_param].pull(time=0)
         return point
