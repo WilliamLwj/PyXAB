@@ -28,7 +28,7 @@ def test_DOO_DoubleSine():
 
     for t in range(1, T + 1):
         point = algo.pull(t)
-        reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
+        reward = Target.f(point)
         algo.receive_reward(t, reward)
         
     last_point = algo.get_last_point()
@@ -43,7 +43,7 @@ def test_DOO_Ackley():
 
     for t in range(1, T + 1):
         point = algo.pull(t)
-        reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
+        reward = Target.f(point)
         algo.receive_reward(t, reward)
         
     last_point = algo.get_last_point()
@@ -58,7 +58,7 @@ def test_DOO_Garland():
 
     for t in range(1, T + 1):
         point = algo.pull(t)
-        reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
+        reward = Target.f(point)
         algo.receive_reward(t, reward)
         
     last_point = algo.get_last_point()
