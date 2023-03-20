@@ -7,21 +7,59 @@ from PyXAB.utils.plot import compare_regret
 import math
 import numpy as np
 import pdb
+import pytest
 
-T = 100
-# H = math.floor(T / (2 * (np.log2(T) + 1)**2))
-# Target = Ackley.Ackley_Normalized()
-# Target = DoubleSine.DoubleSine()
-Target = Garland.Garland()
-# domain = [[0, 1], [0, 1]]
-domain = [[0, 1]]
-partition = BinaryPartition
-algo = DOO(n=T, domain=domain, partition=partition)
+def test_DOO_ValueError_1():
+    partition = BinaryPartition
+    with pytest.raises(ValueError):
+        algo = DOO(partition=partition)
 
-for t in range(1, T + 1):
-    point = algo.pull(t)
-    reward = Target.f(point)
-    algo.receive_reward(t, reward)
+def test_DOO_ValueError_2():
+    domain = [[0, 1]]
+    with pytest.raises(ValueError):
+        algo = DOO(domain=domain)
 
-last_point = algo.get_last_point()
-print(algo.iteration, Target.fmax - Target.f(last_point), last_point)
+def test_DOO_DoubleSine():
+    T = 500
+    Target = DoubleSine.DoubleSine()
+    domain = [[0, 1]]
+    partition = BinaryPartition
+    algo = DOO(n=T, domain=domain, partition=partition)
+
+    for t in range(1, T + 1):
+        point = algo.pull(t)
+        reward = Target.f(point)
+        algo.receive_reward(t, reward)
+        
+    last_point = algo.get_last_point()
+    print(T, Target.fmax - Target.f(last_point))
+
+def test_DOO_Ackley():
+    T = 500
+    Target = Ackley.Ackley_Normalized()
+    domain = [[0, 1], [0, 1]]
+    partition = BinaryPartition
+    algo = DOO(n=T, domain=domain, partition=partition)
+
+    for t in range(1, T + 1):
+        point = algo.pull(t)
+        reward = Target.f(point)
+        algo.receive_reward(t, reward)
+        
+    last_point = algo.get_last_point()
+    print(T, Target.fmax - Target.f(last_point))
+    
+def test_DOO_Garland():
+    T = 500
+    Target = Garland.Garland()
+    domain = [[0, 1]]
+    partition = BinaryPartition
+    algo = DOO(n=T, domain=domain, partition=partition)
+
+    for t in range(1, T + 1):
+        point = algo.pull(t)
+        reward = Target.f(point)
+        algo.receive_reward(t, reward)
+        
+    last_point = algo.get_last_point()
+    print(T, Target.fmax - Target.f(last_point))

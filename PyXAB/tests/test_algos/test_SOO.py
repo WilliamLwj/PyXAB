@@ -10,19 +10,17 @@ import pdb
 import pytest
 
 
-def test_SOO_1():
+def test_SOO_ValueError_1():
     partition = BinaryPartition
     with pytest.raises(ValueError):
         algo = SOO(partition=partition)
 
-
-def test_SOO_2():
+def test_SOO_ValueError_2():
     domain = [[0, 1]]
     with pytest.raises(ValueError):
         algo = SOO(domain=domain)
 
-
-def test_SOO_3():
+def test_SOO_Garland():
     T = 100
     Target = Garland.Garland()
     domain = [[0, 1]]
@@ -36,12 +34,8 @@ def test_SOO_3():
         
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
-    # plot the regret
-    # regret_dic = {"POO": np.array(POO_regret_list)}
-    # compare_regret(regret_dic)
 
-
-def test_SOO_4():
+def test_SOO_Ackley():
     T = 100
     Target = Ackley.Ackley_Normalized()
     domain = [[0, 1], [0, 1]]
@@ -59,7 +53,7 @@ def test_SOO_4():
     # regret_dic = {"POO": np.array(POO_regret_list)}
     # compare_regret(regret_dic)
 
-def test_SOO_5():
+def test_SOO_SmallSearchingDepth():
     T = 100
     Target = Garland.Garland()
     domain = [[0, 1]]
