@@ -66,10 +66,7 @@ class DOO_node(P_node):
         -------
         
         """
-        if self.visited:
-            self.b_value = self.reward + delta
-        else:
-            self.b_value = np.inf
+        self.b_value = self.reward + delta
 
     def get_b_value(self):
         """
