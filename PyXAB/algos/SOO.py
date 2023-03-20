@@ -12,25 +12,87 @@ from PyXAB.partition.Node import P_node
 import pdb
 
 class SOO_node(P_node):
+    """
+    Implementation of the node in the SOO algorithm
+    """
+    
     def __init__(self, depth, index, parent, domain):
+        """
+        Initialization of the SOO node
+        
+        Parameters
+        ----------
+        depth: int
+            depth of the node
+        index: int
+            index of the node
+        parent: 
+            parent node of the current node
+        domain: list(list)
+            domain that this node represents
+        """
         super(SOO_node, self).__init__(depth, index, parent, domain)
         
         self.visited = False
         self.reward = -np.inf
         
     def update_reward(self, reward):
+        """
+        The function to update the reward of the node
+
+        Parameters
+        ----------
+        reward: float
+            the reward for evaluating the node
+        
+        Returns
+        -------
+        
+        """
         self.reward = reward
         
     def get_reward(self):
+        """
+        The function to get the reward of the node
+        
+        Returns
+        -------
+
+        """
         return self.reward
     
     def visit(self):
+        """
+        The function to visit the node
+        
+        Returns
+        -------
+        
+        """
         
         self.visited = True
         
 
 class SOO(Algorithm):
-    def __init__(self, n=100, h_max=100, domain=None, partition=None): # TODO: h_max should not be too small otherwise it will be a dead loop.
+    """
+    The implementation of the SOO algorithm (Munos, 2011)
+    """
+    
+    def __init__(self, n=100, h_max=100, domain=None, partition=None): 
+        """
+        The initialization of the SOO algorithm
+        
+        Parameters
+        ----------
+        n: int
+            The total number of rounds (budget)
+        h_max: int
+            The largest searching depth
+        domain: list(list)
+            The domain of the objective to be optimized
+        partition: 
+            The partition choice of the algorithm
+        """
         super(SOO, self).__init__()
         if domain is None: 
             raise ValueError("Parameter space is not given.")
@@ -45,6 +107,19 @@ class SOO(Algorithm):
         self.curr_node = None
         
     def pull(self, time):
+        """
+        The pull function of SOO that returns a point in every round
+
+        Parameters
+        ----------
+        time: int
+            time stamp parameter
+        
+        Returns
+        -------
+        point: list
+            the point to be evaluated
+        """
         
         self.iteration = time 
         node_list = self.partition.get_node_list()
@@ -76,10 +151,31 @@ class SOO(Algorithm):
                 flag = True # We set flag = True iff the loop cannot find the node starting from root.
                 
     def receive_reward(self, time, reward):
+        """
+        The receive_reward function of SOO to obtain the reward and update Statistics (for current node)
+
+        Parameters
+        ----------
+        time: int
+            The time stamp parameter
+        reward: float
+            The reward of the evaluation
+        
+        Returns
+        -------
+        """
         
         self.curr_node.update_reward(reward)
         
     def get_last_point(self):
+        """
+        The function to get the last point in SOO
+
+        Returns
+        -------
+        point: list
+            The output of the SOO algorithm at last
+        """
         
         max_value = -np.inf
         max_node = None
