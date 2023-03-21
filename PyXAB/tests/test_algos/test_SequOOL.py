@@ -11,12 +11,12 @@ import pytest
 def test_SequOOL_ValueError_1():
     partition = BinaryPartition
     with pytest.raises(ValueError):
-        algo = SequOOL(partition=partition)
+        SequOOL(partition=partition)
 
 def test_SequOOL_ValueError_2():
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        algo = SequOOL(domain=domain)
+        SequOOL(domain=domain)
 
 def test_SequOOL_DoubleSine():
     T = 500

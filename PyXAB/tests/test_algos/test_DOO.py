@@ -12,12 +12,12 @@ import pytest
 def test_DOO_ValueError_1():
     partition = BinaryPartition
     with pytest.raises(ValueError):
-        algo = DOO(partition=partition)
+        DOO(partition=partition)
 
 def test_DOO_ValueError_2():
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        algo = DOO(domain=domain)
+        DOO(domain=domain)
 
 def test_DOO_DoubleSine():
     T = 500

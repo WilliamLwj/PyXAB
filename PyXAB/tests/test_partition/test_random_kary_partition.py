@@ -1,4 +1,5 @@
 from PyXAB.partition.RandomKaryPartition import RandomKaryPartition
+from numpy.testing import assert_allclose
 import pytest
 
 
@@ -7,15 +8,20 @@ def test_random_kary_partition_value_error():
         RandomKaryPartition()
 
 
-def test_random_kary_partition_1D_deepen():
+def test_random_kary_partition_1D_K3_make_children():
     domain = [[0, 1]]
-    part = RandomKaryPartition(domain)
+    part = RandomKaryPartition(domain, K=3)
 
-    for i in range(5):
-        part.deepen()
-        nodelist = part.get_node_list()
-        for node in nodelist[-1]:
-            print(node.depth, node.index, node.domain, "\\")
+    parent = part.get_root()
+    part.make_children(parent, newlayer=True)
+    newlayer = part.get_node_list()[-1]
+    assert newlayer[0].get_domain()[0][1] == newlayer[1].get_domain()[0][0]      # [[0, n1]] and [[n1, n2]] and [[n2, 1]]
+    assert newlayer[1].get_domain()[0][1] == newlayer[2].get_domain()[0][0]
+    assert 1 >= newlayer[0].get_domain()[0][1] >= 0
+    assert 1 >= newlayer[1].get_domain()[0][1] >= 0
+    assert_allclose(newlayer[0].get_domain(), [[0, newlayer[0].get_domain()[0][1]]])
+    assert_allclose(newlayer[1].get_domain(), [[newlayer[0].get_domain()[0][1], newlayer[1].get_domain()[0][1]]])
+    assert_allclose(newlayer[2].get_domain(), [[newlayer[1].get_domain()[0][1], 1]])
 
 
 def test_random_kary_partition_3D_deepen():

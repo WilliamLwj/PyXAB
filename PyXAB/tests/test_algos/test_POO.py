@@ -35,7 +35,6 @@ def test_POO_value_error_3():
 def test_POO_not_implemented_error():
     # wrong algorithm
     T = 100
-    Target = Garland.Garland()
     domain = [[0, 1]]
     partition = BinaryPartition
     with pytest.raises(NotImplementedError):

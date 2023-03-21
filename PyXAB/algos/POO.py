@@ -97,9 +97,7 @@ class POO(Algorithm):
                     self.curr_algo = self.algo(
                         nu=self.numax, rho=rho, domain=self.domain, partition=self.partition
                     )
-                else:
-                    # TODO: add more algorithms that do not need nu or rho
-                    raise NotImplementedError('POO has not yet included implementations for this algorithm')
+                # TODO: add more algorithms that do not need nu or rho
                 self.V_algo.append(self.curr_algo)
                 self.V_reward.append(0)
                 self.Times.append(0)

@@ -13,12 +13,12 @@ import pytest
 def test_SOO_ValueError_1():
     partition = BinaryPartition
     with pytest.raises(ValueError):
-        algo = SOO(partition=partition)
+        SOO(partition=partition)
 
 def test_SOO_ValueError_2():
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        algo = SOO(domain=domain)
+        SOO(domain=domain)
 
 def test_SOO_Garland():
     T = 100

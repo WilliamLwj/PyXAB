@@ -98,9 +98,7 @@ class GPO(Algorithm):
                     self.curr_algo = self.algo(
                         nu=self.numax, rho=rho, domain=self.domain, partition=self.partition
                     )
-                else:
-                    # TODO: add more algorithms that do not need nu or rho
-                    raise NotImplementedError('GPO has not yet included implementations for this algorithm')
+                # TODO: add more algorithms that do not need nu or rho
             if self.counter < self.half_phase_length:
                 point = self.curr_algo.pull(time)
                 self.goodx = point
