@@ -110,7 +110,6 @@ We would appreciate it if you could cite our related works.
         journal={arXiv preprint arXiv:2106.09215},
         year={2021}
     }
-```
 
 .. code-block:: text
 
@@ -122,7 +121,6 @@ We would appreciate it if you could cite our related works.
         publisher = {arXiv},
         year = {2022},
     }
-```
 
 .. toctree::
    :maxdepth: 3
@@ -160,6 +158,7 @@ We would appreciate it if you could cite our related works.
    :hidden:
    :caption: Additional Info
 
+   info/leaderboard
    info/contributing
    info/auto_examples/index
    info/team_members

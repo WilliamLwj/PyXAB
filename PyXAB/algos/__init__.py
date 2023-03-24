@@ -10,6 +10,7 @@ __all__ = [
     "StoSOO",
     "SequOOL",
     "DOO",
+    "SOO",
 ]
 #
 #
