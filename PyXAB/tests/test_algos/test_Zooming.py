@@ -23,7 +23,7 @@ def test_Zooming_value_error_2():
 
 
 def test_Zooming_Garland():
-    T = 100
+    T = 1000
     Target = Garland.Garland()
     domain = [[0, 1]]
     partition = BinaryPartition
@@ -41,7 +41,7 @@ def test_Zooming_Garland():
         cumulative_regret += inst_regret
         cumulative_regret_list.append(cumulative_regret)
 
-    compare_regret({"Zooming": np.array(cumulative_regret_list)})
+    #compare_regret({"Zooming": np.array(cumulative_regret_list)})
     print("Zooming: ", algo.get_last_point())
 
 
@@ -63,5 +63,5 @@ def test_Zooming_Himmelblau():
         cumulative_regret += inst_regret
         cumulative_regret_list.append(cumulative_regret)
 
-    compare_regret({"Zooming": np.array(cumulative_regret_list)})
+    #compare_regret({"Zooming": np.array(cumulative_regret_list)})
     print("Zooming: ", algo.get_last_point())
