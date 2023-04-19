@@ -33,7 +33,7 @@ Our implemented *X*\ -Armed Bandit algorithms can be classified into different c
      - |cross_|
      - |cross_|
      - |cross_|
-   * - Zooming
+   * - `Zooming <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/Zooming.py>`_
      - |check_|
      - |check_|
      - |check_|

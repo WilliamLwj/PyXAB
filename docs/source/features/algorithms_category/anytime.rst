@@ -61,9 +61,9 @@ Anytime (Unknown Budget) Algorithms
    * - Algorithm
      - Research Paper
      - Year
-   * - Zooming
+   * - `Zooming <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/Zooming.py>`_
      - `Multi-Armed Bandits in Metric Spaces <https://arxiv.org/pdf/0809.4882.pdf>`_
-     - 2011
+     - 2008
    * - `T-HOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/HOO.py>`_
      - `\ *X*\ -Armed Bandit <https://jmlr.org/papers/v12/bubeck11a.html>`_
      - 2011

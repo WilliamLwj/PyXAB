@@ -3,6 +3,18 @@ X-Armed Bandit Algorithms
 
 The API references for X-armed bandit algorithms. Please see the general algorithm class in :ref:`api-cheatsheet`.
 
+
+Zooming Algorithm
+-----------------------
+.. autoclass:: PyXAB.algos.Zooming.Zooming
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+..................................
+
 Truncated HOO Algorithm
 -----------------------
 .. autoclass:: PyXAB.algos.HOO.HOO_node
