@@ -42,8 +42,14 @@ class GPO(Algorithm):
             raise ValueError("Partition of the parameter space is not given.")
         if algo is None:
             raise ValueError("Algorithm for GPO is not given")
-        if algo.__name__ != 'T_HOO' and algo.__name__ != 'HCT' and algo.__name__ != 'VHCT':
-            raise NotImplementedError('GPO has not yet included implementations for this algorithm')
+        if (
+            algo.__name__ != "T_HOO"
+            and algo.__name__ != "HCT"
+            and algo.__name__ != "VHCT"
+        ):
+            raise NotImplementedError(
+                "GPO has not yet included implementations for this algorithm"
+            )
 
         self.rounds = rounds
         self.rhomax = rhomax
@@ -90,13 +96,20 @@ class GPO(Algorithm):
         else:
             if self.counter == 0:
                 rho = self.rhomax ** (2 * self.N / (2 * self.phase + 1))
-                if self.algo.__name__ == 'T_HOO':
+                if self.algo.__name__ == "T_HOO":
                     self.curr_algo = self.algo(
-                        nu=self.numax, rho=rho, rounds=self.rounds, domain=self.domain, partition=self.partition
+                        nu=self.numax,
+                        rho=rho,
+                        rounds=self.rounds,
+                        domain=self.domain,
+                        partition=self.partition,
                     )
-                elif self.algo.__name__ == 'HCT' or self.algo.__name__ == 'VHCT':
+                elif self.algo.__name__ == "HCT" or self.algo.__name__ == "VHCT":
                     self.curr_algo = self.algo(
-                        nu=self.numax, rho=rho, domain=self.domain, partition=self.partition
+                        nu=self.numax,
+                        rho=rho,
+                        domain=self.domain,
+                        partition=self.partition,
                     )
                 # TODO: add more algorithms that do not need nu or rho
             if self.counter < self.half_phase_length:

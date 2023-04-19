@@ -53,6 +53,7 @@ def test_VHCT_Garland():
 
     print("VHCT: ", algo.get_last_point())
 
+
 def test_VHCT_Himmelblau():
     T = 100
     Target = Himmelblau.Himmelblau_Normalized()
@@ -70,6 +71,5 @@ def test_VHCT_Himmelblau():
         inst_regret = Target.fmax - Target.f(point)
         cumulative_regret += inst_regret
         cumulative_regret_list.append(cumulative_regret)
-
 
     print("VHCT: ", algo.get_last_point())

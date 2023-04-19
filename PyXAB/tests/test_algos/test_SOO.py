@@ -15,10 +15,12 @@ def test_SOO_ValueError_1():
     with pytest.raises(ValueError):
         SOO(partition=partition)
 
+
 def test_SOO_ValueError_2():
     domain = [[0, 1]]
     with pytest.raises(ValueError):
         SOO(domain=domain)
+
 
 def test_SOO_Garland():
     T = 100
@@ -31,9 +33,10 @@ def test_SOO_Garland():
         point = algo.pull(t)
         reward = Target.f(point)
         algo.receive_reward(t, reward)
-        
+
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
+
 
 def test_SOO_Ackley():
     T = 100
@@ -46,12 +49,13 @@ def test_SOO_Ackley():
         point = algo.pull(t)
         reward = Target.f(point)
         algo.receive_reward(t, reward)
-        
+
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
     # plot the regret
     # regret_dic = {"POO": np.array(POO_regret_list)}
     # compare_regret(regret_dic)
+
 
 def test_SOO_SmallSearchingDepth():
     T = 100
@@ -64,7 +68,6 @@ def test_SOO_SmallSearchingDepth():
         point = algo.pull(t)
         reward = Target.f(point)
         algo.receive_reward(t, reward)
-        
+
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
-

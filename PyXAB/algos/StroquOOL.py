@@ -15,7 +15,7 @@ class StroquOOL_node(P_node):
     """
     Implementation of the node in the StroquOOL algorithm
     """
-    
+
     def __init__(self, depth, index, parent, domain):
         """
         Initialization of the StroquOOL node
@@ -75,7 +75,6 @@ class StroquOOL_node(P_node):
         """
         if self.visited_times > 0:
             self.mean_reward = np.sum(np.array(self.rewards)) / len(self.rewards)
-            
 
     def get_mean_reward(self):
         """
@@ -122,7 +121,7 @@ class StroquOOL(Algorithm):
     """
     The implementation of the StroquOOL algorithm (Bartlett, 2019)
     """
-    
+
     def __init__(self, n=1000, domain=None, partition=None):
         """
         The initialization of the StroquOOL algorithm

@@ -70,6 +70,7 @@ def test_GPO_HOO_Garland():
     # regret_dic = {"GPO": np.array(GPO_regret_list),}
     # compare_regret(regret_dic)
 
+
 def test_GPO_HCT_Garland():
 
     T = 1000
@@ -92,4 +93,3 @@ def test_GPO_HCT_Garland():
     # plot the regret
     # regret_dic = {"GPO": np.array(GPO_regret_list)}
     # compare_regret(regret_dic)
-

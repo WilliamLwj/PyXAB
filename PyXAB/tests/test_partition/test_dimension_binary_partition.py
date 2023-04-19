@@ -3,6 +3,7 @@ from numpy.testing import assert_allclose
 import pytest
 import copy
 
+
 def test_dimension_binary_partition_value_error():
     with pytest.raises(ValueError):
         DimensionBinaryPartition()

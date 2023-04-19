@@ -52,6 +52,7 @@ def test_HCT_Garland():
 
     print("HCT: ", algo.get_last_point())
 
+
 def test_HCT_Himmelblau():
     T = 100
     Target = Himmelblau.Himmelblau_Normalized()

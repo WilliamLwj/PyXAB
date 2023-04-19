@@ -16,7 +16,7 @@ class DOO_node(P_node):
     """
     Implementation of the node in the DOO algorithm
     """
-    
+
     def __init__(self, depth, index, parent, domain):
         """
         Initialization of the DOO node
@@ -103,7 +103,7 @@ class DOO(Algorithm):
     """
     The implementation of the DOO algorithm (Munos, 2011)
     """
-    
+
     def __init__(self, n=100, delta=None, domain=None, partition=None):
         """
         The initialization of the DOO algorithm

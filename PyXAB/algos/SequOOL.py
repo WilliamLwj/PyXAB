@@ -16,7 +16,7 @@ class SequOOL_node(P_node):
     """
     Implementation of the SequOOL node
     """
-    
+
     def __init__(self, depth, index, parent, domain):
         """
         Initialization of the SequOOL node
@@ -87,7 +87,7 @@ class SequOOL(Algorithm):
     """
     The implementation of the SequOOL algorithm (Barlett, 2019)
     """
-    
+
     def __init__(self, n=1000, domain=None, partition=None):
         """
         The initialization of the SequOOL algorithm

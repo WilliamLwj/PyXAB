@@ -15,16 +15,18 @@ def test_random_binary_partition_1D_make_children_1():
     parent = part.get_root()
     part.make_children(parent, newlayer=True)
     newlayer = part.get_node_list()[-1]
-    assert newlayer[0].get_domain()[0][1] == newlayer[1].get_domain()[0][0]      # [[0, n]] and [[n, 1]]
+    assert (
+        newlayer[0].get_domain()[0][1] == newlayer[1].get_domain()[0][0]
+    )  # [[0, n]] and [[n, 1]]
     assert 1 >= newlayer[0].get_domain()[0][1] >= 0
     assert_allclose(newlayer[0].get_domain(), [[0, newlayer[0].get_domain()[0][1]]])
     assert_allclose(newlayer[1].get_domain(), [[newlayer[0].get_domain()[0][1], 1]])
+
 
 def test_random_binary_partition_1D_make_children_2():
     domain = [[0, 1]]
     part = RandomBinaryPartition(domain)
     part.deepen()
-
 
 
 def test_random_binary_partition_1D_deepen():

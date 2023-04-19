@@ -40,6 +40,7 @@ def test_POO_not_implemented_error():
     with pytest.raises(NotImplementedError):
         POO(rounds=T, domain=domain, partition=partition, algo=StoSOO)
 
+
 def test_POO_HOO_Garland():
     T = 500
     Target = Garland.Garland()

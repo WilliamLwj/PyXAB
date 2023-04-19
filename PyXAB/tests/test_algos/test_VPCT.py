@@ -37,7 +37,8 @@ def test_VPCT_Garland():
         regret += inst_regret
         VPCT_regret_list.append(regret)
 
-    print('VCPT: ', algo.get_last_point())
+    print("VCPT: ", algo.get_last_point())
+
 
 def test_VPCT_Himmelblau():
     T = 1000
@@ -59,5 +60,4 @@ def test_VPCT_Himmelblau():
         cumulative_regret += inst_regret
         cumulative_regret_list.append(cumulative_regret)
 
-    print('VPCT: ', algo.get_last_point())
-
+    print("VPCT: ", algo.get_last_point())

@@ -8,15 +8,18 @@ import numpy as np
 import pdb
 import pytest
 
+
 def test_StroquOOL_ValueError_1():
     partition = BinaryPartition
     with pytest.raises(ValueError):
         algo = StroquOOL(partition=partition)
 
+
 def test_StroquOOL_ValueError_2():
     domain = [[0, 1]]
     with pytest.raises(ValueError):
         algo = StroquOOL(domain=domain)
+
 
 def test_StroquOOL_DoubleSine():
     T = 500
@@ -29,9 +32,10 @@ def test_StroquOOL_DoubleSine():
         point = algo.pull(t)
         reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
         algo.receive_reward(t, reward)
-        
+
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
+
 
 def test_StroquOOL_Ackley():
     T = 500
@@ -44,10 +48,11 @@ def test_StroquOOL_Ackley():
         point = algo.pull(t)
         reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
         algo.receive_reward(t, reward)
-        
+
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
-    
+
+
 def test_StroquOOL_Garland():
     T = 500
     Target = Garland.Garland()
@@ -59,7 +64,6 @@ def test_StroquOOL_Garland():
         point = algo.pull(t)
         reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
         algo.receive_reward(t, reward)
-        
+
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
-    

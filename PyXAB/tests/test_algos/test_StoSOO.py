@@ -45,9 +45,6 @@ def test_StoSOO_Garland():
     print(T, Target.fmax - Target.f(last_point))
 
 
-
-
-
 # plot the regret
 # regret_dic = {"StoSOO": np.array(StoSOO_regret_list)}
 # compare_regret(regret_dic)

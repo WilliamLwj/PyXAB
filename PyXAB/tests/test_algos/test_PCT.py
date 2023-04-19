@@ -18,6 +18,7 @@ def test_PCT_value_error_2():
     with pytest.raises(ValueError):
         algo = PCT(domain=domain)
 
+
 def test_PCT_Garland():
     T = 1000
     target = Garland.Garland()
@@ -40,7 +41,8 @@ def test_PCT_Garland():
 
     # plot_regret(np.array(cumulative_regret_list))
 
-    print('PCT: ', algo.get_last_point())
+    print("PCT: ", algo.get_last_point())
+
 
 def test_PCT_Himmelblau():
     T = 1000
@@ -64,4 +66,4 @@ def test_PCT_Himmelblau():
 
     # plot_regret(np.array(cumulative_regret_list))
 
-    print('PCT: ', algo.get_last_point())
+    print("PCT: ", algo.get_last_point())
