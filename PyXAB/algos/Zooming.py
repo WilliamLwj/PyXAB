@@ -11,7 +11,7 @@ import pdb
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
-
+from PyXAB.partition.BinaryPartition import BinaryPartition
 
 class point:
     """
@@ -30,7 +30,7 @@ class Zooming(Algorithm):
     The implementation of the Zooming algorithm
     """
 
-    def __init__(self, nu=1, rho=0.9, domain=None, partition=None):
+    def __init__(self, nu=1, rho=0.9, domain=None, partition=BinaryPartition):
         """
         Initialization of the Zooming algorithm
 

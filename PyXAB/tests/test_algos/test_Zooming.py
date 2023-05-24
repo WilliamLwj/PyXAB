@@ -19,7 +19,7 @@ def test_Zooming_value_error_2():
 
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        Zooming(domain=domain)
+        Zooming(domain=domain, partition=None)
 
 
 def test_Zooming_Garland():

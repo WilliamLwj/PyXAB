@@ -7,7 +7,7 @@ import pdb
 
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
-
+from PyXAB.partition.BinaryPartition import BinaryPartition
 
 class POO(Algorithm):
     """
@@ -16,7 +16,7 @@ class POO(Algorithm):
     """
 
     def __init__(
-        self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=None, algo=None
+        self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=BinaryPartition, algo=None
     ):
         """
 

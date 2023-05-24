@@ -9,6 +9,7 @@ import math
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
+from PyXAB.partition.BinaryPartition import BinaryPartition
 import pdb
 
 
@@ -104,7 +105,7 @@ class DOO(Algorithm):
     The implementation of the DOO algorithm (Munos, 2011)
     """
 
-    def __init__(self, n=100, delta=None, domain=None, partition=None):
+    def __init__(self, n=100, delta=None, domain=None, partition=BinaryPartition):
         """
         The initialization of the DOO algorithm
 

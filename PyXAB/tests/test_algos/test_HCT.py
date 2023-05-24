@@ -18,7 +18,7 @@ def test_HCT_value_error_2():
 
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        HCT(domain=domain)
+        HCT(domain=domain, partition=None)
 
 
 def test_HCT_initialization():

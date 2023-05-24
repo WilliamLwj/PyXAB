@@ -18,7 +18,7 @@ def test_HOO_value_error_2():
     T = 1000
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        T_HOO(rounds=T, domain=domain)
+        T_HOO(rounds=T, domain=domain, partition=None)
 
 
 def test_HOO_initialization():

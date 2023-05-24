@@ -64,14 +64,13 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 Quick Example
 -------------
 
-First define the blackbox objective, the parameter domain, the partition of the space, and the algorithm, e.g.
+First define the blackbox objective, the parameter domain, and the algorithm to run, e.g.
 
 .. code-block:: python3
 
    target = Garland()
    domain = [[0, 1]]
-   partition = BinaryPartition
-   algo = T_HOO(rounds=1000, domain=domain, partition=partition)
+   algo = T_HOO(rounds=1000, domain=domain)
 
 At every round  ``t``\ , call ``algo.pull(t)`` to get a point. After receiving the (stochastic) reward for the point, call
 ``algo.receive_reward(t, reward)`` to give the algorithm the feedback

@@ -47,9 +47,10 @@ global optimization (GO) and bandit-based black-box optimization problems.
 
 PyXAB includes implementations of different *X*-armed bandit algorithms, including the classic ones such as [HOO (Bubeck et al., 2011)](https://jmlr.org/papers/v12/bubeck11a.html), 
  [StoSOO (Valko et al., 2013)](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py), and [HCT (Azar et al., 2014)](https://proceedings.mlr.press/v32/azar14.html), and the most
-recent works such as [GPO (Shang et al., 2019)](https://proceedings.mlr.press/v98/xuedong19a.html) and [VHCT (Li et al, 2021)](https://arxiv.org/abs/2106.09215).
+recent works such as [GPO (Shang et al., 2019)](https://proceedings.mlr.press/v98/xuedong19a.html), [StroquOOL  (Bartlett et al.,2019)](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py) and [VHCT (Li et al, 2021)](https://arxiv.org/abs/2106.09215).
 PyXAB also provides the most commonly-used synthetic objectives to evaluate the performance of different algorithms and the implementations for different hierarchical partitions
 
+**The algorithms are maximization algorithms! Don't forget the minus sign!**
 
 ## Quick Links
 
@@ -64,13 +65,12 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 - [Citations](#Citations)
 
 ## Quick Example
-First define the blackbox objective, the parameter domain, the partition of the space, and the algorithm, e.g.
+First define the blackbox objective, the parameter domain, and the algorithm to run, e.g.
 
 ```python3
 target = Garland()
 domain = [[0, 1]]
-partition = BinaryPartition
-algo = T_HOO(rounds=1000, domain=domain, partition=partition)
+algo = T_HOO(rounds=1000, domain=domain)
 ```
 
 At every round  `t`, call `algo.pull(t)` to get a point. After receiving the (stochastic) reward for the point, call 

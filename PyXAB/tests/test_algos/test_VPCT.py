@@ -16,7 +16,7 @@ def test_VPCT_value_error_1():
 def test_VPCT_value_error_2():
     domain = [[-5, 5], [-5, 5]]
     with pytest.raises(ValueError):
-        VPCT(domain=domain)
+        VPCT(domain=domain, partition=None)
 
 
 def test_VPCT_Garland():

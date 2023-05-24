@@ -9,6 +9,7 @@ import math
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
+from PyXAB.partition.BinaryPartition import BinaryPartition
 import pdb
 
 
@@ -142,7 +143,7 @@ class T_HOO(Algorithm):
     Implementation of the T_HOO algorithm
     """
 
-    def __init__(self, nu=1, rho=0.5, rounds=1000, domain=None, partition=None):
+    def __init__(self, nu=1, rho=0.5, rounds=1000, domain=None, partition=BinaryPartition):
         """
         Initialization of the T_HOO algorithm
 

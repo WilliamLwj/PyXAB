@@ -19,7 +19,7 @@ def test_SOO_ValueError_1():
 def test_SOO_ValueError_2():
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        SOO(domain=domain)
+        SOO(domain=domain, partition=None)
 
 
 def test_SOO_Garland():

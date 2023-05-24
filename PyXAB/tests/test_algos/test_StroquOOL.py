@@ -18,7 +18,7 @@ def test_StroquOOL_ValueError_1():
 def test_StroquOOL_ValueError_2():
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        algo = StroquOOL(domain=domain)
+        algo = StroquOOL(domain=domain, partition=None)
 
 
 def test_StroquOOL_DoubleSine():

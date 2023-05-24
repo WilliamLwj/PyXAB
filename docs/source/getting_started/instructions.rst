@@ -24,7 +24,7 @@ If the parameter has two dimensions, say [-1, 1] x [2, 10], then the domain shou
 
 ..................................
 
-Partition
+(Optional) Partition
 -------------
 
 The user can choose any designed partition, e.g., a binary partition would be
@@ -33,6 +33,8 @@ The user can choose any designed partition, e.g., a binary partition would be
 
     from PyXAB.partition.BinaryPartition import BinaryPartition
     partition = BinaryPartition
+
+By default, the standard binary partition will be used for all the algorithms
 
 ..................................
 

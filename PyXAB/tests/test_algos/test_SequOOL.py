@@ -18,7 +18,7 @@ def test_SequOOL_ValueError_1():
 def test_SequOOL_ValueError_2():
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        SequOOL(domain=domain)
+        SequOOL(domain=domain, partition=None)
 
 
 def test_SequOOL_DoubleSine():

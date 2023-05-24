@@ -9,6 +9,7 @@ import math
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
+from PyXAB.partition.BinaryPartition import BinaryPartition
 import pdb
 
 
@@ -118,7 +119,7 @@ class StoSOO(Algorithm):
     """
 
     def __init__(
-        self, n=100, k=None, h_max=100, delta=None, domain=None, partition=None
+        self, n=100, k=None, h_max=100, delta=None, domain=None, partition=BinaryPartition
     ):
         """
         The initialization of the StoSOO algorithm

@@ -9,6 +9,7 @@ import math
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
+from PyXAB.partition.BinaryPartition import BinaryPartition
 import pdb
 
 
@@ -79,7 +80,7 @@ class SOO(Algorithm):
     The implementation of the SOO algorithm (Munos, 2011)
     """
 
-    def __init__(self, n=100, h_max=100, domain=None, partition=None):
+    def __init__(self, n=100, h_max=100, domain=None, partition=BinaryPartition):
         """
         The initialization of the SOO algorithm
         

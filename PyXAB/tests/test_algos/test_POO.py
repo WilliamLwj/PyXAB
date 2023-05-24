@@ -22,7 +22,7 @@ def test_POO_value_error_2():
     algo = T_HOO
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        POO(domain=domain, algo=algo)
+        POO(domain=domain, partition=None, algo=algo)
 
 
 def test_POO_value_error_3():

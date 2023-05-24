@@ -25,7 +25,7 @@ def test_GPO_value_error_2():
     algo = HCT
     domain = [[-5, 5], [-5, 5]]
     with pytest.raises(ValueError):
-        GPO(domain=domain, algo=algo)
+        GPO(domain=domain, partition=None, algo=algo)
 
 
 def test_GPO_value_error_3():

@@ -8,6 +8,7 @@ import math
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
+from PyXAB.partition.BinaryPartition import BinaryPartition
 import pdb
 
 
@@ -122,7 +123,7 @@ class StroquOOL(Algorithm):
     The implementation of the StroquOOL algorithm (Bartlett, 2019)
     """
 
-    def __init__(self, n=1000, domain=None, partition=None):
+    def __init__(self, n=1000, domain=None, partition=BinaryPartition):
         """
         The initialization of the StroquOOL algorithm
 

@@ -16,7 +16,7 @@ def test_PCT_value_error_1():
 def test_PCT_value_error_2():
     domain = [[-5, 5], [-5, 5]]
     with pytest.raises(ValueError):
-        algo = PCT(domain=domain)
+        algo = PCT(domain=domain, partition=None)
 
 
 def test_PCT_Garland():

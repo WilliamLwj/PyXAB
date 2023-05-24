@@ -19,7 +19,7 @@ def test_VHCT_value_error_2():
 
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        VHCT(domain=domain)
+        VHCT(domain=domain, partition=None)
 
 
 def test_VHCT_initialization():

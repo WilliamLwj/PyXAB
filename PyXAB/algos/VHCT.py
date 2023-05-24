@@ -9,7 +9,7 @@ import math
 import numpy as np
 from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
-
+from PyXAB.partition.BinaryPartition import BinaryPartition
 
 def compute_t_plus(x):
     return np.power(2, np.ceil(np.log(x) / np.log(2)))
@@ -208,7 +208,7 @@ class VHCT(Algorithm):
     """
 
     def __init__(
-        self, nu=1, rho=0.5, c=0.1, delta=0.01, bound=1, domain=None, partition=None
+        self, nu=1, rho=0.5, c=0.1, delta=0.01, bound=1, domain=None, partition=BinaryPartition
     ):
         """
         Initialization of the VHCT algorithm

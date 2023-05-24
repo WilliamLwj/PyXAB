@@ -19,7 +19,7 @@ def test_DOO_ValueError_1():
 def test_DOO_ValueError_2():
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        DOO(domain=domain)
+        DOO(domain=domain, partition=None)
 
 
 def test_DOO_DoubleSine():

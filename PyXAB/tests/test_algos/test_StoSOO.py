@@ -19,7 +19,7 @@ def test_StoSOO_value_error_2():
     T = 1000
     domain = [[0, 1]]
     with pytest.raises(ValueError):
-        StoSOO(n=T, domain=domain)
+        StoSOO(n=T, domain=domain, partition=None)
 
 
 def test_StoSOO_Garland():
