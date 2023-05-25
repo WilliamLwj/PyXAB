@@ -45,12 +45,12 @@ global optimization (GO) and bandit-based black-box optimization problems.
   <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_heatmap.gif" alt="heatmap" width="48%"/>  
 </p>
 
-PyXAB includes implementations of different *X*-armed bandit algorithms, including the classic ones such as [HOO (Bubeck et al., 2011)](https://jmlr.org/papers/v12/bubeck11a.html), 
+PyXAB contains the implementations of **more than 10 optimization algorithms**, including the classic ones such as [HOO (Bubeck et al., 2011)](https://jmlr.org/papers/v12/bubeck11a.html), 
  [StoSOO (Valko et al., 2013)](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py), and [HCT (Azar et al., 2014)](https://proceedings.mlr.press/v32/azar14.html), and the most
 recent works such as [GPO (Shang et al., 2019)](https://proceedings.mlr.press/v98/xuedong19a.html), [StroquOOL  (Bartlett et al.,2019)](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py) and [VHCT (Li et al, 2021)](https://arxiv.org/abs/2106.09215).
 PyXAB also provides the most commonly-used synthetic objectives to evaluate the performance of different algorithms and the implementations for different hierarchical partitions
 
-**The algorithms are maximization algorithms! Don't forget the minus sign!**
+**Reminder**: The algorithms are maximization algorithms!
 
 ## Quick Links
 
@@ -65,22 +65,23 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 - [Citations](#Citations)
 
 ## Quick Example
-First define the blackbox objective, the parameter domain, and the algorithm to run, e.g.
+PyXAB follows a natural and straightforward API design completely aligned with the online blackbox
+optimization paradigm. The following is a simple 6-line usage example.
+
+First, we define the parameter domain and the algorithm to run. 
+At every round  `t`, call `algo.pull(t)` to get a point and call 
+`algo.receive_reward(t, reward)` to give the algorithm the objective evaluation (reward)
 
 ```python3
-target = Garland()
-domain = [[0, 1]]
-algo = T_HOO(rounds=1000, domain=domain)
+domain = [[0, 1]]               # Parameter is 1-D and between 0 and 1
+algo = T_HOO(rounds=1000, domain=domain) 
+for t in range(1000):
+    point = algo.pull(t)
+    reward = 1                  #TODO: User-defined objective returns the reward
+    algo.receive_reward(t, reward)
 ```
 
-At every round  `t`, call `algo.pull(t)` to get a point. After receiving the (stochastic) reward for the point, call 
-`algo.receive_reward(t, reward)` to give the algorithm the feedback
-
-```python3
-point = algo.pull(t)
-reward = target.f(point) + np.random.uniform(-0.1, 0.1) # Uniform noise example
-algo.receive_reward(t, reward)
-```
+More detailed examples can be found [here](https://pyxab.readthedocs.io/en/latest/getting_started/auto_examples/index.html)
 
 ## Documentations
 
@@ -88,7 +89,7 @@ algo.receive_reward(t, reward)
 
   * The [roadmap](https://github.com/users/WilliamLwj/projects/1) for our project    
   
-  * Our [paper](https://arxiv.org/abs/2303.04030) for the library
+  * Our [manuscript](https://arxiv.org/abs/2303.04030) for the library
 
 ## Installation
 

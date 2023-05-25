@@ -1,7 +1,8 @@
 General Instructions
 ===================================
-To use PyXAB, the objective, the domain, and the hierarchical partition on the domain needs to be defined. Then the algorithms
-evaluate the objective at one point in every round and receives a stochastic reward.
+To use PyXAB, simply follow the instructions below. The domain and the algorithm must be defined beforehand. Hierarchical Partition
+is optional and normally binary partition works well. The objective must be able to evaluate each point the algorithm pulls
+and return the evaluated objective value.
 
 
 ..................................
@@ -25,7 +26,7 @@ If the parameter has two dimensions, say [-1, 1] x [2, 10], then the domain shou
 ..................................
 
 (Optional) Partition
--------------
+--------------------
 
 The user can choose any designed partition, e.g., a binary partition would be
 
@@ -38,7 +39,7 @@ By default, the standard binary partition will be used for all the algorithms
 
 ..................................
 
-(Optional) Objective Function
+(User Defined) Objective
 -------------------------------
 .. note::
 
@@ -47,7 +48,7 @@ By default, the standard binary partition will be used for all the algorithms
 .. note::
 
     It is unnecessary to define the objective function in the following way, but for consistency we recommend doing so. As long as
-    the objective function can return a reward to the algorithm, then the optimization process could run.
+    the objective function can return a reward to each point pulled by the algorithm, then the optimization process could run.
 
 The objective function has an attribute ``fmax``, which is the
 maximum reward obtainable. Besides, the objective function
@@ -65,7 +66,15 @@ See the following simple example for a better illustration.
             self.fmax = 1
 
         def f(self, x):
+            x = np.array(x)
             return np.sin(x)
+
+
+.. note::
+
+    The point returned by the algorithm will be a list. For example, if it wants the objective value at the point x = 0.8, it will return
+    [0.8]. If the algorithm wants the objective value at x = (0, 0.5), the algorithm will return [0, 0.5].
+
 
 
 ..................................
@@ -81,8 +90,8 @@ should be used.
 .. code-block:: python3
 
     from PyXAB.algos.HOO import T_HOO
-
-    algo = T_HOO(domain=domain, partition=partition)
+    T = 1000
+    algo = T_HOO(rounds=T, domain=domain, partition=partition)
     target = Sine()
 
     # either for-loop or while-loop
