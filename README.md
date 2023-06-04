@@ -191,15 +191,14 @@ If you use our package in your research or projects, we kindly ask you to cite o
 We would also appreciate it if you could cite our related works.
 
 ```text
-@article{
-li2023optimumstatistical,
-title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
-author={Wenjie Li and Chi-Hua Wang and Guang Cheng and Qifan Song},
-journal={Transactions on Machine Learning Research},
-issn={2835-8856},
-year={2023},
-url={https://openreview.net/forum?id=ClIcmwdlxn},
-note={}
+@article{li2023optimumstatistical,
+    title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
+    author={Wenjie Li and Chi-Hua Wang and Guang Cheng and Qifan Song},
+    journal={Transactions on Machine Learning Research},
+    issn={2835-8856},
+    year={2023},
+    url={https://openreview.net/forum?id=ClIcmwdlxn},
+    note={}
 }
 ```
 
