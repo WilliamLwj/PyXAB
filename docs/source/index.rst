@@ -103,11 +103,14 @@ We would appreciate it if you could cite our related works.
 
 .. code-block:: text
 
-    @article{li2021optimum,
+    @article{li2023optimumstatistical,
         title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
-        author={Li, Wenjie and Wang, Chi-Hua, Qifan Song and Cheng, Guang},
-        journal={arXiv preprint arXiv:2106.09215},
-        year={2021}
+        author={Wenjie Li and Chi-Hua Wang and Guang Cheng and Qifan Song},
+        journal={Transactions on Machine Learning Research},
+        issn={2835-8856},
+        year={2023},
+        url={https://openreview.net/forum?id=ClIcmwdlxn},
+        note={}
     }
 
 .. code-block:: text

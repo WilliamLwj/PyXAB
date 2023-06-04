@@ -36,8 +36,8 @@
 </p>
 
 
-PyXAB is a Python open-source library for *X*-armed bandit algorithms, a prestigious set of optimizers for online black-box optimization, i.e., optimize an objective without gradients, also known as the continuous-arm bandit (CAB), Lipschitz bandit, 
-global optimization (GO) and bandit-based black-box optimization problems.
+PyXAB is a Python open-source library for *X*-armed bandit algorithms, a prestigious set of optimizers for online black-box optimization and 
+hyperparameter optimization.
 
 
 <p align='center'>
@@ -45,10 +45,17 @@ global optimization (GO) and bandit-based black-box optimization problems.
   <img src="https://raw.githubusercontent.com/WilliamLwj/PyXAB/main/figs/HCT_heatmap.gif" alt="heatmap" width="48%"/>  
 </p>
 
-PyXAB contains the implementations of **more than 10 optimization algorithms**, including the classic ones such as [HOO (Bubeck et al., 2011)](https://jmlr.org/papers/v12/bubeck11a.html), 
- [StoSOO (Valko et al., 2013)](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py), and [HCT (Azar et al., 2014)](https://proceedings.mlr.press/v32/azar14.html), and the most
-recent works such as [GPO (Shang et al., 2019)](https://proceedings.mlr.press/v98/xuedong19a.html), [StroquOOL  (Bartlett et al.,2019)](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py) and [VHCT (Li et al, 2021)](https://arxiv.org/abs/2106.09215).
+PyXAB contains the implementations of **10+** optimization algorithms, including the classic ones such as [Zooming](https://arxiv.org/pdf/0809.4882.pdf), 
+ [StoSOO](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py), and [HCT](https://proceedings.mlr.press/v32/azar14.html), and the most
+recent works such as [GPO](https://proceedings.mlr.press/v98/xuedong19a.html), [StroquOOL](https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py) and [VHCT](https://arxiv.org/abs/2106.09215).
 PyXAB also provides the most commonly-used synthetic objectives to evaluate the performance of different algorithms and the implementations for different hierarchical partitions
+
+**PyXAB is featured for:**
+
+- **User-friendly APIs, clear documentation, and detailed examples**
+- **Comprehensive library** of optimization algorithms, partitions and synthetic objectives
+- **High standard code quality and testing coverage**
+
 
 **Reminder**: The algorithms are maximization algorithms!
 
@@ -181,14 +188,18 @@ If you use our package in your research or projects, we kindly ask you to cite o
 }
 ```
 
-We would appreciate it if you could cite our related works.
+We would also appreciate it if you could cite our related works.
 
 ```text
-@article{li2021optimum,
-  title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
-  author={Li, Wenjie and Wang, Chi-Hua, Qifan Song and Cheng, Guang},
-  journal={arXiv preprint arXiv:2106.09215},
-  year={2021}
+@article{
+li2023optimumstatistical,
+title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
+author={Wenjie Li and Chi-Hua Wang and Guang Cheng and Qifan Song},
+journal={Transactions on Machine Learning Research},
+issn={2835-8856},
+year={2023},
+url={https://openreview.net/forum?id=ClIcmwdlxn},
+note={}
 }
 ```
 

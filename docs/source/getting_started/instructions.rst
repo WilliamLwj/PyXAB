@@ -27,15 +27,18 @@ If the parameter has two dimensions, say [-1, 1] x [2, 10], then the domain shou
 
 (Optional) Partition
 --------------------
+The hierarchical partition is a core part of many X-armed bandit algorithms. It discretizes the infinite parameter space into
+finite number of arms in each layer hierarchically, so that finite-armed bandit algorithm designs can be utilized.
 
-The user can choose any designed partition, e.g., a binary partition would be
+However, the design of the partition is completely optional and unnecessary in the experiments. PyXAB provides many designs
+in the package for the users to choose from, e.g., a standard binary partition would be
 
 .. code-block:: python3
 
     from PyXAB.partition.BinaryPartition import BinaryPartition
     partition = BinaryPartition
 
-By default, the standard binary partition will be used for all the algorithms
+By default, the standard binary partition will be used for all the algorithms if unspecified.
 
 ..................................
 
@@ -70,17 +73,16 @@ See the following simple example for a better illustration.
             return np.sin(x)
 
 
-.. note::
-
-    The point returned by the algorithm will be a list. For example, if it wants the objective value at the point x = 0.8, it will return
-    [0.8]. If the algorithm wants the objective value at x = (0, 0.5), the algorithm will return [0, 0.5].
-
-
-
 ..................................
 
 Algorithm
 -------------
+
+.. note::
+
+    The point returned by the algorithm will be a list. Make sure your objective can deal with this data type.
+    For example, if it wants the objective value at the point x = 0.8, it will return [0.8]. If the algorithm wants the
+    objective value at x = (0, 0.5), the algorithm will return [0, 0.5].
 
 Algorithms will always have one function named ``pull`` that outputs a point for evaluation, and the other function
 named ``receive_reward`` to get the feedback. Therefore, in the online learning process, the following lines of code
