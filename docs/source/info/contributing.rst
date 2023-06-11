@@ -93,3 +93,10 @@ To obtain the testing results and the code coverage report, run the following li
 
     coverage run --source=PyXAB -m pytest
     coverage report
+
+To see which lines are not covered by the tests, run the following lines
+
+.. code-block:: bash
+
+    coverage run --source=PyXAB -m pytest
+    coverage report -m

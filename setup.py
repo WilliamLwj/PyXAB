@@ -16,9 +16,9 @@ NAME = 'PyXAB'
 DESCRIPTION = 'PyXAB - A Python Library for X-Armed Bandit and Online Blackbox Optimization Algorithms.'
 URL = 'https://github.com/WilliamLwj/PyXAB'
 EMAIL = 'lil3549@purdue.edu'
-AUTHOR = 'Wenjie Li, Haoze Li'
+AUTHOR = 'Wenjie Li, Haoze Li, Qifan Song, Jean Honorio'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '0.2.2'
+VERSION = '0.2.4'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
