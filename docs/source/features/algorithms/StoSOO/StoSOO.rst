@@ -34,6 +34,11 @@ Algorithm Parameters
 
 Usage Example
 -------------
+.. note::
+
+    Make sure to use `get_last_point()` to get the final output
+
+
 .. code-block:: python3
 
     from PyXAB.synthetic_obj.Garland import Garland
@@ -47,3 +52,5 @@ Usage Example
         point = algo.pull(t)
         reward = target(point)
         algo.receive_reward(t, reward)
+
+    algo.get_last_point()

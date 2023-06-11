@@ -30,12 +30,12 @@ features in the algorithm design.
      - |cross_|
      - |cross_|
    * - `DOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/DOO.py>`_
-     - paper
+     - `DOO paper <https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf>`_
      - |cross_|
      - |cross_|
      - |cross_|
    * - `SOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/SOO.py>`_
-     - paper
+     - `SOO paper <https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf>`_
      - |cross_|
      - |cross_|
      - |cross_|
@@ -50,7 +50,7 @@ features in the algorithm design.
      - |check_|
      - |check_|
    * - `StoSOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py>`_
-     - paper
+     - `paper <https://proceedings.mlr.press/v28/valko13.pdf>`_
      - |check_|
      - |cross_|
      - |cross_|
@@ -118,6 +118,11 @@ features in the algorithm design.
     algorithms/StoSOO/StoSOO
     algorithms/T-HOO/T-HOO
     algorithms/HCT/HCT
+    algorithms/POO/POO
+    algorithms/GPO/GPO
+    algorithms/PCT/PCT
+    algorithms/SequOOL/SequOOL
+    algorithms/StroquOOL/StroquOOL
     algorithms/VHCT/VHCT
     algorithms/VPCT/VPCT
 
