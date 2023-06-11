@@ -27,8 +27,8 @@ the doubling trick but runs in linearithmic time. Both results are improvements 
 
 Algorithm Parameters
 --------------------
-    * `nu (float)` – parameter nu of the VHCT algorithm
-    * `rho (float)` – parameter rho of the VHCT algorithm
+    * `nu (float)` – parameter nu of the T_HOO algorithm
+    * `rho (float)` – parameter rho of the T_HOO algorithm
     * `rounds (int)` - total number of rounds
     * `domain (list(list))` – The domain of the objective to be optimized
     * `partition` – The partition choice of the algorithm. Default: BinaryPartition.

@@ -62,8 +62,8 @@ PyXAB also provides the most commonly-used synthetic objectives to evaluate the 
 
 - **User-friendly APIs, clear documentation, and detailed examples**
 - **Comprehensive library** of optimization algorithms, partitions and synthetic objectives
-- **High standard code quality and testing coverage**
-
+- **High standard code quality and high testing coverage**
+- **Low dependency** for flexible combination with other packages such as PyTorch, Scikit-Learn
 
 **Reminder**: The algorithms are maximization algorithms!
 

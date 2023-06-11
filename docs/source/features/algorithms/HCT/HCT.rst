@@ -24,10 +24,10 @@ can be applied to the problem of policy search in reinforcement learning and we 
 
 Algorithm Parameters
 --------------------
-    * `nu (float)` – parameter nu of the VHCT algorithm
-    * `rho (float)` – parameter rho of the VHCT algorithm
-    * `c (float)` – parameter c of the VHCT algorithm
-    * `delta (float)` – confidence parameter delta of the VHCT algorithm
+    * `nu (float)` – parameter nu of the HCT algorithm
+    * `rho (float)` – parameter rho of the HCT algorithm
+    * `c (float)` – parameter c of the HCT algorithm
+    * `delta (float)` – confidence parameter delta of the HCT algorithm
     * `domain (list(list))` – The domain of the objective to be optimized
     * `partition` – The partition choice of the algorithm. Default: BinaryPartition.
 

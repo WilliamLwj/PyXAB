@@ -90,7 +90,7 @@ features in the algorithm design.
      - |check_|
      - |check_|
    * - `VPCT <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VPCT.py>`_
-     - paper
+     - N.A.
      - |check_|
      - |cross_|
      - |cross_|
@@ -113,9 +113,13 @@ features in the algorithm design.
     :maxdepth: 1
 
     algorithms/Zooming/Zooming
+    algorithms/DOO/DOO
+    algorithms/SOO/SOO
+    algorithms/StoSOO/StoSOO
     algorithms/T-HOO/T-HOO
     algorithms/HCT/HCT
     algorithms/VHCT/VHCT
+    algorithms/VPCT/VPCT
 
 
 
