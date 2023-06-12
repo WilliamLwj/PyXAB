@@ -111,5 +111,3 @@ def test_VROOM_SmallSearchingDepth():
 
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
-
-test_VROOM_Garland()
