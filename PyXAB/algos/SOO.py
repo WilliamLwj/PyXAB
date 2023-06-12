@@ -125,7 +125,6 @@ class SOO(Algorithm):
 
         self.iteration = time
         node_list = self.partition.get_node_list()
-        flag = False  # indicate if we should terminate the iteration
 
         while True:
             h = 0
@@ -151,12 +150,6 @@ class SOO(Algorithm):
                         self.partition.make_children(max_node, newlayer=(h>=self.partition.get_depth()))
                         v_max = max_value
                 h += 1
-            if max_node is None:
-                if (
-                    flag
-                ):  # We terminate the outer loop if we cannot find a leaf node that satisfies those conditions
-                    return self.partition.get_root().get_cpoint()
-                flag = True  # We set flag = True iff the loop cannot find the node starting from root.
 
     def receive_reward(self, time, reward):
         """
