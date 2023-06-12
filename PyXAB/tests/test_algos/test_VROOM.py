@@ -50,7 +50,7 @@ def test_VROOM_Garland():
 
     for t in range(1, T + 1):
         point = algo.pull(t)
-        reward = Target.f(point)
+        reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
         algo.receive_reward(t, reward)
 
     last_point = algo.get_last_point()
@@ -67,14 +67,14 @@ def test_VROOM_DoubleSine():
 
     for t in range(1, T + 1):
         point = algo.pull(t)
-        reward = Target.f(point)
+        reward = Target.f(point) + np.random.uniform(-0.1, 0.1)
         algo.receive_reward(t, reward)
 
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point), last_point)
 
 
-def test_SOO_Ackley():
+def test_VROOM_Ackley():
     T = 100
     Target = Ackley.Ackley_Normalized()
     domain = [[0, 1], [0, 1]]
@@ -111,4 +111,5 @@ def test_VROOM_SmallSearchingDepth():
 
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
-    
+
+test_VROOM_Garland()
