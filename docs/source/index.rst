@@ -40,8 +40,8 @@ PyXAB - Python *X*\ -Armed Bandit
     </a>
     </p>
 
-PyXAB is a Python open-source library for *X*-armed bandit algorithms, a prestigious set of optimizers for online black-box optimization, i.e., optimize an objective without gradients, also known as the continuous-arm bandit (CAB), Lipschitz bandit,
-global optimization (GO) and bandit-based black-box optimization problems.
+PyXAB is a Python open-source library for *X*-armed bandit algorithms, a prestigious set of optimizers for online black-box optimization and
+hyperparameter optimization.
 
 |pic1| |pic2|
 
@@ -52,34 +52,40 @@ global optimization (GO) and bandit-based black-box optimization problems.
    :width: 48%
    :alt: visualization
 
-PyXAB includes implementations of different algorithms for *X*\ -armed bandit, such as `HOO (Bubeck et al., 2011) <https://jmlr.org/papers/v12/bubeck11a.html>`_\ ,
-`StoSOO (Valko et al., 2013) <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py>`_, and `HCT (Azar et al., 2014) <https://proceedings.mlr.press/v32/azar14.html>`_\ , and the most
-recent works such as `GPO (Shang et al., 2019) <https://proceedings.mlr.press/v98/xuedong19a.html>`_ and `VHCT (Li et al, 2021) <https://arxiv.org/abs/2106.09215>`_.
+PyXAB includes implementations of different algorithms for *X*\ -armed bandit, such as `Zooming <https://arxiv.org/pdf/0809.4882.pdf>`_\ ,
+`StoSOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py>`_, and `HCT <https://proceedings.mlr.press/v32/azar14.html>`_\ , and the most
+recent works such as `GPO <https://proceedings.mlr.press/v98/xuedong19a.html>`_ and `VHCT <https://arxiv.org/abs/2106.09215>`_.
 PyXAB also provides the most commonly-used synthetic objectives to evaluate the performance of different algorithms and the implementations for different hierarchical partitions
 
 
+**PyXAB is featured for:**
+
+- **User-friendly APIs, clear documentation, and detailed examples**
+- **Comprehensive library** of optimization algorithms, partitions and synthetic objectives
+- **High standard code quality and high testing coverage**
+- **Low dependency** for flexible combination with other packages such as PyTorch, Scikit-Learn
+
+**Reminder**: The algorithms are maximization algorithms!
 
 
 
 Quick Example
 -------------
+PyXAB follows a natural and straightforward API design completely aligned with the online blackbox
+optimization paradigm. The following is a simple 6-line usage example.
 
-First define the blackbox objective, the parameter domain, and the algorithm to run, e.g.
-
-.. code-block:: python3
-
-   target = Garland()
-   domain = [[0, 1]]
-   algo = T_HOO(rounds=1000, domain=domain)
-
-At every round  ``t``\ , call ``algo.pull(t)`` to get a point. After receiving the (stochastic) reward for the point, call
-``algo.receive_reward(t, reward)`` to give the algorithm the feedback
+First, we define the parameter domain and the algorithm to run.
+At every round  ``t``, call ``algo.pull(t)`` to get a point and call
+``algo.receive_reward(t, reward)`` to give the algorithm the objective evaluation (reward)
 
 .. code-block:: python3
 
-   point = algo.pull(t)
-   reward = target.f(point) + np.random.uniform(-0.1, 0.1) # Uniform noise example
-   algo.receive_reward(t, reward)
+    domain = [[0, 1]]               # Parameter is 1-D and between 0 and 1
+    algo = T_HOO(rounds=1000, domain=domain)
+    for t in range(1000):
+        point = algo.pull(t)
+        reward = 1                  #TODO: User-defined objective returns the reward
+        algo.receive_reward(t, reward)
 
 Citations
 ---------
@@ -103,11 +109,14 @@ We would appreciate it if you could cite our related works.
 
 .. code-block:: text
 
-    @article{li2021optimum,
+    @article{li2023optimumstatistical,
         title={Optimum-statistical Collaboration Towards General and Efficient Black-box Optimization},
-        author={Li, Wenjie and Wang, Chi-Hua, Qifan Song and Cheng, Guang},
-        journal={arXiv preprint arXiv:2106.09215},
-        year={2021}
+        author={Wenjie Li and Chi-Hua Wang and Guang Cheng and Qifan Song},
+        journal={Transactions on Machine Learning Research},
+        issn={2835-8856},
+        year={2023},
+        url={https://openreview.net/forum?id=ClIcmwdlxn},
+        note={}
     }
 
 .. code-block:: text
