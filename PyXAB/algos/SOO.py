@@ -148,7 +148,7 @@ class SOO(Algorithm):
                             max_node = node
                 if max_value >= v_max:
                     if max_node is not None:  # Found a leaf node
-                        self.partition.make_children(max_node, newlayer=True)
+                        self.partition.make_children(max_node, newlayer=(h>=self.partition.get_depth()))
                         v_max = max_value
                 h += 1
             if max_node is None:
