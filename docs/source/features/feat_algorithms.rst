@@ -50,7 +50,7 @@ features in the algorithm design.
      - |check_|
      - |check_|
    * - `StoSOO <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StoSOO.py>`_
-     - `paper <https://proceedings.mlr.press/v28/valko13.pdf>`_
+     - `StoSOO paper <https://proceedings.mlr.press/v28/valko13.pdf>`_
      - |check_|
      - |cross_|
      - |cross_|
@@ -60,27 +60,27 @@ features in the algorithm design.
      - |check_|
      - |check_|
    * - `POO* <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/POO.py>`_
-     - paper
+     - `POO paper <https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf>`_
      - |check_|
      - |cross_|
      - |check_|
    * - `GPO* <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/GPO.py>`_
-     - paper
+     - `GPO paper <https://proceedings.mlr.press/v98/xuedong19a.html>`_
      - |check_|
      - |cross_|
      - |cross_|
    * - `PCT <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/PCT.py>`_
-     - paper
+     - `GPO paper <https://proceedings.mlr.press/v98/xuedong19a.html>`_
      - |check_|
      - |cross_|
      - |cross_|
    * - `SequOOL <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/SequOOL.py>`_
-     - paper
+     - `SequOOL paper <https://arxiv.org/pdf/1810.00997.pdf>`_
      - |cross_|
      - |cross_|
      - |cross_|
    * - `StroquOOL <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/StroquOOL.py>`_
-     - paper
+     - `StroquOOL paper <https://arxiv.org/pdf/1810.00997.pdf>`_
      - |check_|
      - |cross_|
      - |cross_|

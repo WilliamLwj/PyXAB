@@ -1,5 +1,5 @@
-DOO
-========
+DOO Algorithm
+=============
 
 Introduction
 ------------

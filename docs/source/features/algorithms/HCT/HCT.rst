@@ -1,5 +1,5 @@
-HCT
-========
+HCT Algorithm
+=============
 
 Introduction
 ------------

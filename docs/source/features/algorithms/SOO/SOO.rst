@@ -1,6 +1,5 @@
-SOO
-========
-
+SOO Algorithm
+=============
 Introduction
 ------------
 `paper <https://proceedings.neurips.cc/paper/2011/file/7e889fb76e0e07c11733550f2a6c7a5a-Paper.pdf>`_,

@@ -1,5 +1,5 @@
-POO
-========
+POO Algorithm
+=============
 
 Introduction
 ------------

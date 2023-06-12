@@ -1,5 +1,5 @@
-GPO
-========
+GPO Algorithm
+=============
 
 Introduction
 ------------

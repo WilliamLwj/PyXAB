@@ -1,5 +1,5 @@
-T-HOO
-========
+T-HOO Algorithm
+===============
 
 Introduction
 ------------

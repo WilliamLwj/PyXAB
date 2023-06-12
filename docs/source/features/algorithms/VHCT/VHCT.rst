@@ -1,5 +1,5 @@
-VHCT
-========
+VHCT Algorithm
+==============
 
 Introduction
 ------------

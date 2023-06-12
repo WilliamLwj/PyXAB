@@ -1,5 +1,5 @@
-Zooming
-========
+Zooming Algorithm
+=================
 
 Introduction
 ------------

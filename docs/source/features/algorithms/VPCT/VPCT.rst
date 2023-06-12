@@ -1,4 +1,4 @@
-VPCT
+VPCT Algorithm
 ==============
 
 Introduction

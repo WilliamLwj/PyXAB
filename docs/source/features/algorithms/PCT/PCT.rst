@@ -1,5 +1,5 @@
-PCT
-========
+PCT Algorithm
+=============
 
 Introduction
 ------------

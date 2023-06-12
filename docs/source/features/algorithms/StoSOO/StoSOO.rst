@@ -1,5 +1,5 @@
-StoSOO
-========
+StoSOO Algorithm
+================
 
 Introduction
 ------------

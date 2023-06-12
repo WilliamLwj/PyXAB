@@ -1,5 +1,5 @@
-StroquOOL
-=========
+StroquOOL Algorithm
+===================
 
 Introduction
 ------------

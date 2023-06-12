@@ -1,5 +1,5 @@
-SequOOL
-=========
+SequOOL Algorithm
+=================
 
 Introduction
 ------------
