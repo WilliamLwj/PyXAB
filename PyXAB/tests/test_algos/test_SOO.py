@@ -23,7 +23,7 @@ def test_SOO_ValueError_2():
 
 
 def test_SOO_Garland():
-    T = 100
+    T = 1000
     Target = Garland.Garland()
     domain = [[0, 1]]
     partition = BinaryPartition

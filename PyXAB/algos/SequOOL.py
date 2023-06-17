@@ -157,7 +157,7 @@ class SequOOL(Algorithm):
             if self.curr_depth == 0:
                 node = node_list[0][0]
                 if node.get_children() is None:
-                    self.partition.make_children(node, newlayer=True)
+                    self.partition.make_children(node, newlayer=(self.curr_depth >= self.partition.get_depth()))
                 if self.loc < len(node.get_children()):
                     if self.loc == len(node.get_children()) - 1:
                         self.loc = 0
@@ -184,7 +184,7 @@ class SequOOL(Algorithm):
                             max_node = node
 
                 if max_node.get_children() is None:
-                    self.partition.make_children(max_node, newlayer=True)
+                    self.partition.make_children(max_node, newlayer=(self.curr_depth >= self.partition.get_depth()))
                 if self.loc < len(max_node.get_children()):
                     if self.loc == len(max_node.get_children()) - 1:
                         max_node.open()
