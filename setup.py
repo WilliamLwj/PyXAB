@@ -18,7 +18,7 @@ URL = 'https://github.com/WilliamLwj/PyXAB'
 EMAIL = 'lil3549@purdue.edu'
 AUTHOR = 'Wenjie Li, Haoze Li, Qifan Song, Jean Honorio'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '0.2.4'
+VERSION = '0.3.0'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
