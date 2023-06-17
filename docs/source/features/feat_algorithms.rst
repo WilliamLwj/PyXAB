@@ -84,6 +84,11 @@ features in the algorithm design.
      - |check_|
      - |cross_|
      - |cross_|
+   * - `VROOM <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VROOM.py>`_
+     - `VROOM paper <https://arxiv.org/pdf/1910.04034.pdf>`_
+     - |check_|
+     - |cross_|
+     - |cross_|
    * - `VHCT <https://github.com/WilliamLwj/PyXAB/blob/main/PyXAB/algos/VHCT.py>`_
      - `VHCT paper <https://openreview.net/forum?id=ClIcmwdlxn>`_
      - |check_|
@@ -123,6 +128,7 @@ features in the algorithm design.
     algorithms/PCT/PCT
     algorithms/SequOOL/SequOOL
     algorithms/StroquOOL/StroquOOL
+    algorithms/VROOM/VROOM
     algorithms/VHCT/VHCT
     algorithms/VPCT/VPCT
 

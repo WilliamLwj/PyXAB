@@ -181,6 +181,24 @@ StroquOOL Algorithm
     :special-members: __init__
 
 
+..................................
+
+VROOM Algorithm
+----------------------------
+.. autoclass:: PyXAB.algos.VROOM.VROOM_node
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
+.. autoclass:: PyXAB.algos.VROOM.VROOM
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members: __init__
+
 
 ..................................
 
