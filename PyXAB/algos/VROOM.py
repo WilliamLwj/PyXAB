@@ -150,6 +150,8 @@ class VROOM(Algorithm):
         ----------
         n: int
             The total number of rounds (budget)
+        h_max: int
+            The number bounds the depth of the searching tree
         b: float
             The parameter that measures the variation of the function
         f_max: float
@@ -176,7 +178,10 @@ class VROOM(Algorithm):
         self.f_max = f_max
         self.search_depth = math.floor(np.log2(n)) # the largest depth at the ranking stage
         self.delta = 4 * self.b / (self.f_max * np.sqrt(self.n))
-        self.h_max = h_max
+        if h_max > n: # if h_max is too large, bound the tree by n instead
+            self.h_max = n
+        else:
+            self.h_max =  h_max
         
         # generate the searching tree
         while self.partition.get_depth() < self.search_depth:
