@@ -111,3 +111,21 @@ def test_VROOM_SmallSearchingDepth():
 
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
+    
+def test_VROOM_LargeSearchingDepth():
+    T = 50
+    Target = Garland.Garland()
+    domain = [[0, 1]]
+    partition = BinaryPartition
+    f_max = 5
+    b = 1
+    h_max = 100
+    algo = VROOM(n=T, h_max = h_max, f_max = f_max, b = b, domain=domain, partition=partition)
+
+    for t in range(1, T + 1):
+        point = algo.pull(t)
+        reward = Target.f(point)
+        algo.receive_reward(t, reward)
+
+    last_point = algo.get_last_point()
+    print(T, Target.fmax - Target.f(last_point))
