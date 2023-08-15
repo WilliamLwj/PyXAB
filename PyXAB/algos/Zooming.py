@@ -13,6 +13,7 @@ from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.Node import P_node
 from PyXAB.partition.BinaryPartition import BinaryPartition
 
+
 class point:
     """
     A helper class to use points as references

@@ -41,7 +41,7 @@ def test_Zooming_Garland():
         cumulative_regret += inst_regret
         cumulative_regret_list.append(cumulative_regret)
 
-    #compare_regret({"Zooming": np.array(cumulative_regret_list)})
+    # compare_regret({"Zooming": np.array(cumulative_regret_list)})
     print("Zooming: ", algo.get_last_point())
 
 
@@ -63,5 +63,5 @@ def test_Zooming_Himmelblau():
         cumulative_regret += inst_regret
         cumulative_regret_list.append(cumulative_regret)
 
-    #compare_regret({"Zooming": np.array(cumulative_regret_list)})
+    # compare_regret({"Zooming": np.array(cumulative_regret_list)})
     print("Zooming: ", algo.get_last_point())

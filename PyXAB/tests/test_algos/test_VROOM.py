@@ -15,7 +15,7 @@ def test_VROOM_ValueError_1():
     b = 1
     f_max = 10
     with pytest.raises(ValueError):
-        VROOM(b=b, f_max = f_max, partition=partition)
+        VROOM(b=b, f_max=f_max, partition=partition)
 
 
 def test_VROOM_ValueError_2():
@@ -23,21 +23,24 @@ def test_VROOM_ValueError_2():
     b = 1
     f_max = 10
     with pytest.raises(ValueError):
-        VROOM(b=b, f_max = f_max, domain=domain, partition=None)
+        VROOM(b=b, f_max=f_max, domain=domain, partition=None)
+
 
 def test_VROOM_ValueError_3():
     partition = BinaryPartition
     domain = [[0, 1]]
     f_max = 10
     with pytest.raises(ValueError):
-        VROOM(f_max = f_max, domain=domain, partition=partition)
-        
+        VROOM(f_max=f_max, domain=domain, partition=partition)
+
+
 def test_VROOM_ValueError_4():
     partition = BinaryPartition
     domain = [[0, 1]]
     b = 1
     with pytest.raises(ValueError):
-        VROOM(b = b, domain=domain, partition=partition)
+        VROOM(b=b, domain=domain, partition=partition)
+
 
 def test_VROOM_Garland():
     T = 100
@@ -46,7 +49,7 @@ def test_VROOM_Garland():
     partition = BinaryPartition
     f_max = 1
     b = 0.5
-    algo = VROOM(n=T, f_max = f_max, b = b, domain=domain, partition=partition)
+    algo = VROOM(n=T, f_max=f_max, b=b, domain=domain, partition=partition)
 
     for t in range(1, T + 1):
         point = algo.pull(t)
@@ -55,7 +58,8 @@ def test_VROOM_Garland():
 
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point), last_point)
-    
+
+
 def test_VROOM_DoubleSine():
     T = 100
     Target = DoubleSine.DoubleSine()
@@ -63,7 +67,7 @@ def test_VROOM_DoubleSine():
     partition = BinaryPartition
     f_max = 1
     b = 0.5
-    algo = VROOM(n=T, f_max = f_max, b = b, domain=domain, partition=partition)
+    algo = VROOM(n=T, f_max=f_max, b=b, domain=domain, partition=partition)
 
     for t in range(1, T + 1):
         point = algo.pull(t)
@@ -81,7 +85,7 @@ def test_VROOM_Ackley():
     partition = BinaryPartition
     f_max = 5
     b = 1
-    algo = VROOM(n=T, f_max = f_max, b = b, domain=domain, partition=partition)
+    algo = VROOM(n=T, f_max=f_max, b=b, domain=domain, partition=partition)
 
     for t in range(1, T + 1):
         point = algo.pull(t)
@@ -102,7 +106,7 @@ def test_VROOM_SmallSearchingDepth():
     partition = BinaryPartition
     f_max = 5
     b = 1
-    algo = VROOM(n=T, f_max = f_max, b = b, domain=domain, partition=partition)
+    algo = VROOM(n=T, f_max=f_max, b=b, domain=domain, partition=partition)
 
     for t in range(1, T + 1):
         point = algo.pull(t)
@@ -111,7 +115,8 @@ def test_VROOM_SmallSearchingDepth():
 
     last_point = algo.get_last_point()
     print(T, Target.fmax - Target.f(last_point))
-    
+
+
 def test_VROOM_LargeSearchingDepth():
     T = 50
     Target = Garland.Garland()
@@ -120,7 +125,7 @@ def test_VROOM_LargeSearchingDepth():
     f_max = 5
     b = 1
     h_max = 100
-    algo = VROOM(n=T, h_max = h_max, f_max = f_max, b = b, domain=domain, partition=partition)
+    algo = VROOM(n=T, h_max=h_max, f_max=f_max, b=b, domain=domain, partition=partition)
 
     for t in range(1, T + 1):
         point = algo.pull(t)

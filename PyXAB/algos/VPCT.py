@@ -10,12 +10,15 @@ from PyXAB.algos.VHCT import VHCT
 from PyXAB.algos.GPO import GPO
 from PyXAB.partition.BinaryPartition import BinaryPartition
 
+
 class VPCT(Algorithm):
     """
     Implementation of Variance-reduced Parallel Confidence Tree  algorithm (VHCT + GPO)
     """
 
-    def __init__(self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=BinaryPartition):
+    def __init__(
+        self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=BinaryPartition
+    ):
         """
         Initialization of the VPCT algorithm
 

@@ -16,7 +16,13 @@ class GPO(Algorithm):
     """
 
     def __init__(
-        self, numax=1.0, rhomax=0.9, rounds=1000, domain=None, partition=BinaryPartition, algo=None
+        self,
+        numax=1.0,
+        rhomax=0.9,
+        rounds=1000,
+        domain=None,
+        partition=BinaryPartition,
+        algo=None,
     ):
         """
         Initialization of the wrapper algorithm

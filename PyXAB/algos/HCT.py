@@ -150,7 +150,9 @@ class HCT(Algorithm):
     Implementation of the HCT algorithm
     """
 
-    def __init__(self, nu=1, rho=0.5, c=0.1, delta=0.01, domain=None, partition=BinaryPartition):
+    def __init__(
+        self, nu=1, rho=0.5, c=0.1, delta=0.01, domain=None, partition=BinaryPartition
+    ):
         """
         Initialization of the HCT algorithm
 

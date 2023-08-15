@@ -9,6 +9,7 @@ import numpy as np
 from PyXAB.algos.Algo import Algorithm
 from PyXAB.partition.BinaryPartition import BinaryPartition
 
+
 class POO(Algorithm):
     """
     Implementation of the Parallel Optimistic Optimization (POO) algorithm (Grill et al., 2015), with the general
@@ -16,7 +17,13 @@ class POO(Algorithm):
     """
 
     def __init__(
-        self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=BinaryPartition, algo=None
+        self,
+        numax=1,
+        rhomax=0.9,
+        rounds=1000,
+        domain=None,
+        partition=BinaryPartition,
+        algo=None,
     ):
         """
 

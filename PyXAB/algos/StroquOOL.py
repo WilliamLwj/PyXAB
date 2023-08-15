@@ -214,7 +214,10 @@ class StroquOOL(Algorithm):
             # init
             if self.curr_depth == 0:
                 if node_list[0][0].get_children() is None:
-                    self.partition.make_children(node_list[0][0], newlayer=(self.curr_depth >= self.partition.get_depth()))
+                    self.partition.make_children(
+                        node_list[0][0],
+                        newlayer=(self.curr_depth >= self.partition.get_depth()),
+                    )
                     self.chosen.append(node_list[0][0].get_children()[0])
                     self.chosen.append(node_list[0][0].get_children()[1])
                 if self.iteration <= self.h_max:
@@ -245,7 +248,10 @@ class StroquOOL(Algorithm):
                     self.eval = False
                     # partition
                     if self.max_node.get_children() is None:
-                        self.partition.make_children(self.max_node, newlayer=(self.curr_depth >= self.partition.get_depth()))
+                        self.partition.make_children(
+                            self.max_node,
+                            newlayer=(self.curr_depth >= self.partition.get_depth()),
+                        )
                         self.chosen.append(self.max_node.get_children()[0])
                         self.chosen.append(self.max_node.get_children()[1])
                 # evaluate children

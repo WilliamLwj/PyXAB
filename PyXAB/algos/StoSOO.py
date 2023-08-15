@@ -119,7 +119,13 @@ class StoSOO(Algorithm):
     """
 
     def __init__(
-        self, n=100, k=None, h_max=100, delta=None, domain=None, partition=BinaryPartition
+        self,
+        n=100,
+        k=None,
+        h_max=100,
+        delta=None,
+        domain=None,
+        partition=BinaryPartition,
     ):
         """
         The initialization of the StoSOO algorithm

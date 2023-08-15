@@ -10,12 +10,15 @@ from PyXAB.algos.HCT import HCT
 from PyXAB.algos.GPO import GPO
 from PyXAB.partition.BinaryPartition import BinaryPartition
 
+
 class PCT(Algorithm):
     """
     Implementation of Parallel Confidence Tree (Shang et al., 2019) algorithm
     """
 
-    def __init__(self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=BinaryPartition):
+    def __init__(
+        self, numax=1, rhomax=0.9, rounds=1000, domain=None, partition=BinaryPartition
+    ):
         """
         Initialization of the PCT algorithm
 

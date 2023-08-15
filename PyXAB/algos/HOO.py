@@ -143,7 +143,9 @@ class T_HOO(Algorithm):
     Implementation of the T_HOO algorithm
     """
 
-    def __init__(self, nu=1, rho=0.5, rounds=1000, domain=None, partition=BinaryPartition):
+    def __init__(
+        self, nu=1, rho=0.5, rounds=1000, domain=None, partition=BinaryPartition
+    ):
         """
         Initialization of the T_HOO algorithm
 

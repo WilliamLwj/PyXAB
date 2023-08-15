@@ -11,11 +11,12 @@ from PyXAB.partition.Node import P_node
 from PyXAB.partition.BinaryPartition import BinaryPartition
 import pdb
 
+
 class VROOM_node(P_node):
     """
     Implementation of the node in the VROOM algorithm
     """
-    
+
     def __init__(self, depth, index, parent, domain):
         """
         Initialization of the VROOM node
@@ -32,11 +33,11 @@ class VROOM_node(P_node):
             domain that this node represents
         """
         super(VROOM_node, self).__init__(depth, index, parent, domain)
-        
+
         self.reward = []
         self.rank = []
         self.reward_tilde = []
-        
+
     def update_reward(self, reward):
         """
         The function to update the reward of the node
@@ -75,7 +76,7 @@ class VROOM_node(P_node):
         
         """
         return np.mean(self.reward)
-    
+
     def get_reward_tilde(self):
         """
         The function to get the reward tilde statistic of the node
@@ -87,7 +88,7 @@ class VROOM_node(P_node):
         if self.reward_tilde:
             return np.sum(self.reward)
         return -np.inf
-        
+
     def get_eval_time(self):
         """
         The function to get the evaluation time of the node
@@ -97,7 +98,7 @@ class VROOM_node(P_node):
         
         """
         return len(self.reward)
-        
+
     def sample_uniform(self):
         """
         The function to uniformly sample a point from the domain of the node
@@ -113,7 +114,7 @@ class VROOM_node(P_node):
             point = np.random.uniform(domain[0], domain[1])
             res.append(point)
         return res
-    
+
     def get_rank(self):
         """
         The function to get the rank of the cell
@@ -124,7 +125,7 @@ class VROOM_node(P_node):
             the rank of the cell at current depth
         """
         return self.rank
-    
+
     def add_rank(self, rank):
         """
         The method to set the rank of the cell
@@ -135,14 +136,22 @@ class VROOM_node(P_node):
             the rank of the cell at current depth
         """
         self.rank.append(rank)
-    
-    
+
+
 class VROOM(Algorithm):
     """
     The implementation of the VROOM algorithm (Ammar, Haitham, et al., 2020)
     """
-    
-    def __init__(self, n=100, h_max = 100, b=None, f_max=None, domain=None, partition=BinaryPartition):
+
+    def __init__(
+        self,
+        n=100,
+        h_max=100,
+        b=None,
+        f_max=None,
+        domain=None,
+        partition=BinaryPartition,
+    ):
         """
         The initialization of the VROOM algorithm
         
@@ -171,29 +180,30 @@ class VROOM(Algorithm):
         if partition is None:
             raise ValueError("Partition of the parameter space is not given")
         self.partition = partition(domain=domain, node=VROOM_node)
-        
+
         self.iteration = 0
         self.n = n
         self.b = b
         self.f_max = f_max
-        self.search_depth = math.floor(np.log2(n)) # the largest depth at the ranking stage
+        self.search_depth = math.floor(
+            np.log2(n)
+        )  # the largest depth at the ranking stage
         self.delta = 4 * self.b / (self.f_max * np.sqrt(self.n))
-        if h_max > n: # if h_max is too large, bound the tree by n instead
+        if h_max > n:  # if h_max is too large, bound the tree by n instead
             self.h_max = n
         else:
-            self.h_max =  h_max
-        
+            self.h_max = h_max
+
         # generate the searching tree
         while self.partition.get_depth() < self.search_depth:
             self.partition.deepen()
-            
-                
-        # calculate the constant 
+
+        # calculate the constant
         self.const = 0
         for h in range(1, self.search_depth + 1):
-            for l in range(1, 2**h + 1):
+            for l in range(1, 2 ** h + 1):
                 self.const += 1 / (h * l)
-        
+
     def pull(self, time):
         """
         The pull function of VROOM that returns a point in every bound
@@ -208,7 +218,7 @@ class VROOM(Algorithm):
         point: list
             the point to be evaluated
         """
-        
+
         self.iteration = time
         node_list = self.partition.get_node_list()
 
@@ -225,19 +235,21 @@ class VROOM(Algorithm):
         idx = index[sample]
         self.curr_node = node_list[idx[0]][idx[1]]
         node = node_list[idx[0]][idx[1]]
-        
+
         # sample point
         h = idx[0]
         self.update_list = [node]
         while h < self.h_max:
             if node.get_children() is None:
-                self.partition.make_children(node, newlayer=(h >= self.partition.get_depth()))
+                self.partition.make_children(
+                    node, newlayer=(h >= self.partition.get_depth())
+                )
             sign = np.random.randint(2)
             node = node.get_children()[sign]
             self.update_list.append(node)
             h += 1
         return node.sample_uniform()
-    
+
     def rank(self, nodes):
         """
         The rank function of VROOM that rank nodes at the same depth
@@ -250,15 +262,19 @@ class VROOM(Algorithm):
         Returns
         -------
         """
+
         def rank_fun(node):
             if node.get_eval_time() == 0:
                 return -np.inf
-            return node.get_mean_reward() - np.sqrt(np.log(4 * self.n**3 / self.delta) / (2 * node.get_eval_time()))
+            return node.get_mean_reward() - np.sqrt(
+                np.log(4 * self.n ** 3 / self.delta) / (2 * node.get_eval_time())
+            )
+
         rank = sorted(nodes, key=rank_fun, reverse=True)
         for i in range(len(rank)):
             node = rank[i]
             node.add_rank(i + 1)
-        
+
     def receive_reward(self, time, reward):
         """
         The receive_reward function of VROOM to obtain the reward and update Statistics (for current node)
@@ -273,22 +289,22 @@ class VROOM(Algorithm):
         Returns
         -------
         """
-        
+
         for i in range(len(self.update_list)):
             node = self.update_list[i]
             depth = node.get_depth()
             prob = 0
             idx = 0
             for h in range(1, depth + 1):
-                for l in range(1, 2**h + 1):
+                for l in range(1, 2 ** h + 1):
                     prob += self.prob[idx]
                     idx += 1
                 if idx >= len(self.prob):
                     prob = 1
                     break
             node.update_reward(reward)
-            node.update_reward_tilde(reward / (prob / (2**i))) # Eq. (4) in the paper
-        
+            node.update_reward_tilde(reward / (prob / (2 ** i)))  # Eq. (4) in the paper
+
     def get_last_point(self):
         """
         The function to get the last point in VROOM
@@ -303,14 +319,29 @@ class VROOM(Algorithm):
         node_list = self.partition.get_node_list()
         for h in range(len(node_list)):
             for node in node_list[h]:
-                value = node.get_reward_tilde() - self.f_max * np.sqrt(2 * self.n * self.const * np.log(2 * self.n **2 / self.delta) * np.sum(node.get_rank())) + self.f_max * self.const * (np.log(2 * self.n **2 / self.delta) / 3)
+                value = (
+                    node.get_reward_tilde()
+                    - self.f_max
+                    * np.sqrt(
+                        2
+                        * self.n
+                        * self.const
+                        * np.log(2 * self.n ** 2 / self.delta)
+                        * np.sum(node.get_rank())
+                    )
+                    + self.f_max
+                    * self.const
+                    * (np.log(2 * self.n ** 2 / self.delta) / 3)
+                )
                 if value >= max_value:
                     max_node = node
                     depth = h
                     max_value = value
         while depth < self.h_max:
             if max_node.get_children() is None:
-                self.partition.make_children(max_node, newlayer=(depth >= self.partition.get_depth()))
+                self.partition.make_children(
+                    max_node, newlayer=(depth >= self.partition.get_depth())
+                )
             sign = np.random.randint(2)
             max_node = max_node.get_children()[sign]
             depth += 1
