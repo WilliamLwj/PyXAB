@@ -88,16 +88,16 @@ deteriorates the situation.
         {$\mathcal{X}$-Armed Bandit Algorithm} 
         & Cumulative & Stochastic & {Open-sourced?}   \\
         \hline
-        \texttt{HOO} [@bubeck2011X] & yes & yes & yes (Python)  \\
-        \texttt{DOO} [@Munos2011Optimistic] & no & no & no  \\
-        \texttt{StoSOO} [@Valko13Stochastic] & no & yes & yes (MATLAB, C)  \\
-        \texttt{HCT} [@azar2014online] & yes & yes & no   \\
-        \texttt{POO} [@Grill2015Blackbox] & no & yes & yes (Python, R) \\
-        \texttt{GPO} [@shang2019general] & no & yes & no  \\
-        \texttt{SequOOL}  [@bartlett2019simple] & no & no &no \\
-        \texttt{StroquOOL}  [@bartlett2019simple] & no & yes &no \\
-        \texttt{VROOM}  [@ammar20derivative] & no & no &no \\
-        \texttt{VHCT}  [@li2021optimumstatistical] & yes & yes &no\\
+        \texttt{HOO} \cite{bubeck2011X} & yes & yes & yes (Python)  \\
+        \texttt{DOO} \cite{Munos2011Optimistic} & no & no & no  \\
+        \texttt{StoSOO} \cite{Valko13Stochastic} & no & yes & yes (MATLAB, C)  \\
+        \texttt{HCT} \cite{azar2014online} & yes & yes & no   \\
+        \texttt{POO} \cite{Grill2015Blackbox} & no & yes & yes (Python, R) \\
+        \texttt{GPO} \cite{shang2019general} & no & yes & no  \\
+        \texttt{SequOOL}  \cite{bartlett2019simple} & no & no &no \\
+        \texttt{StroquOOL}  \cite{bartlett2019simple} & no & yes &no \\
+        \texttt{VROOM}  \cite{ammar20derivative} & no & no &no \\
+        \texttt{VHCT}  \cite{li2021optimumstatistical} & yes & yes &no\\
        \hline
     \end{tabular}
     \label{tab: summary}
