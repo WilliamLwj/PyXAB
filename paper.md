@@ -90,7 +90,7 @@ deteriorates the situation.
         \hline
         \texttt{HOO} [@bubeck2011X] & yes & yes & yes (Python)  \\
         \texttt{DOO} [@Munos2011Optimistic] & no & no & no  \\
-        \texttt{StoSOO} [@Valko13Stochastic] & no & yes & yes (\MATLAB, C)  \\
+        \texttt{StoSOO} [@Valko13Stochastic] & no & yes & yes (MATLAB, C)  \\
         \texttt{HCT} [@azar2014online] & yes & yes & no   \\
         \texttt{POO} [@Grill2015Blackbox] & no & yes & yes (Python, R) \\
         \texttt{GPO} [@shang2019general] & no & yes & no  \\
