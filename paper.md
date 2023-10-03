@@ -86,13 +86,12 @@ deteriorates the situation.
     \begin{tabular}{l c c c}
     \end{tabular}
     \label{tab: summary}
-\end{table}
 
-| {$\mathcal{X}$-Armed Bandit Algorithm}     | Cumulative | Stochastic | {Open-sourced?}  |
+| $\mathcal{X}$-Armed Bandit Algorithm       | Cumulative | Stochastic | Open-sourced?    |
 |--------------------------------------------|:----------:|:----------:|------------------|
 | \texttt{HOO} [@bubeck2011X]                |    yes     |    yes     | yes (Python)     |
 | \texttt{DOO} [@Munos2011Optimistic]        |     no     |     no     | no               |
-| \texttt{StoSOO} [@Valko13Stochastic]       |     no     |    yes     | yes (MATLAB, C)  |
+| \texttt{StoSOO} [@Valko13Stochastic]       |     no     |    yes     | yes (MATLAB)     |
 | \texttt{HCT} [@azar2014online]             |    yes     |    yes     | no               |
 | \texttt{POO} [@Grill2015Blackbox]          |     no     |    yes     | yes  (Python, R) |
 | \texttt{GPO} [@shang2019general]           |     no     |    yes     | no               |
@@ -100,6 +99,8 @@ deteriorates the situation.
 | \texttt{StroquOOL}  [@bartlett2019simple]  |     no     |    yes     | no               |
 | \texttt{VROOM}  [@ammar20derivative]       |     no     |     no     | no               |
 | \texttt{VHCT}  [@li2021optimumstatistical] |    yes     |    yes     | no               |
+
+\end{table}
 
 
 
