@@ -75,11 +75,33 @@ tree structures. It is hence time-consuming to implement and test one single alg
 algorithms such as \texttt{HOO} and \texttt{HCT} are designed for the setting where the function evaluations can be noisy,
 while \texttt{SequOOL} is proposed for the noiseless case. Some algorithms focus on cumulative-regret optimization 
 whereas some only care about the last-point regret or the simple regret\footnote{ A more detailed discussion on simple
-regret and cumulative regret can be found in `@bubeck2011X`}. Therefore, experimental comparisons often focus on a small
-subset of algorithms, see e.g., `@azar2014online`, `@bartlett2019simple`. The unavailability of a general package only 
+regret and cumulative regret can be found in [@bubeck2011X]}. Therefore, experimental comparisons often focus on a small
+subset of algorithms, see e.g., [@azar2014online], [@bartlett2019simple]. The unavailability of a general package only 
 deteriorates the situation. 
 
 
+\begin{table}
+    \centering
+    \caption{Selected examples of $\mathcal{X}$-armed bandit algorithms implemented in our library. \textit{Cumulative}: whether the algorithm focuses on optimizing cumulative regret or simple regret. \textit{Stochastic}: whether the algorithm deals with noisy rewards. \textit{Open-sourced?}:  the code availability before the development of PyXAB.}
+    \begin{tabular}{l c c c}
+        \hline
+        {$\mathcal{X}$-Armed Bandit Algorithm} 
+        & Cumulative & Stochastic & {Open-sourced?}   \\
+        \hline
+        \texttt{HOO} [@bubeck2011X] & yes & yes & yes (Python)  \\
+        \texttt{DOO} [@Munos2011Optimistic] & no & no & no  \\
+        \texttt{StoSOO} [@Valko13Stochastic] & no & yes & yes (\MATLAB, C)  \\
+        \texttt{HCT} [@azar2014online] & yes & yes & no   \\
+        \texttt{POO} [@Grill2015Blackbox] & no & yes & yes (Python, R) \\
+        \texttt{GPO} [@shang2019general] & no & yes & no  \\
+        \texttt{SequOOL}  [@bartlett2019simple] & no & no &no \\
+        \texttt{StroquOOL}  [@bartlett2019simple] & no & yes &no \\
+        \texttt{VROOM}  [@ammar20derivative] & no & no &no \\
+        \texttt{VHCT}  [@li2021optimumstatistical] & yes & yes &no\\
+       \hline
+    \end{tabular}
+    \label{tab: summary}
+\end{table}
 
 To remove the barriers for future research in this area, we have developed PyXAB, a Python library of the existing 
 popular $\mathcal{X}$-armed bandit algorithms. To the best of our knowledge, this is the first comprehensive library for
@@ -157,10 +179,5 @@ The documentation is fully available online on ReadTheDocs\footnote{\url{https:/
 On the same website, we also provide installation guides, algorithm introductions, both elementary and advanced examples 
 of using our package, as well as detailed contributing instructions and new feature implementation examples to encourage
 future contributions.
- 
-# Acknowledgements
-
-We acknowledge contributions from Brigitta Sipocz, Syrtis Major, and Semyeong
-Oh, and support from Kathryn Johnston during the genesis of this project.
 
 # References
