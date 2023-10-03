@@ -25,18 +25,8 @@ affiliations:
     index: 2
 date: 04 October 2023
 bibliography: paper.bib
+---
 
-[//]: # (# Optional fields if submitting to a AAS journal too, see this blog post:)
-
-[//]: # (# https://blog.joss.theoj.org/2018/12/a-new-collaboration-with-aas-publishing)
-
-[//]: # (aas-doi: 10.3847/xxxxx <- update this with the DOI from AAS once you know it.)
-
-[//]: # (aas-journal: Astrophysical Journal <- The name of the AAS journal.)
-
-[//]: # (---)
-
-[//]: # (https://joss.readthedocs.io/en/latest/submitting.html#)
 # Summary
 
 We introduce a Python open-source library for $\mathcal{X}$-armed bandit and online blackbox optimization named PyXAB. 
