@@ -84,24 +84,24 @@ deteriorates the situation.
     \centering
     \caption{Selected examples of $\mathcal{X}$-armed bandit algorithms implemented in our library. \textit{Cumulative}: whether the algorithm focuses on optimizing cumulative regret or simple regret. \textit{Stochastic}: whether the algorithm deals with noisy rewards. \textit{Open-sourced?}:  the code availability before the development of PyXAB.}
     \begin{tabular}{l c c c}
-        \hline
-        {$\mathcal{X}$-Armed Bandit Algorithm} 
-        & Cumulative & Stochastic & {Open-sourced?}   \\
-        \hline
-        \texttt{HOO} \cite{bubeck2011X} & yes & yes & yes (Python)  \\
-        \texttt{DOO} \cite{Munos2011Optimistic} & no & no & no  \\
-        \texttt{StoSOO} \cite{Valko13Stochastic} & no & yes & yes (MATLAB, C)  \\
-        \texttt{HCT} \cite{azar2014online} & yes & yes & no   \\
-        \texttt{POO} \cite{Grill2015Blackbox} & no & yes & yes (Python, R) \\
-        \texttt{GPO} \cite{shang2019general} & no & yes & no  \\
-        \texttt{SequOOL}  \cite{bartlett2019simple} & no & no &no \\
-        \texttt{StroquOOL}  \cite{bartlett2019simple} & no & yes &no \\
-        \texttt{VROOM}  \cite{ammar20derivative} & no & no &no \\
-        \texttt{VHCT}  \cite{li2021optimumstatistical} & yes & yes &no\\
-       \hline
     \end{tabular}
     \label{tab: summary}
 \end{table}
+
+| {$\mathcal{X}$-Armed Bandit Algorithm}     | Cumulative | Stochastic | {Open-sourced?}  |
+|--------------------------------------------|:----------:|:----------:|------------------|
+| \texttt{HOO} [@bubeck2011X]                |    yes     |    yes     | yes (Python)     |
+| \texttt{DOO} [@Munos2011Optimistic]        |     no     |     no     | no               |
+| \texttt{StoSOO} [@Valko13Stochastic]       |     no     |    yes     | yes (MATLAB, C)  |
+| \texttt{HCT} [@azar2014online]             |    yes     |    yes     | no               |
+| \texttt{POO} [@Grill2015Blackbox]          |     no     |    yes     | yes  (Python, R) |
+| \texttt{GPO} [@shang2019general]           |     no     |    yes     | no               |
+| \texttt{SequOOL}  [@bartlett2019simple]    |     no     |     no     | no               |
+| \texttt{StroquOOL}  [@bartlett2019simple]  |     no     |    yes     | no               |
+| \texttt{VROOM}  [@ammar20derivative]       |     no     |     no     | no               |
+| \texttt{VHCT}  [@li2021optimumstatistical] |    yes     |    yes     | no               |
+
+
 
 To remove the barriers for future research in this area, we have developed PyXAB, a Python library of the existing 
 popular $\mathcal{X}$-armed bandit algorithms. To the best of our knowledge, this is the first comprehensive library for
@@ -143,8 +143,7 @@ papers, such as \texttt{Garland}, \texttt{DoubleSine}, and \texttt{Himmelblau}.
 The usage of the PyXAB library is rather straightforward. Given the number of rounds, the objective function, 
 and the parameter domain, the learner would choose the partition of the parameter space and the bandit algorithm. 
 Then in each round, the learner obtains one point from the algorithm, evaluate it on the objective, and return the 
-reward to the algorithm. 
-%
+reward to the algorithm.
 The following snippet of code provides an example of optimizing the Garland synthetic objective on the domain 
 $[[0, 1]]$ by running the \texttt{HCT} algorithm with \texttt{BinaryPartition} for 1000 iterations. 
 As can be observed, only about ten lines of code are needed for the optimization process apart from the import statements.
