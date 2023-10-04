@@ -77,8 +77,11 @@ function evaluations can be noisy, while \texttt{SequOOL} [@bartlett2019simple] 
 Some algorithms focus on cumulative-regret optimization whereas some only care about the last-point regret or the simple regret\footnote{ A more detailed discussion on simple
 regret and cumulative regret can be found in [@bubeck2011X]}. Therefore, experimental comparisons often focus on a small
 subset of algorithms, see e.g., [@azar2014online], [@bartlett2019simple]. The unavailability of a general package only 
-deteriorates the situation. In Table \ref{tab: summary}, we provide the comparison among \texttt{HOO} [@bubeck2011X],  
-\texttt{DOO} [@Munos2011Optimistic], \texttt{StoSOO} [@Valko13Stochastic], \texttt{HCT} [@azar2014online], \texttt{POO} [@Grill2015Blackbox]
+deteriorates the situation. 
+
+
+In Table \ref{tab: summary}, we provide the comparison among some of the algorithms implemented in PyXAB, including 
+\texttt{HOO} [@bubeck2011X], \texttt{DOO} [@Munos2011Optimistic], \texttt{StoSOO} [@Valko13Stochastic], \texttt{HCT} [@azar2014online], \texttt{POO} [@Grill2015Blackbox]
 \texttt{GPO} [@shang2019general], \texttt{SequOOL} [@bartlett2019simple],  \texttt{StroquOOL} [@bartlett2019simple],  \texttt{VROOM} [@ammar20derivative].
 and \texttt{VHCT} [@li2021optimumstatistical].
 
