@@ -58,7 +58,7 @@ bandit problems [@bubeck2011X; @azar2014online].  However, such $\mathcal{X}$-ar
 their multi-armed counterparts, since the number of sub-domains increases exponentially as the partition grows, and the 
 hierarchical structure/Lipschitzness assumption implies internal correlations between the ``arms". Therefore, directly 
 applying multi-armed bandit algorithms to such problems would infeasible and more complicated algorithms are developed 
-[@Grill2015Blackbox; @shang2019general; @li2021optimumstatistical].
+[@Grill2015Blackbox; @shang2019general; @li2021optimumstatistical]. 
 
 Despite the popularity of this area, most of the algorithms proposed by the researchers are either not open-sourced or 
 implemented in different programming languages in disjoint packages. For example, \texttt{StoSOO}[@Valko13Stochastic] is
@@ -71,13 +71,16 @@ following two main reasons.
 node sampling, and the exploration-exploitation strategies that involve building, maintaining, and expanding complicated
 tree structures. It is hence time-consuming to implement and test one single algorithm.
     
- - The problem settings for the algorithms could be slightly different. As shown in Table \ref{tab: summary}, some 
-algorithms such as \texttt{HOO} [@bubeck2011X] and \texttt{HCT} [@azar2014online] are designed for the setting where the function evaluations can be noisy,
-while \texttt{SequOOL} [@bartlett2019simple] is proposed for the noiseless case. Some algorithms focus on cumulative-regret optimization 
-whereas some only care about the last-point regret or the simple regret\footnote{ A more detailed discussion on simple
+ - The problem settings for the algorithms could be slightly different.  Some 
+algorithms such as \texttt{HOO} [@bubeck2011X] and \texttt{HCT} [@azar2014online] are designed for the setting where the
+function evaluations can be noisy, while \texttt{SequOOL} [@bartlett2019simple] is proposed for the noiseless case. 
+Some algorithms focus on cumulative-regret optimization whereas some only care about the last-point regret or the simple regret\footnote{ A more detailed discussion on simple
 regret and cumulative regret can be found in [@bubeck2011X]}. Therefore, experimental comparisons often focus on a small
 subset of algorithms, see e.g., [@azar2014online], [@bartlett2019simple]. The unavailability of a general package only 
-deteriorates the situation. 
+deteriorates the situation. In Table \ref{tab: summary}, we provide the comparison among \texttt{HOO} [@bubeck2011X],  
+\texttt{DOO} [@Munos2011Optimistic], \texttt{StoSOO} [@Valko13Stochastic], \texttt{HCT} [@azar2014online], \texttt{POO} [@Grill2015Blackbox]
+\texttt{GPO} [@shang2019general], \texttt{SequOOL} [@bartlett2019simple],  \texttt{StroquOOL} [@bartlett2019simple],  \texttt{VROOM} [@ammar20derivative].
+and \texttt{VHCT} [@li2021optimumstatistical].
 
 \begin{table}
     \centering
@@ -99,7 +102,6 @@ deteriorates the situation.
         \texttt{VHCT}   & yes & yes &no\\
        \hline
     \end{tabular}
-        \vspace{-10pt}
     \label{tab: summary}
 \end{table}
 
