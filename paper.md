@@ -41,7 +41,7 @@ directly installed from PyPI with its source code available at \url{https://gith
 # Statement of need
 
 Online blackbox optimization has become a heated research topic due to the recent popularity of machine learning models 
-and thus the increasing demand for hyper-parameter tuning algorithms [@Li2018Hyperband; @shang2019general, wang2023federated, @Li2024Personalized]. 
+and thus the increasing demand for hyper-parameter tuning algorithms [@Li2018Hyperband; @shang2019general; wang2023federated; @Li2024Personalized]. 
 Other applications, such as neural architecture search, federated learning, and personal investment portfolio designs, 
 also contribute to its prosperity nowadays [@li2021optimumstatistical; @Li2022Federated]. Different online blackbox 
 optimization algorithms, e.g., Bayesian Optimization algorithms [@Shahriari2016Taking] and two-point evaluation methods
