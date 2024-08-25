@@ -80,6 +80,8 @@ At every round  `t`, call `algo.pull(t)` to get a point and call
 `algo.receive_reward(t, reward)` to give the algorithm the objective evaluation (reward)
 
 ```python3
+from PyXAB.algos.HOO import T_HOO
+
 domain = [[0, 1]]               # Parameter is 1-D and between 0 and 1
 algo = T_HOO(rounds=1000, domain=domain) 
 for t in range(1000):

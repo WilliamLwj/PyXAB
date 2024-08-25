@@ -56,8 +56,8 @@ In this field, researchers split the parameter domain $\mathcal{X}$ into smaller
 (commonly known as nodes) hierarchically, and treat each sub-domain to be an un-evaluated arm as in the multi-armed 
 bandit problems [@bubeck2011X; @azar2014online].  However, such $\mathcal{X}$-armed bandit problems are much harder than
 their multi-armed counterparts, since the number of sub-domains increases exponentially as the partition grows, and the 
-hierarchical structure/Lipschitzness assumption implies internal correlations between the ``arms". Therefore, directly 
-applying multi-armed bandit algorithms to such problems would infeasible and more complicated algorithms are developed 
+hierarchical structure/Lipschitzness assumption implies internal correlations between the "arms". Therefore, directly 
+applying multi-armed bandit algorithms to such problems would be infeasible and more complicated algorithms are developed 
 [@Grill2015Blackbox; @shang2019general; @li2021optimumstatistical]. 
 
 Despite the popularity of this area, most of the algorithms proposed by the researchers are either not open-sourced or 
