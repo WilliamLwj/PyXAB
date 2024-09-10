@@ -3,6 +3,9 @@
 
 
 <p align="left">
+<a href="https://zenodo.org/doi/10.5281/zenodo.13743085">
+       <img src="https://zenodo.org/badge/470722183.svg" alt="DOI" />
+</a>
 <a href='https://pypi.org/project/PyXAB/'>
        <img src='https://img.shields.io/pypi/v/PyXAB.svg?color=yellow' alt='PyPI version' />
 </a>
