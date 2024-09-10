@@ -3,16 +3,12 @@ message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Li"
   given-names: "Wenjie"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
 - family-names: "Li"
   given-names: "Haoze"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
 - family-names: "Honorio"
   given-names: "Jean"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
 - family-names: "Song"
   given-names: "Qifan"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
 title: "PyXAB - A Python Library for X-Armed Bandit and Online Blackbox Optimization Algorithms"
 version: v0.3.0-paper
 date-released: 2023-03-07
