@@ -15,27 +15,5 @@ authors:
   orcid: "https://orcid.org/0000-0000-0000-0000"
 title: "PyXAB - A Python Library for X-Armed Bandit and Online Blackbox Optimization Algorithms"
 version: 0.0.0
-doi: 10.48550/ARXIV.2303.04030
 date-released: 2023-03-07
 url: "https://arxiv.org/abs/2303.04030"
-preferred-citation:
-  type: article
-  authors:
-    - family-names: "Li"
-      given-names: "Wenjie"
-      orcid: "https://orcid.org/0000-0000-0000-0000"
-    - family-names: "Li"
-      given-names: "Haoze"
-      orcid: "https://orcid.org/0000-0000-0000-0000"
-    - family-names: "Honorio"
-      given-names: "Jean"
-      orcid: "https://orcid.org/0000-0000-0000-0000"
-    - family-names: "Song"
-      given-names: "Qifan"
-      orcid: "https://orcid.org/0000-0000-0000-0000"
-  title: "PyXAB - A Python Library for X-Armed Bandit and Online Blackbox Optimization Algorithms"
-  year: 2023
-  doi: 10.48550/ARXIV.2303.04030
-  date-released: 2023-03-07
-  url: "https://arxiv.org/abs/2303.04030"
-  journal: arXiv
