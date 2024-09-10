@@ -1,0 +1,12 @@
+            - name: cff-validator
+  # You may pin to the exact commit or the version.
+  # uses: dieghernan/cff-validator@4c19ae163bc427f66a5b69ddd4487cfbf5bec48d
+  uses: dieghernan/cff-validator@v3
+  with:
+    # Path to .cff file to be validated. By default it selects a CITATION.cff file on the root of the repository.
+    citation-path: # optional, default is CITATION.cff
+    # The version of the cache, change this from the default (1) to start over with a fresh cache.
+    cache-version: # optional, default is 1
+    # If "true" download and install R during the setup. If "false" use the existing installation in the GitHub Action image,
+    install-r: # optional
+          
