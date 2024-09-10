@@ -14,6 +14,6 @@ authors:
   given-names: "Qifan"
   orcid: "https://orcid.org/0000-0000-0000-0000"
 title: "PyXAB - A Python Library for X-Armed Bandit and Online Blackbox Optimization Algorithms"
-version: 0.3.0
+version: v0.3.0-paper
 date-released: 2023-03-07
 url: "https://arxiv.org/abs/2303.04030"
