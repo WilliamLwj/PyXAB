@@ -6,7 +6,7 @@ tags:
   - Online Blackbox Optimization
   - Lipschitz Bandit
 authors:
-  - name: Wenjie Li
+  - name: Wenjie Li[^1]
     orcid: 0000-0003-1872-4595
     equal-contrib: true
     affiliation: 1
@@ -21,11 +21,13 @@ authors:
 affiliations:
   - name: Department of Statistics, Purdue University, USA
     index: 1
-  - name: Department of Computer Science, Purdue University, USA
+  - name: School of Computing and Information Systems, The University of Melbourne, Australia
     index: 2
 date: 04 October 2023
 bibliography: paper.bib
 ---
+
+[^1]: This work was done before Wenjie joined Amazon
 
 # Summary
 
