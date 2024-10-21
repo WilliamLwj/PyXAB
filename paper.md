@@ -89,7 +89,7 @@ and \texttt{VHCT} [@li2021optimumstatistical].
 
 \begin{table}
     \centering
-    \caption{Selected examples of $\mathcal{X}$-armed bandit algorithms implemented in our library. \textit{Cumulative}: whether the algorithm focuses on optimizing cumulative regret or simple regret. \textit{Stochastic}: whether the algorithm deals with noisy rewards. \textit{Open-sourced?}:  the code availability before the development of PyXAB.}
+    \caption{Selected examples of $\mathcal{X}$-armed bandit algorithms implemented in our library. \textit{Cumulative}: whether the algorithm focuses on optimizing cumulative regret or simple regret. \textit{Stochastic}: whether the algorithm deals with noisy rewards. \textit{Open-sourced?}:  the code availability before the development of PyXAB. \label{tab:summary}}
     \begin{tabular}{l c c c}
         \hline
         {$\mathcal{X}$-Armed Bandit Algorithm} 
@@ -107,7 +107,6 @@ and \texttt{VHCT} [@li2021optimumstatistical].
         \texttt{VHCT}   & yes & yes &no\\
        \hline
     \end{tabular}
-    \label{tab:summary}
 \end{table}
 
 To remove the barriers for future research in this area, we have developed PyXAB, a Python library of the existing 
