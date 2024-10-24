@@ -34,7 +34,7 @@ release = '0.3.0'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
-    'sphinx_panels',
+    'sphinx_design',
     'sphinx_gallery.gen_gallery',
 ]
 

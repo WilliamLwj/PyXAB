@@ -198,4 +198,3 @@ We would appreciate it if you could cite our related works.
 
    info/contributing
    info/auto_examples/index
-   info/team_members
