@@ -59,11 +59,11 @@ In this field, researchers split the parameter domain $\mathcal{X}$ into smaller
 bandit problems [@bubeck2011X; @azar2014online].  However, such $\mathcal{X}$-armed bandit problems are much harder than
 their multi-armed counterparts, since the number of sub-domains increases exponentially as the partition grows, and the 
 hierarchical structure/Lipschitzness assumption implies internal correlations between the "arms". Therefore, directly 
-applying multi-armed bandit algorithms to such problems would be infeasible and more complicated algorithms are developed 
+applying multi-armed bandit algorithms to such problems would be infeasible and more complicated algorithms that are more appropriate have been designed and developed for these types of problems
 [@Grill2015Blackbox; @shang2019general; @li2021optimumstatistical]. 
 
 Despite the popularity of this area, most of the algorithms proposed by the researchers are either not open-sourced or 
-implemented in different programming languages in disjoint packages. For example, \texttt{StoSOO}[@Valko13Stochastic] is
+implemented in different programming languages in disjoint packages. For example, \texttt{StoSOO} [@Valko13Stochastic] is
 implemented in MATLAB and C\footnote{\url{https://team.inria.fr/sequel/software/}}, whereas \texttt{HOO} [@bubeck2011X] 
 is implemented in Python\footnote{\url{https://github.com/ardaegeunlu/X-armed-Bandits}}. For most of the other algorithms,
 no open-sourced implementations could be found on the internet. We believe the lack of such resources results from the 
@@ -77,13 +77,13 @@ tree structures. It is hence time-consuming to implement and test one single alg
 algorithms such as \texttt{HOO} [@bubeck2011X] and \texttt{HCT} [@azar2014online] are designed for the setting where the
 function evaluations can be noisy, while \texttt{SequOOL} [@bartlett2019simple] is proposed for the noiseless case. 
 Some algorithms focus on cumulative-regret optimization whereas some only care about the last-point regret or the simple regret\footnote{ A more detailed discussion on simple
-regret and cumulative regret can be found in [@bubeck2011X]}. Therefore, experimental comparisons often focus on a small
-subset of algorithms, see e.g., [@azar2014online], [@bartlett2019simple]. The unavailability of a general package only 
+regret and cumulative regret can be found in Bubeck et al. (2011)}. Therefore, experimental comparisons often focus on a small
+subset of algorithms, see e.g., @azar2014online, @bartlett2019simple. The unavailability of a general package only 
 deteriorates the situation. 
 
 
 In Table \ref{tab:summary}, we provide the comparison among some of the algorithms implemented in PyXAB, including 
-\texttt{HOO} [@bubeck2011X], \texttt{DOO} [@Munos2011Optimistic], \texttt{StoSOO} [@Valko13Stochastic], \texttt{HCT} [@azar2014online], \texttt{POO} [@Grill2015Blackbox]
+\texttt{HOO} [@bubeck2011X], \texttt{DOO} [@Munos2011Optimistic], \texttt{StoSOO} [@Valko13Stochastic], \texttt{HCT} [@azar2014online], \texttt{POO} [@Grill2015Blackbox], 
 \texttt{GPO} [@shang2019general], \texttt{SequOOL} [@bartlett2019simple],  \texttt{StroquOOL} [@bartlett2019simple],  \texttt{VROOM} [@ammar20derivative].
 and \texttt{VHCT} [@li2021optimumstatistical].
 
@@ -119,7 +119,7 @@ $\mathcal{X}$-armed bandit, with clear documentations and user-friendly API refe
 
 
 The API of PyXAB is designed to follow the $\mathcal{X}$-armed bandit learning paradigm and to allow the maximum 
-freedom of usage. We provide an overview of the library in Figure \autoref{fig: overview}. 
+freedom of usage. We provide an overview of the library in \autoref{fig: overview}. 
 
 \textbf{Algorithm}. All the algorithms inherit the abstract class \texttt{Algorithm}. Each algorithm will implement two 
 kinds of actions via: (1) a \texttt{pull()} function that returns the chosen point to be evaluated by the objective; 
@@ -148,7 +148,7 @@ papers, such as \texttt{Garland}, \texttt{DoubleSine}, and \texttt{Himmelblau}.
 
 The usage of the PyXAB library is rather straightforward. Given the number of rounds, the objective function, 
 and the parameter domain, the learner would choose the partition of the parameter space and the bandit algorithm. 
-Then in each round, the learner obtains one point from the algorithm, evaluate it on the objective, and return the 
+Then in each round, the learner obtains one point from the algorithm, evaluates it on the objective, and returns the 
 reward to the algorithm.
 The following snippet of code provides an example of optimizing the Garland synthetic objective on the domain 
 $[[0, 1]]$ by running the \texttt{HCT} algorithm with \texttt{BinaryPartition} for 1000 iterations. 
@@ -172,14 +172,14 @@ for t in range(1, T+1):
     algo.receive_reward(t, reward)
 ```
 
-# Code Quality and Documentations
+# Code Quality and Documentation
 
 In order to ensure high code quality, we follow the \texttt{PEP8} style and format all of our code using the 
 \texttt{black} package\footnote{\url{https://github.com/psf/black}}. We use the \texttt{pytest} package to test our 
 implementations with different corner cases. More than 99\% of our code is covered by the tests and Github workflows 
 automatically generate a coverage report upon each push or pull request on the main branch\footnote{\url{https://github.com/WilliamLwj/PyXAB}}.
 
-We provide detailed API documentations for each of the implemented classes and functions through numpy docstrings. 
+We provide detailed API documentation for each of the implemented classes and functions through NumPy docstrings. 
 The documentation is fully available online on ReadTheDocs\footnote{\url{https://pyxab.readthedocs.io/}}. 
 On the same website, we also provide installation guides, algorithm introductions, both elementary and advanced examples 
 of using our package, as well as detailed contributing instructions and new feature implementation examples to encourage
