@@ -1,6 +1,6 @@
+setuptools==45
 numpy>=1.20.3
 sphinx-panels>=0.6.0
-nbsphinx>=0.8.12
 sphinx_gallery>=0.11.1
 pandoc>=2.3
 ipython>=4.1.1
