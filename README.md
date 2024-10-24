@@ -3,6 +3,9 @@
 
 
 <p align="left">
+<a style="border-width:0" href="https://doi.org/10.21105/joss.06507">
+  <img src="https://joss.theoj.org/papers/10.21105/joss.06507/status.svg" alt="DOI badge" >
+</a>
 <a href="https://zenodo.org/doi/10.5281/zenodo.13743085">
        <img src="https://zenodo.org/badge/470722183.svg" alt="DOI" />
 </a>
@@ -184,13 +187,14 @@ a pull request.
 If you use our package in your research or projects, we kindly ask you to cite our work
 
 ```text
-@misc{Li2023PyXAB,
-  doi = {10.48550/ARXIV.2303.04030},
-  url = {https://arxiv.org/abs/2303.04030},
-  author = {Li, Wenjie and Li, Haoze and Honorio, Jean and Song, Qifan},
+@article{Li2023PyXAB,
+  doi = {10.21105/joss.06507},
+  url = {https://joss.theoj.org/papers/10.21105/joss.06507},
+  author = {Li, Wenjie and Li, Haoze and Song, Qifan and Honorio, Jean},
   title = {PyXAB -- A Python Library for $\mathcal{X}$-Armed Bandit and Online Blackbox Optimization Algorithms},
-  publisher = {arXiv},
-  year = {2023},
+  journal={Journal of Open Source Software},
+  year = {2024},
+  issn={2475-9066},
 }
 ```
 
@@ -209,12 +213,38 @@ We would also appreciate it if you could cite our related works.
 ```
 
 ```text
-@misc{li2022Federated,
-  doi = {10.48550/ARXIV.2205.15268},
-  url = {https://arxiv.org/abs/2205.15268}, 
-  author = {Li, Wenjie and Song, Qifan and Honorio, Jean and Lin, Guang},
-  title = {Federated X-Armed Bandit},
-  publisher = {arXiv},
-  year = {2022},
+
+@article{Li2022Federated,
+  title={Federated $\chi$-armed Bandit}, 
+  volume={38}, 
+  url={https://ojs.aaai.org/index.php/AAAI/article/view/29267}, 
+  DOI={10.1609/aaai.v38i12.29267}, 
+  number={12},
+  journal={Proceedings of the AAAI Conference on Artificial Intelligence}, 
+  author={Li, Wenjie and Song, Qifan and Honorio, Jean and Lin, Guang}, 
+  year={2024}, 
+  month={Mar.}, 
+  pages={13628-13636} 
+
+}
+```
+
+
+
+```text
+
+@InProceedings{Li2024Personalized,
+  title = 	 {Personalized Federated $\chi$-armed Bandit},
+  author =       {Li, Wenjie and Song, Qifan and Honorio, Jean},
+  booktitle = 	 {Proceedings of The 27th International Conference on Artificial Intelligence and Statistics},
+  pages = 	 {37--45},
+  year = 	 {2024},
+  editor = 	 {Dasgupta, Sanjoy and Mandt, Stephan and Li, Yingzhen},
+  volume = 	 {238},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {02--04 May},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v238/li24a/li24a.pdf},
+  url = 	 {https://proceedings.mlr.press/v238/li24a.html},
 }
 ```
