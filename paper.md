@@ -176,7 +176,7 @@ for t in range(1, T+1):
 
 In order to ensure high code quality, we follow the \texttt{PEP8} style and format all of our code using the 
 \texttt{black} package\footnote{\url{https://github.com/psf/black}}. We use the \texttt{pytest} package to test our 
-implementations with different corner cases. More than 99\% of our code is covered by the tests and Github workflows 
+implementations with different corner cases. More than 99\% of our code is covered by the tests and GitHub workflows 
 automatically generate a coverage report upon each push or pull request on the main branch\footnote{\url{https://github.com/WilliamLwj/PyXAB}}.
 
 We provide detailed API documentation for each of the implemented classes and functions through NumPy docstrings. 
